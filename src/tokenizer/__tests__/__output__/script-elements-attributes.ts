@@ -1,0 +1,261 @@
+import { TokenTypes } from "../../../constants";
+
+export default [
+  {
+    type: TokenTypes.OpenTagStart,
+    content: "<div",
+    startPosition: 0,
+    endPosition: 3,
+  },
+  {
+    type: TokenTypes.OpenTagEnd,
+    content: ">",
+    startPosition: 4,
+    endPosition: 4,
+  },
+  {
+    type: TokenTypes.Text,
+    content: "\n  dummy content\n\n  ",
+    startPosition: 5,
+    endPosition: 24,
+  },
+  {
+    type: TokenTypes.OpenTagStart,
+    content: "<script",
+    startPosition: 25,
+    endPosition: 31,
+  },
+
+  {
+    type: TokenTypes.AttributeKey,
+    content: "type",
+    startPosition: 33,
+    endPosition: 36,
+  },
+  {
+    type: TokenTypes.AttributeAssignment,
+    content: "=",
+    startPosition: 37,
+    endPosition: 37,
+  },
+  {
+    type: TokenTypes.AttributeValueWrapperStart,
+    content: '"',
+    startPosition: 38,
+    endPosition: 38,
+  },
+  {
+    type: TokenTypes.AttributeValue,
+    content: "text/javascript",
+    startPosition: 39,
+    endPosition: 53,
+  },
+  {
+    type: TokenTypes.AttributeValueWrapperEnd,
+    content: '"',
+    startPosition: 54,
+    endPosition: 54,
+  },
+
+  {
+    type: TokenTypes.AttributeKey,
+    content: "some-custom",
+    startPosition: 56,
+    endPosition: 66,
+  },
+  {
+    type: TokenTypes.AttributeAssignment,
+    content: "=",
+    startPosition: 68,
+    endPosition: 68,
+  },
+  {
+    type: TokenTypes.AttributeValueWrapperStart,
+    content: '"',
+    startPosition: 71,
+    endPosition: 71,
+  },
+  {
+    type: TokenTypes.AttributeValue,
+    content: "thing",
+    startPosition: 72,
+    endPosition: 76,
+  },
+  {
+    type: TokenTypes.AttributeValueWrapperEnd,
+    content: '"',
+    startPosition: 77,
+    endPosition: 77,
+  },
+  {
+    type: TokenTypes.OpenTagEnd,
+    content: ">",
+    startPosition: 79,
+    endPosition: 79,
+  },
+  {
+    type: TokenTypes.Text,
+    content: "\n    console.log('test 1')\n  ",
+    startPosition: 80,
+    endPosition: 108,
+  },
+  {
+    type: TokenTypes.CloseTag,
+    content: "</script>",
+    startPosition: 109,
+    endPosition: 117,
+  },
+  {
+    type: TokenTypes.Text,
+    content: "\n\n  ",
+    startPosition: 118,
+    endPosition: 121,
+  },
+  {
+    type: TokenTypes.OpenTagStart,
+    content: "<script",
+    startPosition: 122,
+    endPosition: 128,
+  },
+
+  {
+    type: TokenTypes.AttributeKey,
+    content: "type",
+    startPosition: 134,
+    endPosition: 137,
+  },
+  {
+    type: TokenTypes.AttributeAssignment,
+    content: "=",
+    startPosition: 138,
+    endPosition: 138,
+  },
+  {
+    type: TokenTypes.AttributeValueWrapperStart,
+    content: '"',
+    startPosition: 139,
+    endPosition: 139,
+  },
+  {
+    type: TokenTypes.AttributeValue,
+    content: "text/javascript",
+    startPosition: 140,
+    endPosition: 154,
+  },
+  {
+    type: TokenTypes.AttributeValueWrapperEnd,
+    content: '"',
+    startPosition: 155,
+    endPosition: 155,
+  },
+
+  {
+    type: TokenTypes.AttributeKey,
+    content: "async",
+    startPosition: 161,
+    endPosition: 165,
+  },
+  {
+    type: TokenTypes.OpenTagEnd,
+    content: ">",
+    startPosition: 169,
+    endPosition: 169,
+  },
+  {
+    type: TokenTypes.Text,
+    content: "\n    let a = '<div></div>'\n    console.log(a)\n  ",
+    startPosition: 170,
+    endPosition: 217,
+  },
+  {
+    type: TokenTypes.CloseTag,
+    content: "</script>",
+    startPosition: 218,
+    endPosition: 226,
+  },
+  {
+    type: TokenTypes.Text,
+    content: "\n",
+    startPosition: 227,
+    endPosition: 227,
+  },
+  {
+    type: TokenTypes.CloseTag,
+    content: "</div>",
+    startPosition: 228,
+    endPosition: 233,
+  },
+  {
+    type: TokenTypes.Text,
+    content: "\n\n",
+    startPosition: 234,
+    endPosition: 235,
+  },
+  {
+    type: TokenTypes.OpenTagStart,
+    content: "<script",
+    startPosition: 236,
+    endPosition: 242,
+  },
+  {
+    type: TokenTypes.AttributeKey,
+    content: "async",
+    startPosition: 244,
+    endPosition: 248,
+  },
+
+  {
+    type: TokenTypes.AttributeKey,
+    content: "type",
+    startPosition: 250,
+    endPosition: 253,
+  },
+  {
+    type: TokenTypes.AttributeAssignment,
+    content: "=",
+    startPosition: 254,
+    endPosition: 254,
+  },
+  {
+    type: TokenTypes.AttributeValueWrapperStart,
+    content: '"',
+    startPosition: 255,
+    endPosition: 255,
+  },
+  {
+    type: TokenTypes.AttributeValue,
+    content: "text/javascript",
+    startPosition: 256,
+    endPosition: 270,
+  },
+  {
+    type: TokenTypes.AttributeValueWrapperEnd,
+    content: '"',
+    startPosition: 271,
+    endPosition: 271,
+  },
+  {
+    type: TokenTypes.OpenTagEnd,
+    content: ">",
+    startPosition: 272,
+    endPosition: 272,
+  },
+  {
+    type: TokenTypes.Text,
+    content: "\n  console.log('test 2')\n",
+    startPosition: 273,
+    endPosition: 297,
+  },
+  {
+    type: TokenTypes.CloseTag,
+    content: "</script>",
+    startPosition: 298,
+    endPosition: 306,
+  },
+  {
+    type: TokenTypes.Text,
+    content: "\n",
+    startPosition: 307,
+    endPosition: 307,
+  },
+];

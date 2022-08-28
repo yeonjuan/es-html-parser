@@ -3,7 +3,7 @@ import {
   NodeTypes,
   TokenTypes,
 } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
+import { ConstructTreeState, HTMLNode, Token } from "../../types";
 import { parseCloseTagName } from "../../utils";
 
 function handleOpenTagStart(state: ConstructTreeState) {
@@ -91,12 +91,11 @@ function handleText(state: ConstructTreeState, token: Token) {
     state.currentNode.content.children = [];
   }
 
-  const textNode = {
+  const textNode: HTMLNode.Text = {
     type: NodeTypes.Text,
     parentRef: state.currentNode,
-    content: {
-      value: token,
-    },
+    value: token.value,
+    range: token.range,
   };
 
   state.currentNode.content.children.push(textNode);

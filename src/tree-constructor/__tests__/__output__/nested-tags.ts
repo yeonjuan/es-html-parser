@@ -22,13 +22,8 @@ export default {
           children: [
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n  ",
-                  range: [5, 7],
-                },
-              },
+              value: "\n  ",
+              range: [5, 7],
             },
             {
               type: NodeTypes.Tag,
@@ -48,13 +43,8 @@ export default {
                 children: [
                   {
                     type: NodeTypes.Text,
-                    content: {
-                      value: {
-                        type: TokenTypes.Text,
-                        value: "\n    some text\n\n    ",
-                        range: [14, 33],
-                      },
-                    },
+                    value: "\n    some text\n\n    ",
+                    range: [14, 33],
                   },
                   {
                     type: NodeTypes.Tag,
@@ -74,13 +64,8 @@ export default {
                       children: [
                         {
                           type: NodeTypes.Text,
-                          content: {
-                            value: {
-                              type: TokenTypes.Text,
-                              value: "\n      another text\n    ",
-                              range: [40, 63],
-                            },
-                          },
+                          value: "\n      another text\n    ",
+                          range: [40, 63],
                         },
                       ],
                       close: {
@@ -92,13 +77,8 @@ export default {
                   },
                   {
                     type: NodeTypes.Text,
-                    content: {
-                      value: {
-                        type: TokenTypes.Text,
-                        value: "\n  ",
-                        range: [71, 73],
-                      },
-                    },
+                    value: "\n  ",
+                    range: [71, 73],
                   },
                 ],
                 close: {
@@ -110,13 +90,8 @@ export default {
             },
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n",
-                  range: [81, 81],
-                },
-              },
+              value: "\n",
+              range: [81, 81],
             },
           ],
           close: {
@@ -128,13 +103,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n",
-            range: [88, 88],
-          },
-        },
+        value: "\n",
+        range: [88, 88],
       },
     ],
   },

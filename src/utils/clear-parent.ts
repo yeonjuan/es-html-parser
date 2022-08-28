@@ -3,7 +3,7 @@ export function clearParent(ast: any) {
 
   delete cleanAst.parentRef;
 
-  if (Array.isArray(ast.content.children)) {
+  if (Array.isArray(ast.content?.children)) {
     cleanAst.content.children = ast.content.children.map((node: any) => {
       return clearParent(node);
     });

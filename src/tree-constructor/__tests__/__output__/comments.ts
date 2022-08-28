@@ -6,13 +6,8 @@ export default {
     children: [
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n",
-            range: [0, 0],
-          },
-        },
+        value: "\n",
+        range: [0, 0],
       },
       {
         type: NodeTypes.Comment,
@@ -36,13 +31,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n\n",
-            range: [23, 24],
-          },
-        },
+        value: "\n\n",
+        range: [23, 24],
       },
       {
         type: NodeTypes.Tag,
@@ -62,13 +52,8 @@ export default {
           children: [
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n  ",
-                  range: [30, 32],
-                },
-              },
+              value: "\n  ",
+              range: [30, 32],
             },
             {
               type: NodeTypes.Comment,
@@ -92,13 +77,8 @@ export default {
             },
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n",
-                  range: [70, 70],
-                },
-              },
+              value: "\n",
+              range: [70, 70],
             },
           ],
           close: {
@@ -110,13 +90,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n\n",
-            range: [77, 78],
-          },
-        },
+        value: "\n\n",
+        range: [77, 78],
       },
       {
         type: NodeTypes.Comment,
@@ -140,13 +115,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n",
-            range: [99, 99],
-          },
-        },
+        value: "\n",
+        range: [99, 99],
       },
     ],
   },

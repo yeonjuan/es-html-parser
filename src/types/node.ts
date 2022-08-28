@@ -10,3 +10,12 @@ export interface DocumentNode extends BaseNode {
 }
 
 export type AnyNode = any;
+
+export namespace HTMLNode {
+  export interface Text {
+    type: NodeTypes.Text;
+    value: string;
+    range: [number, number];
+    parentRef?: any;
+  }
+}

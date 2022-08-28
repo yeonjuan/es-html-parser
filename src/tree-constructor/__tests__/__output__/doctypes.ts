@@ -21,13 +21,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n\n",
-            range: [10, 11],
-          },
-        },
+        value: "\n\n",
+        range: [10, 11],
       },
       {
         type: NodeTypes.Doctype,
@@ -82,13 +77,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n\n",
-            range: [66, 67],
-          },
-        },
+        value: "\n\n",
+        range: [66, 67],
       },
       {
         type: NodeTypes.Doctype,
@@ -123,13 +113,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n\n",
-            range: [90, 91],
-          },
-        },
+        value: "\n\n",
+        range: [90, 91],
       },
       {
         type: NodeTypes.Doctype,
@@ -198,13 +183,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n",
-            range: [303, 303],
-          },
-        },
+        value: "\n",
+        range: [303, 303],
       },
     ],
   },

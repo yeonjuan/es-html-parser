@@ -6,13 +6,8 @@ export default {
     children: [
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n",
-            range: [0, 0],
-          },
-        },
+        value: "\n",
+        range: [0, 0],
       },
       {
         type: NodeTypes.Tag,
@@ -56,13 +51,8 @@ export default {
           children: [
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n  ",
-                  range: [19, 21],
-                },
-              },
+              value: "\n  ",
+              range: [19, 21],
             },
             {
               type: NodeTypes.Tag,
@@ -134,13 +124,8 @@ export default {
             },
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n  \n  ",
-                  range: [87, 92],
-                },
-              },
+              value: "\n  \n  ",
+              range: [87, 92],
             },
             {
               type: NodeTypes.Tag,
@@ -204,13 +189,8 @@ export default {
             },
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n  ",
-                  range: [143, 145],
-                },
-              },
+              value: "\n  ",
+              range: [143, 145],
             },
             {
               type: NodeTypes.Tag,
@@ -252,13 +232,8 @@ export default {
             },
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n  ",
-                  range: [181, 183],
-                },
-              },
+              value: "\n  ",
+              range: [181, 183],
             },
             {
               type: NodeTypes.Tag,
@@ -366,13 +341,8 @@ export default {
             },
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n  \n  ",
-                  range: [308, 313],
-                },
-              },
+              value: "\n  \n  ",
+              range: [308, 313],
             },
             {
               type: NodeTypes.Tag,
@@ -470,13 +440,8 @@ export default {
             },
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n  \n  ",
-                  range: [394, 399],
-                },
-              },
+              value: "\n  \n  ",
+              range: [394, 399],
             },
             {
               type: NodeTypes.Tag,
@@ -557,13 +522,8 @@ export default {
             },
             {
               type: NodeTypes.Text,
-              content: {
-                value: {
-                  type: TokenTypes.Text,
-                  value: "\n",
-                  range: [478, 478],
-                },
-              },
+              value: "\n",
+              range: [478, 478],
             },
           ],
           close: {
@@ -575,13 +535,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n\n",
-            range: [485, 486],
-          },
-        },
+        value: "\n\n",
+        range: [485, 486],
       },
       {
         type: NodeTypes.Tag,
@@ -638,13 +593,8 @@ export default {
       },
       {
         type: NodeTypes.Text,
-        content: {
-          value: {
-            type: TokenTypes.Text,
-            value: "\n",
-            range: [534, 534],
-          },
-        },
+        value: "\n",
+        range: [534, 534],
       },
     ],
   },

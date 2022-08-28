@@ -7,14 +7,14 @@ const ATTRIBUTES_START_TOKENS = [
 ];
 
 function handleDoctypeStart(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.start = token;
+  state.currentNode.start = token;
   state.caretPosition++;
 
   return state;
 }
 
 function handleDoctypeEnd(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.end = token;
+  state.currentNode.end = token;
   state.currentNode = state.currentNode.parentRef;
   state.currentContext = state.currentContext.parentRef;
   state.caretPosition++;

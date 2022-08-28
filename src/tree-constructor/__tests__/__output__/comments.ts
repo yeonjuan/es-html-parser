@@ -11,21 +11,21 @@ export default {
       },
       {
         type: NodeTypes.Comment,
+        start: {
+          type: TokenTypes.CommentStart,
+          value: "<!--",
+          range: [1, 4],
+        },
+        end: {
+          type: TokenTypes.CommentEnd,
+          value: "-->",
+          range: [20, 22],
+        },
         content: {
-          start: {
-            type: TokenTypes.CommentStart,
-            value: "<!--",
-            range: [1, 4],
-          },
           value: {
             type: TokenTypes.CommentContent,
             value: " start comment ",
             range: [5, 19],
-          },
-          end: {
-            type: TokenTypes.CommentEnd,
-            value: "-->",
-            range: [20, 22],
           },
         },
       },
@@ -57,21 +57,21 @@ export default {
             },
             {
               type: NodeTypes.Comment,
+              start: {
+                type: TokenTypes.CommentStart,
+                value: "<!--",
+                range: [33, 36],
+              },
+              end: {
+                type: TokenTypes.CommentEnd,
+                value: "-->",
+                range: [67, 69],
+              },
               content: {
-                start: {
-                  type: TokenTypes.CommentStart,
-                  value: "<!--",
-                  range: [33, 36],
-                },
                 value: {
                   type: TokenTypes.CommentContent,
                   value: " \n    nested \n    comment \n   ",
                   range: [37, 66],
-                },
-                end: {
-                  type: TokenTypes.CommentEnd,
-                  value: "-->",
-                  range: [67, 69],
                 },
               },
             },
@@ -95,21 +95,21 @@ export default {
       },
       {
         type: NodeTypes.Comment,
+        start: {
+          type: TokenTypes.CommentStart,
+          value: "<!--",
+          range: [79, 82],
+        },
+        end: {
+          type: TokenTypes.CommentEnd,
+          value: "-->",
+          range: [96, 98],
+        },
         content: {
-          start: {
-            type: TokenTypes.CommentStart,
-            value: "<!--",
-            range: [79, 82],
-          },
           value: {
             type: TokenTypes.CommentContent,
             value: " end comment ",
             range: [83, 95],
-          },
-          end: {
-            type: TokenTypes.CommentEnd,
-            value: "-->",
-            range: [96, 98],
           },
         },
       },

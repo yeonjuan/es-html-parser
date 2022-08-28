@@ -6,18 +6,17 @@ export default {
     children: [
       {
         type: NodeTypes.Doctype,
-        content: {
-          start: {
-            type: TokenTypes.DoctypeStart,
-            value: "<!DOCTYPE",
-            range: [0, 8],
-          },
-          end: {
-            type: TokenTypes.DoctypeEnd,
-            value: ">",
-            range: [9, 9],
-          },
+        start: {
+          type: TokenTypes.DoctypeStart,
+          value: "<!DOCTYPE",
+          range: [0, 8],
         },
+        end: {
+          type: TokenTypes.DoctypeEnd,
+          value: ">",
+          range: [9, 9],
+        },
+        content: {},
       },
       {
         type: NodeTypes.Text,
@@ -62,18 +61,17 @@ export default {
             },
           },
         ],
-        content: {
-          start: {
-            type: TokenTypes.DoctypeStart,
-            value: "<!DOCTYPE",
-            range: [24, 32],
-          },
-          end: {
-            type: TokenTypes.DoctypeEnd,
-            value: ">",
-            range: [65, 65],
-          },
+        start: {
+          type: TokenTypes.DoctypeStart,
+          value: "<!DOCTYPE",
+          range: [24, 32],
         },
+        end: {
+          type: TokenTypes.DoctypeEnd,
+          value: ">",
+          range: [65, 65],
+        },
+        content: {},
       },
       {
         type: NodeTypes.Text,
@@ -98,18 +96,17 @@ export default {
             },
           },
         ],
-        content: {
-          start: {
-            type: TokenTypes.DoctypeStart,
-            value: "<!DOCTYPE",
-            range: [68, 76],
-          },
-          end: {
-            type: TokenTypes.DoctypeEnd,
-            value: ">",
-            range: [89, 89],
-          },
+        start: {
+          type: TokenTypes.DoctypeStart,
+          value: "<!DOCTYPE",
+          range: [68, 76],
         },
+        end: {
+          type: TokenTypes.DoctypeEnd,
+          value: ">",
+          range: [89, 89],
+        },
+        content: {},
       },
       {
         type: NodeTypes.Text,
@@ -168,18 +165,17 @@ export default {
             },
           },
         ],
-        content: {
-          start: {
-            type: TokenTypes.DoctypeStart,
-            value: "<!DOCTYPE",
-            range: [92, 100],
-          },
-          end: {
-            type: TokenTypes.DoctypeEnd,
-            value: ">",
-            range: [192, 192],
-          },
+        start: {
+          type: TokenTypes.DoctypeStart,
+          value: "<!DOCTYPE",
+          range: [92, 100],
         },
+        end: {
+          type: TokenTypes.DoctypeEnd,
+          value: ">",
+          range: [192, 192],
+        },
+        content: {},
       },
       {
         type: NodeTypes.Text,

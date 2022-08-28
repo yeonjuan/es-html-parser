@@ -10,19 +10,19 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<div",
+          range: [1, 4],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [5, 5],
+        },
+        name: "div",
         content: {
-          name: "div",
           selfClosing: false,
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<div",
-            range: [1, 4],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [5, 5],
-          },
           children: [
             {
               type: NodeTypes.Text,
@@ -44,19 +44,19 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<DIV",
+          range: [15, 18],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [19, 19],
+        },
+        name: "div",
         content: {
-          name: "div",
           selfClosing: false,
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<DIV",
-            range: [15, 18],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [19, 19],
-          },
           close: {
             type: TokenTypes.CloseTag,
             value: "</div>",
@@ -71,19 +71,19 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<span",
+          range: [28, 32],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [33, 33],
+        },
+        name: "span",
         content: {
-          name: "span",
           selfClosing: false,
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<span",
-            range: [28, 32],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [33, 33],
-          },
           children: [
             {
               type: NodeTypes.Text,
@@ -105,19 +105,19 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<SPAN",
+          range: [44, 48],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [49, 49],
+        },
+        name: "span",
         content: {
-          name: "span",
           selfClosing: false,
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<SPAN",
-            range: [44, 48],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [49, 49],
-          },
           close: {
             type: TokenTypes.CloseTag,
             value: "</SPAN>",

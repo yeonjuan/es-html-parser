@@ -31,7 +31,7 @@ function handleOpenTagStart(state: ConstructTreeState) {
 function handleCloseTag(state: ConstructTreeState, token: Token) {
   const closeTagName = parseCloseTagName(token.value);
 
-  if (closeTagName !== state.currentNode.content.name) {
+  if (closeTagName !== state.currentNode.name) {
     state.caretPosition++;
 
     return state;

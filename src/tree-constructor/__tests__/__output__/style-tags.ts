@@ -11,17 +11,17 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<style",
+          range: [1, 6],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [7, 7],
+        },
         content: {
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<style",
-            range: [1, 6],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [7, 7],
-          },
           value: {
             type: NodeTypes.Text,
             value: "\n  body {\n    background-color: red;\n  }\n",
@@ -41,19 +41,19 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<div",
+          range: [59, 62],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [63, 63],
+        },
+        name: "div",
         content: {
-          name: "div",
           selfClosing: false,
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<div",
-            range: [59, 62],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [63, 63],
-          },
           children: [
             {
               type: NodeTypes.Text,
@@ -108,17 +108,17 @@ export default {
                   },
                 },
               ],
+              openStart: {
+                type: TokenTypes.OpenTagStart,
+                value: "<style",
+                range: [77, 82],
+              },
+              openEnd: {
+                type: TokenTypes.OpenTagEnd,
+                value: ">",
+                range: [116, 116],
+              },
               content: {
-                openStart: {
-                  type: TokenTypes.OpenTagStart,
-                  value: "<style",
-                  range: [77, 82],
-                },
-                openEnd: {
-                  type: TokenTypes.OpenTagEnd,
-                  value: ">",
-                  range: [116, 116],
-                },
                 value: {
                   type: NodeTypes.Text,
                   value:
@@ -198,17 +198,17 @@ export default {
             },
           },
         ],
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<style",
+          range: [185, 190],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [224, 224],
+        },
         content: {
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<style",
-            range: [185, 190],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [224, 224],
-          },
           value: {
             type: TokenTypes.Text,
             value: "\n  body {\n    background-color: black;\n  }\n",

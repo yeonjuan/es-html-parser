@@ -7,7 +7,7 @@ const ATTRIBUTE_START_TOKENS = [
 ];
 
 function handleOpenTagStartScript(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.openStart = token;
+  state.currentNode.openStart = token;
   state.caretPosition++;
 
   return state;
@@ -23,7 +23,7 @@ function handleAttributeStartScript(state: ConstructTreeState) {
 }
 
 function handleOpenTagEndScript(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.openEnd = token;
+  state.currentNode.openEnd = token;
   state.caretPosition++;
 
   return state;

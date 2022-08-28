@@ -42,17 +42,17 @@ export default {
             },
           },
         ],
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<script",
+          range: [1, 7],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [37, 37],
+        },
         content: {
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<script",
-            range: [1, 7],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [37, 37],
-          },
           value: {
             type: NodeTypes.Text,
             value: "",
@@ -72,19 +72,19 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<div",
+          range: [49, 52],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [53, 53],
+        },
+        name: "div",
         content: {
-          name: "div",
           selfClosing: false,
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<div",
-            range: [49, 52],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [53, 53],
-          },
           children: [
             {
               type: NodeTypes.Text,
@@ -117,17 +117,17 @@ export default {
                   },
                 },
               ],
+              openStart: {
+                type: TokenTypes.OpenTagStart,
+                value: "<script",
+                range: [67, 73],
+              },
+              openEnd: {
+                type: TokenTypes.OpenTagEnd,
+                value: ">",
+                range: [97, 97],
+              },
               content: {
-                openStart: {
-                  type: TokenTypes.OpenTagStart,
-                  value: "<script",
-                  range: [67, 73],
-                },
-                openEnd: {
-                  type: TokenTypes.OpenTagEnd,
-                  value: ">",
-                  range: [97, 97],
-                },
                 value: {
                   type: TokenTypes.Text,
                   value: "\n    console.log('hello!') \n  ",
@@ -184,17 +184,17 @@ export default {
             },
           },
         ],
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<script",
+          range: [146, 152],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [176, 176],
+        },
         content: {
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<script",
-            range: [146, 152],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [176, 176],
-          },
           value: {
             type: TokenTypes.Text,
             value: "\n  console.log('another hello!') \n",

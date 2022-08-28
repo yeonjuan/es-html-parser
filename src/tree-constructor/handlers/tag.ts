@@ -25,7 +25,7 @@ const SELF_CLOSING_TAGS = [
 ];
 
 function handleOpenTagStart(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.openStart = token;
+  state.currentNode.openStart = token;
   state.currentContext = {
     parentRef: state.currentContext,
     type: ConstructTreeContextTypes.TagName,
@@ -44,9 +44,9 @@ function handleAttributeStart(state: ConstructTreeState) {
 }
 
 function handleOpenTagEnd(state: ConstructTreeState, token: Token) {
-  const tagName = state.currentNode.content.name;
+  const tagName = state.currentNode.name;
 
-  state.currentNode.content.openEnd = token;
+  state.currentNode.openEnd = token;
 
   if (SELF_CLOSING_TAGS.indexOf(tagName) !== -1) {
     state.currentNode.content.selfClosing = true;

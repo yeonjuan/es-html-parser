@@ -36,19 +36,19 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<div",
+          range: [25, 28],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [29, 29],
+        },
+        name: "div",
         content: {
-          name: "div",
           selfClosing: false,
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<div",
-            range: [25, 28],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [29, 29],
-          },
           children: [
             {
               type: NodeTypes.Text,

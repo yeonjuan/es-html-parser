@@ -35,19 +35,19 @@ export default {
             },
           },
         ],
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<div",
+          range: [1, 4],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [18, 18],
+        },
+        name: "div",
         content: {
-          name: "div",
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<div",
-            range: [1, 4],
-          },
           selfClosing: false,
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [18, 18],
-          },
           children: [
             {
               type: NodeTypes.Text,
@@ -102,19 +102,19 @@ export default {
                   },
                 },
               ],
+              openStart: {
+                type: TokenTypes.OpenTagStart,
+                value: "<custom-elem",
+                range: [22, 33],
+              },
+              openEnd: {
+                type: TokenTypes.OpenTagEnd,
+                value: ">",
+                range: [72, 72],
+              },
+              name: "custom-elem",
               content: {
-                name: "custom-elem",
                 selfClosing: false,
-                openStart: {
-                  type: TokenTypes.OpenTagStart,
-                  value: "<custom-elem",
-                  range: [22, 33],
-                },
-                openEnd: {
-                  type: TokenTypes.OpenTagEnd,
-                  value: ">",
-                  range: [72, 72],
-                },
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</custom-elem>",
@@ -167,19 +167,19 @@ export default {
                   },
                 },
               ],
+              openStart: {
+                type: TokenTypes.OpenTagStart,
+                value: "<button",
+                range: [93, 99],
+              },
+              openEnd: {
+                type: TokenTypes.OpenTagEnd,
+                value: ">",
+                range: [133, 133],
+              },
+              name: "button",
               content: {
-                name: "button",
                 selfClosing: false,
-                openStart: {
-                  type: TokenTypes.OpenTagStart,
-                  value: "<button",
-                  range: [93, 99],
-                },
-                openEnd: {
-                  type: TokenTypes.OpenTagEnd,
-                  value: ">",
-                  range: [133, 133],
-                },
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</button>",
@@ -210,19 +210,19 @@ export default {
                   },
                 },
               ],
+              openStart: {
+                type: TokenTypes.OpenTagStart,
+                value: "<button",
+                range: [146, 152],
+              },
+              openEnd: {
+                type: TokenTypes.OpenTagEnd,
+                value: ">",
+                range: [171, 171],
+              },
+              name: "button",
               content: {
-                name: "button",
                 selfClosing: false,
-                openStart: {
-                  type: TokenTypes.OpenTagStart,
-                  value: "<button",
-                  range: [146, 152],
-                },
-                openEnd: {
-                  type: TokenTypes.OpenTagEnd,
-                  value: ">",
-                  range: [171, 171],
-                },
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</button>",
@@ -319,19 +319,19 @@ export default {
                   },
                 },
               ],
+              openStart: {
+                type: TokenTypes.OpenTagStart,
+                value: "<button",
+                range: [184, 190],
+              },
+              openEnd: {
+                type: TokenTypes.OpenTagEnd,
+                value: ">",
+                range: [298, 298],
+              },
+              name: "button",
               content: {
-                name: "button",
                 selfClosing: false,
-                openStart: {
-                  type: TokenTypes.OpenTagStart,
-                  value: "<button",
-                  range: [184, 190],
-                },
-                openEnd: {
-                  type: TokenTypes.OpenTagEnd,
-                  value: ">",
-                  range: [298, 298],
-                },
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</button>",
@@ -418,19 +418,19 @@ export default {
                   },
                 },
               ],
+              openStart: {
+                type: TokenTypes.OpenTagStart,
+                value: "<div",
+                range: [314, 317],
+              },
+              openEnd: {
+                type: TokenTypes.OpenTagEnd,
+                value: ">",
+                range: [387, 387],
+              },
+              name: "div",
               content: {
-                name: "div",
                 selfClosing: false,
-                openStart: {
-                  type: TokenTypes.OpenTagStart,
-                  value: "<div",
-                  range: [314, 317],
-                },
-                openEnd: {
-                  type: TokenTypes.OpenTagEnd,
-                  value: ">",
-                  range: [387, 387],
-                },
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</div>",
@@ -500,24 +500,25 @@ export default {
                   },
                 },
               ],
+
+              openStart: {
+                type: TokenTypes.OpenTagStart,
+                value: "<div",
+                range: [400, 403],
+              },
+              openEnd: {
+                type: TokenTypes.OpenTagEnd,
+                value: ">",
+                range: [471, 471],
+              },
+              name: "div",
               content: {
-                name: "div",
-                selfClosing: false,
-                openStart: {
-                  type: TokenTypes.OpenTagStart,
-                  value: "<div",
-                  range: [400, 403],
-                },
-                openEnd: {
-                  type: TokenTypes.OpenTagEnd,
-                  value: ">",
-                  range: [471, 471],
-                },
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</div>",
                   range: [472, 477],
                 },
+                selfClosing: false,
               },
             },
             {
@@ -571,19 +572,19 @@ export default {
             },
           },
         ],
+        openStart: {
+          type: TokenTypes.OpenTagStart,
+          value: "<span",
+          range: [487, 491],
+        },
+        openEnd: {
+          type: TokenTypes.OpenTagEnd,
+          value: ">",
+          range: [526, 526],
+        },
+        name: "span",
         content: {
-          name: "span",
           selfClosing: false,
-          openStart: {
-            type: TokenTypes.OpenTagStart,
-            value: "<span",
-            range: [487, 491],
-          },
-          openEnd: {
-            type: TokenTypes.OpenTagEnd,
-            value: ">",
-            range: [526, 526],
-          },
           close: {
             type: TokenTypes.CloseTag,
             value: "</span>",

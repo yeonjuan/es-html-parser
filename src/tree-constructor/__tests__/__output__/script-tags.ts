@@ -1,11 +1,11 @@
 import { NodeTypes, TokenTypes } from "../../../constants";
 
 export default {
-  nodeType: NodeTypes.Document,
+  type: NodeTypes.Document,
   content: {
     children: [
       {
-        nodeType: NodeTypes.Text,
+        type: NodeTypes.Text,
         content: {
           value: {
             type: TokenTypes.Text,
@@ -15,7 +15,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Tag,
+        type: NodeTypes.Tag,
         content: {
           openStart: {
             type: TokenTypes.OpenTagStart,
@@ -71,7 +71,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Text,
+        type: NodeTypes.Text,
         content: {
           value: {
             type: TokenTypes.Text,
@@ -81,7 +81,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Tag,
+        type: NodeTypes.Tag,
         content: {
           name: "div",
           selfClosing: false,
@@ -97,7 +97,7 @@ export default {
           },
           children: [
             {
-              nodeType: NodeTypes.Text,
+              type: NodeTypes.Text,
               content: {
                 value: {
                   type: TokenTypes.Text,
@@ -107,7 +107,7 @@ export default {
               },
             },
             {
-              nodeType: NodeTypes.Tag,
+              type: NodeTypes.Tag,
               content: {
                 openStart: {
                   type: TokenTypes.OpenTagStart,
@@ -156,7 +156,7 @@ export default {
               },
             },
             {
-              nodeType: NodeTypes.Text,
+              type: NodeTypes.Text,
               content: {
                 value: {
                   type: TokenTypes.Text,
@@ -174,7 +174,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Text,
+        type: NodeTypes.Text,
         content: {
           value: {
             type: TokenTypes.Text,
@@ -184,7 +184,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Tag,
+        type: NodeTypes.Tag,
         content: {
           openStart: {
             type: TokenTypes.OpenTagStart,
@@ -233,7 +233,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Text,
+        type: NodeTypes.Text,
         content: {
           value: {
             type: TokenTypes.Text,

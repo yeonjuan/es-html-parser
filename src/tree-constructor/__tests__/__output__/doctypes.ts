@@ -1,11 +1,11 @@
 import { NodeTypes, TokenTypes } from "../../../constants";
 
 export default {
-  nodeType: NodeTypes.Document,
+  type: NodeTypes.Document,
   content: {
     children: [
       {
-        nodeType: NodeTypes.Doctype,
+        type: NodeTypes.Doctype,
         content: {
           start: {
             type: TokenTypes.DoctypeStart,
@@ -20,7 +20,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Text,
+        type: NodeTypes.Text,
         content: {
           value: {
             type: TokenTypes.Text,
@@ -30,7 +30,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Doctype,
+        type: NodeTypes.Doctype,
         content: {
           start: {
             type: TokenTypes.DoctypeStart,
@@ -81,7 +81,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Text,
+        type: NodeTypes.Text,
         content: {
           value: {
             type: TokenTypes.Text,
@@ -91,7 +91,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Doctype,
+        type: NodeTypes.Doctype,
         content: {
           start: {
             type: TokenTypes.DoctypeStart,
@@ -122,7 +122,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Text,
+        type: NodeTypes.Text,
         content: {
           value: {
             type: TokenTypes.Text,
@@ -132,7 +132,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Doctype,
+        type: NodeTypes.Doctype,
         content: {
           start: {
             type: TokenTypes.DoctypeStart,
@@ -197,7 +197,7 @@ export default {
         },
       },
       {
-        nodeType: NodeTypes.Text,
+        type: NodeTypes.Text,
         content: {
           value: {
             type: TokenTypes.Text,

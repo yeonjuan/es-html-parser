@@ -1,5 +1,5 @@
 import { ConstructTreeContextTypes, NodeTypes } from "../constants";
-import { ConstructTreeState, Token } from "../types";
+import { ConstructTreeState, Token, DocumentNode } from "../types";
 import {
   tagContent,
   tag,
@@ -39,8 +39,8 @@ export function constructTree(tokens: Token[], existingState?: any) {
       parentRef: undefined,
       content: [],
     };
-    const rootNode = {
-      nodeType: NodeTypes.Document,
+    const rootNode: DocumentNode = {
+      type: NodeTypes.Document,
       parentRef: undefined,
       content: {},
     };

@@ -1,4 +1,5 @@
 import { ConstructTreeContextTypes } from "../constants";
+import { AnyNode, DocumentNode } from "./node";
 
 export type ConstructTreeState = {
   caretPosition: number;
@@ -7,6 +8,6 @@ export type ConstructTreeState = {
     parentRef?: any;
     content?: any;
   };
-  currentNode: any;
-  rootNode: any;
+  currentNode: AnyNode;
+  rootNode: DocumentNode;
 };

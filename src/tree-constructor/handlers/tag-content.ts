@@ -12,7 +12,7 @@ function handleOpenTagStart(state: ConstructTreeState) {
   }
 
   const tagNode = {
-    nodeType: NodeTypes.Tag,
+    type: NodeTypes.Tag,
     parentRef: state.currentNode,
     content: {},
   };
@@ -48,7 +48,7 @@ function handleCommentStart(state: ConstructTreeState) {
   }
 
   const commentNode = {
-    nodeType: NodeTypes.Comment,
+    type: NodeTypes.Comment,
     parentRef: state.currentNode,
     content: {},
   };
@@ -70,7 +70,7 @@ function handleDoctypeStart(state: ConstructTreeState) {
   }
 
   const doctypeNode = {
-    nodeType: NodeTypes.Doctype,
+    type: NodeTypes.Doctype,
     parentRef: state.currentNode,
     content: {},
   };
@@ -92,7 +92,7 @@ function handleText(state: ConstructTreeState, token: Token) {
   }
 
   const textNode = {
-    nodeType: NodeTypes.Text,
+    type: NodeTypes.Text,
     parentRef: state.currentNode,
     content: {
       value: token,
@@ -111,7 +111,7 @@ function handleOpenTagStartScript(state: ConstructTreeState) {
   }
 
   const scriptNode = {
-    nodeType: NodeTypes.Tag,
+    type: NodeTypes.Tag,
     parentRef: state.currentNode,
     content: {},
   };
@@ -133,7 +133,7 @@ function handleOpenTagStartStyle(state: ConstructTreeState) {
   }
 
   const styleNode = {
-    nodeType: NodeTypes.Tag,
+    type: NodeTypes.Tag,
     parentRef: state.currentNode,
     content: {},
   };

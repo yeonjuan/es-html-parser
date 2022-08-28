@@ -21,13 +21,13 @@ function parseWrapper(state: TokenizerState, tokens: Token[]) {
 
   tokens.push({
     type: TokenTypes.DoctypeAttribute,
-    content: state.accumulatedContent,
+    value: state.accumulatedContent,
     range: [range.startPosition, range.endPosition],
   });
 
   tokens.push({
     type: TokenTypes.DoctypeAttributeWrapperEnd,
-    content: state.decisionBuffer,
+    value: state.decisionBuffer,
     range: [endWrapperPosition, endWrapperPosition],
   });
 

@@ -7,7 +7,7 @@ export function parseValueEnd(state: TokenizerState, tokens: Token[]) {
   const range = calculateTokenCharactersRange(state, { keepBuffer: false });
   tokens.push({
     type: TokenTypes.AttributeValue,
-    content: state.accumulatedContent,
+    value: state.accumulatedContent,
     range: [range.startPosition, range.endPosition],
   });
 

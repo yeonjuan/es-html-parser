@@ -41,7 +41,7 @@ function parseEqual(state: TokenizerState, tokens: Token[]) {
   const range = calculateTokenCharactersRange(state, { keepBuffer: true });
   tokens.push({
     type: TokenTypes.AttributeAssignment,
-    content: state.decisionBuffer,
+    value: state.decisionBuffer,
     range: [range.startPosition, range.endPosition],
   });
 

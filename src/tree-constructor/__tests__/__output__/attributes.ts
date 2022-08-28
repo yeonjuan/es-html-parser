@@ -9,7 +9,7 @@ export default {
         content: {
           value: {
             type: TokenTypes.Text,
-            content: "\n",
+            value: "\n",
             range: [0, 0],
           },
         },
@@ -20,7 +20,7 @@ export default {
           name: "div",
           openStart: {
             type: TokenTypes.OpenTagStart,
-            content: "<div",
+            value: "<div",
             range: [1, 4],
           },
           selfClosing: false,
@@ -28,29 +28,29 @@ export default {
             {
               key: {
                 type: TokenTypes.AttributeKey,
-                content: "class",
+                value: "class",
                 range: [6, 10],
               },
               startWrapper: {
                 type: TokenTypes.AttributeValueWrapperStart,
-                content: '"',
+                value: '"',
                 range: [12, 12],
               },
               value: {
                 type: TokenTypes.AttributeValue,
-                content: "test",
+                value: "test",
                 range: [13, 16],
               },
               endWrapper: {
                 type: TokenTypes.AttributeValueWrapperEnd,
-                content: '"',
+                value: '"',
                 range: [17, 17],
               },
             },
           ],
           openEnd: {
             type: TokenTypes.OpenTagEnd,
-            content: ">",
+            value: ">",
             range: [18, 18],
           },
           children: [
@@ -59,7 +59,7 @@ export default {
               content: {
                 value: {
                   type: TokenTypes.Text,
-                  content: "\n  ",
+                  value: "\n  ",
                   range: [19, 21],
                 },
               },
@@ -71,63 +71,63 @@ export default {
                 selfClosing: false,
                 openStart: {
                   type: TokenTypes.OpenTagStart,
-                  content: "<custom-elem",
+                  value: "<custom-elem",
                   range: [22, 33],
                 },
                 attributes: [
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "required",
+                      value: "required",
                       range: [35, 42],
                     },
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: '"',
+                      value: '"',
                       range: [44, 44],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "requered",
+                      value: "requered",
                       range: [45, 52],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: '"',
+                      value: '"',
                       range: [53, 53],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "data-some",
+                      value: "data-some",
                       range: [55, 63],
                     },
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: '"',
+                      value: '"',
                       range: [65, 65],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "thing",
+                      value: "thing",
                       range: [66, 70],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: '"',
+                      value: '"',
                       range: [71, 71],
                     },
                   },
                 ],
                 openEnd: {
                   type: TokenTypes.OpenTagEnd,
-                  content: ">",
+                  value: ">",
                   range: [72, 72],
                 },
                 close: {
                   type: TokenTypes.CloseTag,
-                  content: "</custom-elem>",
+                  value: "</custom-elem>",
                   range: [73, 86],
                 },
               },
@@ -137,7 +137,7 @@ export default {
               content: {
                 value: {
                   type: TokenTypes.Text,
-                  content: "\n  \n  ",
+                  value: "\n  \n  ",
                   range: [87, 92],
                 },
               },
@@ -149,55 +149,55 @@ export default {
                 selfClosing: false,
                 openStart: {
                   type: TokenTypes.OpenTagStart,
-                  content: "<button",
+                  value: "<button",
                   range: [93, 99],
                 },
                 attributes: [
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "disabled",
+                      value: "disabled",
                       range: [101, 108],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "class",
+                      value: "class",
                       range: [110, 114],
                     },
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: '"',
+                      value: '"',
                       range: [116, 116],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "button",
+                      value: "button",
                       range: [117, 122],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: '"',
+                      value: '"',
                       range: [123, 123],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "required",
+                      value: "required",
                       range: [125, 132],
                     },
                   },
                 ],
                 openEnd: {
                   type: TokenTypes.OpenTagEnd,
-                  content: ">",
+                  value: ">",
                   range: [133, 133],
                 },
                 close: {
                   type: TokenTypes.CloseTag,
-                  content: "</button>",
+                  value: "</button>",
                   range: [134, 142],
                 },
               },
@@ -207,7 +207,7 @@ export default {
               content: {
                 value: {
                   type: TokenTypes.Text,
-                  content: "\n  ",
+                  value: "\n  ",
                   range: [143, 145],
                 },
               },
@@ -219,33 +219,33 @@ export default {
                 selfClosing: false,
                 openStart: {
                   type: TokenTypes.OpenTagStart,
-                  content: "<button",
+                  value: "<button",
                   range: [146, 152],
                 },
                 attributes: [
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "disabled",
+                      value: "disabled",
                       range: [154, 161],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "required",
+                      value: "required",
                       range: [163, 170],
                     },
                   },
                 ],
                 openEnd: {
                   type: TokenTypes.OpenTagEnd,
-                  content: ">",
+                  value: ">",
                   range: [171, 171],
                 },
                 close: {
                   type: TokenTypes.CloseTag,
-                  content: "</button>",
+                  value: "</button>",
                   range: [172, 180],
                 },
               },
@@ -255,7 +255,7 @@ export default {
               content: {
                 value: {
                   type: TokenTypes.Text,
-                  content: "\n  ",
+                  value: "\n  ",
                   range: [181, 183],
                 },
               },
@@ -267,99 +267,99 @@ export default {
                 selfClosing: false,
                 openStart: {
                   type: TokenTypes.OpenTagStart,
-                  content: "<button",
+                  value: "<button",
                   range: [184, 190],
                 },
                 attributes: [
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "disabled",
+                      value: "disabled",
                       range: [197, 204],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "class",
+                      value: "class",
                       range: [211, 215],
                     },
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: '"',
+                      value: '"',
                       range: [217, 217],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "button disabled",
+                      value: "button disabled",
                       range: [218, 232],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: '"',
+                      value: '"',
                       range: [233, 233],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "test",
+                      value: "test",
                       range: [240, 243],
                     },
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: '"',
+                      value: '"',
                       range: [245, 245],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "attribute",
+                      value: "attribute",
                       range: [246, 254],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: '"',
+                      value: '"',
                       range: [255, 255],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "another",
+                      value: "another",
                       range: [261, 267],
                     },
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: '"',
+                      value: '"',
                       range: [269, 269],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "attribute",
+                      value: "attribute",
                       range: [270, 278],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: '"',
+                      value: '"',
                       range: [279, 279],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "custom-one",
+                      value: "custom-one",
                       range: [285, 294],
                     },
                   },
                 ],
                 openEnd: {
                   type: TokenTypes.OpenTagEnd,
-                  content: ">",
+                  value: ">",
                   range: [298, 298],
                 },
                 close: {
                   type: TokenTypes.CloseTag,
-                  content: "</button>",
+                  value: "</button>",
                   range: [299, 307],
                 },
               },
@@ -369,7 +369,7 @@ export default {
               content: {
                 value: {
                   type: TokenTypes.Text,
-                  content: "\n  \n  ",
+                  value: "\n  \n  ",
                   range: [308, 313],
                 },
               },
@@ -381,89 +381,89 @@ export default {
                 selfClosing: false,
                 openStart: {
                   type: TokenTypes.OpenTagStart,
-                  content: "<div",
+                  value: "<div",
                   range: [314, 317],
                 },
                 attributes: [
                   {
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: "'",
+                      value: "'",
                       range: [320, 320],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "only value",
+                      value: "only value",
                       range: [321, 330],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: "'",
+                      value: "'",
                       range: [331, 331],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "'only-key'",
+                      value: "'only-key'",
                       range: [333, 342],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "another",
+                      value: "another",
                       range: [344, 350],
                     },
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: '"',
+                      value: '"',
                       range: [352, 352],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "attr",
+                      value: "attr",
                       range: [353, 356],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: '"',
+                      value: '"',
                       range: [357, 357],
                     },
                   },
                   {
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: '"',
+                      value: '"',
                       range: [360, 360],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "only-value-2",
+                      value: "only-value-2",
                       range: [361, 372],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: '"',
+                      value: '"',
                       range: [373, 373],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: '"only-key-2"',
+                      value: '"only-key-2"',
                       range: [375, 386],
                     },
                   },
                 ],
                 openEnd: {
                   type: TokenTypes.OpenTagEnd,
-                  content: ">",
+                  value: ">",
                   range: [387, 387],
                 },
                 close: {
                   type: TokenTypes.CloseTag,
-                  content: "</div>",
+                  value: "</div>",
                   range: [388, 393],
                 },
               },
@@ -473,7 +473,7 @@ export default {
               content: {
                 value: {
                   type: TokenTypes.Text,
-                  content: "\n  \n  ",
+                  value: "\n  \n  ",
                   range: [394, 399],
                 },
               },
@@ -485,72 +485,72 @@ export default {
                 selfClosing: false,
                 openStart: {
                   type: TokenTypes.OpenTagStart,
-                  content: "<div",
+                  value: "<div",
                   range: [400, 403],
                 },
                 attributes: [
                   {
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: "'",
+                      value: "'",
                       range: [410, 410],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "more spaces",
+                      value: "more spaces",
                       range: [411, 421],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: "'",
+                      value: "'",
                       range: [422, 422],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "'key'",
+                      value: "'key'",
                       range: [428, 432],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: "spaced",
+                      value: "spaced",
                       range: [434, 439],
                     },
                     startWrapper: {
                       type: TokenTypes.AttributeValueWrapperStart,
-                      content: '"',
+                      value: '"',
                       range: [448, 448],
                     },
                     value: {
                       type: TokenTypes.AttributeValue,
-                      content: "value",
+                      value: "value",
                       range: [449, 453],
                     },
                     endWrapper: {
                       type: TokenTypes.AttributeValueWrapperEnd,
-                      content: '"',
+                      value: '"',
                       range: [454, 454],
                     },
                   },
                   {
                     key: {
                       type: TokenTypes.AttributeKey,
-                      content: '"key-2"',
+                      value: '"key-2"',
                       range: [461, 467],
                     },
                   },
                 ],
                 openEnd: {
                   type: TokenTypes.OpenTagEnd,
-                  content: ">",
+                  value: ">",
                   range: [471, 471],
                 },
                 close: {
                   type: TokenTypes.CloseTag,
-                  content: "</div>",
+                  value: "</div>",
                   range: [472, 477],
                 },
               },
@@ -560,7 +560,7 @@ export default {
               content: {
                 value: {
                   type: TokenTypes.Text,
-                  content: "\n",
+                  value: "\n",
                   range: [478, 478],
                 },
               },
@@ -568,7 +568,7 @@ export default {
           ],
           close: {
             type: TokenTypes.CloseTag,
-            content: "</div>",
+            value: "</div>",
             range: [479, 484],
           },
         },
@@ -578,7 +578,7 @@ export default {
         content: {
           value: {
             type: TokenTypes.Text,
-            content: "\n\n",
+            value: "\n\n",
             range: [485, 486],
           },
         },
@@ -590,48 +590,48 @@ export default {
           selfClosing: false,
           openStart: {
             type: TokenTypes.OpenTagStart,
-            content: "<span",
+            value: "<span",
             range: [487, 491],
           },
           attributes: [
             {
               key: {
                 type: TokenTypes.AttributeKey,
-                content: "class",
+                value: "class",
                 range: [493, 497],
               },
               startWrapper: {
                 type: TokenTypes.AttributeValueWrapperStart,
-                content: '"',
+                value: '"',
                 range: [499, 499],
               },
               value: {
                 type: TokenTypes.AttributeValue,
-                content: "another class",
+                value: "another class",
                 range: [500, 512],
               },
               endWrapper: {
                 type: TokenTypes.AttributeValueWrapperEnd,
-                content: '"',
+                value: '"',
                 range: [513, 513],
               },
             },
             {
               key: {
                 type: TokenTypes.AttributeKey,
-                content: "custom-attr",
+                value: "custom-attr",
                 range: [515, 525],
               },
             },
           ],
           openEnd: {
             type: TokenTypes.OpenTagEnd,
-            content: ">",
+            value: ">",
             range: [526, 526],
           },
           close: {
             type: TokenTypes.CloseTag,
-            content: "</span>",
+            value: "</span>",
             range: [527, 533],
           },
         },
@@ -641,7 +641,7 @@ export default {
         content: {
           value: {
             type: TokenTypes.Text,
-            content: "\n",
+            value: "\n",
             range: [534, 534],
           },
         },

@@ -3,6 +3,6 @@ import { Range } from "../types";
 
 export interface Token {
   type: TokenTypes;
-  content: string;
+  value: string;
   range: Range;
 }

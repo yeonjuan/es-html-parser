@@ -3,57 +3,57 @@ import { TokenTypes } from "../../../constants";
 export default [
   {
     type: TokenTypes.Text,
-    content: "opening text\n\n",
+    value: "opening text\n\n",
     range: [0, 13],
   },
   {
     type: TokenTypes.OpenTagStart,
-    content: "<div",
+    value: "<div",
     range: [14, 17],
   },
   {
     type: TokenTypes.OpenTagEnd,
-    content: ">",
+    value: ">",
     range: [18, 18],
   },
   {
     type: TokenTypes.Text,
-    content: "\n  ",
+    value: "\n  ",
     range: [19, 21],
   },
   {
     type: TokenTypes.OpenTagStart,
-    content: "<script",
+    value: "<script",
     range: [22, 28],
   },
   {
     type: TokenTypes.OpenTagEnd,
-    content: ">",
+    value: ">",
     range: [29, 29],
   },
   {
     type: TokenTypes.Text,
-    content: "\n    console.log('')\n  ",
+    value: "\n    console.log('')\n  ",
     range: [30, 52],
   },
   {
     type: TokenTypes.CloseTag,
-    content: "</script>",
+    value: "</script>",
     range: [53, 61],
   },
   {
     type: TokenTypes.Text,
-    content: "\n",
+    value: "\n",
     range: [62, 62],
   },
   {
     type: TokenTypes.CloseTag,
-    content: "</div>",
+    value: "</div>",
     range: [63, 68],
   },
   {
     type: TokenTypes.Text,
-    content: "\n\nclosing text\n",
+    value: "\n\nclosing text\n",
     range: [69, 83],
   },
 ];

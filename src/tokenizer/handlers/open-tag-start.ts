@@ -25,7 +25,7 @@ function parseWhitespace(state: TokenizerState, tokens: Token[]) {
 
   tokens.push({
     type: TokenTypes.OpenTagStart,
-    content: state.accumulatedContent,
+    value: state.accumulatedContent,
     range: [range.startPosition, range.endPosition],
   });
 
@@ -42,7 +42,7 @@ function parseTagEnd(state: TokenizerState, tokens: Token[]) {
 
   tokens.push({
     type: TokenTypes.OpenTagStart,
-    content: state.accumulatedContent,
+    value: state.accumulatedContent,
     range: [range.startPosition, range.endPosition],
   });
 

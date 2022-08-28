@@ -32,14 +32,14 @@ function parseClosingStyleTag(state: TokenizerState, tokens: Token[]) {
     const range = calculateTokenCharactersRange(state, { keepBuffer: false });
     tokens.push({
       type: TokenTypes.Text,
-      content: state.accumulatedContent,
+      value: state.accumulatedContent,
       range: [range.startPosition, range.endPosition],
     });
   }
 
   tokens.push({
     type: TokenTypes.CloseTag,
-    content: state.decisionBuffer,
+    value: state.decisionBuffer,
     range: [
       state.caretPosition - (state.decisionBuffer.length - 1),
       state.caretPosition,

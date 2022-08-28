@@ -29,7 +29,7 @@ function handleOpenTagStart(state: ConstructTreeState) {
 }
 
 function handleCloseTag(state: ConstructTreeState, token: Token) {
-  const closeTagName = parseCloseTagName(token.content);
+  const closeTagName = parseCloseTagName(token.value);
 
   if (closeTagName !== state.currentNode.content.name) {
     state.caretPosition++;
@@ -150,11 +150,11 @@ function handleOpenTagStartStyle(state: ConstructTreeState) {
 }
 
 export function construct(token: Token, state: ConstructTreeState) {
-  if (token.type === TokenTypes.OpenTagStart && token.content === "<script") {
+  if (token.type === TokenTypes.OpenTagStart && token.value === "<script") {
     return handleOpenTagStartScript(state);
   }
 
-  if (token.type === TokenTypes.OpenTagStart && token.content === "<style") {
+  if (token.type === TokenTypes.OpenTagStart && token.value === "<style") {
     return handleOpenTagStartStyle(state);
   }
 

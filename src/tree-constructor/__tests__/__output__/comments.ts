@@ -9,7 +9,7 @@ export default {
         content: {
           value: {
             type: TokenTypes.Text,
-            content: "\n",
+            value: "\n",
             range: [0, 0],
           },
         },
@@ -19,17 +19,17 @@ export default {
         content: {
           start: {
             type: TokenTypes.CommentStart,
-            content: "<!--",
+            value: "<!--",
             range: [1, 4],
           },
           value: {
             type: TokenTypes.CommentContent,
-            content: " start comment ",
+            value: " start comment ",
             range: [5, 19],
           },
           end: {
             type: TokenTypes.CommentEnd,
-            content: "-->",
+            value: "-->",
             range: [20, 22],
           },
         },
@@ -39,7 +39,7 @@ export default {
         content: {
           value: {
             type: TokenTypes.Text,
-            content: "\n\n",
+            value: "\n\n",
             range: [23, 24],
           },
         },
@@ -51,12 +51,12 @@ export default {
           selfClosing: false,
           openStart: {
             type: TokenTypes.OpenTagStart,
-            content: "<div",
+            value: "<div",
             range: [25, 28],
           },
           openEnd: {
             type: TokenTypes.OpenTagEnd,
-            content: ">",
+            value: ">",
             range: [29, 29],
           },
           children: [
@@ -65,7 +65,7 @@ export default {
               content: {
                 value: {
                   type: TokenTypes.Text,
-                  content: "\n  ",
+                  value: "\n  ",
                   range: [30, 32],
                 },
               },
@@ -75,17 +75,17 @@ export default {
               content: {
                 start: {
                   type: TokenTypes.CommentStart,
-                  content: "<!--",
+                  value: "<!--",
                   range: [33, 36],
                 },
                 value: {
                   type: TokenTypes.CommentContent,
-                  content: " \n    nested \n    comment \n   ",
+                  value: " \n    nested \n    comment \n   ",
                   range: [37, 66],
                 },
                 end: {
                   type: TokenTypes.CommentEnd,
-                  content: "-->",
+                  value: "-->",
                   range: [67, 69],
                 },
               },
@@ -95,7 +95,7 @@ export default {
               content: {
                 value: {
                   type: TokenTypes.Text,
-                  content: "\n",
+                  value: "\n",
                   range: [70, 70],
                 },
               },
@@ -103,7 +103,7 @@ export default {
           ],
           close: {
             type: TokenTypes.CloseTag,
-            content: "</div>",
+            value: "</div>",
             range: [71, 76],
           },
         },
@@ -113,7 +113,7 @@ export default {
         content: {
           value: {
             type: TokenTypes.Text,
-            content: "\n\n",
+            value: "\n\n",
             range: [77, 78],
           },
         },
@@ -123,17 +123,17 @@ export default {
         content: {
           start: {
             type: TokenTypes.CommentStart,
-            content: "<!--",
+            value: "<!--",
             range: [79, 82],
           },
           value: {
             type: TokenTypes.CommentContent,
-            content: " end comment ",
+            value: " end comment ",
             range: [83, 95],
           },
           end: {
             type: TokenTypes.CommentEnd,
-            content: "-->",
+            value: "-->",
             range: [96, 98],
           },
         },
@@ -143,7 +143,7 @@ export default {
         content: {
           value: {
             type: TokenTypes.Text,
-            content: "\n",
+            value: "\n",
             range: [99, 99],
           },
         },

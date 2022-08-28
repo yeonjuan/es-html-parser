@@ -7,7 +7,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
 
   tokens.push({
     type: TokenTypes.DoctypeEnd,
-    content: state.decisionBuffer,
+    value: state.decisionBuffer,
     range: [range.startPosition, range.endPosition],
   });
 

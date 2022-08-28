@@ -44,7 +44,7 @@ export function handleContentEnd(state: TokenizerState, tokens: Token[]) {
 
     tokens.push({
       type: TokenTypes.Text,
-      content: textContent,
+      value: textContent,
       range: [range.startPosition, range.endPosition],
     });
   }
@@ -54,7 +54,7 @@ function generateTextToken(state: TokenizerState): Token {
   const range = calculateTokenCharactersRange(state, { keepBuffer: false });
   return {
     type: TokenTypes.Text,
-    content: state.accumulatedContent,
+    value: state.accumulatedContent,
     range: [range.startPosition, range.endPosition],
   };
 }
@@ -111,7 +111,7 @@ function parseCommentStart(state: TokenizerState, tokens: Token[]) {
 
   tokens.push({
     type: TokenTypes.CommentStart,
-    content: state.decisionBuffer,
+    value: state.decisionBuffer,
     range: [commentStartRange.startPosition, commentStartRange.endPosition],
   });
 

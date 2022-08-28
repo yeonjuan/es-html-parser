@@ -29,12 +29,12 @@ function parseCommentEnd(state: TokenizerState, tokens: Token[]) {
   tokens.push(
     {
       type: TokenTypes.CommentContent,
-      content: state.accumulatedContent,
+      value: state.accumulatedContent,
       range: [range.startPosition, range.endPosition],
     },
     {
       type: TokenTypes.CommentEnd,
-      content: state.decisionBuffer,
+      value: state.decisionBuffer,
       range: [endRange.startPosition, endRange.endPosition],
     }
   );

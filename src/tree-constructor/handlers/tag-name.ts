@@ -3,7 +3,7 @@ import { ConstructTreeState, Token } from "../../types";
 import { parseOpenTagName } from "../../utils";
 
 function handleTagOpenStart(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.name = parseOpenTagName(token.content);
+  state.currentNode.content.name = parseOpenTagName(token.value);
 
   state.currentContext = state.currentContext.parentRef;
 

@@ -19,7 +19,7 @@ function generateDoctypeStartToken(state: TokenizerState): Token {
   const range = calculateTokenCharactersRange(state, { keepBuffer: false });
   return {
     type: TokenTypes.DoctypeStart,
-    content: state.accumulatedContent,
+    value: state.accumulatedContent,
     range: [range.startPosition, range.endPosition],
   };
 }

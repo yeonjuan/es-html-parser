@@ -25,7 +25,7 @@ describe("construct-tree", () => {
     ["Script tags", SCRIPT_TAGS_TOKENS, SCRIPT_TAGS_OUTPUT],
     ["Style tags", STYLE_TAGS_TOKENS, STYLE_TAGS_OUTPUT],
     ["Tag register", TAG_REGISTER_TOKENS, TAG_REGISTER_OUTPUT],
-  ])("%s", (name: string, inputTokens: Token[], output: any) => {
+  ])("%s", (name: string, inputTokens: any[], output: any) => {
     const { ast } = constructTree(inputTokens);
     expect(clearParent(ast)).toEqual(output);
   });

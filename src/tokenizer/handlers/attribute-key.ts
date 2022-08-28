@@ -30,8 +30,7 @@ function parseKeyEnd(state: TokenizerState, tokens: Token[]) {
   tokens.push({
     type: TokenTypes.AttributeKey,
     content: state.accumulatedContent,
-    startPosition: range.startPosition,
-    endPosition: range.endPosition,
+    range: [range.startPosition, range.endPosition],
   });
 
   state.accumulatedContent = "";

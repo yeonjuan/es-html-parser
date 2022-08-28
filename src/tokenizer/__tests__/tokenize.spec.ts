@@ -12,6 +12,7 @@ import CUSTOM_ELEMENTS from "./__output__/custom-elements";
 import DOCTYPES from "./__output__/doctypes";
 import SCRIPT_ELEMENTS_ATTRIBUTES from "./__output__/script-elements-attributes";
 import SCRIPT_ELEMENTS from "./__output__/script-elements";
+import STYLE_ELEMENTS_ATTRIBUTES from "./__output__/style-elements-attributes";
 import STYLE_ELEMENTS from "./__output__/style-elements";
 import TAGS_REGISTER from "./__output__/tags-register";
 
@@ -78,6 +79,11 @@ describe("tokenize", () => {
         "Tags register",
         "tags-register.html",
         TAGS_REGISTER
+      ],
+      [
+        "Style elements attributes",
+        "style-elements-attributes.html",
+        STYLE_ELEMENTS_ATTRIBUTES,
       ],
       [
         "Style elements",

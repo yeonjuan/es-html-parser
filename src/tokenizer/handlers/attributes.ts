@@ -42,8 +42,7 @@ function parseEqual(state: TokenizerState, tokens: Token[]) {
   tokens.push({
     type: TokenTypes.AttributeAssignment,
     content: state.decisionBuffer,
-    startPosition: range.startPosition,
-    endPosition: range.endPosition,
+    range: [range.startPosition, range.endPosition],
   });
 
   state.accumulatedContent = "";

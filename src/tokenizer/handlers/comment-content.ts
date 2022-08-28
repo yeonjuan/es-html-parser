@@ -30,14 +30,12 @@ function parseCommentEnd(state: TokenizerState, tokens: Token[]) {
     {
       type: TokenTypes.CommentContent,
       content: state.accumulatedContent,
-      startPosition: range.startPosition,
-      endPosition: range.endPosition,
+      range: [range.startPosition, range.endPosition],
     },
     {
       type: TokenTypes.CommentEnd,
       content: state.decisionBuffer,
-      startPosition: endRange.startPosition,
-      endPosition: endRange.endPosition,
+      range: [endRange.startPosition, endRange.endPosition],
     }
   );
 

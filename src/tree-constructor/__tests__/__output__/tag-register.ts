@@ -9,8 +9,7 @@ export default {
           value: {
             type: TokenTypes.Text,
             content: "\n",
-            startPosition: 0,
-            endPosition: 0,
+            range: [0, 0],
           },
         },
       },
@@ -22,14 +21,12 @@ export default {
           openStart: {
             type: TokenTypes.OpenTagStart,
             content: "<div",
-            startPosition: 1,
-            endPosition: 4,
+            range: [1, 4],
           },
           openEnd: {
             type: TokenTypes.OpenTagEnd,
             content: ">",
-            startPosition: 5,
-            endPosition: 5,
+            range: [5, 5],
           },
           children: [
             {
@@ -38,8 +35,7 @@ export default {
                 value: {
                   type: TokenTypes.Text,
                   content: "\n",
-                  startPosition: 6,
-                  endPosition: 6,
+                  range: [6, 6],
                 },
               },
             },
@@ -47,8 +43,7 @@ export default {
           close: {
             type: TokenTypes.CloseTag,
             content: "</DIV>",
-            startPosition: 7,
-            endPosition: 12,
+            range: [7, 12],
           },
         },
       },
@@ -58,8 +53,7 @@ export default {
           value: {
             type: TokenTypes.Text,
             content: "\n\n",
-            startPosition: 13,
-            endPosition: 14,
+            range: [13, 14],
           },
         },
       },
@@ -71,20 +65,17 @@ export default {
           openStart: {
             type: TokenTypes.OpenTagStart,
             content: "<DIV",
-            startPosition: 15,
-            endPosition: 18,
+            range: [15, 18],
           },
           openEnd: {
             type: TokenTypes.OpenTagEnd,
             content: ">",
-            startPosition: 19,
-            endPosition: 19,
+            range: [19, 19],
           },
           close: {
             type: TokenTypes.CloseTag,
             content: "</div>",
-            startPosition: 20,
-            endPosition: 25,
+            range: [20, 25],
           },
         },
       },
@@ -94,8 +85,7 @@ export default {
           value: {
             type: TokenTypes.Text,
             content: "\n\n",
-            startPosition: 26,
-            endPosition: 27,
+            range: [26, 27],
           },
         },
       },
@@ -107,14 +97,12 @@ export default {
           openStart: {
             type: TokenTypes.OpenTagStart,
             content: "<span",
-            startPosition: 28,
-            endPosition: 32,
+            range: [28, 32],
           },
           openEnd: {
             type: TokenTypes.OpenTagEnd,
             content: ">",
-            startPosition: 33,
-            endPosition: 33,
+            range: [33, 33],
           },
           children: [
             {
@@ -123,8 +111,7 @@ export default {
                 value: {
                   type: TokenTypes.Text,
                   content: "\n",
-                  startPosition: 34,
-                  endPosition: 34,
+                  range: [34, 34],
                 },
               },
             },
@@ -132,8 +119,7 @@ export default {
           close: {
             type: TokenTypes.CloseTag,
             content: "</span>",
-            startPosition: 35,
-            endPosition: 41,
+            range: [35, 41],
           },
         },
       },
@@ -143,8 +129,7 @@ export default {
           value: {
             type: TokenTypes.Text,
             content: "\n\n",
-            startPosition: 42,
-            endPosition: 43,
+            range: [42, 43],
           },
         },
       },
@@ -156,20 +141,17 @@ export default {
           openStart: {
             type: TokenTypes.OpenTagStart,
             content: "<SPAN",
-            startPosition: 44,
-            endPosition: 48,
+            range: [44, 48],
           },
           openEnd: {
             type: TokenTypes.OpenTagEnd,
             content: ">",
-            startPosition: 49,
-            endPosition: 49,
+            range: [49, 49],
           },
           close: {
             type: TokenTypes.CloseTag,
             content: "</SPAN>",
-            startPosition: 50,
-            endPosition: 56,
+            range: [50, 56],
           },
         },
       },
@@ -179,8 +161,7 @@ export default {
           value: {
             type: TokenTypes.Text,
             content: "\n",
-            startPosition: 57,
-            endPosition: 57,
+            range: [57, 57],
           },
         },
       },

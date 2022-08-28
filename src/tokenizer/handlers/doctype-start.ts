@@ -20,8 +20,7 @@ function generateDoctypeStartToken(state: TokenizerState): Token {
   return {
     type: TokenTypes.DoctypeStart,
     content: state.accumulatedContent,
-    startPosition: range.startPosition,
-    endPosition: range.endPosition,
+    range: [range.startPosition, range.endPosition],
   };
 }
 

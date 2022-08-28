@@ -18,8 +18,7 @@ function parseAttributeEnd(state: TokenizerState, tokens: Token[]) {
   tokens.push({
     type: TokenTypes.DoctypeAttribute,
     content: state.accumulatedContent,
-    startPosition: range.startPosition,
-    endPosition: range.endPosition,
+    range: [range.startPosition, range.endPosition],
   });
 
   state.accumulatedContent = "";

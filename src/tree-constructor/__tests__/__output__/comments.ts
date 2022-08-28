@@ -10,8 +10,7 @@ export default {
           value: {
             type: TokenTypes.Text,
             content: "\n",
-            startPosition: 0,
-            endPosition: 0,
+            range: [0, 0],
           },
         },
       },
@@ -21,20 +20,17 @@ export default {
           start: {
             type: TokenTypes.CommentStart,
             content: "<!--",
-            startPosition: 1,
-            endPosition: 4,
+            range: [1, 4],
           },
           value: {
             type: TokenTypes.CommentContent,
             content: " start comment ",
-            startPosition: 5,
-            endPosition: 19,
+            range: [5, 19],
           },
           end: {
             type: TokenTypes.CommentEnd,
             content: "-->",
-            startPosition: 20,
-            endPosition: 22,
+            range: [20, 22],
           },
         },
       },
@@ -44,8 +40,7 @@ export default {
           value: {
             type: TokenTypes.Text,
             content: "\n\n",
-            startPosition: 23,
-            endPosition: 24,
+            range: [23, 24],
           },
         },
       },
@@ -57,14 +52,12 @@ export default {
           openStart: {
             type: TokenTypes.OpenTagStart,
             content: "<div",
-            startPosition: 25,
-            endPosition: 28,
+            range: [25, 28],
           },
           openEnd: {
             type: TokenTypes.OpenTagEnd,
             content: ">",
-            startPosition: 29,
-            endPosition: 29,
+            range: [29, 29],
           },
           children: [
             {
@@ -73,8 +66,7 @@ export default {
                 value: {
                   type: TokenTypes.Text,
                   content: "\n  ",
-                  startPosition: 30,
-                  endPosition: 32,
+                  range: [30, 32],
                 },
               },
             },
@@ -84,20 +76,17 @@ export default {
                 start: {
                   type: TokenTypes.CommentStart,
                   content: "<!--",
-                  startPosition: 33,
-                  endPosition: 36,
+                  range: [33, 36],
                 },
                 value: {
                   type: TokenTypes.CommentContent,
                   content: " \n    nested \n    comment \n   ",
-                  startPosition: 37,
-                  endPosition: 66,
+                  range: [37, 66],
                 },
                 end: {
                   type: TokenTypes.CommentEnd,
                   content: "-->",
-                  startPosition: 67,
-                  endPosition: 69,
+                  range: [67, 69],
                 },
               },
             },
@@ -107,8 +96,7 @@ export default {
                 value: {
                   type: TokenTypes.Text,
                   content: "\n",
-                  startPosition: 70,
-                  endPosition: 70,
+                  range: [70, 70],
                 },
               },
             },
@@ -116,8 +104,7 @@ export default {
           close: {
             type: TokenTypes.CloseTag,
             content: "</div>",
-            startPosition: 71,
-            endPosition: 76,
+            range: [71, 76],
           },
         },
       },
@@ -127,8 +114,7 @@ export default {
           value: {
             type: TokenTypes.Text,
             content: "\n\n",
-            startPosition: 77,
-            endPosition: 78,
+            range: [77, 78],
           },
         },
       },
@@ -138,20 +124,17 @@ export default {
           start: {
             type: TokenTypes.CommentStart,
             content: "<!--",
-            startPosition: 79,
-            endPosition: 82,
+            range: [79, 82],
           },
           value: {
             type: TokenTypes.CommentContent,
             content: " end comment ",
-            startPosition: 83,
-            endPosition: 95,
+            range: [83, 95],
           },
           end: {
             type: TokenTypes.CommentEnd,
             content: "-->",
-            startPosition: 96,
-            endPosition: 98,
+            range: [96, 98],
           },
         },
       },
@@ -161,8 +144,7 @@ export default {
           value: {
             type: TokenTypes.Text,
             content: "\n",
-            startPosition: 99,
-            endPosition: 99,
+            range: [99, 99],
           },
         },
       },

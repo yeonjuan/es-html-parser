@@ -8,8 +8,7 @@ export function parseValueEnd(state: TokenizerState, tokens: Token[]) {
   tokens.push({
     type: TokenTypes.AttributeValue,
     content: state.accumulatedContent,
-    startPosition: range.startPosition,
-    endPosition: range.endPosition,
+    range: [range.startPosition, range.endPosition],
   });
 
   state.accumulatedContent = "";

@@ -8,8 +8,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   tokens.push({
     type: TokenTypes.DoctypeEnd,
     content: state.decisionBuffer,
-    startPosition: range.startPosition,
-    endPosition: range.endPosition,
+    range: [range.startPosition, range.endPosition],
   });
 
   state.accumulatedContent = "";

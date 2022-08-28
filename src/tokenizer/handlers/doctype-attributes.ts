@@ -25,8 +25,7 @@ function parseWrapper(state: TokenizerState, tokens: Token[]) {
   tokens.push({
     type: TokenTypes.DoctypeAttributeWrapperStart,
     content: wrapper,
-    startPosition: state.caretPosition,
-    endPosition: state.caretPosition,
+    range: [state.caretPosition, state.caretPosition],
   });
 
   state.accumulatedContent = "";

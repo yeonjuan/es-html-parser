@@ -62,58 +62,58 @@ export default {
             },
             {
               type: NodeTypes.Tag,
+              attributes: [
+                {
+                  key: {
+                    type: TokenTypes.AttributeKey,
+                    value: "type",
+                    range: [84, 87],
+                  },
+                  startWrapper: {
+                    type: TokenTypes.AttributeValueWrapperStart,
+                    value: '"',
+                    range: [89, 89],
+                  },
+                  value: {
+                    type: TokenTypes.AttributeValue,
+                    value: "text/css",
+                    range: [90, 97],
+                  },
+                  endWrapper: {
+                    type: TokenTypes.AttributeValueWrapperEnd,
+                    value: '"',
+                    range: [98, 98],
+                  },
+                },
+                {
+                  key: {
+                    type: TokenTypes.AttributeKey,
+                    value: "rel",
+                    range: [100, 102],
+                  },
+                  startWrapper: {
+                    type: TokenTypes.AttributeValueWrapperStart,
+                    value: '"',
+                    range: [104, 104],
+                  },
+                  value: {
+                    type: TokenTypes.AttributeValue,
+                    value: "stylesheet",
+                    range: [105, 114],
+                  },
+                  endWrapper: {
+                    type: TokenTypes.AttributeValueWrapperEnd,
+                    value: '"',
+                    range: [115, 115],
+                  },
+                },
+              ],
               content: {
                 openStart: {
                   type: TokenTypes.OpenTagStart,
                   value: "<style",
                   range: [77, 82],
                 },
-                attributes: [
-                  {
-                    key: {
-                      type: TokenTypes.AttributeKey,
-                      value: "type",
-                      range: [84, 87],
-                    },
-                    startWrapper: {
-                      type: TokenTypes.AttributeValueWrapperStart,
-                      value: '"',
-                      range: [89, 89],
-                    },
-                    value: {
-                      type: TokenTypes.AttributeValue,
-                      value: "text/css",
-                      range: [90, 97],
-                    },
-                    endWrapper: {
-                      type: TokenTypes.AttributeValueWrapperEnd,
-                      value: '"',
-                      range: [98, 98],
-                    },
-                  },
-                  {
-                    key: {
-                      type: TokenTypes.AttributeKey,
-                      value: "rel",
-                      range: [100, 102],
-                    },
-                    startWrapper: {
-                      type: TokenTypes.AttributeValueWrapperStart,
-                      value: '"',
-                      range: [104, 104],
-                    },
-                    value: {
-                      type: TokenTypes.AttributeValue,
-                      value: "stylesheet",
-                      range: [105, 114],
-                    },
-                    endWrapper: {
-                      type: TokenTypes.AttributeValueWrapperEnd,
-                      value: '"',
-                      range: [115, 115],
-                    },
-                  },
-                ],
                 openEnd: {
                   type: TokenTypes.OpenTagEnd,
                   value: ">",
@@ -152,58 +152,58 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        attributes: [
+          {
+            key: {
+              type: TokenTypes.AttributeKey,
+              value: "type",
+              range: [192, 195],
+            },
+            startWrapper: {
+              type: TokenTypes.AttributeValueWrapperStart,
+              value: '"',
+              range: [197, 197],
+            },
+            value: {
+              type: TokenTypes.AttributeValue,
+              value: "text/css",
+              range: [198, 205],
+            },
+            endWrapper: {
+              type: TokenTypes.AttributeValueWrapperEnd,
+              value: '"',
+              range: [206, 206],
+            },
+          },
+          {
+            key: {
+              type: TokenTypes.AttributeKey,
+              value: "rel",
+              range: [208, 210],
+            },
+            startWrapper: {
+              type: TokenTypes.AttributeValueWrapperStart,
+              value: '"',
+              range: [212, 212],
+            },
+            value: {
+              type: TokenTypes.AttributeValue,
+              value: "stylesheet",
+              range: [213, 222],
+            },
+            endWrapper: {
+              type: TokenTypes.AttributeValueWrapperEnd,
+              value: '"',
+              range: [223, 223],
+            },
+          },
+        ],
         content: {
           openStart: {
             type: TokenTypes.OpenTagStart,
             value: "<style",
             range: [185, 190],
           },
-          attributes: [
-            {
-              key: {
-                type: TokenTypes.AttributeKey,
-                value: "type",
-                range: [192, 195],
-              },
-              startWrapper: {
-                type: TokenTypes.AttributeValueWrapperStart,
-                value: '"',
-                range: [197, 197],
-              },
-              value: {
-                type: TokenTypes.AttributeValue,
-                value: "text/css",
-                range: [198, 205],
-              },
-              endWrapper: {
-                type: TokenTypes.AttributeValueWrapperEnd,
-                value: '"',
-                range: [206, 206],
-              },
-            },
-            {
-              key: {
-                type: TokenTypes.AttributeKey,
-                value: "rel",
-                range: [208, 210],
-              },
-              startWrapper: {
-                type: TokenTypes.AttributeValueWrapperStart,
-                value: '"',
-                range: [212, 212],
-              },
-              value: {
-                type: TokenTypes.AttributeValue,
-                value: "stylesheet",
-                range: [213, 222],
-              },
-              endWrapper: {
-                type: TokenTypes.AttributeValueWrapperEnd,
-                value: '"',
-                range: [223, 223],
-              },
-            },
-          ],
           openEnd: {
             type: TokenTypes.OpenTagEnd,
             value: ">",

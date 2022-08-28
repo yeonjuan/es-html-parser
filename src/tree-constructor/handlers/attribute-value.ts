@@ -8,7 +8,7 @@ const VALUE_END_TOKENS = [
 ];
 
 function getLastAttribute(state: ConstructTreeState) {
-  const attributes = state.currentNode.content.attributes;
+  const attributes = state.currentNode.attributes;
 
   return attributes[attributes.length - 1];
 }

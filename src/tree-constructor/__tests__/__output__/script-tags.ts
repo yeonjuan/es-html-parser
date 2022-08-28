@@ -11,43 +11,43 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        attributes: [
+          {
+            key: {
+              type: TokenTypes.AttributeKey,
+              value: "src",
+              range: [9, 11],
+            },
+            startWrapper: {
+              type: TokenTypes.AttributeValueWrapperStart,
+              value: '"',
+              range: [13, 13],
+            },
+            value: {
+              type: TokenTypes.AttributeValue,
+              value: "./some/script.js",
+              range: [14, 29],
+            },
+            endWrapper: {
+              type: TokenTypes.AttributeValueWrapperEnd,
+              value: '"',
+              range: [30, 30],
+            },
+          },
+          {
+            key: {
+              type: TokenTypes.AttributeKey,
+              value: "async",
+              range: [32, 36],
+            },
+          },
+        ],
         content: {
           openStart: {
             type: TokenTypes.OpenTagStart,
             value: "<script",
             range: [1, 7],
           },
-          attributes: [
-            {
-              key: {
-                type: TokenTypes.AttributeKey,
-                value: "src",
-                range: [9, 11],
-              },
-              startWrapper: {
-                type: TokenTypes.AttributeValueWrapperStart,
-                value: '"',
-                range: [13, 13],
-              },
-              value: {
-                type: TokenTypes.AttributeValue,
-                value: "./some/script.js",
-                range: [14, 29],
-              },
-              endWrapper: {
-                type: TokenTypes.AttributeValueWrapperEnd,
-                value: '"',
-                range: [30, 30],
-              },
-            },
-            {
-              key: {
-                type: TokenTypes.AttributeKey,
-                value: "async",
-                range: [32, 36],
-              },
-            },
-          ],
           openEnd: {
             type: TokenTypes.OpenTagEnd,
             value: ">",
@@ -93,36 +93,36 @@ export default {
             },
             {
               type: NodeTypes.Tag,
+              attributes: [
+                {
+                  key: {
+                    type: TokenTypes.AttributeKey,
+                    value: "type",
+                    range: [75, 78],
+                  },
+                  startWrapper: {
+                    type: TokenTypes.AttributeValueWrapperStart,
+                    value: '"',
+                    range: [80, 80],
+                  },
+                  value: {
+                    type: TokenTypes.AttributeValue,
+                    value: "text/javascript",
+                    range: [81, 95],
+                  },
+                  endWrapper: {
+                    type: TokenTypes.AttributeValueWrapperEnd,
+                    value: '"',
+                    range: [96, 96],
+                  },
+                },
+              ],
               content: {
                 openStart: {
                   type: TokenTypes.OpenTagStart,
                   value: "<script",
                   range: [67, 73],
                 },
-                attributes: [
-                  {
-                    key: {
-                      type: TokenTypes.AttributeKey,
-                      value: "type",
-                      range: [75, 78],
-                    },
-                    startWrapper: {
-                      type: TokenTypes.AttributeValueWrapperStart,
-                      value: '"',
-                      range: [80, 80],
-                    },
-                    value: {
-                      type: TokenTypes.AttributeValue,
-                      value: "text/javascript",
-                      range: [81, 95],
-                    },
-                    endWrapper: {
-                      type: TokenTypes.AttributeValueWrapperEnd,
-                      value: '"',
-                      range: [96, 96],
-                    },
-                  },
-                ],
                 openEnd: {
                   type: TokenTypes.OpenTagEnd,
                   value: ">",
@@ -160,36 +160,36 @@ export default {
       },
       {
         type: NodeTypes.Tag,
+        attributes: [
+          {
+            key: {
+              type: TokenTypes.AttributeKey,
+              value: "type",
+              range: [154, 157],
+            },
+            startWrapper: {
+              type: TokenTypes.AttributeValueWrapperStart,
+              value: '"',
+              range: [159, 159],
+            },
+            value: {
+              type: TokenTypes.AttributeValue,
+              value: "text/javascript",
+              range: [160, 174],
+            },
+            endWrapper: {
+              type: TokenTypes.AttributeValueWrapperEnd,
+              value: '"',
+              range: [175, 175],
+            },
+          },
+        ],
         content: {
           openStart: {
             type: TokenTypes.OpenTagStart,
             value: "<script",
             range: [146, 152],
           },
-          attributes: [
-            {
-              key: {
-                type: TokenTypes.AttributeKey,
-                value: "type",
-                range: [154, 157],
-              },
-              startWrapper: {
-                type: TokenTypes.AttributeValueWrapperStart,
-                value: '"',
-                range: [159, 159],
-              },
-              value: {
-                type: TokenTypes.AttributeValue,
-                value: "text/javascript",
-                range: [160, 174],
-              },
-              endWrapper: {
-                type: TokenTypes.AttributeValueWrapperEnd,
-                value: '"',
-                range: [175, 175],
-              },
-            },
-          ],
           openEnd: {
             type: TokenTypes.OpenTagEnd,
             value: ">",

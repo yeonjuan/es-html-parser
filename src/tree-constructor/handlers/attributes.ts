@@ -9,12 +9,12 @@ const ATTRIBUTE_START_TOKENS = [
 const ATTRIBUTES_END_TOKENS = [TokenTypes.OpenTagEnd];
 
 function handlerAttributeStart(state: ConstructTreeState) {
-  if (state.currentNode.content.attributes === undefined) {
-    state.currentNode.content.attributes = [];
+  if (state.currentNode.attributes === undefined) {
+    state.currentNode.attributes = [];
   }
 
   // new empty attribute
-  state.currentNode.content.attributes.push({});
+  state.currentNode.attributes.push({});
 
   state.currentContext = {
     parentRef: state.currentContext,

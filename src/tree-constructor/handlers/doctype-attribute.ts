@@ -2,7 +2,7 @@ import { TokenTypes } from "../../constants";
 import { ConstructTreeState, Token } from "../../types";
 
 function getLastAttribute(state: ConstructTreeState) {
-  const attributes = state.currentNode.content.attributes;
+  const attributes = state.currentNode.attributes;
 
   return attributes[attributes.length - 1];
 }

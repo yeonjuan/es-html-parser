@@ -47,8 +47,8 @@ export default {
           range: [29, 29],
         },
         name: "div",
+        selfClosing: false,
         content: {
-          selfClosing: false,
           children: [
             {
               type: NodeTypes.Text,

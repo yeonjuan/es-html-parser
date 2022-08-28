@@ -49,7 +49,7 @@ function handleOpenTagEnd(state: ConstructTreeState, token: Token) {
   state.currentNode.openEnd = token;
 
   if (SELF_CLOSING_TAGS.indexOf(tagName) !== -1) {
-    state.currentNode.content.selfClosing = true;
+    state.currentNode.selfClosing = true;
     state.currentNode = state.currentNode.parentRef;
     state.currentContext = state.currentContext.parentRef;
     state.caretPosition++;
@@ -57,7 +57,7 @@ function handleOpenTagEnd(state: ConstructTreeState, token: Token) {
     return state;
   }
 
-  state.currentNode.content.selfClosing = false;
+  state.currentNode.selfClosing = false;
   state.currentContext = {
     parentRef: state.currentContext,
     type: ConstructTreeContextTypes.TagContent,

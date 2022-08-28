@@ -46,8 +46,8 @@ export default {
           range: [18, 18],
         },
         name: "div",
+        selfClosing: false,
         content: {
-          selfClosing: false,
           children: [
             {
               type: NodeTypes.Text,
@@ -113,8 +113,8 @@ export default {
                 range: [72, 72],
               },
               name: "custom-elem",
+              selfClosing: false,
               content: {
-                selfClosing: false,
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</custom-elem>",
@@ -178,8 +178,8 @@ export default {
                 range: [133, 133],
               },
               name: "button",
+              selfClosing: false,
               content: {
-                selfClosing: false,
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</button>",
@@ -221,8 +221,8 @@ export default {
                 range: [171, 171],
               },
               name: "button",
+              selfClosing: false,
               content: {
-                selfClosing: false,
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</button>",
@@ -330,8 +330,8 @@ export default {
                 range: [298, 298],
               },
               name: "button",
+              selfClosing: false,
               content: {
-                selfClosing: false,
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</button>",
@@ -429,8 +429,8 @@ export default {
                 range: [387, 387],
               },
               name: "div",
+              selfClosing: false,
               content: {
-                selfClosing: false,
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</div>",
@@ -512,13 +512,13 @@ export default {
                 range: [471, 471],
               },
               name: "div",
+              selfClosing: false,
               content: {
                 close: {
                   type: TokenTypes.CloseTag,
                   value: "</div>",
                   range: [472, 477],
                 },
-                selfClosing: false,
               },
             },
             {
@@ -583,8 +583,8 @@ export default {
           range: [526, 526],
         },
         name: "span",
+        selfClosing: false,
         content: {
-          selfClosing: false,
           close: {
             type: TokenTypes.CloseTag,
             value: "</span>",

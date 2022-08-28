@@ -21,8 +21,8 @@ export default {
           range: [5, 5],
         },
         name: "div",
+        selfClosing: false,
         content: {
-          selfClosing: false,
           children: [
             {
               type: NodeTypes.Text,
@@ -55,8 +55,8 @@ export default {
           range: [19, 19],
         },
         name: "div",
+        selfClosing: false,
         content: {
-          selfClosing: false,
           close: {
             type: TokenTypes.CloseTag,
             value: "</div>",
@@ -82,8 +82,8 @@ export default {
           range: [33, 33],
         },
         name: "span",
+        selfClosing: false,
         content: {
-          selfClosing: false,
           children: [
             {
               type: NodeTypes.Text,
@@ -116,8 +116,8 @@ export default {
           range: [49, 49],
         },
         name: "span",
+        selfClosing: false,
         content: {
-          selfClosing: false,
           close: {
             type: TokenTypes.CloseTag,
             value: "</SPAN>",

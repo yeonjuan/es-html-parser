@@ -17,8 +17,8 @@ export default {
           range: [4, 4],
         },
         name: "div",
+        selfClosing: false,
         content: {
-          selfClosing: false,
           children: [
             {
               type: NodeTypes.Text,
@@ -38,8 +38,8 @@ export default {
                 range: [12, 12],
               },
               name: "span",
+              selfClosing: false,
               content: {
-                selfClosing: false,
                 children: [
                   {
                     type: NodeTypes.Text,
@@ -59,8 +59,8 @@ export default {
                       range: [38, 38],
                     },
                     name: "span",
+                    selfClosing: false,
                     content: {
-                      selfClosing: false,
                       children: [
                         {
                           type: NodeTypes.Text,

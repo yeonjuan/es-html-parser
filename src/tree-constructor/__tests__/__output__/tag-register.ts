@@ -22,6 +22,11 @@ export default {
         },
         name: "div",
         selfClosing: false,
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</DIV>",
+          range: [7, 12],
+        },
         content: {
           children: [
             {
@@ -30,11 +35,6 @@ export default {
               range: [6, 6],
             },
           ],
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</DIV>",
-            range: [7, 12],
-          },
         },
       },
       {
@@ -56,13 +56,12 @@ export default {
         },
         name: "div",
         selfClosing: false,
-        content: {
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</div>",
-            range: [20, 25],
-          },
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</div>",
+          range: [20, 25],
         },
+        content: {},
       },
       {
         type: NodeTypes.Text,
@@ -83,6 +82,11 @@ export default {
         },
         name: "span",
         selfClosing: false,
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</span>",
+          range: [35, 41],
+        },
         content: {
           children: [
             {
@@ -91,11 +95,6 @@ export default {
               range: [34, 34],
             },
           ],
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</span>",
-            range: [35, 41],
-          },
         },
       },
       {
@@ -117,13 +116,12 @@ export default {
         },
         name: "span",
         selfClosing: false,
-        content: {
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</SPAN>",
-            range: [50, 56],
-          },
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</SPAN>",
+          range: [50, 56],
         },
+        content: {},
       },
       {
         type: NodeTypes.Text,

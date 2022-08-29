@@ -48,6 +48,11 @@ export default {
         },
         name: "div",
         selfClosing: false,
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</div>",
+          range: [71, 76],
+        },
         content: {
           children: [
             {
@@ -81,11 +86,6 @@ export default {
               range: [70, 70],
             },
           ],
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</div>",
-            range: [71, 76],
-          },
         },
       },
       {

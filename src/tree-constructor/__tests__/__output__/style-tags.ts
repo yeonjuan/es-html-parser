@@ -21,16 +21,16 @@ export default {
           value: ">",
           range: [7, 7],
         },
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</style>",
+          range: [49, 56],
+        },
         content: {
           value: {
             type: NodeTypes.Text,
             value: "\n  body {\n    background-color: red;\n  }\n",
             range: [8, 48],
-          },
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</style>",
-            range: [49, 56],
           },
         },
       },
@@ -53,6 +53,11 @@ export default {
         },
         name: "div",
         selfClosing: false,
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</div>",
+          range: [177, 182],
+        },
         content: {
           children: [
             {
@@ -118,17 +123,17 @@ export default {
                 value: ">",
                 range: [116, 116],
               },
+              close: {
+                type: TokenTypes.CloseTag,
+                value: "</style>",
+                range: [168, 175],
+              },
               content: {
                 value: {
                   type: NodeTypes.Text,
                   value:
                     "\n    body {\n      background-color: white;\n    }\n  ",
                   range: [117, 167],
-                },
-                close: {
-                  type: TokenTypes.CloseTag,
-                  value: "</style>",
-                  range: [168, 175],
                 },
               },
             },
@@ -138,11 +143,6 @@ export default {
               range: [176, 176],
             },
           ],
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</div>",
-            range: [177, 182],
-          },
         },
       },
       {
@@ -208,16 +208,16 @@ export default {
           value: ">",
           range: [224, 224],
         },
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</style>",
+          range: [268, 275],
+        },
         content: {
           value: {
             type: TokenTypes.Text,
             value: "\n  body {\n    background-color: black;\n  }\n",
             range: [225, 267],
-          },
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</style>",
-            range: [268, 275],
           },
         },
       },

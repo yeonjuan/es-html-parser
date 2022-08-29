@@ -18,6 +18,11 @@ export default {
         },
         name: "div",
         selfClosing: false,
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</div>",
+          range: [82, 85],
+        },
         content: {
           children: [
             {
@@ -39,6 +44,11 @@ export default {
               },
               name: "span",
               selfClosing: false,
+              close: {
+                type: TokenTypes.CloseTag,
+                value: "</span>",
+                range: [74, 78],
+              },
               content: {
                 children: [
                   {
@@ -60,6 +70,11 @@ export default {
                     },
                     name: "span",
                     selfClosing: false,
+                    close: {
+                      type: TokenTypes.CloseTag,
+                      value: "</span>",
+                      range: [64, 68],
+                    },
                     content: {
                       children: [
                         {
@@ -68,11 +83,6 @@ export default {
                           range: [40, 63],
                         },
                       ],
-                      close: {
-                        type: TokenTypes.CloseTag,
-                        value: "</span>",
-                        range: [64, 68],
-                      },
                     },
                   },
                   {
@@ -81,11 +91,6 @@ export default {
                     range: [71, 73],
                   },
                 ],
-                close: {
-                  type: TokenTypes.CloseTag,
-                  value: "</span>",
-                  range: [74, 78],
-                },
               },
             },
             {
@@ -94,11 +99,6 @@ export default {
               range: [81, 81],
             },
           ],
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</div>",
-            range: [82, 85],
-          },
         },
       },
       {

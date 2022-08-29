@@ -68,7 +68,7 @@ function handleOpenTagEnd(state: ConstructTreeState, token: Token) {
 }
 
 function handleCloseTag(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.close = token;
+  state.currentNode.close = token;
   state.currentNode = state.currentNode.parentRef;
   state.currentContext = state.currentContext.parentRef;
   state.caretPosition++;

@@ -52,16 +52,16 @@ export default {
           value: ">",
           range: [37, 37],
         },
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</script>",
+          range: [38, 46],
+        },
         content: {
           value: {
             type: NodeTypes.Text,
             value: "",
             range: [38, 37],
-          },
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</script>",
-            range: [38, 46],
           },
         },
       },
@@ -84,6 +84,11 @@ export default {
         },
         name: "div",
         selfClosing: false,
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</div>",
+          range: [138, 143],
+        },
         content: {
           children: [
             {
@@ -127,16 +132,16 @@ export default {
                 value: ">",
                 range: [97, 97],
               },
+              close: {
+                type: TokenTypes.CloseTag,
+                value: "</script>",
+                range: [128, 136],
+              },
               content: {
                 value: {
                   type: TokenTypes.Text,
                   value: "\n    console.log('hello!') \n  ",
                   range: [98, 127],
-                },
-                close: {
-                  type: TokenTypes.CloseTag,
-                  value: "</script>",
-                  range: [128, 136],
                 },
               },
             },
@@ -146,11 +151,6 @@ export default {
               range: [137, 137],
             },
           ],
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</div>",
-            range: [138, 143],
-          },
         },
       },
       {
@@ -194,16 +194,16 @@ export default {
           value: ">",
           range: [176, 176],
         },
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</script>",
+          range: [211, 219],
+        },
         content: {
           value: {
             type: TokenTypes.Text,
             value: "\n  console.log('another hello!') \n",
             range: [177, 210],
-          },
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</script>",
-            range: [211, 219],
           },
         },
       },

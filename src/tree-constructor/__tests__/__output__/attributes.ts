@@ -47,6 +47,11 @@ export default {
         },
         name: "div",
         selfClosing: false,
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</div>",
+          range: [479, 484],
+        },
         content: {
           children: [
             {
@@ -114,13 +119,12 @@ export default {
               },
               name: "custom-elem",
               selfClosing: false,
-              content: {
-                close: {
-                  type: TokenTypes.CloseTag,
-                  value: "</custom-elem>",
-                  range: [73, 86],
-                },
+              close: {
+                type: TokenTypes.CloseTag,
+                value: "</custom-elem>",
+                range: [73, 86],
               },
+              content: {},
             },
             {
               type: NodeTypes.Text,
@@ -179,13 +183,12 @@ export default {
               },
               name: "button",
               selfClosing: false,
-              content: {
-                close: {
-                  type: TokenTypes.CloseTag,
-                  value: "</button>",
-                  range: [134, 142],
-                },
+              close: {
+                type: TokenTypes.CloseTag,
+                value: "</button>",
+                range: [134, 142],
               },
+              content: {},
             },
             {
               type: NodeTypes.Text,
@@ -222,13 +225,12 @@ export default {
               },
               name: "button",
               selfClosing: false,
-              content: {
-                close: {
-                  type: TokenTypes.CloseTag,
-                  value: "</button>",
-                  range: [172, 180],
-                },
+              close: {
+                type: TokenTypes.CloseTag,
+                value: "</button>",
+                range: [172, 180],
               },
+              content: {},
             },
             {
               type: NodeTypes.Text,
@@ -331,13 +333,12 @@ export default {
               },
               name: "button",
               selfClosing: false,
-              content: {
-                close: {
-                  type: TokenTypes.CloseTag,
-                  value: "</button>",
-                  range: [299, 307],
-                },
+              close: {
+                type: TokenTypes.CloseTag,
+                value: "</button>",
+                range: [299, 307],
               },
+              content: {},
             },
             {
               type: NodeTypes.Text,
@@ -430,13 +431,12 @@ export default {
               },
               name: "div",
               selfClosing: false,
-              content: {
-                close: {
-                  type: TokenTypes.CloseTag,
-                  value: "</div>",
-                  range: [388, 393],
-                },
+              close: {
+                type: TokenTypes.CloseTag,
+                value: "</div>",
+                range: [388, 393],
               },
+              content: {},
             },
             {
               type: NodeTypes.Text,
@@ -513,13 +513,12 @@ export default {
               },
               name: "div",
               selfClosing: false,
-              content: {
-                close: {
-                  type: TokenTypes.CloseTag,
-                  value: "</div>",
-                  range: [472, 477],
-                },
+              close: {
+                type: TokenTypes.CloseTag,
+                value: "</div>",
+                range: [472, 477],
               },
+              content: {},
             },
             {
               type: NodeTypes.Text,
@@ -527,11 +526,6 @@ export default {
               range: [478, 478],
             },
           ],
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</div>",
-            range: [479, 484],
-          },
         },
       },
       {
@@ -584,13 +578,12 @@ export default {
         },
         name: "span",
         selfClosing: false,
-        content: {
-          close: {
-            type: TokenTypes.CloseTag,
-            value: "</span>",
-            range: [527, 533],
-          },
+        close: {
+          type: TokenTypes.CloseTag,
+          value: "</span>",
+          range: [527, 533],
         },
+        content: {},
       },
       {
         type: NodeTypes.Text,

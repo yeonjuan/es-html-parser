@@ -41,7 +41,7 @@ function handleCloseTag(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleCommentStart(state: ConstructTreeState) {
+function handleCommentStart(state: ConstructTreeState, token: Token) {
   if (state.currentNode.children === undefined) {
     state.currentNode.children = [];
   }
@@ -49,6 +49,7 @@ function handleCommentStart(state: ConstructTreeState) {
   const commentNode = {
     type: NodeTypes.Comment,
     parentRef: state.currentNode,
+    range: [token.range[0], token.range[1]],
   };
 
   state.currentNode.children.push(commentNode);
@@ -165,7 +166,7 @@ export function construct(token: Token, state: ConstructTreeState) {
   }
 
   if (token.type === TokenTypes.CommentStart) {
-    return handleCommentStart(state);
+    return handleCommentStart(state, token);
   }
 
   if (token.type === TokenTypes.DoctypeStart) {

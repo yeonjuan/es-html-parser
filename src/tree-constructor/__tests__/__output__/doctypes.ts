@@ -26,6 +26,8 @@ export default {
       type: NodeTypes.Doctype,
       attributes: [
         {
+          type: NodeTypes.Attribute,
+          range: [34, 49],
           startWrapper: {
             type: TokenTypes.DoctypeAttributeWrapperStart,
             value: '"',
@@ -43,6 +45,8 @@ export default {
           },
         },
         {
+          type: NodeTypes.Attribute,
+          range: [51, 63],
           startWrapper: {
             type: TokenTypes.DoctypeAttributeWrapperStart,
             value: "'",
@@ -80,6 +84,8 @@ export default {
       type: NodeTypes.Doctype,
       attributes: [
         {
+          type: NodeTypes.Attribute,
+          range: [78, 81],
           value: {
             type: TokenTypes.DoctypeAttribute,
             value: "html",
@@ -87,6 +93,8 @@ export default {
           },
         },
         {
+          type: NodeTypes.Attribute,
+          range: [83, 88],
           value: {
             type: TokenTypes.DoctypeAttribute,
             value: "PUBLIC",
@@ -114,6 +122,8 @@ export default {
       type: NodeTypes.Doctype,
       attributes: [
         {
+          type: NodeTypes.Attribute,
+          range: [102, 105],
           value: {
             type: TokenTypes.DoctypeAttribute,
             value: "HTML",
@@ -121,6 +131,8 @@ export default {
           },
         },
         {
+          type: NodeTypes.Attribute,
+          range: [107, 112],
           value: {
             type: TokenTypes.DoctypeAttribute,
             value: "PUBLIC",
@@ -128,6 +140,8 @@ export default {
           },
         },
         {
+          type: NodeTypes.Attribute,
+          range: [114, 149],
           startWrapper: {
             type: TokenTypes.DoctypeAttributeWrapperStart,
             value: '"',
@@ -145,6 +159,8 @@ export default {
           },
         },
         {
+          type: NodeTypes.Attribute,
+          range: [151, 191],
           startWrapper: {
             type: TokenTypes.DoctypeAttributeWrapperStart,
             value: '"',

@@ -25,6 +25,7 @@ function handleAttributeValue(
   const attribute = getLastAttribute(state);
 
   attribute.value = token;
+  attribute.value.range[1] = token.range[1];
   state.caretPosition++;
   return state;
 }
@@ -36,6 +37,9 @@ function handleAttributeValueWrapperStart(
   const attribute = getLastAttribute(state);
 
   attribute.startWrapper = token;
+  if (!attribute.key) {
+    attribute.range = [token.range[0], token.range[1]];
+  }
   state.caretPosition++;
 
   return state;
@@ -48,6 +52,7 @@ function handleAttributeValueWrapperEnd(
   const attribute = getLastAttribute(state);
 
   attribute.endWrapper = token;
+  attribute.range[1] = token.range[1];
   state.caretPosition++;
 
   return state;

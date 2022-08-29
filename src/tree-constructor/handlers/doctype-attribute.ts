@@ -23,6 +23,9 @@ function handleAttributeValue(state: ConstructTreeState, token: Token) {
   }
 
   attribute.value = token;
+  if (!attribute.key && !attribute.startWrapper) {
+    attribute.range = [token.range[0], token.range[1]];
+  }
   state.caretPosition++;
 
   return state;
@@ -38,6 +41,9 @@ function handleAttributeWrapperStart(state: ConstructTreeState, token: Token) {
   }
 
   attribute.startWrapper = token;
+  if (!attribute.key) {
+    attribute.range = [token.range[0], token.range[1]];
+  }
   state.caretPosition++;
 
   return state;
@@ -47,6 +53,7 @@ function handleAttributeWrapperEnd(state: ConstructTreeState, token: Token) {
   const attribute = getLastAttribute(state);
 
   attribute.endWrapper = token;
+  attribute.range[1] = token.range[1];
   state.currentContext = state.currentContext.parentRef;
   state.caretPosition++;
 

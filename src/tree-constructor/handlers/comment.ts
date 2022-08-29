@@ -17,6 +17,7 @@ function handleCommentContent(state: ConstructTreeState, token: Token) {
 
 function handleCommentEnd(state: ConstructTreeState, token: Token) {
   state.currentNode.end = token;
+  state.currentNode.range[1] = token.range[1];
   state.currentNode = state.currentNode.parentRef;
   state.currentContext = state.currentContext.parentRef;
   state.caretPosition++;

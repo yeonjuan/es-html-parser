@@ -12,6 +12,8 @@ export default {
       type: NodeTypes.Tag,
       attributes: [
         {
+          type: NodeTypes.Attribute,
+          range: [6, 17],
           key: {
             type: TokenTypes.AttributeKey,
             value: "class",
@@ -61,6 +63,8 @@ export default {
           type: NodeTypes.Tag,
           attributes: [
             {
+              type: NodeTypes.Attribute,
+              range: [35, 53],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "required",
@@ -83,6 +87,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [55, 71],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "data-some",
@@ -132,6 +138,8 @@ export default {
           type: NodeTypes.Tag,
           attributes: [
             {
+              type: NodeTypes.Attribute,
+              range: [101, 108],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "disabled",
@@ -139,6 +147,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [110, 123],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "class",
@@ -161,6 +171,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [125, 132],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "required",
@@ -195,6 +207,8 @@ export default {
           type: NodeTypes.Tag,
           attributes: [
             {
+              type: NodeTypes.Attribute,
+              range: [154, 161],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "disabled",
@@ -202,6 +216,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [163, 170],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "required",
@@ -236,6 +252,8 @@ export default {
           type: NodeTypes.Tag,
           attributes: [
             {
+              type: NodeTypes.Attribute,
+              range: [197, 204],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "disabled",
@@ -243,6 +261,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [211, 233],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "class",
@@ -265,6 +285,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [240, 255],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "test",
@@ -287,6 +309,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [261, 279],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "another",
@@ -309,6 +333,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [285, 294],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "custom-one",
@@ -343,6 +369,8 @@ export default {
           type: NodeTypes.Tag,
           attributes: [
             {
+              type: NodeTypes.Attribute,
+              range: [320, 331],
               startWrapper: {
                 type: TokenTypes.AttributeValueWrapperStart,
                 value: "'",
@@ -360,6 +388,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [333, 342],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "'only-key'",
@@ -367,6 +397,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [344, 357],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "another",
@@ -389,6 +421,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [360, 373],
               startWrapper: {
                 type: TokenTypes.AttributeValueWrapperStart,
                 value: '"',
@@ -406,6 +440,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [375, 386],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: '"only-key-2"',
@@ -440,6 +476,8 @@ export default {
           type: NodeTypes.Tag,
           attributes: [
             {
+              type: NodeTypes.Attribute,
+              range: [410, 422],
               startWrapper: {
                 type: TokenTypes.AttributeValueWrapperStart,
                 value: "'",
@@ -457,6 +495,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [428, 432],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "'key'",
@@ -464,6 +504,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [434, 454],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "spaced",
@@ -486,6 +528,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [461, 467],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: '"key-2"',
@@ -528,6 +572,8 @@ export default {
       type: NodeTypes.Tag,
       attributes: [
         {
+          type: NodeTypes.Attribute,
+          range: [493, 513],
           key: {
             type: TokenTypes.AttributeKey,
             value: "class",
@@ -550,6 +596,8 @@ export default {
           },
         },
         {
+          type: NodeTypes.Attribute,
+          range: [515, 525],
           key: {
             type: TokenTypes.AttributeKey,
             value: "custom-attr",

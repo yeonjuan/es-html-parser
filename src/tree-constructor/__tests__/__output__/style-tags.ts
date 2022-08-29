@@ -67,6 +67,8 @@ export default {
           type: NodeTypes.Tag,
           attributes: [
             {
+              type: NodeTypes.Attribute,
+              range: [84, 98],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "type",
@@ -89,6 +91,8 @@ export default {
               },
             },
             {
+              type: NodeTypes.Attribute,
+              range: [100, 115],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "rel",
@@ -148,6 +152,8 @@ export default {
       type: NodeTypes.Tag,
       attributes: [
         {
+          type: NodeTypes.Attribute,
+          range: [192, 206],
           key: {
             type: TokenTypes.AttributeKey,
             value: "type",
@@ -170,6 +176,8 @@ export default {
           },
         },
         {
+          type: NodeTypes.Attribute,
+          range: [208, 223],
           key: {
             type: TokenTypes.AttributeKey,
             value: "rel",

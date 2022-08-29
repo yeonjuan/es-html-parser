@@ -4,4 +4,5 @@ export enum NodeTypes {
   Text = "Text",
   Doctype = "Doctype",
   Comment = "Comment",
+  Attribute = "Attribute",
 }

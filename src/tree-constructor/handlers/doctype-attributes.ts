@@ -1,4 +1,8 @@
-import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
+import {
+  ConstructTreeContextTypes,
+  NodeTypes,
+  TokenTypes,
+} from "../../constants";
 import { ConstructTreeState, Token } from "../../types";
 
 const ATTRIBUTE_START_TOKENS = [
@@ -12,13 +16,16 @@ function handleDoctypeEnd(state: ConstructTreeState) {
   return state;
 }
 
-function handleAttribute(state: ConstructTreeState) {
+function handleAttribute(state: ConstructTreeState, token: Token) {
   if (state.currentNode.attributes === undefined) {
     state.currentNode.attributes = [];
   }
 
   // new empty attribute
-  state.currentNode.attributes.push({});
+  state.currentNode.attributes.push({
+    type: NodeTypes.Attribute,
+    range: [token.range[0], token.range[1]],
+  });
 
   state.currentContext = {
     type: ConstructTreeContextTypes.DoctypeAttribute,
@@ -34,7 +41,7 @@ export function construct(token: Token, state: ConstructTreeState) {
   }
 
   if (ATTRIBUTE_START_TOKENS.indexOf(token.type) !== -1) {
-    return handleAttribute(state);
+    return handleAttribute(state, token);
   }
 
   state.caretPosition++;

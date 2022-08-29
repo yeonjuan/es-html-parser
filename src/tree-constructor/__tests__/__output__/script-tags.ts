@@ -13,6 +13,8 @@ export default {
       type: NodeTypes.Tag,
       attributes: [
         {
+          type: NodeTypes.Attribute,
+          range: [9, 30],
           key: {
             type: TokenTypes.AttributeKey,
             value: "src",
@@ -35,6 +37,8 @@ export default {
           },
         },
         {
+          type: NodeTypes.Attribute,
+          range: [32, 36],
           key: {
             type: TokenTypes.AttributeKey,
             value: "async",
@@ -98,6 +102,8 @@ export default {
           type: NodeTypes.Tag,
           attributes: [
             {
+              type: NodeTypes.Attribute,
+              range: [75, 96],
               key: {
                 type: TokenTypes.AttributeKey,
                 value: "type",
@@ -157,6 +163,8 @@ export default {
       type: NodeTypes.Tag,
       attributes: [
         {
+          type: NodeTypes.Attribute,
+          range: [154, 175],
           key: {
             type: TokenTypes.AttributeKey,
             value: "type",

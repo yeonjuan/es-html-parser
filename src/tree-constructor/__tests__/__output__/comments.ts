@@ -10,6 +10,7 @@ export default {
     },
     {
       type: NodeTypes.Comment,
+      range: [1, 22],
       start: {
         type: TokenTypes.CommentStart,
         value: "<!--",
@@ -58,6 +59,7 @@ export default {
         },
         {
           type: NodeTypes.Comment,
+          range: [33, 69],
           start: {
             type: TokenTypes.CommentStart,
             value: "<!--",
@@ -88,6 +90,7 @@ export default {
     },
     {
       type: NodeTypes.Comment,
+      range: [79, 98],
       start: {
         type: TokenTypes.CommentStart,
         value: "<!--",

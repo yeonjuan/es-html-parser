@@ -64,7 +64,7 @@ function handleCommentStart(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleDoctypeStart(state: ConstructTreeState) {
+function handleDoctypeStart(state: ConstructTreeState, token: Token) {
   if (state.currentNode.children === undefined) {
     state.currentNode.children = [];
   }
@@ -72,6 +72,7 @@ function handleDoctypeStart(state: ConstructTreeState) {
   const doctypeNode = {
     type: NodeTypes.Doctype,
     parentRef: state.currentNode,
+    range: [token.range[0], token.range[1]],
   };
 
   state.currentNode.children.push(doctypeNode);
@@ -171,7 +172,7 @@ export function construct(token: Token, state: ConstructTreeState) {
   }
 
   if (token.type === TokenTypes.DoctypeStart) {
-    return handleDoctypeStart(state);
+    return handleDoctypeStart(state, token);
   }
 
   state.caretPosition++;

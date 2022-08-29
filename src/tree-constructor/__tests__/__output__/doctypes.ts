@@ -6,6 +6,7 @@ export default {
   children: [
     {
       type: NodeTypes.Doctype,
+      range: [0, 9],
       start: {
         type: TokenTypes.DoctypeStart,
         value: "<!DOCTYPE",
@@ -24,6 +25,7 @@ export default {
     },
     {
       type: NodeTypes.Doctype,
+      range: [24, 65],
       attributes: [
         {
           type: NodeTypes.Attribute,
@@ -82,6 +84,7 @@ export default {
     },
     {
       type: NodeTypes.Doctype,
+      range: [68, 89],
       attributes: [
         {
           type: NodeTypes.Attribute,
@@ -120,6 +123,7 @@ export default {
     },
     {
       type: NodeTypes.Doctype,
+      range: [92, 192],
       attributes: [
         {
           type: NodeTypes.Attribute,

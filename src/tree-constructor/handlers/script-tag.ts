@@ -30,7 +30,7 @@ function handleOpenTagEndScript(state: ConstructTreeState, token: Token) {
 }
 
 function handleScriptContent(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.value = token;
+  state.currentNode.value = token;
   state.caretPosition++;
 
   return state;

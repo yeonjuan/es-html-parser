@@ -9,7 +9,7 @@ function handleCommentStart(state: ConstructTreeState, token: Token) {
 }
 
 function handleCommentContent(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.value = token;
+  state.currentNode.value = token;
   state.caretPosition++;
 
   return state;

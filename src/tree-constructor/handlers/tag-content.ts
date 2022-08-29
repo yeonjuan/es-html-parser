@@ -7,17 +7,16 @@ import { ConstructTreeState, HTMLNode, Token } from "../../types";
 import { parseCloseTagName } from "../../utils";
 
 function handleOpenTagStart(state: ConstructTreeState) {
-  if (state.currentNode.content.children === undefined) {
-    state.currentNode.content.children = [];
+  if (state.currentNode.children === undefined) {
+    state.currentNode.children = [];
   }
 
   const tagNode = {
     type: NodeTypes.Tag,
     parentRef: state.currentNode,
-    content: {},
   };
 
-  state.currentNode.content.children.push(tagNode);
+  state.currentNode.children.push(tagNode);
 
   state.currentNode = tagNode;
   state.currentContext = {
@@ -43,17 +42,16 @@ function handleCloseTag(state: ConstructTreeState, token: Token) {
 }
 
 function handleCommentStart(state: ConstructTreeState) {
-  if (state.currentNode.content.children === undefined) {
-    state.currentNode.content.children = [];
+  if (state.currentNode.children === undefined) {
+    state.currentNode.children = [];
   }
 
   const commentNode = {
     type: NodeTypes.Comment,
     parentRef: state.currentNode,
-    content: {},
   };
 
-  state.currentNode.content.children.push(commentNode);
+  state.currentNode.children.push(commentNode);
 
   state.currentNode = commentNode;
   state.currentContext = {
@@ -65,17 +63,16 @@ function handleCommentStart(state: ConstructTreeState) {
 }
 
 function handleDoctypeStart(state: ConstructTreeState) {
-  if (state.currentNode.content.children === undefined) {
-    state.currentNode.content.children = [];
+  if (state.currentNode.children === undefined) {
+    state.currentNode.children = [];
   }
 
   const doctypeNode = {
     type: NodeTypes.Doctype,
     parentRef: state.currentNode,
-    content: {},
   };
 
-  state.currentNode.content.children.push(doctypeNode);
+  state.currentNode.children.push(doctypeNode);
 
   state.currentNode = doctypeNode;
   state.currentContext = {
@@ -87,8 +84,8 @@ function handleDoctypeStart(state: ConstructTreeState) {
 }
 
 function handleText(state: ConstructTreeState, token: Token) {
-  if (state.currentNode.content.children === undefined) {
-    state.currentNode.content.children = [];
+  if (state.currentNode.children === undefined) {
+    state.currentNode.children = [];
   }
 
   const textNode: HTMLNode.Text = {
@@ -98,24 +95,23 @@ function handleText(state: ConstructTreeState, token: Token) {
     range: token.range,
   };
 
-  state.currentNode.content.children.push(textNode);
+  state.currentNode.children.push(textNode);
   state.caretPosition++;
 
   return state;
 }
 
 function handleOpenTagStartScript(state: ConstructTreeState) {
-  if (state.currentNode.content.children === undefined) {
-    state.currentNode.content.children = [];
+  if (state.currentNode.children === undefined) {
+    state.currentNode.children = [];
   }
 
   const scriptNode = {
     type: NodeTypes.Tag,
     parentRef: state.currentNode,
-    content: {},
   };
 
-  state.currentNode.content.children.push(scriptNode);
+  state.currentNode.children.push(scriptNode);
 
   state.currentNode = scriptNode;
   state.currentContext = {
@@ -127,17 +123,16 @@ function handleOpenTagStartScript(state: ConstructTreeState) {
 }
 
 function handleOpenTagStartStyle(state: ConstructTreeState) {
-  if (state.currentNode.content.children === undefined) {
-    state.currentNode.content.children = [];
+  if (state.currentNode.children === undefined) {
+    state.currentNode.children = [];
   }
 
   const styleNode = {
     type: NodeTypes.Tag,
     parentRef: state.currentNode,
-    content: {},
   };
 
-  state.currentNode.content.children.push(styleNode);
+  state.currentNode.children.push(styleNode);
 
   state.currentNode = styleNode;
   state.currentContext = {

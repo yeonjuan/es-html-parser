@@ -30,7 +30,7 @@ function handleOpenTagEndStyle(state: ConstructTreeState, token: Token) {
 }
 
 function handleStyleContent(state: ConstructTreeState, token: Token) {
-  state.currentNode.content.value = token;
+  state.currentNode.value = token;
   state.caretPosition++;
 
   return state;

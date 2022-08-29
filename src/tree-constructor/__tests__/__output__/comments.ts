@@ -35,6 +35,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      range: [25, 76],
       openStart: {
         type: TokenTypes.OpenTagStart,
         value: "<div",

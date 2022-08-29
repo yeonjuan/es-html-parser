@@ -6,7 +6,7 @@ import {
 import { ConstructTreeState, HTMLNode, Token } from "../../types";
 import { parseCloseTagName } from "../../utils";
 
-function handleOpenTagStart(state: ConstructTreeState) {
+function handleOpenTagStart(state: ConstructTreeState, token: Token) {
   if (state.currentNode.children === undefined) {
     state.currentNode.children = [];
   }
@@ -14,6 +14,7 @@ function handleOpenTagStart(state: ConstructTreeState) {
   const tagNode = {
     type: NodeTypes.Tag,
     parentRef: state.currentNode,
+    range: [token.range[0], token.range[1]],
   };
 
   state.currentNode.children.push(tagNode);
@@ -154,7 +155,7 @@ export function construct(token: Token, state: ConstructTreeState) {
   }
 
   if (token.type === TokenTypes.OpenTagStart) {
-    return handleOpenTagStart(state);
+    return handleOpenTagStart(state, token);
   }
 
   if (token.type === TokenTypes.Text) {

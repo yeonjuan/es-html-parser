@@ -10,6 +10,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      range: [1, 12],
       openStart: {
         type: TokenTypes.OpenTagStart,
         value: "<div",
@@ -42,6 +43,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      range: [15, 25],
       openStart: {
         type: TokenTypes.OpenTagStart,
         value: "<DIV",
@@ -67,6 +69,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      range: [28, 41],
       openStart: {
         type: TokenTypes.OpenTagStart,
         value: "<span",
@@ -84,7 +87,6 @@ export default {
         value: "</span>",
         range: [35, 41],
       },
-
       children: [
         {
           type: NodeTypes.Text,
@@ -100,6 +102,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      range: [44, 56],
       openStart: {
         type: TokenTypes.OpenTagStart,
         value: "<SPAN",

@@ -11,6 +11,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      range: [1, 484],
       attributes: [
         {
           type: NodeTypes.Attribute,
@@ -62,6 +63,7 @@ export default {
         },
         {
           type: NodeTypes.Tag,
+          range: [22, 86],
           attributes: [
             {
               type: NodeTypes.Attribute,
@@ -137,6 +139,7 @@ export default {
         },
         {
           type: NodeTypes.Tag,
+          range: [93, 142],
           attributes: [
             {
               type: NodeTypes.Attribute,
@@ -206,6 +209,7 @@ export default {
         },
         {
           type: NodeTypes.Tag,
+          range: [146, 180],
           attributes: [
             {
               type: NodeTypes.Attribute,
@@ -251,6 +255,7 @@ export default {
         },
         {
           type: NodeTypes.Tag,
+          range: [184, 307],
           attributes: [
             {
               type: NodeTypes.Attribute,
@@ -368,6 +373,7 @@ export default {
         },
         {
           type: NodeTypes.Tag,
+          range: [314, 393],
           attributes: [
             {
               type: NodeTypes.Attribute,
@@ -475,6 +481,7 @@ export default {
         },
         {
           type: NodeTypes.Tag,
+          range: [400, 477],
           attributes: [
             {
               type: NodeTypes.Attribute,
@@ -538,7 +545,6 @@ export default {
               },
             },
           ],
-
           openStart: {
             type: TokenTypes.OpenTagStart,
             value: "<div",
@@ -571,6 +577,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      range: [487, 533],
       attributes: [
         {
           type: NodeTypes.Attribute,

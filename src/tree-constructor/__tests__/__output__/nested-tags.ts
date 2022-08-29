@@ -6,6 +6,7 @@ export default {
   children: [
     {
       type: NodeTypes.Tag,
+      range: [0, 85],
       openStart: {
         type: TokenTypes.OpenTagStart,
         value: "<div",
@@ -32,6 +33,7 @@ export default {
         },
         {
           type: NodeTypes.Tag,
+          range: [8, 78],
           openStart: {
             type: TokenTypes.OpenTagStart,
             value: "<span",
@@ -58,6 +60,7 @@ export default {
             },
             {
               type: NodeTypes.Tag,
+              range: [34, 68],
               openStart: {
                 type: TokenTypes.OpenTagStart,
                 value: "<span",

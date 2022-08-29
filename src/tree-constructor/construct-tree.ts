@@ -42,6 +42,7 @@ export function constructTree(tokens: Token[], existingState?: any) {
     const rootNode: DocumentNode = {
       type: NodeTypes.Document,
       parentRef: undefined,
+      range: [0, tokens[tokens.length - 1].range[1] || 0],
     };
 
     state = {

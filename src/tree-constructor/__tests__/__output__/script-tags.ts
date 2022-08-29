@@ -2,7 +2,7 @@ import { NodeTypes, TokenTypes } from "../../../constants";
 
 export default {
   type: NodeTypes.Document,
-
+  range: [0, 220],
   children: [
     {
       type: NodeTypes.Text,

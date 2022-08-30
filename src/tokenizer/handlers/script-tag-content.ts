@@ -41,7 +41,7 @@ function parseClosingScriptTag(state: TokenizerState, tokens: Token[]) {
     value: state.decisionBuffer,
     range: [
       state.caretPosition - (state.decisionBuffer.length - 1),
-      state.caretPosition,
+      state.caretPosition + 1,
     ],
   });
 

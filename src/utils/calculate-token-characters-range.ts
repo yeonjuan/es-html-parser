@@ -25,5 +25,5 @@ export function calculateTokenCharactersRange(
     endPosition = state.caretPosition;
   }
 
-  return { startPosition, endPosition };
+  return { startPosition, endPosition: endPosition + 1 };
 }

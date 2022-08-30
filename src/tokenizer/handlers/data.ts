@@ -106,7 +106,7 @@ function parseCommentStart(state: TokenizerState, tokens: Token[]) {
 
   const commentStartRange = {
     startPosition: state.caretPosition - (COMMENT_START.length - 1),
-    endPosition: state.caretPosition,
+    endPosition: state.caretPosition + 1,
   };
 
   tokens.push({

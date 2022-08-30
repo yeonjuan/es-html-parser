@@ -22,7 +22,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
 function parseCommentEnd(state: TokenizerState, tokens: Token[]) {
   const range = calculateTokenCharactersRange(state, { keepBuffer: false });
   const endRange = {
-    startPosition: range.endPosition + 1,
+    startPosition: range.endPosition,
     endPosition: range.endPosition + COMMENT_END.length,
   };
 

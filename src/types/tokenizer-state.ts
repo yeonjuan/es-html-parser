@@ -21,4 +21,5 @@ export type TokenizerState = {
   decisionBuffer: string;
   accumulatedContent: string;
   caretPosition: number;
+  linePosition: number;
 };

@@ -4,7 +4,7 @@ import {
   TokenTypes,
 } from "../../constants";
 import { Token, TokenizerState } from "../../types";
-import { calculateTokenCharactersRange } from "../../utils";
+import { calculateTokenPosition } from "../../utils";
 
 const CLOSING_STYLE_TAG_PATTERN = /<\/style\s*>/i;
 
@@ -29,11 +29,12 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
 
 function parseClosingStyleTag(state: TokenizerState, tokens: Token[]) {
   if (state.accumulatedContent !== "") {
-    const range = calculateTokenCharactersRange(state, { keepBuffer: false });
+    const position = calculateTokenPosition(state, { keepBuffer: false });
     tokens.push({
       type: TokenTypes.Text,
       value: state.accumulatedContent,
-      range: [range.startPosition, range.endPosition],
+      range: [position.startPosition, position.endPosition],
+      loc: position.loc,
     });
   }
 
@@ -44,6 +45,14 @@ function parseClosingStyleTag(state: TokenizerState, tokens: Token[]) {
       state.caretPosition - (state.decisionBuffer.length - 1),
       state.caretPosition + 1,
     ],
+    loc: {
+      start: {
+        line: state.linePosition,
+      },
+      end: {
+        line: state.linePosition,
+      },
+    },
   });
 
   state.accumulatedContent = "";

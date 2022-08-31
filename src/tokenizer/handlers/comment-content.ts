@@ -1,5 +1,5 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenCharactersRange } from "../../utils";
+import { calculateTokenPosition } from "../../utils";
 import { Token, TokenizerState } from "../../types";
 
 const COMMENT_END = "-->";
@@ -20,22 +20,27 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
 }
 
 function parseCommentEnd(state: TokenizerState, tokens: Token[]) {
-  const range = calculateTokenCharactersRange(state, { keepBuffer: false });
+  const position = calculateTokenPosition(state, { keepBuffer: false });
   const endRange = {
-    startPosition: range.endPosition,
-    endPosition: range.endPosition + COMMENT_END.length,
+    startPosition: position.endPosition,
+    endPosition: position.endPosition + COMMENT_END.length,
   };
 
   tokens.push(
     {
       type: TokenTypes.CommentContent,
       value: state.accumulatedContent,
-      range: [range.startPosition, range.endPosition],
+      range: [position.startPosition, position.endPosition],
+      loc: position.loc,
     },
     {
       type: TokenTypes.CommentEnd,
       value: state.decisionBuffer,
       range: [endRange.startPosition, endRange.endPosition],
+      loc: {
+        start: position.loc.end,
+        end: position.loc.end,
+      },
     }
   );
 

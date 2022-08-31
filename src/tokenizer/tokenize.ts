@@ -57,11 +57,16 @@ function tokenizeChars(
   }
 ) {
   let charIndex = state.caretPosition - positionOffset;
-
+  let charIndexBefore = charIndex;
   while (charIndex < chars.length) {
     const handler = contextHandlers[state.currentContext];
-
     state.decisionBuffer += chars[charIndex];
+
+    if (charIndexBefore !== charIndex && chars[charIndex] === "\n") {
+      state.linePosition++;
+    }
+    charIndexBefore = charIndex;
+
     handler.parse(state.decisionBuffer, state, tokens);
     charIndex = state.caretPosition - positionOffset;
   }
@@ -97,6 +102,7 @@ export function tokenize(
       decisionBuffer: "",
       accumulatedContent: "",
       caretPosition: 0,
+      linePosition: 1,
     };
   }
 

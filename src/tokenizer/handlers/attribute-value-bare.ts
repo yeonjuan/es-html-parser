@@ -1,14 +1,26 @@
 import { TokenizerContextTypes } from "../../constants";
 import { TokenTypes } from "../../constants/token-types";
-import { calculateTokenCharactersRange, isWhitespace } from "../../utils";
+import { calculateTokenPosition, isWhitespace } from "../../utils";
 import { Token, TokenizerState } from "../../types";
 
-export function parseValueEnd(state: TokenizerState, tokens: Token[]) {
-  const range = calculateTokenCharactersRange(state, { keepBuffer: false });
+export function parseValueEnd(
+  state: TokenizerState,
+  tokens: Token[],
+  isNewLine: boolean
+) {
+  const position = calculateTokenPosition(state, { keepBuffer: false });
   tokens.push({
     type: TokenTypes.AttributeValue,
     value: state.accumulatedContent,
-    range: [range.startPosition, range.endPosition],
+    range: [position.startPosition, position.endPosition],
+    loc: {
+      start: {
+        line: position.loc.start.line,
+      },
+      end: {
+        line: position.loc.end.line - Number(isNewLine),
+      },
+    },
   });
 
   state.accumulatedContent = "";
@@ -18,7 +30,7 @@ export function parseValueEnd(state: TokenizerState, tokens: Token[]) {
 
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   if (isWhitespace(chars) || chars === ">" || chars === "/") {
-    return parseValueEnd(state, tokens);
+    return parseValueEnd(state, tokens, chars === "\n");
   }
 
   state.accumulatedContent += state.decisionBuffer;

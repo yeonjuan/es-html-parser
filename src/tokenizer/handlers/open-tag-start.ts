@@ -1,6 +1,6 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import {
-  calculateTokenCharactersRange,
+  calculateTokenPosition,
   isWhitespace,
   parseOpenTagName,
 } from "../../utils";
@@ -11,7 +11,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
     return parseTagEnd(state, tokens);
   }
   if (isWhitespace(chars)) {
-    return parseWhitespace(state, tokens);
+    return parseWhitespace(state, tokens, chars === "\n");
   }
 
   state.accumulatedContent += state.decisionBuffer;
@@ -19,14 +19,24 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseWhitespace(state: TokenizerState, tokens: Token[]) {
+function parseWhitespace(
+  state: TokenizerState,
+  tokens: Token[],
+  isNewLine: boolean
+) {
   const tagName = parseOpenTagName(state.accumulatedContent);
-  const range = calculateTokenCharactersRange(state, { keepBuffer: false });
+  const position = calculateTokenPosition(state, { keepBuffer: false });
 
   tokens.push({
     type: TokenTypes.OpenTagStart,
     value: state.accumulatedContent,
-    range: [range.startPosition, range.endPosition],
+    range: [position.startPosition, position.endPosition],
+    loc: {
+      start: position.loc.start,
+      end: {
+        line: position.loc.end.line - Number(isNewLine),
+      },
+    },
   });
 
   state.accumulatedContent = "";
@@ -38,12 +48,13 @@ function parseWhitespace(state: TokenizerState, tokens: Token[]) {
 
 function parseTagEnd(state: TokenizerState, tokens: Token[]) {
   const tagName = parseOpenTagName(state.accumulatedContent);
-  const range = calculateTokenCharactersRange(state, { keepBuffer: false });
+  const position = calculateTokenPosition(state, { keepBuffer: false });
 
   tokens.push({
     type: TokenTypes.OpenTagStart,
     value: state.accumulatedContent,
-    range: [range.startPosition, range.endPosition],
+    range: [position.startPosition, position.endPosition],
+    loc: position.loc,
   });
 
   state.decisionBuffer = "";

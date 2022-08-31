@@ -26,6 +26,14 @@ function parseWrapper(state: TokenizerState, tokens: Token[]) {
     type: TokenTypes.AttributeValueWrapperStart,
     value: wrapper,
     range: [state.caretPosition, state.caretPosition + 1],
+    loc: {
+      start: {
+        line: state.linePosition,
+      },
+      end: {
+        line: state.linePosition,
+      },
+    },
   });
 
   state.accumulatedContent = "";

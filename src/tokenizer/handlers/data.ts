@@ -1,5 +1,5 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenCharactersRange } from "../../utils";
+import { calculateTokenPosition } from "../../utils";
 import { Token, TokenizerState } from "../../types";
 
 const COMMENT_START = "<!--";
@@ -40,22 +40,24 @@ export function handleContentEnd(state: TokenizerState, tokens: Token[]) {
   const textContent = state.accumulatedContent + state.decisionBuffer;
 
   if (textContent.length !== 0) {
-    const range = calculateTokenCharactersRange(state, { keepBuffer: false });
+    const position = calculateTokenPosition(state, { keepBuffer: false });
 
     tokens.push({
       type: TokenTypes.Text,
       value: textContent,
-      range: [range.startPosition, range.endPosition],
+      range: [position.startPosition, position.endPosition],
+      loc: position.loc,
     });
   }
 }
 
 function generateTextToken(state: TokenizerState): Token {
-  const range = calculateTokenCharactersRange(state, { keepBuffer: false });
+  const position = calculateTokenPosition(state, { keepBuffer: false });
   return {
     type: TokenTypes.Text,
     value: state.accumulatedContent,
-    range: [range.startPosition, range.endPosition],
+    range: [position.startPosition, position.endPosition],
+    loc: position.loc,
   };
 }
 
@@ -104,15 +106,27 @@ function parseCommentStart(state: TokenizerState, tokens: Token[]) {
     tokens.push(generateTextToken(state));
   }
 
-  const commentStartRange = {
+  const commentStartPosition = {
     startPosition: state.caretPosition - (COMMENT_START.length - 1),
     endPosition: state.caretPosition + 1,
+    loc: {
+      start: {
+        line: state.linePosition,
+      },
+      end: {
+        line: state.linePosition,
+      },
+    },
   };
 
   tokens.push({
     type: TokenTypes.CommentStart,
     value: state.decisionBuffer,
-    range: [commentStartRange.startPosition, commentStartRange.endPosition],
+    range: [
+      commentStartPosition.startPosition,
+      commentStartPosition.endPosition,
+    ],
+    loc: commentStartPosition.loc,
   });
 
   state.accumulatedContent = "";

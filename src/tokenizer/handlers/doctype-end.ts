@@ -1,14 +1,15 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenCharactersRange } from "../../utils";
+import { calculateTokenPosition } from "../../utils";
 import { Token, TokenizerState } from "../../types";
 
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
-  const range = calculateTokenCharactersRange(state, { keepBuffer: true });
+  const position = calculateTokenPosition(state, { keepBuffer: true });
 
   tokens.push({
     type: TokenTypes.DoctypeEnd,
     value: state.decisionBuffer,
-    range: [range.startPosition, range.endPosition],
+    range: [position.startPosition, position.endPosition],
+    loc: position.loc,
   });
 
   state.accumulatedContent = "";

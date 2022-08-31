@@ -1,6 +1,6 @@
 import { TokenizerContextTypes } from "../../constants";
 import { TokenTypes } from "../../constants";
-import { calculateTokenCharactersRange } from "../../utils";
+import { calculateTokenPosition } from "../../utils";
 import { Token, TokenizerState } from "../../types";
 
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
@@ -17,19 +17,24 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
 }
 
 function parseWrapper(state: TokenizerState, tokens: Token[]) {
-  const range = calculateTokenCharactersRange(state, { keepBuffer: false });
-  const endWrapperPosition = range.endPosition;
+  const position = calculateTokenPosition(state, { keepBuffer: false });
+  const endWrapperPosition = position.endPosition;
 
   tokens.push({
     type: TokenTypes.AttributeValue,
     value: state.accumulatedContent,
-    range: [range.startPosition, range.endPosition],
+    range: [position.startPosition, position.endPosition],
+    loc: position.loc,
   });
 
   tokens.push({
     type: TokenTypes.AttributeValueWrapperEnd,
     value: state.decisionBuffer,
     range: [endWrapperPosition, endWrapperPosition + 1],
+    loc: {
+      start: position.loc.end,
+      end: position.loc.end,
+    },
   });
 
   state.accumulatedContent = "";

@@ -1,10 +1,10 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenCharactersRange, isWhitespace } from "../../utils";
+import { calculateTokenPosition, isWhitespace } from "../../utils";
 import { Token, TokenizerState } from "../../types";
 
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   if (isWhitespace(chars)) {
-    return parseWhitespace(state, tokens);
+    return parseWhitespace(state, tokens, chars === "\n");
   }
 
   if (chars === ">") {
@@ -15,17 +15,31 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function generateDoctypeStartToken(state: TokenizerState): Token {
-  const range = calculateTokenCharactersRange(state, { keepBuffer: false });
+function generateDoctypeStartToken(
+  state: TokenizerState,
+  isNewLine: boolean = false
+): Token {
+  const position = calculateTokenPosition(state, { keepBuffer: false });
+
   return {
     type: TokenTypes.DoctypeStart,
     value: state.accumulatedContent,
-    range: [range.startPosition, range.endPosition],
+    range: [position.startPosition, position.endPosition],
+    loc: {
+      start: position.loc.start,
+      end: {
+        line: position.loc.end.line - Number(isNewLine),
+      },
+    },
   };
 }
 
-function parseWhitespace(state: TokenizerState, tokens: Token[]) {
-  tokens.push(generateDoctypeStartToken(state));
+function parseWhitespace(
+  state: TokenizerState,
+  tokens: Token[],
+  isNewLine: boolean
+) {
+  tokens.push(generateDoctypeStartToken(state, isNewLine));
 
   state.accumulatedContent = "";
   state.decisionBuffer = "";

@@ -1,5 +1,5 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenCharactersRange } from "../../utils";
+import { calculateTokenPosition } from "../../utils";
 import { Token, TokenizerState } from "../../types";
 
 const contextsMap: Record<string, TokenizerContextTypes> = {
@@ -19,14 +19,15 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
 }
 
 function parseClosingCornerBrace(state: TokenizerState, tokens: Token[]) {
-  const range = calculateTokenCharactersRange(state, { keepBuffer: true });
+  const position = calculateTokenPosition(state, { keepBuffer: true });
   const tagName =
     state.contextParams[TokenizerContextTypes.OpenTagEnd]?.tagName;
 
   tokens.push({
     type: TokenTypes.OpenTagEnd,
     value: state.accumulatedContent + state.decisionBuffer,
-    range: [range.startPosition, range.endPosition],
+    range: [position.startPosition, position.endPosition],
+    loc: position.loc,
   });
 
   state.accumulatedContent = "";

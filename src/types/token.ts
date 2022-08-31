@@ -1,8 +1,9 @@
 import { TokenTypes } from "../constants";
-import { Range } from "../types";
+import { Range, CodeLocation } from "../types";
 
 export interface Token {
   type: TokenTypes;
   value: string;
   range: Range;
+  loc?: CodeLocation;
 }

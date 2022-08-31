@@ -15,6 +15,7 @@ import SCRIPT_ELEMENTS from "./__output__/script-elements";
 import STYLE_ELEMENTS_ATTRIBUTES from "./__output__/style-elements-attributes";
 import STYLE_ELEMENTS from "./__output__/style-elements";
 import TAGS_REGISTER from "./__output__/tags-register";
+import VOID_TAGS from "./__output__/void-tags";
 
 describe("tokenize", () => {
   test.each(
@@ -89,6 +90,11 @@ describe("tokenize", () => {
         "Style elements",
         "style-elements.html",
         STYLE_ELEMENTS,
+      ],
+      [
+        "Void tags",
+        "void-tags.html",
+        VOID_TAGS
       ]
     ]
   )("%s", (name, input, output) => {

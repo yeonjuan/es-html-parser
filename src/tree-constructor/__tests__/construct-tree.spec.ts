@@ -1,19 +1,37 @@
 import { constructTree } from "../construct-tree";
-import OPENING_CLOSING_TEXT_INPUT from "./__input__/opening-closing-text";
+
+import OPENING_CLOSING_TEXT_INPUT from "../../tokenizer/__tests__/__output__/opening-closing-text";
 import OPENING_CLOSING_TEXT_OUTPUT from "./__output__/opening-closing-text";
-import VOID_TAGS_INPUT from "./__input__/void-tags";
+
+import NESTED_TAGS_INPUT from "../../tokenizer/__tests__/__output__/nested-tags";
+import NESTED_TAGS_OUTPUT from "./__output__/nested-tags";
+
+import VOID_TAGS_INPUT from "../../tokenizer/__tests__/__output__/void-tags";
 import VOID_TAGS_OUTPUT from "./__output__/void-tags";
-import SCRIPT_ELEMENTS_INPUT from "./__input__/script-elements";
+
+import SCRIPT_ELEMENTS_INPUT from "../../tokenizer/__tests__/__output__/script-elements";
 import SCRIPT_ELEMENTS_OUTPUT from "./__output__/script-elements";
+
+import CUSTOM_ELEMENTS_INPUT from "../../tokenizer/__tests__/__output__/custom-elements";
+import CUSTOM_ELEMENTS_OUTPUT from "./__output__/custom-elements";
+
+import DOCTYPES_INPUT from "../../tokenizer/__tests__/__output__/doctypes";
+import DOCTYPES_OUTPUT from "./__output__/doctypes";
+
+import STYLE_ELEMENTS_INPUT from "../../tokenizer/__tests__/__output__/style-elements";
+import STYLE_ELEMENTS_OUTPUT from "./__output__/style-elements";
+
+import COMMENTS_INPUT from "../../tokenizer/__tests__/__output__/comments";
+import COMMENTS_OUTPUT from "./__output__/comments";
+
+import STYLE_ELEMENTS_ATTRIBUTES_INPUT from "../../tokenizer/__tests__/__output__/style-elements-attributes";
+import STYLE_ELEMENTS_ATTRIBUTES_OUTPUT from "./__output__/style-elements-attributes";
+
 import { clearParent } from "../../utils";
 
 describe("construct-tree", () => {
   test.each([
-    // [
-    //   "Attributes apostrophe",
-    //   ATTRIBUTES_APOSTROPHE_INPUT,
-    //   ATTRIBUTES_APOSTROPHE_OUTPUT,
-    // ],
+    ["Comments", COMMENTS_INPUT, COMMENTS_OUTPUT],
     [
       "Opening closing text",
       OPENING_CLOSING_TEXT_INPUT,
@@ -21,11 +39,15 @@ describe("construct-tree", () => {
     ],
     ["Void tags", VOID_TAGS_INPUT, VOID_TAGS_OUTPUT],
     ["Script elements", SCRIPT_ELEMENTS_INPUT, SCRIPT_ELEMENTS_OUTPUT],
-    // ["Doctypes", DOCTYPES_TOKENS, DOCTYPES_OUTPUT],
-    // ["Nested tags", NESTED_TAGS_TOKENS, NESTED_TAGS_OUTPUT],
-    // ["Script tags", SCRIPT_TAGS_TOKENS, SCRIPT_TAGS_OUTPUT],
-    // ["Style tags", STYLE_TAGS_TOKENS, STYLE_TAGS_OUTPUT],
-    // ["Tag register", TAG_REGISTER_TOKENS, TAG_REGISTER_OUTPUT],
+    ["Nested tags", NESTED_TAGS_INPUT, NESTED_TAGS_OUTPUT],
+    ["Custom elements", CUSTOM_ELEMENTS_INPUT, CUSTOM_ELEMENTS_OUTPUT],
+    ["Doctypes", DOCTYPES_INPUT, DOCTYPES_OUTPUT],
+    ["Style elements", STYLE_ELEMENTS_INPUT, STYLE_ELEMENTS_OUTPUT],
+    [
+      "Style elements attributes",
+      STYLE_ELEMENTS_ATTRIBUTES_INPUT,
+      STYLE_ELEMENTS_ATTRIBUTES_OUTPUT,
+    ],
   ])("%s", (name: string, inputTokens: any[], output: any) => {
     const { ast } = constructTree(inputTokens);
     expect(clearParent(ast)).toEqual(output);

@@ -4,7 +4,7 @@ import {
   TokenTypes,
 } from "../../constants";
 import { ConstructTreeState, Token, TextNode } from "../../types";
-import { cloneRange, parseCloseTagName } from "../../utils";
+import { cloneRange, parseCloseTagName, createNodeFrom } from "../../utils";
 import { cloneLocation } from "../../utils/clone-location";
 
 function handleOpenTagStart(state: ConstructTreeState, token: Token) {
@@ -52,7 +52,8 @@ function handleCommentStart(state: ConstructTreeState, token: Token) {
   const commentNode = {
     type: NodeTypes.Comment,
     parentRef: state.currentNode,
-    range: [token.range[0], token.range[1]],
+    range: cloneRange(token.range),
+    loc: cloneLocation(token.loc),
   };
 
   state.currentNode.children.push(commentNode);
@@ -74,7 +75,8 @@ function handleDoctypeStart(state: ConstructTreeState, token: Token) {
   const doctypeNode = {
     type: NodeTypes.Doctype,
     parentRef: state.currentNode,
-    range: [token.range[0], token.range[1]],
+    range: cloneRange(token.range),
+    loc: cloneLocation(token.loc),
   };
 
   state.currentNode.children.push(doctypeNode);
@@ -93,13 +95,7 @@ function handleText(state: ConstructTreeState, token: Token) {
     state.currentNode.children = [];
   }
 
-  const textNode: TextNode = {
-    type: NodeTypes.Text,
-    parentRef: state.currentNode,
-    value: token.value,
-    range: cloneRange(token.range),
-    loc: cloneLocation(token.loc),
-  };
+  const textNode = createNodeFrom(token);
 
   state.currentNode.children.push(textNode);
   state.caretPosition++;
@@ -107,14 +103,16 @@ function handleText(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleOpenTagStartScript(state: ConstructTreeState) {
+function handleOpenTagStartScript(state: ConstructTreeState, token: Token) {
   if (state.currentNode.children === undefined) {
     state.currentNode.children = [];
   }
 
   const scriptNode = {
-    type: NodeTypes.Tag,
+    type: NodeTypes.ScriptTag,
     parentRef: state.currentNode,
+    range: cloneRange(token.range),
+    loc: cloneLocation(token.loc),
   };
 
   state.currentNode.children.push(scriptNode);
@@ -128,14 +126,16 @@ function handleOpenTagStartScript(state: ConstructTreeState) {
   return state;
 }
 
-function handleOpenTagStartStyle(state: ConstructTreeState) {
+function handleOpenTagStartStyle(state: ConstructTreeState, token: Token) {
   if (state.currentNode.children === undefined) {
     state.currentNode.children = [];
   }
 
   const styleNode = {
-    type: NodeTypes.Tag,
+    type: NodeTypes.StyleTag,
     parentRef: state.currentNode,
+    range: cloneRange(token.range),
+    loc: cloneLocation(token.loc),
   };
 
   state.currentNode.children.push(styleNode);
@@ -150,12 +150,12 @@ function handleOpenTagStartStyle(state: ConstructTreeState) {
 }
 
 export function construct(token: Token, state: ConstructTreeState) {
-  if (token.type === TokenTypes.OpenTagStart && token.value === "<script") {
-    return handleOpenTagStartScript(state);
+  if (token.type === TokenTypes.OpenTagStartScript) {
+    return handleOpenTagStartScript(state, token);
   }
 
-  if (token.type === TokenTypes.OpenTagStart && token.value === "<style") {
-    return handleOpenTagStartStyle(state);
+  if (token.type === TokenTypes.OpenTagStartStyle) {
+    return handleOpenTagStartStyle(state, token);
   }
 
   if (token.type === TokenTypes.OpenTagStart) {

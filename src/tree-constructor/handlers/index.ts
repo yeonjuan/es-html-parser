@@ -6,7 +6,7 @@ export * as doctypeAttribute from "./doctype-attribute";
 export * as doctypeAttributes from "./doctype-attributes";
 export * as doctype from "./doctype";
 export * as scriptTag from "./script-tag";
-export * as styleTag from "./script-tag";
+export * as styleTag from "./style-tag";
 export * as tagContent from "./tag-content";
 export * as tagName from "./tag-name";
 export * as tag from "./tag";

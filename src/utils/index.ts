@@ -7,3 +7,5 @@ export * from "./calculate-token-location";
 export * from "./calculate-token-position";
 export * from "./last";
 export * from "./clone-range";
+export * from "./create-node-from";
+export * from "./update-node-end";

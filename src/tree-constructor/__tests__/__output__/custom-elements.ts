@@ -2,37 +2,24 @@ import { NodeTypes } from "../../../constants";
 
 export default {
   type: NodeTypes.Document,
-  range: [0, 84],
+  range: [0, 88],
   loc: {
     start: {
       line: 1,
     },
     end: {
-      line: 10,
+      line: 8,
     },
   },
   children: [
     {
-      type: NodeTypes.Text,
-      range: [0, 14],
-      value: "opening text\n\n",
+      type: NodeTypes.Tag,
+      name: "custom-one",
+      selfClosing: false,
+      range: [0, 87],
       loc: {
         start: {
           line: 1,
-        },
-        end: {
-          line: 3,
-        },
-      },
-    },
-    {
-      type: NodeTypes.Tag,
-      name: "div",
-      selfClosing: false,
-      range: [14, 69],
-      loc: {
-        start: {
-          line: 3,
         },
         end: {
           line: 7,
@@ -40,34 +27,34 @@ export default {
       },
       openStart: {
         type: NodeTypes.OpenTagStart,
-        value: "<div",
-        range: [14, 18],
+        value: "<custom-one",
+        range: [0, 11],
         loc: {
           start: {
-            line: 3,
+            line: 1,
           },
           end: {
-            line: 3,
+            line: 1,
           },
         },
       },
       openEnd: {
         type: NodeTypes.OpenTagEnd,
         value: ">",
-        range: [18, 19],
+        range: [11, 12],
         loc: {
           start: {
-            line: 3,
+            line: 1,
           },
           end: {
-            line: 3,
+            line: 1,
           },
         },
       },
       close: {
         type: NodeTypes.CloseTag,
-        value: "</div>",
-        range: [63, 69],
+        value: "</custom-one>",
+        range: [74, 87],
         loc: {
           start: {
             line: 7,
@@ -80,11 +67,11 @@ export default {
       children: [
         {
           type: NodeTypes.Text,
-          value: "\n  ",
-          range: [19, 22],
+          value: "\n  some text\n\n  ",
+          range: [12, 28],
           loc: {
             start: {
-              line: 3,
+              line: 1,
             },
             end: {
               line: 4,
@@ -92,21 +79,10 @@ export default {
           },
         },
         {
-          type: NodeTypes.ScriptTag,
-          value: {
-            type: NodeTypes.ScriptTagContent,
-            value: "\n    console.log('')\n  ",
-            range: [30, 53],
-            loc: {
-              start: {
-                line: 4,
-              },
-              end: {
-                line: 6,
-              },
-            },
-          },
-          range: [22, 62],
+          type: NodeTypes.Tag,
+          name: "custom-two",
+          selfClosing: false,
+          range: [28, 73],
           loc: {
             start: {
               line: 4,
@@ -116,9 +92,9 @@ export default {
             },
           },
           openStart: {
-            type: NodeTypes.OpenTagStartScript,
-            value: "<script",
-            range: [22, 29],
+            type: NodeTypes.OpenTagStart,
+            value: "<custom-two",
+            range: [28, 39],
             loc: {
               start: {
                 line: 4,
@@ -129,9 +105,9 @@ export default {
             },
           },
           openEnd: {
-            type: NodeTypes.OpenTagEndScript,
+            type: NodeTypes.OpenTagEnd,
             value: ">",
-            range: [29, 30],
+            range: [39, 40],
             loc: {
               start: {
                 line: 4,
@@ -142,9 +118,9 @@ export default {
             },
           },
           close: {
-            type: NodeTypes.CloseTagScript,
-            value: "</script>",
-            range: [53, 62],
+            type: NodeTypes.CloseTag,
+            value: "</custom-two>",
+            range: [60, 73],
             loc: {
               start: {
                 line: 6,
@@ -154,11 +130,26 @@ export default {
               },
             },
           },
+          children: [
+            {
+              type: NodeTypes.Text,
+              value: "\n    another text\n  ",
+              range: [40, 60],
+              loc: {
+                start: {
+                  line: 4,
+                },
+                end: {
+                  line: 6,
+                },
+              },
+            },
+          ],
         },
         {
           type: NodeTypes.Text,
           value: "\n",
-          range: [62, 63],
+          range: [73, 74],
           loc: {
             start: {
               line: 6,
@@ -172,14 +163,14 @@ export default {
     },
     {
       type: NodeTypes.Text,
-      value: "\n\nclosing text\n",
-      range: [69, 84],
+      value: "\n",
+      range: [87, 88],
       loc: {
         start: {
           line: 7,
         },
         end: {
-          line: 10,
+          line: 8,
         },
       },
     },

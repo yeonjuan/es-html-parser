@@ -1,10 +1,13 @@
 import { TokenTypes } from "../../constants";
 import { ConstructTreeState, Token } from "../../types";
+import { createNodeFrom, updateNodeEnd } from "../../utils";
 
 const VALUE_END_TOKENS = [
   TokenTypes.OpenTagEnd,
   TokenTypes.AttributeKey,
   TokenTypes.AttributeAssignment,
+  TokenTypes.OpenTagEndScript,
+  TokenTypes.OpenTagEndStyle,
 ];
 
 function getLastAttribute(state: ConstructTreeState) {
@@ -24,8 +27,7 @@ function handleAttributeValue(
 ): ConstructTreeState {
   const attribute = getLastAttribute(state);
 
-  attribute.value = token;
-  attribute.value.range[1] = token.range[1];
+  attribute.value = createNodeFrom(token);
   state.caretPosition++;
   return state;
 }
@@ -36,9 +38,17 @@ function handleAttributeValueWrapperStart(
 ): ConstructTreeState {
   const attribute = getLastAttribute(state);
 
-  attribute.startWrapper = token;
+  attribute.startWrapper = createNodeFrom(token);
   if (!attribute.key) {
     attribute.range = [token.range[0], token.range[1]];
+    attribute.loc = {
+      start: {
+        ...token.loc.start,
+      },
+      end: {
+        ...token.loc.end,
+      },
+    };
   }
   state.caretPosition++;
 
@@ -51,8 +61,9 @@ function handleAttributeValueWrapperEnd(
 ): ConstructTreeState {
   const attribute = getLastAttribute(state);
 
-  attribute.endWrapper = token;
-  attribute.range[1] = token.range[1];
+  attribute.endWrapper = createNodeFrom(token);
+  updateNodeEnd(attribute, token);
+
   state.caretPosition++;
 
   return state;

@@ -4,13 +4,19 @@ import {
   TokenTypes,
 } from "../../constants";
 import { ConstructTreeState, Token } from "../../types";
+import { cloneRange } from "../../utils";
+import { cloneLocation } from "../../utils/clone-location";
 
 const ATTRIBUTE_START_TOKENS = [
   TokenTypes.AttributeKey,
   TokenTypes.AttributeAssignment,
 ];
 
-const ATTRIBUTES_END_TOKENS = [TokenTypes.OpenTagEnd];
+const ATTRIBUTES_END_TOKENS = [
+  TokenTypes.OpenTagEnd,
+  TokenTypes.OpenTagEndStyle,
+  TokenTypes.OpenTagEndScript,
+];
 
 function handlerAttributeStart(state: ConstructTreeState, token: Token) {
   if (state.currentNode.attributes === undefined) {
@@ -20,7 +26,8 @@ function handlerAttributeStart(state: ConstructTreeState, token: Token) {
   // new empty attribute
   state.currentNode.attributes.push({
     type: NodeTypes.Attribute,
-    range: [token.range[0], token.range[1]],
+    range: cloneRange(token.range),
+    loc: cloneLocation(token.loc),
   });
 
   state.currentContext = {

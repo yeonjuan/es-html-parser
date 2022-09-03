@@ -2,7 +2,7 @@ import { NodeTypes } from "../constants";
 import { Range } from "./range";
 import { SourceLocation } from "./source-location";
 
-interface BaseNode {
+export interface BaseNode {
   type: NodeTypes;
   range: Range;
   loc: SourceLocation;
@@ -88,16 +88,41 @@ export interface ScriptNode {
   value: ScriptTagContentNode;
 }
 
-export interface OpenTagStartScriptNode {
+export interface OpenTagStartScriptNode extends BaseNode {
   type: NodeTypes.OpenTagStartScript;
+  value: string;
 }
 
-export interface CloseTagScriptNode {
+export interface CloseTagScriptNode extends BaseNode {
   type: NodeTypes.CloseTagScript;
+  value: string;
 }
 
-export interface ScriptTagContentNode {
+export interface ScriptTagContentNode extends BaseNode {
   type: NodeTypes.ScriptTagContent;
+  value: string;
+}
+
+export interface CommentNode extends BaseNode {
+  type: NodeTypes.Comment;
+  start: CommentStartNode;
+  end: CommentEndNode;
+  value: CommentContentNode;
+}
+
+export interface CommentStartNode extends BaseNode {
+  type: NodeTypes.CommentStart;
+  value: string;
+}
+
+export interface CommentEndNode extends BaseNode {
+  type: NodeTypes.CommentEnd;
+  value: string;
+}
+
+export interface CommentContentNode extends BaseNode {
+  type: NodeTypes.CommentContent;
+  value: string;
 }
 
 export type AnyNode = DocumentNode | TextNode | TagNode;

@@ -1,7 +1,12 @@
 import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
 import { ConstructTreeState, Token } from "../../types";
+import { createNodeFrom } from "../../utils";
 
-const OPEN_TAG_END_TOKENS = [TokenTypes.OpenTagEnd];
+const OPEN_TAG_END_TOKENS = [
+  TokenTypes.OpenTagEnd,
+  TokenTypes.OpenTagEndScript,
+  TokenTypes.OpenTagEndStyle,
+];
 
 function getLastAttribute(state: ConstructTreeState) {
   const attributes = state.currentNode.attributes;
@@ -24,7 +29,7 @@ function handleAttributeKey(state: ConstructTreeState, token: Token) {
     return state;
   }
 
-  attribute.key = token;
+  attribute.key = createNodeFrom(token);
   state.caretPosition++;
 
   return state;

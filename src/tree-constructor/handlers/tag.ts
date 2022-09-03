@@ -1,5 +1,6 @@
 import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
 import { ConstructTreeState, Token } from "../../types";
+import { createNodeFrom, updateNodeEnd } from "../../utils";
 import { cloneLocation } from "../../utils/clone-location";
 
 const ATTRIBUTE_START_TOKENS = [
@@ -26,7 +27,7 @@ const SELF_CLOSING_TAGS = [
 ];
 
 function handleOpenTagStart(state: ConstructTreeState, token: Token) {
-  state.currentNode.openStart = token;
+  state.currentNode.openStart = createNodeFrom(token);
   state.currentContext = {
     parentRef: state.currentContext,
     type: ConstructTreeContextTypes.TagName,
@@ -47,11 +48,8 @@ function handleAttributeStart(state: ConstructTreeState) {
 function handleOpenTagEnd(state: ConstructTreeState, token: Token) {
   const tagName = state.currentNode.name;
 
-  state.currentNode.openEnd = token;
-  state.currentNode.range[1] = token.range[1];
-
-  const loc = cloneLocation(token.loc);
-  state.currentNode.loc.end = loc.end;
+  state.currentNode.openEnd = createNodeFrom(token);
+  updateNodeEnd(state.currentNode, token);
 
   if (SELF_CLOSING_TAGS.indexOf(tagName) !== -1) {
     state.currentNode.selfClosing = true;
@@ -73,8 +71,8 @@ function handleOpenTagEnd(state: ConstructTreeState, token: Token) {
 }
 
 function handleCloseTag(state: ConstructTreeState, token: Token) {
-  state.currentNode.close = token;
-  state.currentNode.range[1] = token.range[1];
+  state.currentNode.close = createNodeFrom(token);
+  updateNodeEnd(state.currentNode, token);
   state.currentNode = state.currentNode.parentRef;
   state.currentContext = state.currentContext.parentRef;
   state.caretPosition++;

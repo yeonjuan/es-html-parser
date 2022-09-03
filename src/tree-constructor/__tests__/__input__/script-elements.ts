@@ -54,7 +54,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStartScript,
+    type: TokenTypes.OpenTagStart,
     value: "<script",
     range: [22, 29],
     loc: {
@@ -67,7 +67,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEndScript,
+    type: TokenTypes.OpenTagEnd,
     value: ">",
     range: [29, 30],
     loc: {
@@ -80,7 +80,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.ScriptTagContent,
+    type: TokenTypes.Text,
     value: "\n    console.log('')\n  ",
     range: [30, 53],
     loc: {
@@ -93,7 +93,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTagScript,
+    type: TokenTypes.CloseTag,
     value: "</script>",
     range: [53, 62],
     loc: {

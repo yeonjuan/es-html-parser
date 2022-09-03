@@ -41,7 +41,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartScript,
     value: "<script",
     range: [25, 32],
     loc: {
@@ -184,7 +184,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndScript,
     value: ">",
     range: [79, 80],
     loc: {
@@ -197,7 +197,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.ScriptTagContent,
     value: "\n    console.log('test 1')\n  ",
     range: [80, 109],
     loc: {
@@ -210,7 +210,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagScript,
     value: "</script>",
     range: [109, 118],
     loc: {
@@ -236,7 +236,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartScript,
     value: "<script",
     range: [122, 129],
     loc: {
@@ -327,7 +327,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndScript,
     value: ">",
     range: [169, 170],
     loc: {
@@ -340,7 +340,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.ScriptTagContent,
     value: "\n    let a = '<div></div>'\n    console.log(a)\n  ",
     range: [170, 218],
     loc: {
@@ -353,7 +353,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagScript,
     value: "</script>",
     range: [218, 227],
     loc: {
@@ -405,7 +405,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartScript,
     value: "<script",
     range: [236, 243],
     loc: {
@@ -496,7 +496,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndScript,
     value: ">",
     range: [272, 273],
     loc: {
@@ -509,7 +509,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.ScriptTagContent,
     value: "\n  console.log('test 2')\n",
     range: [273, 298],
     loc: {
@@ -522,7 +522,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagScript,
     value: "</script>",
     range: [298, 307],
     loc: {

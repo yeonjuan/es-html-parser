@@ -30,7 +30,7 @@ function parseClosingScriptTag(state: TokenizerState, tokens: Token[]) {
   if (state.accumulatedContent !== "") {
     const position = calculateTokenPosition(state, { keepBuffer: false });
     tokens.push({
-      type: TokenTypes.Text,
+      type: TokenTypes.ScriptTagContent,
       value: state.accumulatedContent,
       range: [position.startPosition, position.endPosition],
       loc: position.loc,
@@ -38,7 +38,7 @@ function parseClosingScriptTag(state: TokenizerState, tokens: Token[]) {
   }
 
   tokens.push({
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagScript,
     value: state.decisionBuffer,
     range: [
       state.caretPosition - (state.decisionBuffer.length - 1),

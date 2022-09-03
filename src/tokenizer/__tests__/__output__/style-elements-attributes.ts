@@ -2,7 +2,7 @@ import { TokenTypes } from "../../../constants";
 
 export default [
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartStyle,
     value: "<style",
     range: [0, 6],
     loc: {
@@ -145,7 +145,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndStyle,
     value: ">",
     range: [41, 42],
     loc: {
@@ -158,7 +158,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.StyleTagContent,
     value: "\n  body {\n    background-color: white;\n  }\n",
     range: [42, 85],
     loc: {
@@ -171,7 +171,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagStyle,
     value: "</style>",
     range: [85, 93],
     loc: {
@@ -236,7 +236,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartStyle,
     value: "<style",
     range: [103, 109],
     loc: {
@@ -340,7 +340,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndStyle,
     value: ">",
     range: [163, 164],
     loc: {
@@ -353,7 +353,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.StyleTagContent,
     value: "\n    body {\n      background-color: red;\n    }\n  ",
     range: [164, 213],
     loc: {
@@ -366,7 +366,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagStyle,
     value: "</style>",
     range: [213, 221],
     loc: {

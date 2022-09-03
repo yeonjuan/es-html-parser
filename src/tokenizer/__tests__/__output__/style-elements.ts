@@ -15,7 +15,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartStyle,
     value: "<style",
     range: [14, 20],
     loc: {
@@ -28,7 +28,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndStyle,
     value: ">",
     range: [20, 21],
     loc: {
@@ -41,7 +41,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.StyleTagContent,
     value: "\n  body {\n    background-color: white;\n  }\n",
     range: [21, 64],
     loc: {
@@ -54,7 +54,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagStyle,
     value: "</style>",
     range: [64, 72],
     loc: {
@@ -119,7 +119,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartStyle,
     value: "<style",
     range: [82, 88],
     loc: {
@@ -132,7 +132,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndStyle,
     value: ">",
     range: [88, 89],
     loc: {
@@ -145,7 +145,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.StyleTagContent,
     value: "\n    body {\n      background-color: red;\n    }\n  ",
     range: [89, 138],
     loc: {
@@ -158,7 +158,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagStyle,
     value: "</style>",
     range: [138, 146],
     loc: {

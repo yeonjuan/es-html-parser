@@ -42,6 +42,14 @@ export default {
         value: "</div>",
       },
       name: "div",
+      loc: {
+        start: {
+          line: 3,
+        },
+        end: {
+          line: 3,
+        },
+      },
       openEnd: {
         loc: {
           end: {

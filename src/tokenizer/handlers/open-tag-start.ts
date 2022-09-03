@@ -6,6 +6,12 @@ import {
 } from "../../utils";
 import { Token, TokenizerState } from "../../types";
 
+const tokensMap: Record<string, TokenTypes> = {
+  script: TokenTypes.OpenTagStartScript,
+  style: TokenTypes.OpenTagStartStyle,
+  default: TokenTypes.OpenTagStart,
+};
+
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   if (chars === ">" || chars === "/") {
     return parseTagEnd(state, tokens);
@@ -28,7 +34,7 @@ function parseWhitespace(
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
   tokens.push({
-    type: TokenTypes.OpenTagStart,
+    type: tokensMap[tagName] || tokensMap.default,
     value: state.accumulatedContent,
     range: [position.startPosition, position.endPosition],
     loc: {
@@ -51,7 +57,7 @@ function parseTagEnd(state: TokenizerState, tokens: Token[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
   tokens.push({
-    type: TokenTypes.OpenTagStart,
+    type: tokensMap[tagName] || tokensMap.default,
     value: state.accumulatedContent,
     range: [position.startPosition, position.endPosition],
     loc: position.loc,

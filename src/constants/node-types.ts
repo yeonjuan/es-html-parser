@@ -14,4 +14,9 @@ export enum NodeTypes {
   OpenTagStart = "OpenTagStart",
   DoctypeStart = "DoctypeStart",
   DoctypeEnd = "DoctypeEnd",
+  ScriptTag = "Script",
+  OpenTagStartScript = "OpenTagStartScript",
+  OpenTagEndScript = "OpenTagEndScript",
+  ScriptTagContent = "ScriptTagContent",
+  CloseTagScript = "CloseTagScript",
 }

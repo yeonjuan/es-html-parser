@@ -76,4 +76,28 @@ export interface DoctypeNode {
   type: NodeTypes.Doctype;
 }
 
+export interface DoctypeStartNode {
+  type: NodeTypes.Doctype;
+}
+
+export interface ScriptNode {
+  type: NodeTypes.ScriptTag;
+  attributes: Array<AttributeNode>;
+  openStart: OpenTagStartScriptNode;
+  close: CloseTagScriptNode;
+  value: ScriptTagContentNode;
+}
+
+export interface OpenTagStartScriptNode {
+  type: NodeTypes.OpenTagStartScript;
+}
+
+export interface CloseTagScriptNode {
+  type: NodeTypes.CloseTagScript;
+}
+
+export interface ScriptTagContentNode {
+  type: NodeTypes.ScriptTagContent;
+}
+
 export type AnyNode = DocumentNode | TextNode | TagNode;

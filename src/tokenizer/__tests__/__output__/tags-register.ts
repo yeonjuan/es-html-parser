@@ -236,7 +236,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartScript,
     value: "<script",
     range: [58, 65],
     loc: {
@@ -249,7 +249,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndScript,
     value: ">",
     range: [65, 66],
     loc: {
@@ -262,7 +262,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagScript,
     value: "</script>",
     range: [66, 75],
     loc: {
@@ -288,7 +288,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartScript,
     value: "<SCRIPT",
     range: [76, 83],
     loc: {
@@ -301,7 +301,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndScript,
     value: ">",
     range: [83, 84],
     loc: {
@@ -314,7 +314,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.ScriptTagContent,
     value: "\n",
     range: [84, 85],
     loc: {
@@ -327,7 +327,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagScript,
     value: "</SCRIPT>",
     range: [85, 94],
     loc: {
@@ -353,7 +353,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartScript,
     value: "<SCRIPT",
     range: [95, 102],
     loc: {
@@ -366,7 +366,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndScript,
     value: ">",
     range: [102, 103],
     loc: {
@@ -379,7 +379,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagScript,
     value: "</script>",
     range: [103, 112],
     loc: {
@@ -405,7 +405,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartScript,
     value: "<script",
     range: [113, 120],
     loc: {
@@ -418,7 +418,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndScript,
     value: ">",
     range: [120, 121],
     loc: {
@@ -431,7 +431,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.ScriptTagContent,
     value: "\n",
     range: [121, 122],
     loc: {
@@ -444,7 +444,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagScript,
     value: "</SCRIPT>",
     range: [122, 131],
     loc: {
@@ -470,7 +470,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartStyle,
     value: "<style",
     range: [133, 139],
     loc: {
@@ -483,7 +483,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndStyle,
     value: ">",
     range: [139, 140],
     loc: {
@@ -496,7 +496,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagStyle,
     value: "</style>",
     range: [140, 148],
     loc: {
@@ -522,7 +522,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartStyle,
     value: "<STYLE",
     range: [149, 155],
     loc: {
@@ -535,7 +535,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndStyle,
     value: ">",
     range: [155, 156],
     loc: {
@@ -548,7 +548,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.StyleTagContent,
     value: "\n",
     range: [156, 157],
     loc: {
@@ -561,7 +561,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagStyle,
     value: "</STYLE>",
     range: [157, 165],
     loc: {
@@ -587,7 +587,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartStyle,
     value: "<STYLE",
     range: [166, 172],
     loc: {
@@ -600,7 +600,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndStyle,
     value: ">",
     range: [172, 173],
     loc: {
@@ -613,7 +613,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagStyle,
     value: "</style>",
     range: [173, 181],
     loc: {
@@ -639,7 +639,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStart,
+    type: TokenTypes.OpenTagStartStyle,
     value: "<style",
     range: [182, 188],
     loc: {
@@ -652,7 +652,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEnd,
+    type: TokenTypes.OpenTagEndStyle,
     value: ">",
     range: [188, 189],
     loc: {
@@ -665,7 +665,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTag,
+    type: TokenTypes.CloseTagStyle,
     value: "</STYLE>",
     range: [189, 197],
     loc: {

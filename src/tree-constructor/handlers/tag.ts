@@ -1,5 +1,6 @@
 import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
 import { ConstructTreeState, Token } from "../../types";
+import { cloneLocation } from "../../utils/clone-location";
 
 const ATTRIBUTE_START_TOKENS = [
   TokenTypes.AttributeKey,
@@ -47,6 +48,10 @@ function handleOpenTagEnd(state: ConstructTreeState, token: Token) {
   const tagName = state.currentNode.name;
 
   state.currentNode.openEnd = token;
+  state.currentNode.range[1] = token.range[1];
+
+  const loc = cloneLocation(token.loc);
+  state.currentNode.loc.end = loc.end;
 
   if (SELF_CLOSING_TAGS.indexOf(tagName) !== -1) {
     state.currentNode.selfClosing = true;

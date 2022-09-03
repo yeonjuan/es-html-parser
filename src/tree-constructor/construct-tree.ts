@@ -1,5 +1,7 @@
 import { ConstructTreeContextTypes, NodeTypes } from "../constants";
-import { ConstructTreeState, Token, DocumentNode } from "../types";
+import { ConstructTreeState, Token, DocumentNode, Range } from "../types";
+import { last } from "../utils";
+import { cloneLocation } from "../utils/clone-location";
 import {
   tagContent,
   tag,
@@ -39,10 +41,26 @@ export function constructTree(tokens: Token[], existingState?: any) {
       parentRef: undefined,
       content: [],
     };
+    const lastToken = last(tokens);
+    const range: Range = lastToken ? [0, lastToken.range[1]] : [0, 0];
+    const loc = lastToken
+      ? cloneLocation(lastToken.loc)
+      : {
+          start: {
+            line: 1,
+          },
+          end: {
+            line: 1,
+          },
+        };
+    loc.start.line = 1;
+
     const rootNode: DocumentNode = {
       type: NodeTypes.Document,
       parentRef: undefined,
-      range: [0, tokens[tokens.length - 1].range[1] || 0],
+      range,
+      children: [],
+      loc,
     };
 
     state = {
@@ -66,6 +84,7 @@ function processTokens(
   let tokenIndex = state.caretPosition - positionOffset;
   while (tokenIndex < tokens.length) {
     const token = tokens[tokenIndex];
+    // debugger;
     // @ts-ignore
     const handler = contextHandlers[state.currentContext.type].construct;
     state = handler(token, state);

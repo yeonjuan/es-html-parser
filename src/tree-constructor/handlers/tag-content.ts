@@ -3,8 +3,9 @@ import {
   NodeTypes,
   TokenTypes,
 } from "../../constants";
-import { ConstructTreeState, HTMLNode, Token } from "../../types";
-import { parseCloseTagName } from "../../utils";
+import { ConstructTreeState, Token, TextNode } from "../../types";
+import { cloneRange, parseCloseTagName } from "../../utils";
+import { cloneLocation } from "../../utils/clone-location";
 
 function handleOpenTagStart(state: ConstructTreeState, token: Token) {
   if (state.currentNode.children === undefined) {
@@ -14,7 +15,8 @@ function handleOpenTagStart(state: ConstructTreeState, token: Token) {
   const tagNode = {
     type: NodeTypes.Tag,
     parentRef: state.currentNode,
-    range: [token.range[0], token.range[1]],
+    range: cloneRange(token.range),
+    loc: cloneLocation(token.loc),
   };
 
   state.currentNode.children.push(tagNode);
@@ -91,11 +93,12 @@ function handleText(state: ConstructTreeState, token: Token) {
     state.currentNode.children = [];
   }
 
-  const textNode: HTMLNode.Text = {
+  const textNode: TextNode = {
     type: NodeTypes.Text,
     parentRef: state.currentNode,
     value: token.value,
-    range: token.range,
+    range: cloneRange(token.range),
+    loc: cloneLocation(token.loc),
   };
 
   state.currentNode.children.push(textNode);

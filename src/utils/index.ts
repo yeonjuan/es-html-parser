@@ -5,3 +5,5 @@ export * from "./parse-close-tag-name";
 export * from "./clear-parent";
 export * from "./calculate-token-location";
 export * from "./calculate-token-position";
+export * from "./last";
+export * from "./clone-range";

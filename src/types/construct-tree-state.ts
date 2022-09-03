@@ -1,13 +1,13 @@
 import { ConstructTreeContextTypes } from "../constants";
 import { AnyNode, DocumentNode } from "./node";
 
-export type ConstructTreeState = {
+export type ConstructTreeState<CurNode = any> = {
   caretPosition: number;
   currentContext: {
     type: ConstructTreeContextTypes;
     parentRef?: any;
     content?: any;
   };
-  currentNode: AnyNode;
+  currentNode: CurNode;
   rootNode: DocumentNode;
 };

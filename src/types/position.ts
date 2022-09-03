@@ -1,10 +1,3 @@
-export type Range = [start: number, end: number];
-
-export type CodeLocation = {
-  start: {
-    line: number;
-  };
-  end: {
-    line: number;
-  };
-};
+export interface Position {
+  line: number;
+}

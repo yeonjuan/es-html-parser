@@ -27,10 +27,25 @@ import COMMENTS_OUTPUT from "./__output__/comments";
 import STYLE_ELEMENTS_ATTRIBUTES_INPUT from "../../tokenizer/__tests__/__output__/style-elements-attributes";
 import STYLE_ELEMENTS_ATTRIBUTES_OUTPUT from "./__output__/style-elements-attributes";
 
+import TAGS_REGISTER_INPUT from "../../tokenizer/__tests__/__output__/tags-register";
+import TAGS_REGISTERS_OUTPUT from "./__output__/tags-register";
+
+import ATTRIBUTES_APOSTROPHE_INPUT from "../../tokenizer/__tests__/__output__/attributes-apostrophe";
+import ATTRIBUTES_APOSTROPHE_OUTPUT from "./__output__/attributes-apostrophe";
+
+import ATTRIBUTES_EMPTY_INPUT from "../../tokenizer/__tests__/__output__/attributes-empty";
+import ATTRIBUTES_EMPTY_OUTPUT from "./__output__/attributes-empty";
+
 import { clearParent } from "../../utils";
 
 describe("construct-tree", () => {
   test.each([
+    [
+      "Attributes apostrophe",
+      ATTRIBUTES_APOSTROPHE_INPUT,
+      ATTRIBUTES_APOSTROPHE_OUTPUT,
+    ],
+    ["Attributes empty", ATTRIBUTES_EMPTY_INPUT, ATTRIBUTES_EMPTY_OUTPUT],
     ["Comments", COMMENTS_INPUT, COMMENTS_OUTPUT],
     [
       "Opening closing text",
@@ -48,6 +63,7 @@ describe("construct-tree", () => {
       STYLE_ELEMENTS_ATTRIBUTES_INPUT,
       STYLE_ELEMENTS_ATTRIBUTES_OUTPUT,
     ],
+    ["Tag register", TAGS_REGISTER_INPUT, TAGS_REGISTERS_OUTPUT],
   ])("%s", (name: string, inputTokens: any[], output: any) => {
     const { ast } = constructTree(inputTokens);
     expect(clearParent(ast)).toEqual(output);

@@ -8,9 +8,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 0,
       },
       end: {
         line: 1,
+        column: 4,
       },
     },
   },
@@ -21,9 +23,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 5,
       },
       end: {
         line: 1,
+        column: 7,
       },
     },
   },
@@ -34,9 +38,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 7,
       },
       end: {
         line: 3,
+        column: 0,
       },
     },
   },
@@ -47,9 +53,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 0,
       },
       end: {
         line: 3,
+        column: 4,
       },
     },
   },
@@ -60,9 +68,11 @@ export default [
     loc: {
       start: {
         line: 4,
+        column: 0,
       },
       end: {
         line: 4,
+        column: 2,
       },
     },
   },

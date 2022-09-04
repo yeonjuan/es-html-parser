@@ -82,7 +82,7 @@ function tokenizeChars(
 }
 
 export function tokenize(
-  content = "",
+  source = "",
   existingState: TokenizerState | undefined,
   {
     isFinalChunk,
@@ -103,10 +103,11 @@ export function tokenize(
       accumulatedContent: "",
       caretPosition: 0,
       linePosition: 1,
+      source,
     };
   }
 
-  const chars = state.decisionBuffer + content;
+  const chars = state.decisionBuffer + source;
   const tokens: any[] = [];
   const positionOffset = state.caretPosition - state.decisionBuffer.length;
 

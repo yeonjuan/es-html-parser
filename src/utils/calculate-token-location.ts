@@ -1,30 +1,9 @@
-import { TokenizerState } from "../types";
+import { Range, TokenizerState } from "../types";
+import { getLineInfo } from "./get-line-info";
 
-export function calculateTokenLocation(
-  state: TokenizerState,
-  { keepBuffer }: { keepBuffer: boolean }
-) {
-  if (keepBuffer === undefined) {
-    throw new Error(
-      "Unable to calculate location for token.\n" +
-        '"keepBuffer" parameter is not specified to decide if ' +
-        "the decision buffer is a part of characters range."
-    );
-  }
-  let startLine =
-    state.linePosition -
-    [...state.accumulatedContent].filter((ch) => ch === "\n").length;
-
-  if (!keepBuffer) {
-    startLine -= [...state.decisionBuffer].filter((ch) => ch === "\n").length;
-  }
-
+export function calculateTokenLocation(source: string, range: Range) {
   return {
-    start: {
-      line: startLine,
-    },
-    end: {
-      line: state.linePosition,
-    },
+    start: getLineInfo(source, range[0]),
+    end: getLineInfo(source, range[1]),
   };
 }

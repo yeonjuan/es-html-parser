@@ -22,4 +22,5 @@ export type TokenizerState = {
   accumulatedContent: string;
   caretPosition: number;
   linePosition: number;
+  source: string;
 };

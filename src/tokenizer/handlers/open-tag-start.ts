@@ -17,7 +17,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
     return parseTagEnd(state, tokens);
   }
   if (isWhitespace(chars)) {
-    return parseWhitespace(state, tokens, chars === "\n");
+    return parseWhitespace(state, tokens);
   }
 
   state.accumulatedContent += state.decisionBuffer;
@@ -25,11 +25,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseWhitespace(
-  state: TokenizerState,
-  tokens: Token[],
-  isNewLine: boolean
-) {
+function parseWhitespace(state: TokenizerState, tokens: Token[]) {
   const tagName = parseOpenTagName(state.accumulatedContent);
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
@@ -37,12 +33,7 @@ function parseWhitespace(
     type: tokensMap[tagName] || tokensMap.default,
     value: state.accumulatedContent,
     range: position.range,
-    loc: {
-      start: position.loc.start,
-      end: {
-        line: position.loc.end.line - Number(isNewLine),
-      },
-    },
+    loc: position.loc,
   });
 
   state.accumulatedContent = "";

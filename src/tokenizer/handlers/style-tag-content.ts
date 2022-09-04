@@ -3,8 +3,12 @@ import {
   TokenizerContextTypes,
   TokenTypes,
 } from "../../constants";
-import { Token, TokenizerState } from "../../types";
-import { calculateTokenPosition } from "../../utils";
+import { Range, Token, TokenizerState } from "../../types";
+import {
+  calculateTokenLocation,
+  calculateTokenPosition,
+  getLineInfo,
+} from "../../utils";
 
 const CLOSING_STYLE_TAG_PATTERN = /<\/style\s*>/i;
 
@@ -38,21 +42,17 @@ function parseClosingStyleTag(state: TokenizerState, tokens: Token[]) {
     });
   }
 
+  const range: Range = [
+    state.caretPosition - (state.decisionBuffer.length - 1),
+    state.caretPosition + 1,
+  ];
+  const loc = calculateTokenLocation(state.source, range);
+
   tokens.push({
     type: TokenTypes.CloseTagStyle,
     value: state.decisionBuffer,
-    range: [
-      state.caretPosition - (state.decisionBuffer.length - 1),
-      state.caretPosition + 1,
-    ],
-    loc: {
-      start: {
-        line: state.linePosition,
-      },
-      end: {
-        line: state.linePosition,
-      },
-    },
+    range,
+    loc,
   });
 
   state.accumulatedContent = "";

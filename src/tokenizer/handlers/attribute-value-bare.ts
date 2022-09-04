@@ -3,11 +3,7 @@ import { TokenTypes } from "../../constants/token-types";
 import { calculateTokenPosition, isWhitespace } from "../../utils";
 import { Token, TokenizerState } from "../../types";
 
-export function parseValueEnd(
-  state: TokenizerState,
-  tokens: Token[],
-  isNewLine: boolean
-) {
+export function parseValueEnd(state: TokenizerState, tokens: Token[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   tokens.push({
     type: TokenTypes.AttributeValue,
@@ -18,7 +14,7 @@ export function parseValueEnd(
         line: position.loc.start.line,
       },
       end: {
-        line: position.loc.end.line - Number(isNewLine),
+        line: position.loc.end.line,
       },
     },
   });
@@ -30,7 +26,7 @@ export function parseValueEnd(
 
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   if (isWhitespace(chars) || chars === ">" || chars === "/") {
-    return parseValueEnd(state, tokens, chars === "\n");
+    return parseValueEnd(state, tokens);
   }
 
   state.accumulatedContent += state.decisionBuffer;

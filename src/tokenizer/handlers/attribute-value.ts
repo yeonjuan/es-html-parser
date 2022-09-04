@@ -1,6 +1,6 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { isWhitespace } from "../../utils";
-import { TokenizerState, Token } from "../../types";
+import { calculateTokenLocation, isWhitespace } from "../../utils";
+import { TokenizerState, Token, Range } from "../../types";
 
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   if (chars === '"' || chars === "'") {
@@ -21,19 +21,13 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
 
 function parseWrapper(state: TokenizerState, tokens: Token[]) {
   const wrapper = state.decisionBuffer;
-
+  const range: Range = [state.caretPosition, state.caretPosition + 1];
+  const loc = calculateTokenLocation(state.source, range);
   tokens.push({
     type: TokenTypes.AttributeValueWrapperStart,
     value: wrapper,
-    range: [state.caretPosition, state.caretPosition + 1],
-    loc: {
-      start: {
-        line: state.linePosition,
-      },
-      end: {
-        line: state.linePosition,
-      },
-    },
+    range,
+    loc,
   });
 
   state.accumulatedContent = "";

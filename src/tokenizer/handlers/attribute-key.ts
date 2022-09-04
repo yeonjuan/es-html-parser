@@ -5,7 +5,7 @@ import { Token, TokenizerState } from "../../types";
 
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   if (isKeyBreak(chars)) {
-    return parseKeyEnd(state, tokens, chars === "\n");
+    return parseKeyEnd(state, tokens);
   }
 
   state.accumulatedContent += state.decisionBuffer;
@@ -24,24 +24,13 @@ function isKeyBreak(chars: string): boolean {
   );
 }
 
-function parseKeyEnd(
-  state: TokenizerState,
-  tokens: Token[],
-  isNewLine: boolean
-) {
+function parseKeyEnd(state: TokenizerState, tokens: Token[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   tokens.push({
     type: TokenTypes.AttributeKey,
     value: state.accumulatedContent,
     range: position.range,
-    loc: {
-      start: {
-        line: position.loc.start.line,
-      },
-      end: {
-        line: position.loc.end.line - Number(isNewLine),
-      },
-    },
+    loc: position.loc,
   });
 
   state.accumulatedContent = "";

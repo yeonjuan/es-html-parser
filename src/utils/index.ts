@@ -9,3 +9,4 @@ export * from "./last";
 export * from "./clone-range";
 export * from "./create-node-from";
 export * from "./update-node-end";
+export * from "./get-line-info";

@@ -4,7 +4,7 @@ import { Token, TokenizerState } from "../../types";
 
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   if (isWhitespace(chars)) {
-    return parseWhitespace(state, tokens, chars === "\n");
+    return parseWhitespace(state, tokens);
   }
 
   if (chars === ">") {
@@ -15,10 +15,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function generateDoctypeStartToken(
-  state: TokenizerState,
-  isNewLine: boolean = false
-): Token {
+function generateDoctypeStartToken(state: TokenizerState): Token {
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
   return {
@@ -28,18 +25,14 @@ function generateDoctypeStartToken(
     loc: {
       start: position.loc.start,
       end: {
-        line: position.loc.end.line - Number(isNewLine),
+        line: position.loc.end.line,
       },
     },
   };
 }
 
-function parseWhitespace(
-  state: TokenizerState,
-  tokens: Token[],
-  isNewLine: boolean
-) {
-  tokens.push(generateDoctypeStartToken(state, isNewLine));
+function parseWhitespace(state: TokenizerState, tokens: Token[]) {
+  tokens.push(generateDoctypeStartToken(state));
 
   state.accumulatedContent = "";
   state.decisionBuffer = "";

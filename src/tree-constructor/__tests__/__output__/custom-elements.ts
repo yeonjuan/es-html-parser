@@ -14,6 +14,7 @@ export default {
   children: [
     {
       type: NodeTypes.Tag,
+      attributes: [],
       name: "custom-one",
       selfClosing: false,
       range: [0, 87],
@@ -81,6 +82,7 @@ export default {
         {
           type: NodeTypes.Tag,
           name: "custom-two",
+          attributes: [],
           selfClosing: false,
           range: [28, 73],
           loc: {

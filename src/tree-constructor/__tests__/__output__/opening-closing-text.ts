@@ -78,7 +78,9 @@ export default {
       },
       range: [14, 25],
       selfClosing: false,
-      type: "Tag",
+      attributes: [],
+      children: [],
+      type: NodeTypes.Tag,
     },
     {
       range: [25, 40],

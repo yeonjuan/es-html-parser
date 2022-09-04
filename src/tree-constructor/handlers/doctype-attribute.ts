@@ -1,6 +1,6 @@
 import { TokenTypes } from "../../constants";
 import { ConstructTreeState, Token } from "../../types";
-import { createNodeFrom, updateNodeEnd } from "../../utils";
+import { cloneRange, createNodeFrom, updateNodeEnd } from "../../utils";
 
 function getLastAttribute(state: ConstructTreeState) {
   const attributes = state.currentNode.attributes;
@@ -25,7 +25,7 @@ function handleAttributeValue(state: ConstructTreeState, token: Token) {
 
   attribute.value = token;
   if (!attribute.key && !attribute.startWrapper) {
-    attribute.range = [token.range[0], token.range[1]];
+    attribute.range = cloneRange(token.range);
   }
   state.caretPosition++;
 

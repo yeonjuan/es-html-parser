@@ -1,106 +1,99 @@
 import { NodeTypes } from "../constants";
-import { Range } from "./range";
-import { SourceLocation } from "./source-location";
+import { SimpleNode } from "./simple-node";
+import { BaseNode } from "./base-node";
 
-export interface BaseNode {
-  type: NodeTypes;
-  range: Range;
-  loc: SourceLocation;
-  parentRef?: any;
-}
+export type TextNode = SimpleNode<NodeTypes.Text>;
+
+export type CloseTagNode = SimpleNode<NodeTypes.CloseTag>;
+
+export type OpenTagStartNode = SimpleNode<NodeTypes.OpenTagStart>;
+
+export type OpenTagEndNode = SimpleNode<NodeTypes.OpenTagEnd>;
+
+export type AttributeKeyNode = SimpleNode<NodeTypes.AttributeKey>;
+
+export type AttributeValueNode = SimpleNode<NodeTypes.AttributeValue>;
+
+export type AttributeValueWrapperStartNode =
+  SimpleNode<NodeTypes.AttributeValueWrapperStart>;
+
+export type AttributeValueWrapperEndNode =
+  SimpleNode<NodeTypes.AttributeValueWrapperEnd>;
+
+export type OpenTagStartStyleNode = SimpleNode<NodeTypes.OpenTagStartStyle>;
+
+export type OpenTagEndStyleNode = SimpleNode<NodeTypes.OpenTagEndStyle>;
+
+export type OpenTagStartScriptNode = SimpleNode<NodeTypes.OpenTagStartScript>;
+
+export type OpenTagEndScriptNode = SimpleNode<NodeTypes.OpenTagEndScript>;
+
+export type CommentStartNode = SimpleNode<NodeTypes.CommentStart>;
+
+export type CommentEndNode = SimpleNode<NodeTypes.CommentEnd>;
+
+export type CommentContentNode = SimpleNode<NodeTypes.CommentContent>;
+
+export type ScriptTagContentNode = SimpleNode<NodeTypes.ScriptTagContent>;
+
+export type StyleTagContentNode = SimpleNode<NodeTypes.StyleTagContent>;
+
+export type DoctypeStartNode = SimpleNode<NodeTypes.DoctypeStart>;
+
+export type CloseTagScriptNode = SimpleNode<NodeTypes.CloseTagScript>;
+
+export type CloseTagStyleNode = SimpleNode<NodeTypes.CloseTagStyle>;
 
 export interface DocumentNode extends BaseNode {
   type: NodeTypes.Document;
-  children: Array<TextNode | TagNode>;
-}
-
-export interface TextNode extends BaseNode {
-  type: NodeTypes.Text;
-  value: string;
+  children: Array<
+    TextNode | TagNode | ScriptNode | StyleNode | CommentNode | TextNode
+  >;
 }
 
 export interface TagNode extends BaseNode {
   type: NodeTypes.Tag;
   selfClosing: boolean;
+  name: string;
   close?: CloseTagNode;
-  openEnd?: OpenTagEndNode;
-  openStart?: OpenTagStartNode;
-  children: Array<TextNode | TagNode>;
+  openEnd: OpenTagEndNode;
+  openStart: OpenTagStartNode;
+  children: Array<
+    TextNode | TagNode | ScriptNode | StyleNode | CommentNode | TextNode
+  >;
   attributes: Array<AttributeNode>;
-}
-
-export interface CloseTagNode extends BaseNode {
-  type: NodeTypes.CloseTag;
-  value: string;
-}
-
-export interface OpenTagStartNode extends BaseNode {
-  type: NodeTypes.OpenTagStart;
-  value: string;
-}
-
-export interface OpenTagEndNode extends BaseNode {
-  type: NodeTypes.OpenTagEnd;
-  value: string;
 }
 
 export interface AttributeNode extends BaseNode {
   type: NodeTypes.Attribute;
   key: AttributeKeyNode;
   startWrapper?: AttributeValueWrapperStartNode;
-  value?: AttributeValue;
+  value?: AttributeValueNode;
   endWrapper?: AttributeValueWrapperEndNode;
 }
 
-export interface AttributeKeyNode extends BaseNode {
-  type: NodeTypes.AttributeKey;
-  value: string;
+export interface StyleNode extends BaseNode {
+  type: NodeTypes.StyleTag;
+  attributes: Array<AttributeNode>;
+  openStart: OpenTagStartStyleNode;
+  openEnd: OpenTagEndStyleNode;
+  close: CloseTagStyleNode;
+  value?: StyleTagContentNode;
 }
 
-export interface AttributeValue extends BaseNode {
-  type: NodeTypes.Attribute;
-  value: string;
-}
-
-export interface AttributeValueWrapperStartNode {
-  type: NodeTypes.AttributeValueWrapperStart;
-  value: string;
-}
-
-export interface AttributeValueWrapperEndNode {
-  type: NodeTypes.AttributeValueWrapperEnd;
-  value: string;
-}
-
-export interface DoctypeNode {
-  type: NodeTypes.Doctype;
-}
-
-export interface DoctypeStartNode {
-  type: NodeTypes.Doctype;
-}
-
-export interface ScriptNode {
+export interface ScriptNode extends BaseNode {
   type: NodeTypes.ScriptTag;
   attributes: Array<AttributeNode>;
   openStart: OpenTagStartScriptNode;
+  openEnd: OpenTagEndScriptNode;
   close: CloseTagScriptNode;
-  value: ScriptTagContentNode;
+  value?: ScriptTagContentNode;
 }
 
-export interface OpenTagStartScriptNode extends BaseNode {
-  type: NodeTypes.OpenTagStartScript;
-  value: string;
-}
-
-export interface CloseTagScriptNode extends BaseNode {
-  type: NodeTypes.CloseTagScript;
-  value: string;
-}
-
-export interface ScriptTagContentNode extends BaseNode {
-  type: NodeTypes.ScriptTagContent;
-  value: string;
+export interface DoctypeNode extends BaseNode {
+  type: NodeTypes.Doctype;
+  start: DoctypeStartNode;
+  end: DoctypeNode;
 }
 
 export interface CommentNode extends BaseNode {
@@ -109,20 +102,3 @@ export interface CommentNode extends BaseNode {
   end: CommentEndNode;
   value: CommentContentNode;
 }
-
-export interface CommentStartNode extends BaseNode {
-  type: NodeTypes.CommentStart;
-  value: string;
-}
-
-export interface CommentEndNode extends BaseNode {
-  type: NodeTypes.CommentEnd;
-  value: string;
-}
-
-export interface CommentContentNode extends BaseNode {
-  type: NodeTypes.CommentContent;
-  value: string;
-}
-
-export type AnyNode = DocumentNode | TextNode | TagNode;

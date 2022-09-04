@@ -27,6 +27,7 @@ export default {
     },
     {
       type: NodeTypes.StyleTag,
+      attributes: [],
       range: [14, 72],
       loc: {
         start: {
@@ -104,6 +105,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      attributes: [],
       name: "div",
       selfClosing: false,
       range: [74, 153],
@@ -170,6 +172,7 @@ export default {
         },
         {
           type: NodeTypes.StyleTag,
+          attributes: [],
           range: [82, 146],
           loc: {
             start: {

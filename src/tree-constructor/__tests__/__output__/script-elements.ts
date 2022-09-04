@@ -27,6 +27,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      attributes: [],
       name: "div",
       selfClosing: false,
       range: [14, 69],
@@ -93,6 +94,7 @@ export default {
         },
         {
           type: NodeTypes.ScriptTag,
+          attributes: [],
           value: {
             type: NodeTypes.ScriptTagContent,
             value: "\n    console.log('')\n  ",

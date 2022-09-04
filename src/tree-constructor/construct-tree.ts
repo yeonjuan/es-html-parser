@@ -32,7 +32,10 @@ const contextHandlers = {
   [ConstructTreeContextTypes.StyleTag]: styleTag,
 };
 
-export function constructTree(tokens: Token[], existingState?: any) {
+export function constructTree(
+  tokens: Token[],
+  existingState: ConstructTreeState | undefined
+) {
   let state = existingState;
 
   if (existingState === undefined) {
@@ -57,7 +60,6 @@ export function constructTree(tokens: Token[], existingState?: any) {
 
     const rootNode: DocumentNode = {
       type: NodeTypes.Document,
-      parentRef: undefined,
       range,
       children: [],
       loc,
@@ -70,10 +72,10 @@ export function constructTree(tokens: Token[], existingState?: any) {
       rootNode,
     };
   }
-  const positionOffset = state.caretPosition;
-  processTokens(tokens, state, positionOffset);
+  const positionOffset = state!.caretPosition;
+  processTokens(tokens, state!, positionOffset);
 
-  return { state, ast: state.rootNode };
+  return { state, ast: state!.rootNode };
 }
 
 function processTokens(

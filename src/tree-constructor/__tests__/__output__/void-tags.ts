@@ -14,6 +14,8 @@ export default {
   children: [
     {
       type: NodeTypes.Tag,
+      attributes: [],
+      children: [],
       range: [0, 7],
       selfClosing: true,
       name: "img",
@@ -68,6 +70,8 @@ export default {
     {
       type: NodeTypes.Tag,
       range: [9, 16],
+      attributes: [],
+      children: [],
       selfClosing: true,
       name: "img",
       loc: {

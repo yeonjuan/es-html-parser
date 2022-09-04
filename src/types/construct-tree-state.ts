@@ -1,5 +1,5 @@
 import { ConstructTreeContextTypes } from "../constants";
-import { AnyNode, DocumentNode } from "./node";
+import { DocumentNode } from "./node";
 
 export type ConstructTreeState<CurNode = any> = {
   caretPosition: number;

@@ -16,6 +16,7 @@ export default {
       type: NodeTypes.Tag,
       name: "div",
       selfClosing: false,
+      attributes: [],
       range: [0, 12],
       loc: {
         start: {
@@ -97,6 +98,8 @@ export default {
       type: NodeTypes.Tag,
       name: "div",
       range: [14, 25],
+      attributes: [],
+      children: [],
       selfClosing: false,
       loc: {
         start: {
@@ -162,6 +165,7 @@ export default {
     {
       type: NodeTypes.Tag,
       selfClosing: false,
+      attributes: [],
       name: "span",
       range: [27, 41],
       loc: {
@@ -245,6 +249,8 @@ export default {
       selfClosing: false,
       name: "span",
       range: [43, 56],
+      attributes: [],
+      children: [],
       loc: {
         start: {
           line: 9,
@@ -309,6 +315,7 @@ export default {
     {
       type: NodeTypes.ScriptTag,
       range: [58, 75],
+      attributes: [],
       loc: {
         start: {
           line: 11,
@@ -372,6 +379,7 @@ export default {
     },
     {
       type: NodeTypes.ScriptTag,
+      attributes: [],
       range: [76, 94],
       loc: {
         start: {
@@ -449,6 +457,7 @@ export default {
     },
     {
       type: NodeTypes.ScriptTag,
+      attributes: [],
       range: [95, 112],
       loc: {
         start: {
@@ -514,6 +523,7 @@ export default {
     {
       type: NodeTypes.ScriptTag,
       range: [113, 131],
+      attributes: [],
       loc: {
         start: {
           line: 15,
@@ -591,6 +601,7 @@ export default {
     {
       type: NodeTypes.StyleTag,
       range: [133, 148],
+      attributes: [],
       loc: {
         start: {
           line: 18,
@@ -655,6 +666,7 @@ export default {
     {
       type: NodeTypes.StyleTag,
       range: [149, 165],
+      attributes: [],
       loc: {
         start: {
           line: 19,
@@ -732,6 +744,7 @@ export default {
     {
       type: NodeTypes.StyleTag,
       range: [166, 181],
+      attributes: [],
       loc: {
         start: {
           line: 21,
@@ -795,6 +808,7 @@ export default {
     },
     {
       type: NodeTypes.StyleTag,
+      attributes: [],
       range: [182, 197],
       loc: {
         start: {

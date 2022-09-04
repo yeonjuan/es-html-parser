@@ -78,6 +78,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      attributes: [],
       name: "div",
       selfClosing: false,
       range: [23, 108],
@@ -144,6 +145,7 @@ export default {
         },
         {
           type: NodeTypes.Tag,
+          attributes: [],
           name: "span",
           selfClosing: false,
           range: [31, 70],

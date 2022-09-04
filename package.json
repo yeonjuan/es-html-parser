@@ -1,12 +1,13 @@
 {
   "name": "es-html-parser",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "test": "jest --coverage",
     "format": "prettier --write .",
-    "build": "tsc -b tsconfig.build.json"
+    "build": "tsc -b tsconfig.build.json",
+    "ts": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/jest": "^28.1.7",

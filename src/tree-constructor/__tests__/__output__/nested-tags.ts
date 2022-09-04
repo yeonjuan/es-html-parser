@@ -14,6 +14,7 @@ export default {
   children: [
     {
       type: NodeTypes.Tag,
+      attributes: [],
       name: "div",
       selfClosing: false,
       range: [0, 88],
@@ -80,6 +81,7 @@ export default {
         },
         {
           type: NodeTypes.Tag,
+          attributes: [],
           name: "span",
           selfClosing: false,
           range: [8, 81],
@@ -146,6 +148,7 @@ export default {
             },
             {
               type: NodeTypes.Tag,
+              attributes: [],
               name: "span",
               range: [34, 71],
               selfClosing: false,

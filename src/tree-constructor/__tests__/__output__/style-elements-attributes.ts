@@ -221,6 +221,7 @@ export default {
     },
     {
       type: NodeTypes.Tag,
+      attributes: [],
       name: "div",
       range: [95, 228],
       selfClosing: false,

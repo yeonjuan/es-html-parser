@@ -3,7 +3,15 @@ import {
   NodeTypes,
   TokenTypes,
 } from "../../constants";
-import { ConstructTreeState, Token, TextNode } from "../../types";
+import {
+  ConstructTreeState,
+  Token,
+  TempCommentNode,
+  TempDoctypeNode,
+  TempScriptNode,
+  TempStyleNode,
+  TempTagNode,
+} from "../../types";
 import { cloneRange, parseCloseTagName, createNodeFrom } from "../../utils";
 import { cloneLocation } from "../../utils/clone-location";
 
@@ -12,11 +20,13 @@ function handleOpenTagStart(state: ConstructTreeState, token: Token) {
     state.currentNode.children = [];
   }
 
-  const tagNode = {
+  const tagNode: TempTagNode = {
     type: NodeTypes.Tag,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
     loc: cloneLocation(token.loc),
+    attributes: [],
+    children: [],
   };
 
   state.currentNode.children.push(tagNode);
@@ -49,7 +59,7 @@ function handleCommentStart(state: ConstructTreeState, token: Token) {
     state.currentNode.children = [];
   }
 
-  const commentNode = {
+  const commentNode: TempCommentNode = {
     type: NodeTypes.Comment,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
@@ -72,7 +82,7 @@ function handleDoctypeStart(state: ConstructTreeState, token: Token) {
     state.currentNode.children = [];
   }
 
-  const doctypeNode = {
+  const doctypeNode: TempDoctypeNode = {
     type: NodeTypes.Doctype,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
@@ -108,11 +118,12 @@ function handleOpenTagStartScript(state: ConstructTreeState, token: Token) {
     state.currentNode.children = [];
   }
 
-  const scriptNode = {
+  const scriptNode: TempScriptNode = {
     type: NodeTypes.ScriptTag,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
     loc: cloneLocation(token.loc),
+    attributes: [],
   };
 
   state.currentNode.children.push(scriptNode);
@@ -131,11 +142,12 @@ function handleOpenTagStartStyle(state: ConstructTreeState, token: Token) {
     state.currentNode.children = [];
   }
 
-  const styleNode = {
+  const styleNode: TempStyleNode = {
     type: NodeTypes.StyleTag,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
     loc: cloneLocation(token.loc),
+    attributes: [],
   };
 
   state.currentNode.children.push(styleNode);

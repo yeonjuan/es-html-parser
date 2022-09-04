@@ -14,6 +14,7 @@ export default {
   children: [
     {
       type: NodeTypes.Tag,
+      attributes: [],
       selfClosing: false,
       name: "div",
       range: [0, 234],

@@ -1,4 +1,4 @@
-import { NodeTypes } from "../../../../dist";
+import { NodeTypes } from "../../../constants";
 
 export default {
   type: NodeTypes.Document,

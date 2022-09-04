@@ -33,7 +33,7 @@ function parseClosingStyleTag(state: TokenizerState, tokens: Token[]) {
     tokens.push({
       type: TokenTypes.StyleTagContent,
       value: state.accumulatedContent,
-      range: [position.startPosition, position.endPosition],
+      range: position.range,
       loc: position.loc,
     });
   }

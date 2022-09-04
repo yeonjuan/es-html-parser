@@ -24,7 +24,7 @@ function generateDoctypeStartToken(
   return {
     type: TokenTypes.DoctypeStart,
     value: state.accumulatedContent,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: {
       start: position.loc.start,
       end: {

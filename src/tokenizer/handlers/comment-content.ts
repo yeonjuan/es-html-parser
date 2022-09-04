@@ -22,15 +22,15 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
 function parseCommentEnd(state: TokenizerState, tokens: Token[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   const endRange = {
-    startPosition: position.endPosition,
-    endPosition: position.endPosition + COMMENT_END.length,
+    startPosition: position.range[1],
+    endPosition: position.range[1] + COMMENT_END.length,
   };
 
   tokens.push(
     {
       type: TokenTypes.CommentContent,
       value: state.accumulatedContent,
-      range: [position.startPosition, position.endPosition],
+      range: position.range,
       loc: position.loc,
     },
     {

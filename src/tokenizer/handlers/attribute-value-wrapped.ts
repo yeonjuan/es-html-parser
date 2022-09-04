@@ -18,12 +18,12 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
 
 function parseWrapper(state: TokenizerState, tokens: Token[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
-  const endWrapperPosition = position.endPosition;
+  const endWrapperPosition = position.range[1];
 
   tokens.push({
     type: TokenTypes.AttributeValue,
     value: state.accumulatedContent,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: position.loc,
   });
 

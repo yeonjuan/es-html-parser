@@ -12,7 +12,7 @@ export function parseValueEnd(
   tokens.push({
     type: TokenTypes.AttributeValue,
     value: state.accumulatedContent,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: {
       start: {
         line: position.loc.start.line,

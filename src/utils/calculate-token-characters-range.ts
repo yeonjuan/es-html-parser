@@ -1,9 +1,9 @@
-import { TokenizerState } from "../types";
+import { TokenizerState, Range } from "../types";
 
 export function calculateTokenCharactersRange(
   state: TokenizerState,
   { keepBuffer }: { keepBuffer: boolean }
-) {
+): Range {
   if (keepBuffer === undefined) {
     throw new Error(
       "Unable to calculate characters range for token.\n" +
@@ -25,5 +25,5 @@ export function calculateTokenCharactersRange(
     endPosition = state.caretPosition;
   }
 
-  return { startPosition, endPosition: endPosition + 1 };
+  return [startPosition, endPosition + 1];
 }

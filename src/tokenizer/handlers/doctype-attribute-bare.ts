@@ -22,7 +22,7 @@ function parseAttributeEnd(
   tokens.push({
     type: TokenTypes.DoctypeAttributeValue,
     value: state.accumulatedContent,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: {
       start: {
         line: position.loc.start.line,

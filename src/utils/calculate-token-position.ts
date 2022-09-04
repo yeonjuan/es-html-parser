@@ -9,7 +9,7 @@ export function calculateTokenPosition(
   const range = calculateTokenCharactersRange(state, options);
   const loc = calculateTokenLocation(state, options);
   return {
-    ...range,
+    range,
     loc,
   };
 }

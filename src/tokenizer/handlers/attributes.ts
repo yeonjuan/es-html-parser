@@ -42,7 +42,7 @@ function parseEqual(state: TokenizerState, tokens: Token[]) {
   tokens.push({
     type: TokenTypes.AttributeAssignment,
     value: state.decisionBuffer,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: position.loc,
   });
 

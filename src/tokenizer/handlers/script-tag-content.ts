@@ -32,7 +32,7 @@ function parseClosingScriptTag(state: TokenizerState, tokens: Token[]) {
     tokens.push({
       type: TokenTypes.ScriptTagContent,
       value: state.accumulatedContent,
-      range: [position.startPosition, position.endPosition],
+      range: position.range,
       loc: position.loc,
     });
   }

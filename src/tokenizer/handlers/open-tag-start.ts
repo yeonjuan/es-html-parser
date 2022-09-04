@@ -36,7 +36,7 @@ function parseWhitespace(
   tokens.push({
     type: tokensMap[tagName] || tokensMap.default,
     value: state.accumulatedContent,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: {
       start: position.loc.start,
       end: {
@@ -59,7 +59,7 @@ function parseTagEnd(state: TokenizerState, tokens: Token[]) {
   tokens.push({
     type: tokensMap[tagName] || tokensMap.default,
     value: state.accumulatedContent,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: position.loc,
   });
 

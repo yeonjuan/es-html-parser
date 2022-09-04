@@ -33,7 +33,7 @@ function parseKeyEnd(
   tokens.push({
     type: TokenTypes.AttributeKey,
     value: state.accumulatedContent,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: {
       start: {
         line: position.loc.start.line,

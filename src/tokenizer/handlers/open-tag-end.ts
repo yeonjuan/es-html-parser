@@ -32,7 +32,7 @@ function parseClosingCornerBrace(state: TokenizerState, tokens: Token[]) {
   tokens.push({
     type: tokensMap[tagName] || tokensMap.default,
     value: state.accumulatedContent + state.decisionBuffer,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: position.loc,
   });
 

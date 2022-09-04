@@ -45,7 +45,7 @@ export function handleContentEnd(state: TokenizerState, tokens: Token[]) {
     tokens.push({
       type: TokenTypes.Text,
       value: textContent,
-      range: [position.startPosition, position.endPosition],
+      range: position.range,
       loc: position.loc,
     });
   }
@@ -56,7 +56,7 @@ function generateTextToken(state: TokenizerState): Token {
   return {
     type: TokenTypes.Text,
     value: state.accumulatedContent,
-    range: [position.startPosition, position.endPosition],
+    range: position.range,
     loc: position.loc,
   };
 }

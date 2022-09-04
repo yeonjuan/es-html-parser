@@ -39,6 +39,9 @@ import ATTRIBUTES_EMPTY_OUTPUT from "./__output__/attributes-empty";
 import SCRIPT_ELEMENTS_ATTRIBUTES_INPUT from "../../tokenizer/__tests__/__output__/script-elements-attributes";
 import SCRIPT_ELEMENTS_ATTRIBUTES_OUTPUT from "./__output__/script-elements-attributes";
 
+import EMPTY_INPUT from "../../tokenizer/__tests__/__output__/empty";
+import EMPTY_OUTPUT from "./__output__/empty";
+
 import { clearParent } from "../../utils";
 
 describe("construct-tree", () => {
@@ -72,6 +75,7 @@ describe("construct-tree", () => {
       STYLE_ELEMENTS_ATTRIBUTES_OUTPUT,
     ],
     ["Tag register", TAGS_REGISTER_INPUT, TAGS_REGISTERS_OUTPUT],
+    ["Empty", EMPTY_INPUT, EMPTY_OUTPUT],
   ])("%s", (name: string, inputTokens: any[], output: any) => {
     const { ast } = constructTree(inputTokens, undefined);
     expect(clearParent(ast)).toEqual(output);

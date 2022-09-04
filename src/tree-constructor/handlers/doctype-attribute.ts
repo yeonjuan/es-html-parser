@@ -75,7 +75,7 @@ export function construct(token: Token, state: ConstructTreeState) {
     return handleAttributeWrapperEnd(state, token);
   }
 
-  if (token.type === TokenTypes.DoctypeAttribute) {
+  if (token.type === TokenTypes.DoctypeAttributeValue) {
     return handleAttributeValue(state, token);
   }
 

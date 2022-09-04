@@ -164,7 +164,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "some attribute",
             range: [35, 49],
             loc: {
@@ -202,7 +202,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "another-one",
             range: [52, 63],
             loc: {
@@ -293,7 +293,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "html",
             range: [78, 82],
             loc: {
@@ -318,7 +318,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "PUBLIC",
             range: [83, 89],
             loc: {
@@ -396,7 +396,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "HTML",
             range: [102, 106],
             loc: {
@@ -421,7 +421,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "PUBLIC",
             range: [107, 113],
             loc: {
@@ -472,7 +472,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "-//W3C//DTD HTML 4.01 Frameset//EN",
             range: [115, 149],
             loc: {
@@ -523,7 +523,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "http://www.w3.org/TR/html4/frameset.dtd",
             range: [152, 191],
             loc: {
@@ -601,7 +601,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "HTML",
             range: [207, 211],
             loc: {
@@ -626,7 +626,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "PUBLIC",
             range: [212, 218],
             loc: {
@@ -651,7 +651,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             value: "-//W3C//DTD HTML 4.01 Frameset//EN",
             range: [222, 256],
             loc: {
@@ -728,7 +728,7 @@ export default {
             },
           },
           value: {
-            type: NodeTypes.DoctypeAttribute,
+            type: NodeTypes.DoctypeAttributeValue,
             range: [261, 300],
             loc: {
               start: {

@@ -44,6 +44,15 @@ export type CloseTagScriptNode = SimpleNode<NodeTypes.CloseTagScript>;
 
 export type CloseTagStyleNode = SimpleNode<NodeTypes.CloseTagStyle>;
 
+export type DoctypeAttributeValueNode =
+  SimpleNode<NodeTypes.DoctypeAttributeValue>;
+
+export type DoctypeAttributeWrapperStart =
+  SimpleNode<NodeTypes.DoctypeAttributeWrapperStart>;
+
+export type DoctypeAttributeWrapperEnd =
+  SimpleNode<NodeTypes.DoctypeAttributeWrapperEnd>;
+
 export interface DocumentNode extends BaseNode {
   type: NodeTypes.Document;
   children: Array<
@@ -88,6 +97,14 @@ export interface ScriptNode extends BaseNode {
   openEnd: OpenTagEndScriptNode;
   close: CloseTagScriptNode;
   value?: ScriptTagContentNode;
+}
+
+export interface DoctypeAttributeNode extends BaseNode {
+  type: NodeTypes.Attribute;
+  key: AttributeKeyNode;
+  startWrapper?: DoctypeAttributeWrapperStart;
+  value?: DoctypeAttributeValueNode;
+  endWrapper?: DoctypeAttributeWrapperEnd;
 }
 
 export interface DoctypeNode extends BaseNode {

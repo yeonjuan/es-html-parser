@@ -4,7 +4,7 @@ import { createNodeFrom, updateNodeEnd } from "../../utils";
 
 const ATTRIBUTES_START_TOKENS = [
   TokenTypes.DoctypeAttributeWrapperStart,
-  TokenTypes.DoctypeAttribute,
+  TokenTypes.DoctypeAttributeValue,
 ];
 
 function handleDoctypeStart(state: ConstructTreeState, token: Token) {

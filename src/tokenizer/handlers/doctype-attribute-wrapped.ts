@@ -20,7 +20,7 @@ function parseWrapper(state: TokenizerState, tokens: Token[]) {
   const endWrapperPosition = position.endPosition;
 
   tokens.push({
-    type: TokenTypes.DoctypeAttribute,
+    type: TokenTypes.DoctypeAttributeValue,
     value: state.accumulatedContent,
     range: [position.startPosition, position.endPosition],
     loc: position.loc,

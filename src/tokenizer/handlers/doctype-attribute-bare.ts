@@ -20,7 +20,7 @@ function parseAttributeEnd(
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
   tokens.push({
-    type: TokenTypes.DoctypeAttribute,
+    type: TokenTypes.DoctypeAttributeValue,
     value: state.accumulatedContent,
     range: [position.startPosition, position.endPosition],
     loc: {

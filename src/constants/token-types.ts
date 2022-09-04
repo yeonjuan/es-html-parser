@@ -12,7 +12,7 @@ export enum TokenTypes {
   AttributeValueWrapperEnd = "AttributeValueWrapperEnd",
 
   DoctypeStart = "DoctypeStart",
-  DoctypeAttribute = "DoctypeAttribute",
+  DoctypeAttributeValue = "DoctypeAttributeValue",
   DoctypeAttributeWrapperStart = "DoctypeAttributeWrapperStart",
   DoctypeAttributeWrapperEnd = "DoctypeAttributeWrapperEnd",
   DoctypeEnd = "DoctypeEnd",

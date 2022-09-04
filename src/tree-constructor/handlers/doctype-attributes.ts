@@ -9,7 +9,7 @@ import { cloneLocation } from "../../utils/clone-location";
 
 const ATTRIBUTE_START_TOKENS = [
   TokenTypes.DoctypeAttributeWrapperStart,
-  TokenTypes.DoctypeAttribute,
+  TokenTypes.DoctypeAttributeValue,
 ];
 
 function handleDoctypeEnd(state: ConstructTreeState) {

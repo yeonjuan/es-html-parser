@@ -35,7 +35,7 @@ export enum NodeTypes {
   CloseTagStyle = "CloseTagStyle",
 
   CloseTagScript = "CloseTagScript",
-  DoctypeAttribute = "DoctypeAttribute",
+  DoctypeAttributeValue = "DoctypeAttributeValue",
   DoctypeAttributeWrapperStart = "DoctypeAttributeWrapperStart",
   DoctypeAttributeWrapperEnd = "DoctypeAttributeWrapperEnd",
 }

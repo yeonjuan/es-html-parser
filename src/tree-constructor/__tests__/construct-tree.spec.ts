@@ -36,6 +36,9 @@ import ATTRIBUTES_APOSTROPHE_OUTPUT from "./__output__/attributes-apostrophe";
 import ATTRIBUTES_EMPTY_INPUT from "../../tokenizer/__tests__/__output__/attributes-empty";
 import ATTRIBUTES_EMPTY_OUTPUT from "./__output__/attributes-empty";
 
+import SCRIPT_ELEMENTS_ATTRIBUTES_INPUT from "../../tokenizer/__tests__/__output__/script-elements-attributes";
+import SCRIPT_ELEMENTS_ATTRIBUTES_OUTPUT from "./__output__/script-elements-attributes";
+
 import { clearParent } from "../../utils";
 
 describe("construct-tree", () => {
@@ -54,6 +57,11 @@ describe("construct-tree", () => {
     ],
     ["Void tags", VOID_TAGS_INPUT, VOID_TAGS_OUTPUT],
     ["Script elements", SCRIPT_ELEMENTS_INPUT, SCRIPT_ELEMENTS_OUTPUT],
+    [
+      "Script elements attributes",
+      SCRIPT_ELEMENTS_ATTRIBUTES_INPUT,
+      SCRIPT_ELEMENTS_ATTRIBUTES_OUTPUT,
+    ],
     ["Nested tags", NESTED_TAGS_INPUT, NESTED_TAGS_OUTPUT],
     ["Custom elements", CUSTOM_ELEMENTS_INPUT, CUSTOM_ELEMENTS_OUTPUT],
     ["Doctypes", DOCTYPES_INPUT, DOCTYPES_OUTPUT],

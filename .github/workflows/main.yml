@@ -18,7 +18,7 @@ jobs:
           node-version: 16.x
 
       - name: install
-        run: yarn ci
+        run: yarn
 
       - name: lint
         run: yarn check:lint

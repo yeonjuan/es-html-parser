@@ -1,0 +1,33 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "**"
+jobs:
+  build:
+    name: CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: install
+        run: yarn
+
+      - name: lint
+        run: yarn check:lint
+
+      - name: format
+        run: yarn check:format
+
+      - name: ts
+        run: yarn check:ts
+
+      - name: test
+        run: yarn test

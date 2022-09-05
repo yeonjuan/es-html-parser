@@ -7,10 +7,12 @@ export default [
     range: [0, 11],
     loc: {
       start: {
+        column: 0,
         line: 1,
       },
       end: {
         line: 1,
+        column: 11,
       },
     },
   },
@@ -21,9 +23,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 11,
       },
       end: {
         line: 1,
+        column: 12,
       },
     },
   },
@@ -33,10 +37,12 @@ export default [
     range: [12, 28],
     loc: {
       start: {
+        column: 12,
         line: 1,
       },
       end: {
         line: 4,
+        column: 2,
       },
     },
   },
@@ -46,10 +52,12 @@ export default [
     range: [28, 39],
     loc: {
       start: {
+        column: 2,
         line: 4,
       },
       end: {
         line: 4,
+        column: 13,
       },
     },
   },
@@ -60,9 +68,11 @@ export default [
     loc: {
       start: {
         line: 4,
+        column: 13,
       },
       end: {
         line: 4,
+        column: 14,
       },
     },
   },
@@ -72,10 +82,12 @@ export default [
     range: [40, 60],
     loc: {
       start: {
+        column: 14,
         line: 4,
       },
       end: {
         line: 6,
+        column: 2,
       },
     },
   },
@@ -86,9 +98,11 @@ export default [
     loc: {
       start: {
         line: 6,
+        column: 2,
       },
       end: {
         line: 6,
+        column: 15,
       },
     },
   },
@@ -99,9 +113,11 @@ export default [
     loc: {
       start: {
         line: 6,
+        column: 15,
       },
       end: {
         line: 7,
+        column: 0,
       },
     },
   },
@@ -111,10 +127,12 @@ export default [
     range: [74, 87],
     loc: {
       start: {
+        column: 0,
         line: 7,
       },
       end: {
         line: 7,
+        column: 13,
       },
     },
   },
@@ -125,9 +143,11 @@ export default [
     loc: {
       start: {
         line: 7,
+        column: 13,
       },
       end: {
         line: 8,
+        column: 0,
       },
     },
   },

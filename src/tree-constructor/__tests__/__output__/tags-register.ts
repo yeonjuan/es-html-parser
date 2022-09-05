@@ -1,875 +1,413 @@
 import { NodeTypes } from "../../../constants";
 
 export default {
-  type: NodeTypes.Document,
+  type: "Document",
   range: [0, 198],
-  loc: {
-    start: {
-      line: 1,
-    },
-    end: {
-      line: 23,
-    },
-  },
   children: [
     {
-      type: NodeTypes.Tag,
-      name: "div",
-      selfClosing: false,
-      attributes: [],
+      type: "Tag",
       range: [0, 12],
-      loc: {
-        start: {
-          line: 1,
-        },
-        end: {
-          line: 2,
-        },
-      },
-      openStart: {
-        type: NodeTypes.OpenTagStart,
-        value: "<div",
-        range: [0, 4],
-        loc: {
-          start: {
-            line: 1,
-          },
-          end: {
-            line: 1,
-          },
-        },
-      },
-      openEnd: {
-        type: NodeTypes.OpenTagEnd,
-        value: ">",
-        range: [4, 5],
-        loc: {
-          start: {
-            line: 1,
-          },
-          end: {
-            line: 1,
-          },
-        },
-      },
-      close: {
-        type: NodeTypes.CloseTag,
-        value: "</DIV>",
-        range: [6, 12],
-        loc: {
-          start: {
-            line: 2,
-          },
-          end: {
-            line: 2,
-          },
-        },
-      },
+      loc: { start: { line: 1, column: 0 }, end: { line: 2, column: 6 } },
+      attributes: [],
       children: [
         {
-          type: NodeTypes.Text,
+          type: "Text",
           value: "\n",
+          loc: { start: { line: 1, column: 5 }, end: { line: 2, column: 0 } },
           range: [5, 6],
-          loc: {
-            start: {
-              line: 1,
-            },
-            end: {
-              line: 2,
-            },
-          },
         },
       ],
-    },
-    {
-      type: NodeTypes.Text,
-      value: "\n\n",
-      range: [12, 14],
-      loc: {
-        start: {
-          line: 2,
-        },
-        end: {
-          line: 4,
-        },
+      openStart: {
+        type: "OpenTagStart",
+        value: "<div",
+        loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 4 } },
+        range: [0, 4],
+      },
+      name: "div",
+      openEnd: {
+        type: "OpenTagEnd",
+        value: ">",
+        loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 5 } },
+        range: [4, 5],
+      },
+      selfClosing: false,
+      close: {
+        type: "CloseTag",
+        value: "</DIV>",
+        loc: { start: { line: 2, column: 0 }, end: { line: 2, column: 6 } },
+        range: [6, 12],
       },
     },
     {
-      type: NodeTypes.Tag,
-      name: "div",
+      type: "Text",
+      value: "\n\n",
+      loc: { start: { line: 2, column: 6 }, end: { line: 4, column: 0 } },
+      range: [12, 14],
+    },
+    {
+      type: "Tag",
       range: [14, 25],
+      loc: { start: { line: 4, column: 0 }, end: { line: 4, column: 11 } },
       attributes: [],
       children: [],
-      selfClosing: false,
-      loc: {
-        start: {
-          line: 4,
-        },
-        end: {
-          line: 4,
-        },
-      },
       openStart: {
-        type: NodeTypes.OpenTagStart,
+        type: "OpenTagStart",
         value: "<DIV",
+        loc: { start: { line: 4, column: 0 }, end: { line: 4, column: 4 } },
         range: [14, 18],
-        loc: {
-          start: {
-            line: 4,
-          },
-          end: {
-            line: 4,
-          },
-        },
       },
+      name: "div",
       openEnd: {
-        type: NodeTypes.OpenTagEnd,
+        type: "OpenTagEnd",
         value: ">",
+        loc: { start: { line: 4, column: 4 }, end: { line: 4, column: 5 } },
         range: [18, 19],
-        loc: {
-          start: {
-            line: 4,
-          },
-          end: {
-            line: 4,
-          },
-        },
       },
-      close: {
-        type: NodeTypes.CloseTag,
-        value: "</div>",
-        range: [19, 25],
-        loc: {
-          start: {
-            line: 4,
-          },
-          end: {
-            line: 4,
-          },
-        },
-      },
-    },
-    {
-      type: NodeTypes.Text,
-      value: "\n\n",
-      range: [25, 27],
-      loc: {
-        start: {
-          line: 4,
-        },
-        end: {
-          line: 6,
-        },
-      },
-    },
-    {
-      type: NodeTypes.Tag,
       selfClosing: false,
-      attributes: [],
-      name: "span",
+      close: {
+        type: "CloseTag",
+        value: "</div>",
+        loc: { start: { line: 4, column: 5 }, end: { line: 4, column: 11 } },
+        range: [19, 25],
+      },
+    },
+    {
+      type: "Text",
+      value: "\n\n",
+      loc: { start: { line: 4, column: 11 }, end: { line: 6, column: 0 } },
+      range: [25, 27],
+    },
+    {
+      type: "Tag",
       range: [27, 41],
-      loc: {
-        start: {
-          line: 6,
-        },
-        end: {
-          line: 7,
-        },
-      },
-      openStart: {
-        type: NodeTypes.OpenTagStart,
-        value: "<span",
-        range: [27, 32],
-        loc: {
-          start: {
-            line: 6,
-          },
-          end: {
-            line: 6,
-          },
-        },
-      },
-      openEnd: {
-        type: NodeTypes.OpenTagEnd,
-        value: ">",
-        range: [32, 33],
-        loc: {
-          start: {
-            line: 6,
-          },
-          end: {
-            line: 6,
-          },
-        },
-      },
+      loc: { start: { line: 6, column: 0 }, end: { line: 7, column: 7 } },
+      attributes: [],
       children: [
         {
-          type: NodeTypes.Text,
+          type: "Text",
           value: "\n",
+          loc: { start: { line: 6, column: 6 }, end: { line: 7, column: 0 } },
           range: [33, 34],
-          loc: {
-            start: {
-              line: 6,
-            },
-            end: {
-              line: 7,
-            },
-          },
         },
       ],
-      close: {
-        type: NodeTypes.CloseTag,
-        value: "</span>",
-        range: [34, 41],
-        loc: {
-          start: {
-            line: 7,
-          },
-          end: {
-            line: 7,
-          },
-        },
+      openStart: {
+        type: "OpenTagStart",
+        value: "<span",
+        loc: { start: { line: 6, column: 0 }, end: { line: 6, column: 5 } },
+        range: [27, 32],
       },
-    },
-    {
-      type: NodeTypes.Text,
-      value: "\n\n",
-      range: [41, 43],
-      loc: {
-        start: {
-          line: 7,
-        },
-        end: {
-          line: 9,
-        },
-      },
-    },
-    {
-      type: NodeTypes.Tag,
-      selfClosing: false,
       name: "span",
+      openEnd: {
+        type: "OpenTagEnd",
+        value: ">",
+        loc: { start: { line: 6, column: 5 }, end: { line: 6, column: 6 } },
+        range: [32, 33],
+      },
+      selfClosing: false,
+      close: {
+        type: "CloseTag",
+        value: "</span>",
+        loc: { start: { line: 7, column: 0 }, end: { line: 7, column: 7 } },
+        range: [34, 41],
+      },
+    },
+    {
+      type: "Text",
+      value: "\n\n",
+      loc: { start: { line: 7, column: 7 }, end: { line: 9, column: 0 } },
+      range: [41, 43],
+    },
+    {
+      type: "Tag",
       range: [43, 56],
+      loc: { start: { line: 9, column: 0 }, end: { line: 9, column: 13 } },
       attributes: [],
       children: [],
-      loc: {
-        start: {
-          line: 9,
-        },
-        end: {
-          line: 9,
-        },
-      },
       openStart: {
-        type: NodeTypes.OpenTagStart,
+        type: "OpenTagStart",
         value: "<SPAN",
+        loc: { start: { line: 9, column: 0 }, end: { line: 9, column: 5 } },
         range: [43, 48],
-        loc: {
-          start: {
-            line: 9,
-          },
-          end: {
-            line: 9,
-          },
-        },
       },
+      name: "span",
       openEnd: {
-        type: NodeTypes.OpenTagEnd,
+        type: "OpenTagEnd",
         value: ">",
+        loc: { start: { line: 9, column: 5 }, end: { line: 9, column: 6 } },
         range: [48, 49],
-        loc: {
-          start: {
-            line: 9,
-          },
-          end: {
-            line: 9,
-          },
-        },
       },
+      selfClosing: false,
       close: {
-        type: NodeTypes.CloseTag,
+        type: "CloseTag",
         value: "</SPAN>",
+        loc: { start: { line: 9, column: 6 }, end: { line: 9, column: 13 } },
         range: [49, 56],
-        loc: {
-          start: {
-            line: 9,
-          },
-          end: {
-            line: 9,
-          },
-        },
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n\n",
+      loc: { start: { line: 9, column: 13 }, end: { line: 11, column: 0 } },
       range: [56, 58],
-      loc: {
-        start: {
-          line: 9,
-        },
-        end: {
-          line: 11,
-        },
-      },
     },
     {
-      type: NodeTypes.ScriptTag,
+      type: "ScriptTag",
       range: [58, 75],
+      loc: { start: { line: 11, column: 0 }, end: { line: 11, column: 17 } },
       attributes: [],
-      loc: {
-        start: {
-          line: 11,
-        },
-        end: {
-          line: 11,
-        },
-      },
       openStart: {
-        type: NodeTypes.OpenTagStartScript,
+        type: "OpenTagStartScript",
         value: "<script",
+        loc: { start: { line: 11, column: 0 }, end: { line: 11, column: 7 } },
         range: [58, 65],
-        loc: {
-          start: {
-            line: 11,
-          },
-          end: {
-            line: 11,
-          },
-        },
       },
       openEnd: {
-        type: NodeTypes.OpenTagEndScript,
+        type: "OpenTagEndScript",
         value: ">",
+        loc: { start: { line: 11, column: 7 }, end: { line: 11, column: 8 } },
         range: [65, 66],
-        loc: {
-          start: {
-            line: 11,
-          },
-          end: {
-            line: 11,
-          },
-        },
       },
       close: {
-        type: NodeTypes.CloseTagScript,
+        type: "CloseTagScript",
         value: "</script>",
+        loc: { start: { line: 11, column: 8 }, end: { line: 11, column: 17 } },
         range: [66, 75],
-        loc: {
-          start: {
-            line: 11,
-          },
-          end: {
-            line: 11,
-          },
-        },
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n",
+      loc: { start: { line: 11, column: 17 }, end: { line: 12, column: 0 } },
       range: [75, 76],
-      loc: {
-        start: {
-          line: 11,
-        },
-        end: {
-          line: 12,
-        },
-      },
     },
     {
-      type: NodeTypes.ScriptTag,
-      attributes: [],
+      type: "ScriptTag",
       range: [76, 94],
-      loc: {
-        start: {
-          line: 12,
-        },
-        end: {
-          line: 13,
-        },
-      },
+      loc: { start: { line: 12, column: 0 }, end: { line: 13, column: 9 } },
+      attributes: [],
       openStart: {
-        type: NodeTypes.OpenTagStartScript,
+        type: "OpenTagStartScript",
         value: "<SCRIPT",
+        loc: { start: { line: 12, column: 0 }, end: { line: 12, column: 7 } },
         range: [76, 83],
-        loc: {
-          start: {
-            line: 12,
-          },
-          end: {
-            line: 12,
-          },
-        },
       },
       openEnd: {
-        type: NodeTypes.OpenTagEndScript,
+        type: "OpenTagEndScript",
         value: ">",
+        loc: { start: { line: 12, column: 7 }, end: { line: 12, column: 8 } },
         range: [83, 84],
-        loc: {
-          start: {
-            line: 12,
-          },
-          end: {
-            line: 12,
-          },
-        },
       },
       value: {
-        type: NodeTypes.ScriptTagContent,
+        type: "ScriptTagContent",
         value: "\n",
+        loc: { start: { line: 12, column: 8 }, end: { line: 13, column: 0 } },
         range: [84, 85],
-        loc: {
-          start: {
-            line: 12,
-          },
-          end: {
-            line: 13,
-          },
-        },
       },
       close: {
-        type: NodeTypes.CloseTagScript,
+        type: "CloseTagScript",
         value: "</SCRIPT>",
+        loc: { start: { line: 13, column: 0 }, end: { line: 13, column: 9 } },
         range: [85, 94],
-        loc: {
-          start: {
-            line: 13,
-          },
-          end: {
-            line: 13,
-          },
-        },
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
+      value: "\n",
+      loc: { start: { line: 13, column: 9 }, end: { line: 14, column: 0 } },
       range: [94, 95],
-      loc: {
-        start: {
-          line: 13,
-        },
-        end: {
-          line: 14,
-        },
-      },
-      value: "\n",
     },
     {
-      type: NodeTypes.ScriptTag,
-      attributes: [],
+      type: "ScriptTag",
       range: [95, 112],
-      loc: {
-        start: {
-          line: 14,
-        },
-        end: {
-          line: 14,
-        },
-      },
+      loc: { start: { line: 14, column: 0 }, end: { line: 14, column: 17 } },
+      attributes: [],
       openStart: {
-        type: NodeTypes.OpenTagStartScript,
+        type: "OpenTagStartScript",
         value: "<SCRIPT",
+        loc: { start: { line: 14, column: 0 }, end: { line: 14, column: 7 } },
         range: [95, 102],
-        loc: {
-          start: {
-            line: 14,
-          },
-          end: {
-            line: 14,
-          },
-        },
       },
       openEnd: {
-        type: NodeTypes.OpenTagEndScript,
+        type: "OpenTagEndScript",
         value: ">",
+        loc: { start: { line: 14, column: 7 }, end: { line: 14, column: 8 } },
         range: [102, 103],
-        loc: {
-          start: {
-            line: 14,
-          },
-          end: {
-            line: 14,
-          },
-        },
       },
       close: {
-        type: NodeTypes.CloseTagScript,
+        type: "CloseTagScript",
         value: "</script>",
+        loc: { start: { line: 14, column: 8 }, end: { line: 14, column: 17 } },
         range: [103, 112],
-        loc: {
-          start: {
-            line: 14,
-          },
-          end: {
-            line: 14,
-          },
-        },
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n",
+      loc: { start: { line: 14, column: 17 }, end: { line: 15, column: 0 } },
       range: [112, 113],
-      loc: {
-        start: {
-          line: 14,
-        },
-        end: {
-          line: 15,
-        },
-      },
     },
     {
-      type: NodeTypes.ScriptTag,
+      type: "ScriptTag",
       range: [113, 131],
+      loc: { start: { line: 15, column: 0 }, end: { line: 16, column: 9 } },
       attributes: [],
-      loc: {
-        start: {
-          line: 15,
-        },
-        end: {
-          line: 16,
-        },
-      },
       openStart: {
-        type: NodeTypes.OpenTagStartScript,
+        type: "OpenTagStartScript",
         value: "<script",
+        loc: { start: { line: 15, column: 0 }, end: { line: 15, column: 7 } },
         range: [113, 120],
-        loc: {
-          start: {
-            line: 15,
-          },
-          end: {
-            line: 15,
-          },
-        },
       },
       openEnd: {
-        type: NodeTypes.OpenTagEndScript,
+        type: "OpenTagEndScript",
         value: ">",
+        loc: { start: { line: 15, column: 7 }, end: { line: 15, column: 8 } },
         range: [120, 121],
-        loc: {
-          start: {
-            line: 15,
-          },
-          end: {
-            line: 15,
-          },
-        },
-      },
-      close: {
-        type: NodeTypes.CloseTagScript,
-        value: "</SCRIPT>",
-        range: [122, 131],
-        loc: {
-          start: {
-            line: 16,
-          },
-          end: {
-            line: 16,
-          },
-        },
       },
       value: {
-        type: NodeTypes.ScriptTagContent,
+        type: "ScriptTagContent",
         value: "\n",
+        loc: { start: { line: 15, column: 8 }, end: { line: 16, column: 0 } },
         range: [121, 122],
-        loc: {
-          start: {
-            line: 15,
-          },
-          end: {
-            line: 16,
-          },
-        },
-      },
-    },
-    {
-      type: NodeTypes.Text,
-      value: "\n\n",
-      range: [131, 133],
-      loc: {
-        start: {
-          line: 16,
-        },
-        end: {
-          line: 18,
-        },
-      },
-    },
-    {
-      type: NodeTypes.StyleTag,
-      range: [133, 148],
-      attributes: [],
-      loc: {
-        start: {
-          line: 18,
-        },
-        end: {
-          line: 18,
-        },
-      },
-      openStart: {
-        type: NodeTypes.OpenTagStartStyle,
-        value: "<style",
-        range: [133, 139],
-        loc: {
-          start: {
-            line: 18,
-          },
-          end: {
-            line: 18,
-          },
-        },
-      },
-      openEnd: {
-        type: NodeTypes.OpenTagEndStyle,
-        value: ">",
-        range: [139, 140],
-        loc: {
-          start: {
-            line: 18,
-          },
-          end: {
-            line: 18,
-          },
-        },
       },
       close: {
-        type: NodeTypes.CloseTagStyle,
-        value: "</style>",
-        range: [140, 148],
-        loc: {
-          start: {
-            line: 18,
-          },
-          end: {
-            line: 18,
-          },
-        },
+        type: "CloseTagScript",
+        value: "</SCRIPT>",
+        loc: { start: { line: 16, column: 0 }, end: { line: 16, column: 9 } },
+        range: [122, 131],
       },
     },
     {
-      type: NodeTypes.Text,
-      value: "\n",
-      range: [148, 149],
-      loc: {
-        start: {
-          line: 18,
-        },
-        end: {
-          line: 19,
-        },
-      },
+      type: "Text",
+      value: "\n\n",
+      loc: { start: { line: 16, column: 9 }, end: { line: 18, column: 0 } },
+      range: [131, 133],
     },
     {
-      type: NodeTypes.StyleTag,
-      range: [149, 165],
+      type: "StyleTag",
+      range: [133, 148],
+      loc: { start: { line: 18, column: 0 }, end: { line: 18, column: 15 } },
       attributes: [],
-      loc: {
-        start: {
-          line: 19,
-        },
-        end: {
-          line: 20,
-        },
-      },
       openStart: {
-        type: NodeTypes.OpenTagStartStyle,
-        value: "<STYLE",
-        range: [149, 155],
-        loc: {
-          start: {
-            line: 19,
-          },
-          end: {
-            line: 19,
-          },
-        },
+        type: "OpenTagStartStyle",
+        value: "<style",
+        loc: { start: { line: 18, column: 0 }, end: { line: 18, column: 6 } },
+        range: [133, 139],
       },
       openEnd: {
-        type: NodeTypes.OpenTagEndStyle,
+        type: "OpenTagEndStyle",
         value: ">",
+        loc: { start: { line: 18, column: 6 }, end: { line: 18, column: 7 } },
+        range: [139, 140],
+      },
+      close: {
+        type: "CloseTagStyle",
+        value: "</style>",
+        loc: { start: { line: 18, column: 7 }, end: { line: 18, column: 15 } },
+        range: [140, 148],
+      },
+    },
+    {
+      type: "Text",
+      value: "\n",
+      loc: { start: { line: 18, column: 15 }, end: { line: 19, column: 0 } },
+      range: [148, 149],
+    },
+    {
+      type: "StyleTag",
+      range: [149, 165],
+      loc: { start: { line: 19, column: 0 }, end: { line: 20, column: 8 } },
+      attributes: [],
+      openStart: {
+        type: "OpenTagStartStyle",
+        value: "<STYLE",
+        loc: { start: { line: 19, column: 0 }, end: { line: 19, column: 6 } },
+        range: [149, 155],
+      },
+      openEnd: {
+        type: "OpenTagEndStyle",
+        value: ">",
+        loc: { start: { line: 19, column: 6 }, end: { line: 19, column: 7 } },
         range: [155, 156],
-        loc: {
-          start: {
-            line: 19,
-          },
-          end: {
-            line: 19,
-          },
-        },
       },
       value: {
-        type: NodeTypes.StyleTagContent,
+        type: "StyleTagContent",
         value: "\n",
+        loc: { start: { line: 19, column: 7 }, end: { line: 20, column: 0 } },
         range: [156, 157],
-        loc: {
-          start: {
-            line: 19,
-          },
-          end: {
-            line: 20,
-          },
-        },
       },
       close: {
-        type: NodeTypes.CloseTagStyle,
+        type: "CloseTagStyle",
         value: "</STYLE>",
+        loc: { start: { line: 20, column: 0 }, end: { line: 20, column: 8 } },
         range: [157, 165],
-        loc: {
-          start: {
-            line: 20,
-          },
-          end: {
-            line: 20,
-          },
-        },
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n",
+      loc: { start: { line: 20, column: 8 }, end: { line: 21, column: 0 } },
       range: [165, 166],
-      loc: {
-        start: {
-          line: 20,
-        },
-        end: {
-          line: 21,
-        },
-      },
     },
     {
-      type: NodeTypes.StyleTag,
+      type: "StyleTag",
       range: [166, 181],
+      loc: { start: { line: 21, column: 0 }, end: { line: 21, column: 15 } },
       attributes: [],
-      loc: {
-        start: {
-          line: 21,
-        },
-        end: {
-          line: 21,
-        },
-      },
       openStart: {
-        type: NodeTypes.OpenTagStartStyle,
+        type: "OpenTagStartStyle",
         value: "<STYLE",
+        loc: { start: { line: 21, column: 0 }, end: { line: 21, column: 6 } },
         range: [166, 172],
-        loc: {
-          start: {
-            line: 21,
-          },
-          end: {
-            line: 21,
-          },
-        },
       },
       openEnd: {
-        type: NodeTypes.OpenTagEndStyle,
+        type: "OpenTagEndStyle",
         value: ">",
+        loc: { start: { line: 21, column: 6 }, end: { line: 21, column: 7 } },
         range: [172, 173],
-        loc: {
-          start: {
-            line: 21,
-          },
-          end: {
-            line: 21,
-          },
-        },
       },
       close: {
-        type: NodeTypes.CloseTagStyle,
+        type: "CloseTagStyle",
         value: "</style>",
+        loc: { start: { line: 21, column: 7 }, end: { line: 21, column: 15 } },
         range: [173, 181],
-        loc: {
-          start: {
-            line: 21,
-          },
-          end: {
-            line: 21,
-          },
-        },
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n",
+      loc: { start: { line: 21, column: 15 }, end: { line: 22, column: 0 } },
       range: [181, 182],
-      loc: {
-        start: {
-          line: 21,
-        },
-        end: {
-          line: 22,
-        },
-      },
     },
     {
-      type: NodeTypes.StyleTag,
-      attributes: [],
+      type: "StyleTag",
       range: [182, 197],
-      loc: {
-        start: {
-          line: 22,
-        },
-        end: {
-          line: 22,
-        },
-      },
+      loc: { start: { line: 22, column: 0 }, end: { line: 22, column: 15 } },
+      attributes: [],
       openStart: {
-        type: NodeTypes.OpenTagStartStyle,
+        type: "OpenTagStartStyle",
         value: "<style",
+        loc: { start: { line: 22, column: 0 }, end: { line: 22, column: 6 } },
         range: [182, 188],
-        loc: {
-          start: {
-            line: 22,
-          },
-          end: {
-            line: 22,
-          },
-        },
       },
       openEnd: {
-        type: NodeTypes.OpenTagEndStyle,
+        type: "OpenTagEndStyle",
         value: ">",
+        loc: { start: { line: 22, column: 6 }, end: { line: 22, column: 7 } },
         range: [188, 189],
-        loc: {
-          start: {
-            line: 22,
-          },
-          end: {
-            line: 22,
-          },
-        },
       },
       close: {
-        type: NodeTypes.CloseTagStyle,
+        type: "CloseTagStyle",
         value: "</STYLE>",
+        loc: { start: { line: 22, column: 7 }, end: { line: 22, column: 15 } },
         range: [189, 197],
-        loc: {
-          start: {
-            line: 22,
-          },
-          end: {
-            line: 22,
-          },
-        },
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n",
+      loc: { start: { line: 22, column: 15 }, end: { line: 23, column: 0 } },
       range: [197, 198],
-      loc: {
-        start: {
-          line: 22,
-        },
-        end: {
-          line: 23,
-        },
-      },
     },
   ],
+  loc: { start: { line: 1, column: 15 }, end: { line: 23, column: 0 } },
 };

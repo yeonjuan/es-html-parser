@@ -1,6 +1,6 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenPosition } from "../../utils";
-import { Token, TokenizerState } from "../../types";
+import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
+import { Range, Token, TokenizerState } from "../../types";
 
 const COMMENT_START = "<!--";
 const OPEN_TAG_START_PATTERN = /^<\w/;
@@ -106,27 +106,18 @@ function parseCommentStart(state: TokenizerState, tokens: Token[]) {
     tokens.push(generateTextToken(state));
   }
 
-  const commentStartPosition = {
-    startPosition: state.caretPosition - (COMMENT_START.length - 1),
-    endPosition: state.caretPosition + 1,
-    loc: {
-      start: {
-        line: state.linePosition,
-      },
-      end: {
-        line: state.linePosition,
-      },
-    },
-  };
+  const range: Range = [
+    state.caretPosition - (COMMENT_START.length - 1),
+    state.caretPosition + 1,
+  ];
+
+  const loc = calculateTokenLocation(state.source, range);
 
   tokens.push({
     type: TokenTypes.CommentStart,
     value: state.decisionBuffer,
-    range: [
-      commentStartPosition.startPosition,
-      commentStartPosition.endPosition,
-    ],
-    loc: commentStartPosition.loc,
+    range: range,
+    loc,
   });
 
   state.accumulatedContent = "";

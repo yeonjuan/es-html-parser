@@ -1,6 +1,6 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenPosition } from "../../utils";
-import { Token, TokenizerState } from "../../types";
+import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
+import { Range, Token, TokenizerState } from "../../types";
 
 export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   const wrapperChar =
@@ -26,11 +26,13 @@ function parseWrapper(state: TokenizerState, tokens: Token[]) {
     loc: position.loc,
   });
 
+  const range: Range = [endWrapperPosition, endWrapperPosition + 1];
+  const loc = calculateTokenLocation(state.source, range);
   tokens.push({
     type: TokenTypes.DoctypeAttributeWrapperEnd,
     value: state.decisionBuffer,
-    range: [endWrapperPosition, endWrapperPosition + 1],
-    loc: position.loc,
+    range,
+    loc,
   });
 
   state.accumulatedContent = "";

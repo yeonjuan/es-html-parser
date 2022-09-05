@@ -1,500 +1,574 @@
-import { NodeTypes } from "../../../constants";
-
 export default {
-  type: NodeTypes.Document,
+  type: "Document",
   range: [0, 175],
-  loc: {
-    start: {
-      line: 1,
-    },
-    end: {
-      line: 21,
-    },
-  },
   children: [
     {
-      type: NodeTypes.Comment,
+      type: "Comment",
       range: [0, 21],
       loc: {
         start: {
           line: 1,
+          column: 0,
         },
         end: {
           line: 1,
+          column: 21,
         },
       },
       start: {
-        type: NodeTypes.CommentStart,
+        type: "CommentStart",
         value: "<!--",
+        loc: {
+          start: {
+            line: 1,
+            column: 0,
+          },
+          end: {
+            line: 1,
+            column: 4,
+          },
+        },
         range: [0, 4],
-        loc: {
-          start: {
-            line: 1,
-          },
-          end: {
-            line: 1,
-          },
-        },
-      },
-      end: {
-        type: NodeTypes.CommentEnd,
-        value: "-->",
-        range: [18, 21],
-        loc: {
-          start: {
-            line: 1,
-          },
-          end: {
-            line: 1,
-          },
-        },
       },
       value: {
-        type: NodeTypes.CommentContent,
+        type: "CommentContent",
         value: " some comment ",
-        range: [4, 18],
         loc: {
           start: {
             line: 1,
+            column: 4,
           },
           end: {
             line: 1,
+            column: 18,
           },
         },
+        range: [4, 18],
+      },
+      end: {
+        type: "CommentEnd",
+        value: "-->",
+        loc: {
+          start: {
+            line: 1,
+            column: 18,
+          },
+          end: {
+            line: 1,
+            column: 21,
+          },
+        },
+        range: [18, 21],
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n\n",
-      range: [21, 23],
       loc: {
         start: {
           line: 1,
+          column: 21,
         },
         end: {
           line: 3,
+          column: 0,
         },
       },
+      range: [21, 23],
     },
     {
-      type: NodeTypes.Tag,
-      attributes: [],
-      name: "div",
-      selfClosing: false,
+      type: "Tag",
       range: [23, 108],
       loc: {
         start: {
           line: 3,
+          column: 0,
         },
         end: {
           line: 14,
+          column: 6,
         },
       },
-      openStart: {
-        type: NodeTypes.OpenTagStart,
-        value: "<div",
-        range: [23, 27],
-        loc: {
-          start: {
-            line: 3,
-          },
-          end: {
-            line: 3,
-          },
-        },
-      },
-      openEnd: {
-        type: NodeTypes.OpenTagEnd,
-        value: ">",
-        range: [27, 28],
-        loc: {
-          start: {
-            line: 3,
-          },
-          end: {
-            line: 3,
-          },
-        },
-      },
-      close: {
-        type: NodeTypes.CloseTag,
-        value: "</div>",
-        range: [102, 108],
-        loc: {
-          start: {
-            line: 14,
-          },
-          end: {
-            line: 14,
-          },
-        },
-      },
+      attributes: [],
       children: [
         {
-          type: NodeTypes.Text,
+          type: "Text",
           value: "\n  ",
-          range: [28, 31],
           loc: {
             start: {
               line: 3,
+              column: 5,
             },
             end: {
               line: 4,
+              column: 2,
             },
           },
+          range: [28, 31],
         },
         {
-          type: NodeTypes.Tag,
-          attributes: [],
-          name: "span",
-          selfClosing: false,
+          type: "Tag",
           range: [31, 70],
           loc: {
             start: {
               line: 4,
+              column: 2,
             },
             end: {
               line: 6,
+              column: 9,
             },
           },
-          openStart: {
-            type: NodeTypes.OpenTagStart,
-            value: "<span",
-            range: [31, 36],
-            loc: {
-              start: {
-                line: 4,
-              },
-              end: {
-                line: 4,
-              },
-            },
-          },
-          openEnd: {
-            type: NodeTypes.OpenTagEnd,
-            value: ">",
-            range: [36, 37],
-            loc: {
-              start: {
-                line: 4,
-              },
-              end: {
-                line: 4,
-              },
-            },
-          },
-          close: {
-            type: NodeTypes.CloseTag,
-            value: "</span>",
-            range: [63, 70],
-            loc: {
-              start: {
-                line: 6,
-              },
-              end: {
-                line: 6,
-              },
-            },
-          },
+          attributes: [],
           children: [
             {
-              type: NodeTypes.Text,
+              type: "Text",
               value: "\n    ",
-              range: [37, 42],
               loc: {
                 start: {
                   line: 4,
+                  column: 8,
                 },
                 end: {
                   line: 5,
+                  column: 4,
                 },
               },
+              range: [37, 42],
             },
             {
-              type: NodeTypes.Comment,
+              type: "Comment",
               range: [42, 60],
               loc: {
                 start: {
                   line: 5,
+                  column: 4,
                 },
                 end: {
                   line: 5,
+                  column: 22,
                 },
               },
               start: {
-                type: NodeTypes.CommentStart,
+                type: "CommentStart",
                 value: "<!--",
-                range: [42, 46],
                 loc: {
                   start: {
                     line: 5,
+                    column: 4,
                   },
                   end: {
                     line: 5,
+                    column: 8,
                   },
                 },
+                range: [42, 46],
               },
               value: {
-                type: NodeTypes.CommentContent,
+                type: "CommentContent",
                 value: "another-one",
-                range: [46, 57],
                 loc: {
                   start: {
                     line: 5,
+                    column: 8,
                   },
                   end: {
                     line: 5,
+                    column: 19,
                   },
                 },
+                range: [46, 57],
               },
               end: {
-                type: NodeTypes.CommentEnd,
+                type: "CommentEnd",
                 value: "-->",
-                range: [57, 60],
                 loc: {
                   start: {
                     line: 5,
+                    column: 19,
                   },
                   end: {
                     line: 5,
+                    column: 22,
                   },
                 },
+                range: [57, 60],
               },
             },
             {
-              type: NodeTypes.Text,
+              type: "Text",
               value: "\n  ",
-              range: [60, 63],
               loc: {
                 start: {
                   line: 5,
+                  column: 22,
                 },
                 end: {
                   line: 6,
+                  column: 2,
                 },
               },
+              range: [60, 63],
             },
           ],
-        },
-        {
-          type: NodeTypes.Text,
-          value: "\n\n  ",
-          range: [70, 74],
-          loc: {
-            start: {
-              line: 6,
+          openStart: {
+            type: "OpenTagStart",
+            value: "<span",
+            loc: {
+              start: {
+                line: 4,
+                column: 2,
+              },
+              end: {
+                line: 4,
+                column: 7,
+              },
             },
-            end: {
-              line: 8,
+            range: [31, 36],
+          },
+          name: "span",
+          openEnd: {
+            type: "OpenTagEnd",
+            value: ">",
+            loc: {
+              start: {
+                line: 4,
+                column: 7,
+              },
+              end: {
+                line: 4,
+                column: 8,
+              },
             },
+            range: [36, 37],
+          },
+          selfClosing: false,
+          close: {
+            type: "CloseTag",
+            value: "</span>",
+            loc: {
+              start: {
+                line: 6,
+                column: 2,
+              },
+              end: {
+                line: 6,
+                column: 9,
+              },
+            },
+            range: [63, 70],
           },
         },
         {
-          type: NodeTypes.Comment,
+          type: "Text",
+          value: "\n\n  ",
+          loc: {
+            start: {
+              line: 6,
+              column: 9,
+            },
+            end: {
+              line: 8,
+              column: 2,
+            },
+          },
+          range: [70, 74],
+        },
+        {
+          type: "Comment",
           range: [74, 101],
           loc: {
             start: {
               line: 8,
+              column: 2,
             },
             end: {
               line: 13,
+              column: 5,
             },
           },
           start: {
-            type: NodeTypes.CommentStart,
+            type: "CommentStart",
             value: "<!--",
+            loc: {
+              start: {
+                line: 8,
+                column: 2,
+              },
+              end: {
+                line: 8,
+                column: 6,
+              },
+            },
             range: [74, 78],
-            loc: {
-              start: {
-                line: 8,
-              },
-              end: {
-                line: 8,
-              },
-            },
-          },
-          end: {
-            type: NodeTypes.CommentEnd,
-            value: "-->",
-            range: [98, 101],
-            loc: {
-              start: {
-                line: 13,
-              },
-              end: {
-                line: 13,
-              },
-            },
           },
           value: {
-            type: NodeTypes.CommentContent,
+            type: "CommentContent",
             value: "\n\n  multi\n\n  line\n  ",
-            range: [78, 98],
             loc: {
               start: {
                 line: 8,
+                column: 6,
               },
               end: {
                 line: 13,
+                column: 2,
               },
             },
+            range: [78, 98],
+          },
+          end: {
+            type: "CommentEnd",
+            value: "-->",
+            loc: {
+              start: {
+                line: 13,
+                column: 2,
+              },
+              end: {
+                line: 13,
+                column: 5,
+              },
+            },
+            range: [98, 101],
           },
         },
         {
-          type: NodeTypes.Text,
+          type: "Text",
           value: "\n",
-          range: [101, 102],
           loc: {
             start: {
               line: 13,
+              column: 5,
             },
             end: {
               line: 14,
+              column: 0,
             },
           },
+          range: [101, 102],
         },
       ],
-    },
-    {
-      type: NodeTypes.Text,
-      value: "\n\n",
-      range: [108, 110],
-      loc: {
-        start: {
-          line: 14,
+      openStart: {
+        type: "OpenTagStart",
+        value: "<div",
+        loc: {
+          start: {
+            line: 3,
+            column: 0,
+          },
+          end: {
+            line: 3,
+            column: 4,
+          },
         },
-        end: {
-          line: 16,
+        range: [23, 27],
+      },
+      name: "div",
+      openEnd: {
+        type: "OpenTagEnd",
+        value: ">",
+        loc: {
+          start: {
+            line: 3,
+            column: 4,
+          },
+          end: {
+            line: 3,
+            column: 5,
+          },
         },
+        range: [27, 28],
+      },
+      selfClosing: false,
+      close: {
+        type: "CloseTag",
+        value: "</div>",
+        loc: {
+          start: {
+            line: 14,
+            column: 0,
+          },
+          end: {
+            line: 14,
+            column: 6,
+          },
+        },
+        range: [102, 108],
       },
     },
     {
-      type: NodeTypes.Comment,
+      type: "Text",
+      value: "\n\n",
+      loc: {
+        start: {
+          line: 14,
+          column: 6,
+        },
+        end: {
+          line: 16,
+          column: 0,
+        },
+      },
+      range: [108, 110],
+    },
+    {
+      type: "Comment",
       range: [110, 135],
       loc: {
         start: {
           line: 16,
+          column: 0,
         },
         end: {
           line: 18,
+          column: 11,
         },
       },
       start: {
-        type: NodeTypes.CommentStart,
+        type: "CommentStart",
         value: "<!--",
+        loc: {
+          start: {
+            line: 16,
+            column: 0,
+          },
+          end: {
+            line: 16,
+            column: 4,
+          },
+        },
         range: [110, 114],
-        loc: {
-          start: {
-            line: 16,
-          },
-          end: {
-            line: 16,
-          },
-        },
-      },
-      end: {
-        type: NodeTypes.CommentEnd,
-        value: "-->",
-        range: [132, 135],
-        loc: {
-          start: {
-            line: 18,
-          },
-          end: {
-            line: 18,
-          },
-        },
       },
       value: {
-        type: NodeTypes.CommentContent,
+        type: "CommentContent",
         value: " closing\n\ncomment ",
-        range: [114, 132],
         loc: {
           start: {
             line: 16,
+            column: 4,
           },
           end: {
             line: 18,
+            column: 8,
           },
         },
+        range: [114, 132],
+      },
+      end: {
+        type: "CommentEnd",
+        value: "-->",
+        loc: {
+          start: {
+            line: 18,
+            column: 8,
+          },
+          end: {
+            line: 18,
+            column: 11,
+          },
+        },
+        range: [132, 135],
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n\n",
-      range: [135, 137],
       loc: {
         start: {
           line: 18,
+          column: 11,
         },
         end: {
           line: 20,
+          column: 0,
         },
       },
+      range: [135, 137],
     },
     {
-      type: NodeTypes.Comment,
+      type: "Comment",
       range: [137, 174],
       loc: {
         start: {
           line: 20,
+          column: 0,
         },
         end: {
           line: 20,
+          column: 37,
         },
       },
       start: {
-        type: NodeTypes.CommentStart,
+        type: "CommentStart",
         value: "<!--",
+        loc: {
+          start: {
+            line: 20,
+            column: 0,
+          },
+          end: {
+            line: 20,
+            column: 4,
+          },
+        },
         range: [137, 141],
-        loc: {
-          start: {
-            line: 20,
-          },
-          end: {
-            line: 20,
-          },
-        },
-      },
-      end: {
-        type: NodeTypes.CommentEnd,
-        value: "-->",
-        range: [171, 174],
-        loc: {
-          start: {
-            line: 20,
-          },
-          end: {
-            line: 20,
-          },
-        },
       },
       value: {
-        type: NodeTypes.CommentContent,
+        type: "CommentContent",
         value: "         spaces here          ",
-        range: [141, 171],
         loc: {
           start: {
             line: 20,
+            column: 4,
           },
           end: {
             line: 20,
+            column: 34,
           },
         },
+        range: [141, 171],
+      },
+      end: {
+        type: "CommentEnd",
+        value: "-->",
+        loc: {
+          start: {
+            line: 20,
+            column: 34,
+          },
+          end: {
+            line: 20,
+            column: 37,
+          },
+        },
+        range: [171, 174],
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n",
-      range: [174, 175],
       loc: {
         start: {
           line: 20,
+          column: 37,
         },
         end: {
           line: 21,
+          column: 0,
         },
       },
+      range: [174, 175],
     },
   ],
+  loc: {
+    start: {
+      line: 1,
+      column: 37,
+    },
+    end: {
+      line: 21,
+      column: 0,
+    },
+  },
 };

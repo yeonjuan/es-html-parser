@@ -8,9 +8,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 0,
       },
       end: {
         line: 3,
+        column: 0,
       },
     },
   },
@@ -21,9 +23,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 0,
       },
       end: {
         line: 3,
+        column: 4,
       },
     },
   },
@@ -34,9 +38,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 4,
       },
       end: {
         line: 3,
+        column: 5,
       },
     },
   },
@@ -47,9 +53,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 5,
       },
       end: {
         line: 4,
+        column: 2,
       },
     },
   },
@@ -60,9 +68,11 @@ export default [
     loc: {
       start: {
         line: 4,
+        column: 2,
       },
       end: {
         line: 4,
+        column: 9,
       },
     },
   },
@@ -73,9 +83,11 @@ export default [
     loc: {
       start: {
         line: 4,
+        column: 9,
       },
       end: {
         line: 4,
+        column: 10,
       },
     },
   },
@@ -86,9 +98,11 @@ export default [
     loc: {
       start: {
         line: 4,
+        column: 10,
       },
       end: {
         line: 6,
+        column: 2,
       },
     },
   },
@@ -99,9 +113,11 @@ export default [
     loc: {
       start: {
         line: 6,
+        column: 2,
       },
       end: {
         line: 6,
+        column: 11,
       },
     },
   },
@@ -112,9 +128,11 @@ export default [
     loc: {
       start: {
         line: 6,
+        column: 11,
       },
       end: {
         line: 7,
+        column: 0,
       },
     },
   },
@@ -125,9 +143,11 @@ export default [
     loc: {
       start: {
         line: 7,
+        column: 0,
       },
       end: {
         line: 7,
+        column: 6,
       },
     },
   },
@@ -138,9 +158,11 @@ export default [
     loc: {
       start: {
         line: 7,
+        column: 6,
       },
       end: {
         line: 10,
+        column: 0,
       },
     },
   },

@@ -8,9 +8,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 0,
       },
       end: {
         line: 1,
+        column: 4,
       },
     },
   },
@@ -21,9 +23,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 5,
       },
       end: {
         line: 1,
+        column: 8,
       },
     },
   },
@@ -34,9 +38,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 10,
       },
       end: {
         line: 1,
+        column: 11,
       },
     },
   },
@@ -47,9 +53,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 11,
       },
       end: {
         line: 1,
+        column: 16,
       },
     },
   },
@@ -60,9 +68,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 18,
       },
       end: {
         line: 1,
+        column: 29,
       },
     },
   },
@@ -73,9 +83,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 29,
       },
       end: {
         line: 1,
+        column: 30,
       },
     },
   },
@@ -85,10 +97,12 @@ export default [
     range: [32, 37],
     loc: {
       start: {
+        column: 32,
         line: 1,
       },
       end: {
         line: 1,
+        column: 37,
       },
     },
   },
@@ -99,9 +113,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 37,
       },
       end: {
         line: 1,
+        column: 38,
       },
     },
   },
@@ -112,9 +128,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 38,
       },
       end: {
         line: 1,
+        column: 44,
       },
     },
   },
@@ -125,9 +143,11 @@ export default [
     loc: {
       start: {
         line: 1,
+        column: 44,
       },
       end: {
         line: 3,
+        column: 0,
       },
     },
   },
@@ -138,9 +158,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 0,
       },
       end: {
         line: 3,
+        column: 5,
       },
     },
   },
@@ -151,9 +173,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 6,
       },
       end: {
         line: 3,
+        column: 10,
       },
     },
   },
@@ -164,9 +188,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 10,
       },
       end: {
         line: 3,
+        column: 11,
       },
     },
   },
@@ -177,9 +203,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 11,
       },
       end: {
         line: 3,
+        column: 27,
       },
     },
   },
@@ -190,9 +218,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 27,
       },
       end: {
         line: 3,
+        column: 28,
       },
     },
   },
@@ -203,9 +233,11 @@ export default [
     loc: {
       start: {
         line: 3,
+        column: 28,
       },
       end: {
         line: 6,
+        column: 2,
       },
     },
   },
@@ -216,9 +248,11 @@ export default [
     loc: {
       start: {
         line: 6,
+        column: 2,
       },
       end: {
         line: 6,
+        column: 17,
       },
     },
   },
@@ -229,9 +263,11 @@ export default [
     loc: {
       start: {
         line: 6,
+        column: 18,
       },
       end: {
         line: 6,
+        column: 21,
       },
     },
   },
@@ -242,9 +278,11 @@ export default [
     loc: {
       start: {
         line: 6,
+        column: 21,
       },
       end: {
         line: 6,
+        column: 22,
       },
     },
   },
@@ -255,9 +293,11 @@ export default [
     loc: {
       start: {
         line: 6,
+        column: 22,
       },
       end: {
         line: 6,
+        column: 26,
       },
     },
   },
@@ -268,9 +308,11 @@ export default [
     loc: {
       start: {
         line: 7,
+        column: 4,
       },
       end: {
         line: 7,
+        column: 12,
       },
     },
   },
@@ -281,9 +323,11 @@ export default [
     loc: {
       start: {
         line: 7,
+        column: 13,
       },
       end: {
         line: 7,
+        column: 14,
       },
     },
   },
@@ -294,9 +338,11 @@ export default [
     loc: {
       start: {
         line: 7,
+        column: 15,
       },
       end: {
         line: 7,
+        column: 19,
       },
     },
   },
@@ -307,9 +353,11 @@ export default [
     loc: {
       start: {
         line: 8,
+        column: 2,
       },
       end: {
         line: 8,
+        column: 3,
       },
     },
   },
@@ -320,9 +368,11 @@ export default [
     loc: {
       start: {
         line: 8,
+        column: 3,
       },
       end: {
         line: 11,
+        column: 2,
       },
     },
   },
@@ -333,9 +383,11 @@ export default [
     loc: {
       start: {
         line: 11,
+        column: 2,
       },
       end: {
         line: 11,
+        column: 19,
       },
     },
   },
@@ -346,9 +398,11 @@ export default [
     loc: {
       start: {
         line: 11,
+        column: 19,
       },
       end: {
         line: 12,
+        column: 0,
       },
     },
   },
@@ -359,9 +413,11 @@ export default [
     loc: {
       start: {
         line: 12,
+        column: 0,
       },
       end: {
         line: 12,
+        column: 7,
       },
     },
   },
@@ -372,9 +428,11 @@ export default [
     loc: {
       start: {
         line: 12,
+        column: 7,
       },
       end: {
         line: 13,
+        column: 0,
       },
     },
   },

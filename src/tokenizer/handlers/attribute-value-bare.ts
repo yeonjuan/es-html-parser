@@ -5,18 +5,12 @@ import { Token, TokenizerState } from "../../types";
 
 export function parseValueEnd(state: TokenizerState, tokens: Token[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
+
   tokens.push({
     type: TokenTypes.AttributeValue,
     value: state.accumulatedContent,
     range: position.range,
-    loc: {
-      start: {
-        line: position.loc.start.line,
-      },
-      end: {
-        line: position.loc.end.line,
-      },
-    },
+    loc: position.loc,
   });
 
   state.accumulatedContent = "";

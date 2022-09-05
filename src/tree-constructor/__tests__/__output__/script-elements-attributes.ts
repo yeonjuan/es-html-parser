@@ -1,641 +1,739 @@
 import { NodeTypes } from "../../../constants";
 
 export default {
-  type: NodeTypes.Document,
+  type: "Document",
   range: [0, 308],
-  loc: {
-    start: {
-      line: 1,
-    },
-    end: {
-      line: 20,
-    },
-  },
   children: [
     {
-      type: NodeTypes.Tag,
-      attributes: [],
-      selfClosing: false,
-      name: "div",
+      type: "Tag",
       range: [0, 234],
       loc: {
         start: {
           line: 1,
+          column: 0,
         },
         end: {
           line: 15,
+          column: 6,
         },
       },
-      openStart: {
-        type: NodeTypes.OpenTagStart,
-        range: [0, 4],
-        value: "<div",
-        loc: {
-          start: {
-            line: 1,
-          },
-          end: {
-            line: 1,
-          },
-        },
-      },
-      openEnd: {
-        type: NodeTypes.OpenTagEnd,
-        range: [4, 5],
-        value: ">",
-        loc: {
-          start: {
-            line: 1,
-          },
-          end: {
-            line: 1,
-          },
-        },
-      },
-      close: {
-        type: NodeTypes.CloseTag,
-        range: [228, 234],
-        value: "</div>",
-        loc: {
-          start: {
-            line: 15,
-          },
-          end: {
-            line: 15,
-          },
-        },
-      },
+      attributes: [],
       children: [
         {
-          type: NodeTypes.Text,
-          range: [5, 25],
+          type: "Text",
+          value: "\n  dummy content\n\n  ",
           loc: {
             start: {
               line: 1,
+              column: 5,
             },
             end: {
               line: 4,
+              column: 2,
             },
           },
-          value: "\n  dummy content\n\n  ",
+          range: [5, 25],
         },
         {
-          type: NodeTypes.ScriptTag,
+          type: "ScriptTag",
           range: [25, 118],
           loc: {
             start: {
               line: 4,
+              column: 2,
             },
             end: {
               line: 6,
+              column: 11,
             },
           },
           attributes: [
             {
-              type: NodeTypes.Attribute,
+              type: "Attribute",
               range: [33, 55],
               loc: {
                 start: {
                   line: 4,
+                  column: 10,
                 },
                 end: {
                   line: 4,
-                },
-              },
-              startWrapper: {
-                type: NodeTypes.AttributeValueWrapperStart,
-                range: [38, 39],
-                value: '"',
-                loc: {
-                  start: {
-                    line: 4,
-                  },
-                  end: {
-                    line: 4,
-                  },
+                  column: 32,
                 },
               },
               key: {
-                type: NodeTypes.AttributeKey,
-                range: [33, 37],
+                type: "AttributeKey",
+                value: "type",
                 loc: {
                   start: {
                     line: 4,
+                    column: 10,
                   },
                   end: {
                     line: 4,
+                    column: 14,
                   },
                 },
-                value: "type",
+                range: [33, 37],
+              },
+              startWrapper: {
+                type: "AttributeValueWrapperStart",
+                value: '"',
+                loc: {
+                  start: {
+                    line: 4,
+                    column: 15,
+                  },
+                  end: {
+                    line: 4,
+                    column: 16,
+                  },
+                },
+                range: [38, 39],
               },
               value: {
-                type: NodeTypes.AttributeValue,
-                range: [39, 54],
+                type: "AttributeValue",
+                value: "text/javascript",
                 loc: {
                   start: {
                     line: 4,
+                    column: 16,
                   },
                   end: {
                     line: 4,
+                    column: 31,
                   },
                 },
-                value: "text/javascript",
+                range: [39, 54],
               },
               endWrapper: {
-                type: NodeTypes.AttributeValueWrapperEnd,
+                type: "AttributeValueWrapperEnd",
                 value: '"',
-                range: [54, 55],
                 loc: {
                   start: {
                     line: 4,
+                    column: 31,
                   },
                   end: {
                     line: 4,
+                    column: 32,
                   },
                 },
+                range: [54, 55],
               },
             },
             {
-              type: NodeTypes.Attribute,
+              type: "Attribute",
               range: [56, 78],
               loc: {
                 start: {
                   line: 4,
+                  column: 33,
                 },
                 end: {
                   line: 4,
-                },
-              },
-              startWrapper: {
-                type: NodeTypes.AttributeValueWrapperStart,
-                value: '"',
-                range: [71, 72],
-                loc: {
-                  start: {
-                    line: 4,
-                  },
-                  end: {
-                    line: 4,
-                  },
+                  column: 55,
                 },
               },
               key: {
-                type: NodeTypes.AttributeKey,
-                range: [56, 67],
+                type: "AttributeKey",
                 value: "some-custom",
                 loc: {
                   start: {
                     line: 4,
+                    column: 33,
                   },
                   end: {
                     line: 4,
+                    column: 44,
                   },
                 },
+                range: [56, 67],
+              },
+              startWrapper: {
+                type: "AttributeValueWrapperStart",
+                value: '"',
+                loc: {
+                  start: {
+                    line: 4,
+                    column: 48,
+                  },
+                  end: {
+                    line: 4,
+                    column: 49,
+                  },
+                },
+                range: [71, 72],
               },
               value: {
-                type: NodeTypes.AttributeValue,
+                type: "AttributeValue",
                 value: "thing",
-                range: [72, 77],
                 loc: {
                   start: {
                     line: 4,
+                    column: 49,
                   },
                   end: {
                     line: 4,
+                    column: 54,
                   },
                 },
+                range: [72, 77],
               },
               endWrapper: {
+                type: "AttributeValueWrapperEnd",
                 value: '"',
-                range: [77, 78],
-                type: NodeTypes.AttributeValueWrapperEnd,
                 loc: {
                   start: {
                     line: 4,
+                    column: 54,
                   },
                   end: {
                     line: 4,
+                    column: 55,
                   },
                 },
+                range: [77, 78],
               },
             },
           ],
           openStart: {
-            type: NodeTypes.OpenTagStartScript,
+            type: "OpenTagStartScript",
             value: "<script",
-            range: [25, 32],
             loc: {
               start: {
                 line: 4,
+                column: 2,
               },
               end: {
                 line: 4,
+                column: 9,
               },
             },
+            range: [25, 32],
           },
           openEnd: {
-            type: NodeTypes.OpenTagEndScript,
+            type: "OpenTagEndScript",
             value: ">",
+            loc: {
+              start: {
+                line: 4,
+                column: 56,
+              },
+              end: {
+                line: 4,
+                column: 57,
+              },
+            },
             range: [79, 80],
-            loc: {
-              start: {
-                line: 4,
-              },
-              end: {
-                line: 4,
-              },
-            },
-          },
-          close: {
-            type: NodeTypes.CloseTagScript,
-            value: "</script>",
-            range: [109, 118],
-            loc: {
-              start: {
-                line: 6,
-              },
-              end: {
-                line: 6,
-              },
-            },
           },
           value: {
-            type: NodeTypes.ScriptTagContent,
+            type: "ScriptTagContent",
             value: "\n    console.log('test 1')\n  ",
-            range: [80, 109],
             loc: {
               start: {
                 line: 4,
+                column: 57,
               },
               end: {
                 line: 6,
+                column: 2,
               },
             },
+            range: [80, 109],
+          },
+          close: {
+            type: "CloseTagScript",
+            value: "</script>",
+            loc: {
+              start: {
+                line: 6,
+                column: 2,
+              },
+              end: {
+                line: 6,
+                column: 11,
+              },
+            },
+            range: [109, 118],
           },
         },
         {
-          type: NodeTypes.Text,
+          type: "Text",
           value: "\n\n  ",
-          range: [118, 122],
           loc: {
             start: {
               line: 6,
+              column: 11,
             },
             end: {
               line: 8,
+              column: 2,
             },
           },
+          range: [118, 122],
         },
         {
-          type: NodeTypes.ScriptTag,
+          type: "ScriptTag",
           range: [122, 227],
           loc: {
             start: {
               line: 8,
+              column: 2,
             },
             end: {
               line: 14,
+              column: 11,
             },
           },
           attributes: [
             {
-              type: NodeTypes.Attribute,
+              type: "Attribute",
               range: [134, 156],
               loc: {
                 start: {
                   line: 9,
+                  column: 4,
                 },
                 end: {
                   line: 9,
+                  column: 26,
                 },
               },
               key: {
-                type: NodeTypes.AttributeKey,
-                range: [134, 138],
+                type: "AttributeKey",
                 value: "type",
                 loc: {
                   start: {
                     line: 9,
+                    column: 4,
                   },
                   end: {
                     line: 9,
+                    column: 8,
                   },
                 },
+                range: [134, 138],
               },
               startWrapper: {
-                type: NodeTypes.AttributeValueWrapperStart,
+                type: "AttributeValueWrapperStart",
+                value: '"',
+                loc: {
+                  start: {
+                    line: 9,
+                    column: 9,
+                  },
+                  end: {
+                    line: 9,
+                    column: 10,
+                  },
+                },
                 range: [139, 140],
-                value: '"',
-                loc: {
-                  start: {
-                    line: 9,
-                  },
-                  end: {
-                    line: 9,
-                  },
-                },
-              },
-              endWrapper: {
-                type: NodeTypes.AttributeValueWrapperEnd,
-                range: [155, 156],
-                value: '"',
-                loc: {
-                  start: {
-                    line: 9,
-                  },
-                  end: {
-                    line: 9,
-                  },
-                },
               },
               value: {
-                type: NodeTypes.AttributeValue,
+                type: "AttributeValue",
                 value: "text/javascript",
-                range: [140, 155],
                 loc: {
                   start: {
                     line: 9,
+                    column: 10,
                   },
                   end: {
                     line: 9,
+                    column: 25,
                   },
                 },
+                range: [140, 155],
+              },
+              endWrapper: {
+                type: "AttributeValueWrapperEnd",
+                value: '"',
+                loc: {
+                  start: {
+                    line: 9,
+                    column: 25,
+                  },
+                  end: {
+                    line: 9,
+                    column: 26,
+                  },
+                },
+                range: [155, 156],
               },
             },
             {
-              type: NodeTypes.Attribute,
+              type: "Attribute",
               range: [161, 166],
               loc: {
                 start: {
                   line: 10,
+                  column: 4,
                 },
                 end: {
                   line: 10,
+                  column: 9,
                 },
               },
               key: {
-                type: NodeTypes.AttributeKey,
+                type: "AttributeKey",
                 value: "async",
-                range: [161, 166],
                 loc: {
                   start: {
                     line: 10,
+                    column: 4,
                   },
                   end: {
                     line: 10,
+                    column: 9,
                   },
                 },
+                range: [161, 166],
               },
             },
           ],
           openStart: {
-            type: NodeTypes.OpenTagStartScript,
+            type: "OpenTagStartScript",
             value: "<script",
-            range: [122, 129],
             loc: {
               start: {
                 line: 8,
+                column: 2,
               },
               end: {
                 line: 8,
+                column: 9,
               },
             },
+            range: [122, 129],
           },
           openEnd: {
-            type: NodeTypes.OpenTagEndScript,
+            type: "OpenTagEndScript",
             value: ">",
+            loc: {
+              start: {
+                line: 11,
+                column: 2,
+              },
+              end: {
+                line: 11,
+                column: 3,
+              },
+            },
             range: [169, 170],
-            loc: {
-              start: {
-                line: 11,
-              },
-              end: {
-                line: 11,
-              },
-            },
-          },
-          close: {
-            type: NodeTypes.CloseTagScript,
-            value: "</script>",
-            range: [218, 227],
-            loc: {
-              start: {
-                line: 14,
-              },
-              end: {
-                line: 14,
-              },
-            },
           },
           value: {
-            type: NodeTypes.ScriptTagContent,
-            range: [170, 218],
+            type: "ScriptTagContent",
             value: "\n    let a = '<div></div>'\n    console.log(a)\n  ",
             loc: {
               start: {
                 line: 11,
+                column: 3,
               },
               end: {
                 line: 14,
+                column: 2,
               },
             },
+            range: [170, 218],
+          },
+          close: {
+            type: "CloseTagScript",
+            value: "</script>",
+            loc: {
+              start: {
+                line: 14,
+                column: 2,
+              },
+              end: {
+                line: 14,
+                column: 11,
+              },
+            },
+            range: [218, 227],
           },
         },
         {
-          type: NodeTypes.Text,
+          type: "Text",
           value: "\n",
-          range: [227, 228],
           loc: {
             start: {
               line: 14,
+              column: 11,
             },
             end: {
               line: 15,
+              column: 0,
             },
           },
+          range: [227, 228],
         },
       ],
+      openStart: {
+        type: "OpenTagStart",
+        value: "<div",
+        loc: {
+          start: {
+            line: 1,
+            column: 0,
+          },
+          end: {
+            line: 1,
+            column: 4,
+          },
+        },
+        range: [0, 4],
+      },
+      name: "div",
+      openEnd: {
+        type: "OpenTagEnd",
+        value: ">",
+        loc: {
+          start: {
+            line: 1,
+            column: 4,
+          },
+          end: {
+            line: 1,
+            column: 5,
+          },
+        },
+        range: [4, 5],
+      },
+      selfClosing: false,
+      close: {
+        type: "CloseTag",
+        value: "</div>",
+        loc: {
+          start: {
+            line: 15,
+            column: 0,
+          },
+          end: {
+            line: 15,
+            column: 6,
+          },
+        },
+        range: [228, 234],
+      },
     },
     {
-      type: NodeTypes.Text,
-      range: [234, 236],
+      type: "Text",
       value: "\n\n",
       loc: {
         start: {
           line: 15,
+          column: 6,
         },
         end: {
           line: 17,
+          column: 0,
         },
       },
+      range: [234, 236],
     },
     {
-      type: NodeTypes.ScriptTag,
+      type: "ScriptTag",
       range: [236, 307],
       loc: {
         start: {
           line: 17,
+          column: 0,
         },
         end: {
           line: 19,
+          column: 9,
         },
       },
       attributes: [
         {
-          type: NodeTypes.Attribute,
+          type: "Attribute",
           range: [244, 249],
           loc: {
             start: {
               line: 17,
+              column: 8,
             },
             end: {
               line: 17,
+              column: 13,
             },
           },
           key: {
-            type: NodeTypes.AttributeKey,
-            range: [244, 249],
+            type: "AttributeKey",
             value: "async",
             loc: {
               start: {
                 line: 17,
+                column: 8,
               },
               end: {
                 line: 17,
+                column: 13,
               },
             },
+            range: [244, 249],
           },
         },
         {
-          type: NodeTypes.Attribute,
+          type: "Attribute",
           range: [250, 272],
           loc: {
             start: {
               line: 17,
+              column: 14,
             },
             end: {
               line: 17,
+              column: 36,
             },
           },
           key: {
-            type: NodeTypes.AttributeKey,
-            range: [250, 254],
+            type: "AttributeKey",
             value: "type",
             loc: {
               start: {
                 line: 17,
+                column: 14,
               },
               end: {
                 line: 17,
+                column: 18,
               },
             },
+            range: [250, 254],
           },
           startWrapper: {
-            type: NodeTypes.AttributeValueWrapperStart,
-            range: [255, 256],
+            type: "AttributeValueWrapperStart",
             value: '"',
             loc: {
               start: {
                 line: 17,
+                column: 19,
               },
               end: {
                 line: 17,
+                column: 20,
               },
             },
+            range: [255, 256],
           },
           value: {
-            type: NodeTypes.AttributeValue,
-            range: [256, 271],
+            type: "AttributeValue",
             value: "text/javascript",
             loc: {
               start: {
                 line: 17,
+                column: 20,
               },
               end: {
                 line: 17,
+                column: 35,
               },
             },
+            range: [256, 271],
           },
           endWrapper: {
-            type: NodeTypes.AttributeValueWrapperEnd,
+            type: "AttributeValueWrapperEnd",
             value: '"',
-            range: [271, 272],
             loc: {
               start: {
                 line: 17,
+                column: 35,
               },
               end: {
                 line: 17,
+                column: 36,
               },
             },
+            range: [271, 272],
           },
         },
       ],
       openStart: {
-        type: NodeTypes.OpenTagStartScript,
+        type: "OpenTagStartScript",
         value: "<script",
-        range: [236, 243],
         loc: {
           start: {
             line: 17,
+            column: 0,
           },
           end: {
             line: 17,
+            column: 7,
           },
         },
+        range: [236, 243],
       },
       openEnd: {
-        type: NodeTypes.OpenTagEndScript,
-        range: [272, 273],
+        type: "OpenTagEndScript",
         value: ">",
         loc: {
           start: {
             line: 17,
+            column: 36,
           },
           end: {
             line: 17,
+            column: 37,
           },
         },
-      },
-      close: {
-        type: NodeTypes.CloseTagScript,
-        value: "</script>",
-        range: [298, 307],
-        loc: {
-          start: {
-            line: 19,
-          },
-          end: {
-            line: 19,
-          },
-        },
+        range: [272, 273],
       },
       value: {
-        type: NodeTypes.ScriptTagContent,
-        range: [273, 298],
+        type: "ScriptTagContent",
         value: "\n  console.log('test 2')\n",
         loc: {
           start: {
             line: 17,
+            column: 37,
           },
           end: {
             line: 19,
+            column: 0,
           },
         },
+        range: [273, 298],
+      },
+      close: {
+        type: "CloseTagScript",
+        value: "</script>",
+        loc: {
+          start: {
+            line: 19,
+            column: 0,
+          },
+          end: {
+            line: 19,
+            column: 9,
+          },
+        },
+        range: [298, 307],
       },
     },
     {
-      type: NodeTypes.Text,
+      type: "Text",
       value: "\n",
-      range: [307, 308],
       loc: {
         start: {
           line: 19,
+          column: 9,
         },
         end: {
           line: 20,
+          column: 0,
         },
       },
+      range: [307, 308],
     },
   ],
+  loc: {
+    start: {
+      line: 1,
+      column: 9,
+    },
+    end: {
+      line: 20,
+      column: 0,
+    },
+  },
 };

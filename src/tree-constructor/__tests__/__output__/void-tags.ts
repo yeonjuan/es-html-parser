@@ -1,113 +1,129 @@
 import { NodeTypes } from "../../../constants";
 
 export default {
-  type: NodeTypes.Document,
+  type: "Document",
   range: [0, 16],
-  loc: {
-    start: {
-      line: 1,
-    },
-    end: {
-      line: 4,
-    },
-  },
   children: [
     {
-      type: NodeTypes.Tag,
-      attributes: [],
-      children: [],
+      type: "Tag",
       range: [0, 7],
-      selfClosing: true,
-      name: "img",
       loc: {
         start: {
           line: 1,
+          column: 0,
         },
         end: {
           line: 1,
+          column: 7,
         },
       },
-      openStart: {
-        type: NodeTypes.OpenTagStart,
-        value: "<img",
-        range: [0, 4],
-        loc: {
-          start: {
-            line: 1,
-          },
-          end: {
-            line: 1,
-          },
-        },
-      },
-      openEnd: {
-        type: NodeTypes.OpenTagEnd,
-        value: "/>",
-        range: [5, 7],
-        loc: {
-          start: {
-            line: 1,
-          },
-          end: {
-            line: 1,
-          },
-        },
-      },
-    },
-    {
-      type: NodeTypes.Text,
-      value: "\n\n",
-      range: [7, 9],
-      loc: {
-        start: {
-          line: 1,
-        },
-        end: {
-          line: 3,
-        },
-      },
-    },
-    {
-      type: NodeTypes.Tag,
-      range: [9, 16],
       attributes: [],
       children: [],
-      selfClosing: true,
+      openStart: {
+        type: "OpenTagStart",
+        value: "<img",
+        loc: {
+          start: {
+            line: 1,
+            column: 0,
+          },
+          end: {
+            line: 1,
+            column: 4,
+          },
+        },
+        range: [0, 4],
+      },
       name: "img",
+      openEnd: {
+        type: "OpenTagEnd",
+        value: "/>",
+        loc: {
+          start: {
+            line: 1,
+            column: 5,
+          },
+          end: {
+            line: 1,
+            column: 7,
+          },
+        },
+        range: [5, 7],
+      },
+      selfClosing: true,
+    },
+    {
+      type: "Text",
+      value: "\n\n",
+      loc: {
+        start: {
+          line: 1,
+          column: 7,
+        },
+        end: {
+          line: 3,
+          column: 0,
+        },
+      },
+      range: [7, 9],
+    },
+    {
+      type: "Tag",
+      range: [9, 16],
       loc: {
         start: {
           line: 3,
+          column: 0,
         },
         end: {
           line: 4,
+          column: 2,
         },
       },
+      attributes: [],
+      children: [],
       openStart: {
-        type: NodeTypes.OpenTagStart,
+        type: "OpenTagStart",
         value: "<img",
+        loc: {
+          start: {
+            line: 3,
+            column: 0,
+          },
+          end: {
+            line: 3,
+            column: 4,
+          },
+        },
         range: [9, 13],
-        loc: {
-          start: {
-            line: 3,
-          },
-          end: {
-            line: 3,
-          },
-        },
       },
+      name: "img",
       openEnd: {
-        type: NodeTypes.OpenTagEnd,
+        type: "OpenTagEnd",
         value: "/>",
-        range: [14, 16],
         loc: {
           start: {
             line: 4,
+            column: 0,
           },
           end: {
             line: 4,
+            column: 2,
           },
         },
+        range: [14, 16],
       },
+      selfClosing: true,
     },
   ],
+  loc: {
+    start: {
+      line: 1,
+      column: 0,
+    },
+    end: {
+      line: 4,
+      column: 2,
+    },
+  },
 };

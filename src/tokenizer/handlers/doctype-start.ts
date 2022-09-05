@@ -22,12 +22,7 @@ function generateDoctypeStartToken(state: TokenizerState): Token {
     type: TokenTypes.DoctypeStart,
     value: state.accumulatedContent,
     range: position.range,
-    loc: {
-      start: position.loc.start,
-      end: {
-        line: position.loc.end.line,
-      },
-    },
+    loc: position.loc,
   };
 }
 

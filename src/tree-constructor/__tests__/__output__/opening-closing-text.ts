@@ -1,102 +1,111 @@
 import { NodeTypes } from "../../../constants";
 
 export default {
-  type: NodeTypes.Document,
+  type: "Document",
   range: [0, 40],
-  loc: {
-    start: {
-      line: 1,
-    },
-    end: {
-      line: 6,
-    },
-  },
   children: [
     {
-      range: [0, 14],
-      type: NodeTypes.Text,
-      value: `opening text
-
-`,
+      type: "Text",
+      value: "opening text\n\n",
       loc: {
         start: {
           line: 1,
+          column: 0,
         },
         end: {
           line: 3,
+          column: 0,
         },
       },
+      range: [0, 14],
     },
     {
-      close: {
-        loc: {
-          end: {
-            line: 3,
-          },
-          start: {
-            line: 3,
-          },
-        },
-        range: [19, 25],
-        type: NodeTypes.CloseTag,
-        value: "</div>",
-      },
-      name: "div",
+      type: "Tag",
+      range: [14, 25],
       loc: {
         start: {
           line: 3,
+          column: 0,
         },
         end: {
           line: 3,
+          column: 11,
         },
       },
-      openEnd: {
-        loc: {
-          end: {
-            line: 3,
-          },
-          start: {
-            line: 3,
-          },
-        },
-        range: [18, 19],
-        type: NodeTypes.OpenTagEnd,
-        value: ">",
-      },
+      attributes: [],
+      children: [],
       openStart: {
+        type: "OpenTagStart",
+        value: "<div",
         loc: {
-          end: {
-            line: 3,
-          },
           start: {
             line: 3,
+            column: 0,
+          },
+          end: {
+            line: 3,
+            column: 4,
           },
         },
         range: [14, 18],
-        type: NodeTypes.OpenTagStart,
-        value: "<div",
       },
-      range: [14, 25],
+      name: "div",
+      openEnd: {
+        type: "OpenTagEnd",
+        value: ">",
+        loc: {
+          start: {
+            line: 3,
+            column: 4,
+          },
+          end: {
+            line: 3,
+            column: 5,
+          },
+        },
+        range: [18, 19],
+      },
       selfClosing: false,
-      attributes: [],
-      children: [],
-      type: NodeTypes.Tag,
+      close: {
+        type: "CloseTag",
+        value: "</div>",
+        loc: {
+          start: {
+            line: 3,
+            column: 5,
+          },
+          end: {
+            line: 3,
+            column: 11,
+          },
+        },
+        range: [19, 25],
+      },
     },
     {
-      range: [25, 40],
       type: "Text",
-      value: `
-
-closing text
-`,
+      value: "\n\nclosing text\n",
       loc: {
         start: {
           line: 3,
+          column: 11,
         },
         end: {
           line: 6,
+          column: 0,
         },
       },
+      range: [25, 40],
     },
   ],
+  loc: {
+    start: {
+      line: 1,
+      column: 11,
+    },
+    end: {
+      line: 6,
+      column: 0,
+    },
+  },
 };

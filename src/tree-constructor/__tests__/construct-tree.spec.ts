@@ -76,7 +76,7 @@ describe("construct-tree", () => {
     ],
     ["Tag register", TAGS_REGISTER_INPUT, TAGS_REGISTERS_OUTPUT],
     ["Empty", EMPTY_INPUT, EMPTY_OUTPUT],
-  ])("%s", (name: string, inputTokens: any[], output: any) => {
+  ])("%s", (name: string, inputTokens: any, output: any) => {
     const { ast } = constructTree(inputTokens, undefined);
     expect(clearParent(ast)).toEqual(output);
   });

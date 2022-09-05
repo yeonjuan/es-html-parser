@@ -88,8 +88,6 @@ function processTokens(
   let tokenIndex = state.caretPosition - positionOffset;
   while (tokenIndex < tokens.length) {
     const token = tokens[tokenIndex];
-    // debugger;
-    // @ts-ignore
     const handler = contextHandlers[state.currentContext.type].construct;
     state = handler(token, state);
     tokenIndex = state.caretPosition - positionOffset;

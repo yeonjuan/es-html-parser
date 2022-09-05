@@ -47,7 +47,7 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
 function tokenizeChars(
   chars: string,
   state: TokenizerState,
-  tokens: any[],
+  tokens: Token[],
   {
     isFinalChunk,
     positionOffset,
@@ -108,7 +108,7 @@ export function tokenize(
   }
 
   const chars = state.decisionBuffer + source;
-  const tokens: any[] = [];
+  const tokens: Token[] = [];
   const positionOffset = state.caretPosition - state.decisionBuffer.length;
 
   tokenizeChars(chars, state, tokens, {

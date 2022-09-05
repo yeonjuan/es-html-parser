@@ -1,5 +1,3 @@
-import { TokenTypes } from "./token-types";
-
 export enum NodeTypes {
   Document = "Document",
   Tag = "Tag",

@@ -6,7 +6,7 @@ export type ConstructTreeState<CurNode = any> = {
   currentContext: {
     type: ConstructTreeContextTypes;
     parentRef?: any;
-    content?: any;
+    content?: any[];
   };
   currentNode: CurNode;
   rootNode: DocumentNode;

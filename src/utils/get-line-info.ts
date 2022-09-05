@@ -5,7 +5,7 @@ function isNewLine(code: number) {
 }
 function nextLineBreak(code: string, from: number, end = code.length) {
   for (let i = from; i < end; i++) {
-    let next = code.charCodeAt(i);
+    const next = code.charCodeAt(i);
     if (isNewLine(next))
       return i < end - 1 && next === 13 && code.charCodeAt(i + 1) === 10
         ? i + 2
@@ -16,7 +16,7 @@ function nextLineBreak(code: string, from: number, end = code.length) {
 
 export function getLineInfo(input: string, offset: number) {
   for (let line = 1, cur = 0; ; ) {
-    let nextBreak = nextLineBreak(input, cur, offset);
+    const nextBreak = nextLineBreak(input, cur, offset);
     if (nextBreak < 0) return { line, column: offset - cur };
     ++line;
     cur = nextBreak;

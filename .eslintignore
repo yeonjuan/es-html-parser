@@ -1,0 +1,6 @@
+**/*.html
+coverage
+yarn.lock
+dist
+node_modules
+**/*.js

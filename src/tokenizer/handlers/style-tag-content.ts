@@ -4,11 +4,7 @@ import {
   TokenTypes,
 } from "../../constants";
 import { Range, Token, TokenizerState } from "../../types";
-import {
-  calculateTokenLocation,
-  calculateTokenPosition,
-  getLineInfo,
-} from "../../utils";
+import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
 
 const CLOSING_STYLE_TAG_PATTERN = /<\/style\s*>/i;
 

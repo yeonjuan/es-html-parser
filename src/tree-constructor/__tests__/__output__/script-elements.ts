@@ -1,5 +1,3 @@
-import { NodeTypes } from "../../../constants";
-
 export default {
   type: "Document",
   range: [0, 84],

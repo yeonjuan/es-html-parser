@@ -1,4 +1,4 @@
-import { Range, TokenizerState } from "../types";
+import { Range } from "../types";
 import { getLineInfo } from "./get-line-info";
 
 export function calculateTokenLocation(source: string, range: Range) {

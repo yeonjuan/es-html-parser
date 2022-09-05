@@ -5,6 +5,7 @@ import {
   ScriptNode,
   StyleNode,
   TagNode,
+  DocumentNode,
 } from "./node";
 
 type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
@@ -27,3 +28,4 @@ export type TempTagNode = TempNode<
   TagNode,
   "close" | "selfClosing" | "name" | "openEnd" | "openStart"
 >;
+export type TempDocumentNode = TempNode<DocumentNode>;

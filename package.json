@@ -8,16 +8,20 @@
     "test": "jest --coverage",
     "format": "prettier --write .",
     "build": "rimraf dist && tsc -b tsconfig.build.json",
+    "check:lint": "eslint src",
     "check:ts": "tsc --noEmit",
     "check:format": "prettier --list-different .",
-    "prepublish": "yarn check:ts && yarn check:format && yarn build"
+    "prepublish": "yarn check:lint && yarn check:ts && yarn check:format && yarn build"
   },
   "devDependencies": {
     "@types/jest": "^28.1.7",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint": "^8.23.0",
     "jest": "^28.1.3",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^28.0.8",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.2"
   }
 }

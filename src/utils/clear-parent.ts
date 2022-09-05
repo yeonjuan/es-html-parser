@@ -1,4 +1,6 @@
-export function clearParent(ast: any) {
+import { TempDocumentNode } from "../types";
+
+export function clearParent(ast: TempDocumentNode) {
   const cleanAst = ast;
 
   delete cleanAst.parentRef;

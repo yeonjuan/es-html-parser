@@ -1,7 +1,6 @@
 import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
 import { ConstructTreeState, Token } from "../../types";
 import { createNodeFrom, updateNodeEnd } from "../../utils";
-import { cloneLocation } from "../../utils/clone-location";
 
 const ATTRIBUTE_START_TOKENS = [
   TokenTypes.AttributeKey,

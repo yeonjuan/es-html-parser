@@ -62,7 +62,7 @@ export default {
           },
           attributes: [],
           openStart: {
-            type: "OpenTagStartScript",
+            type: "OpenScriptTagStart",
             value: "<script",
             loc: {
               start: {
@@ -77,7 +77,7 @@ export default {
             range: [22, 29],
           },
           openEnd: {
-            type: "OpenTagEndScript",
+            type: "OpenScriptTagEnd",
             value: ">",
             loc: {
               start: {
@@ -107,7 +107,7 @@ export default {
             range: [30, 53],
           },
           close: {
-            type: "CloseTagScript",
+            type: "CloseScriptTag",
             value: "</script>",
             loc: {
               start: {
@@ -205,7 +205,7 @@ export default {
   loc: {
     start: {
       line: 1,
-      column: 6,
+      column: 0,
     },
     end: {
       line: 10,

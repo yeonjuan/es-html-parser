@@ -1,8 +1,16 @@
 import { TokenTypes } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
+import {
+  AnyToken,
+  ConstructTreeState,
+  Token,
+  ContextualTagNode,
+} from "../../types";
 import { parseOpenTagName } from "../../utils";
 
-function handleTagOpenStart(state: ConstructTreeState, token: Token) {
+function handleTagOpenStart(
+  state: ConstructTreeState<ContextualTagNode>,
+  token: Token<TokenTypes.OpenTagStart>
+) {
   state.currentNode.name = parseOpenTagName(token.value);
 
   state.currentContext = state.currentContext.parentRef;
@@ -10,7 +18,10 @@ function handleTagOpenStart(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-export function construct(token: Token, state: ConstructTreeState) {
+export function construct(
+  token: AnyToken,
+  state: ConstructTreeState<ContextualTagNode>
+) {
   if (token.type === TokenTypes.OpenTagStart) {
     handleTagOpenStart(state, token);
   }

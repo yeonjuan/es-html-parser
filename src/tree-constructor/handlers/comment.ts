@@ -1,24 +1,40 @@
 import { TokenTypes } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
+import {
+  AnyToken,
+  CommentContentNode,
+  CommentEndNode,
+  CommentStartNode,
+  ConstructTreeState,
+  ContextualCommentNode,
+} from "../../types";
 import { createNodeFrom, updateNodeEnd } from "../../utils";
 
-function handleCommentStart(state: ConstructTreeState, token: Token) {
-  state.currentNode.start = createNodeFrom(token);
+function handleCommentStart(
+  state: ConstructTreeState<ContextualCommentNode>,
+  token: AnyToken
+) {
+  state.currentNode.start = createNodeFrom(token) as CommentStartNode;
 
   state.caretPosition++;
 
   return state;
 }
 
-function handleCommentContent(state: ConstructTreeState, token: Token) {
-  state.currentNode.value = createNodeFrom(token);
+function handleCommentContent(
+  state: ConstructTreeState<ContextualCommentNode>,
+  token: AnyToken
+) {
+  state.currentNode.value = createNodeFrom(token) as CommentContentNode;
   state.caretPosition++;
 
   return state;
 }
 
-function handleCommentEnd(state: ConstructTreeState, token: Token) {
-  state.currentNode.end = createNodeFrom(token);
+function handleCommentEnd(
+  state: ConstructTreeState<ContextualCommentNode>,
+  token: AnyToken
+) {
+  state.currentNode.end = createNodeFrom(token) as CommentEndNode;
   updateNodeEnd(state.currentNode, token);
 
   state.currentNode = state.currentNode.parentRef;
@@ -28,7 +44,10 @@ function handleCommentEnd(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-export function construct(token: Token, state: ConstructTreeState) {
+export function construct(
+  token: AnyToken,
+  state: ConstructTreeState<ContextualCommentNode>
+) {
   if (token.type === TokenTypes.CommentStart) {
     return handleCommentStart(state, token);
   }

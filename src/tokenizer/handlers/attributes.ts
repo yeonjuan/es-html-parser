@@ -1,8 +1,12 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition, isWhitespace } from "../../utils";
-import { Token, TokenizerState } from "../../types";
+import { AnyToken, TokenizerState } from "../../types";
 
-export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
+export function parse(
+  chars: string,
+  state: TokenizerState,
+  tokens: AnyToken[]
+) {
   if (chars === ">" || chars === "/") {
     return parseTagEnd(state);
   }
@@ -37,7 +41,7 @@ function parseNoneWhitespace(state: TokenizerState) {
   state.caretPosition++;
 }
 
-function parseEqual(state: TokenizerState, tokens: Token[]) {
+function parseEqual(state: TokenizerState, tokens: AnyToken[]) {
   const position = calculateTokenPosition(state, { keepBuffer: true });
   tokens.push({
     type: TokenTypes.AttributeAssignment,

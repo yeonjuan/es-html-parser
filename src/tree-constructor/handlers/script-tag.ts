@@ -1,5 +1,13 @@
 import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
+import {
+  AnyToken,
+  CloseScriptTagNode,
+  ConstructTreeState,
+  ContextualScriptTagNode,
+  OpenScriptTagEndNode,
+  OpenScriptTagStartNode,
+  ScriptTagContentNode,
+} from "../../types";
 import { createNodeFrom, updateNodeEnd } from "../../utils";
 
 const ATTRIBUTE_START_TOKENS = [
@@ -7,8 +15,11 @@ const ATTRIBUTE_START_TOKENS = [
   TokenTypes.AttributeAssignment,
 ];
 
-function handleOpenTagStartScript(state: ConstructTreeState, token: Token) {
-  state.currentNode.openStart = createNodeFrom(token);
+function handleOpenScriptTagStart(
+  state: ConstructTreeState<ContextualScriptTagNode>,
+  token: AnyToken
+) {
+  state.currentNode.openStart = createNodeFrom(token) as OpenScriptTagStartNode;
   updateNodeEnd(state.currentNode, token);
 
   state.caretPosition++;
@@ -16,7 +27,9 @@ function handleOpenTagStartScript(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleAttributeStartScript(state: ConstructTreeState) {
+function handleAttributeStartScript(
+  state: ConstructTreeState<ContextualScriptTagNode>
+) {
   state.currentContext = {
     parentRef: state.currentContext,
     type: ConstructTreeContextTypes.Attributes,
@@ -25,8 +38,11 @@ function handleAttributeStartScript(state: ConstructTreeState) {
   return state;
 }
 
-function handleOpenTagEndScript(state: ConstructTreeState, token: Token) {
-  state.currentNode.openEnd = createNodeFrom(token);
+function handleOpenScriptTagEnd(
+  state: ConstructTreeState<ContextualScriptTagNode>,
+  token: AnyToken
+) {
+  state.currentNode.openEnd = createNodeFrom(token) as OpenScriptTagEndNode;
   updateNodeEnd(state.currentNode, token);
 
   state.caretPosition++;
@@ -34,8 +50,11 @@ function handleOpenTagEndScript(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleScriptContent(state: ConstructTreeState, token: Token) {
-  state.currentNode.value = createNodeFrom(token);
+function handleScriptContent(
+  state: ConstructTreeState<ContextualScriptTagNode>,
+  token: AnyToken
+) {
+  state.currentNode.value = createNodeFrom(token) as ScriptTagContentNode;
   updateNodeEnd(state.currentNode, token);
 
   state.caretPosition++;
@@ -43,8 +62,11 @@ function handleScriptContent(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleCloseTagScript(state: ConstructTreeState, token: Token) {
-  state.currentNode.close = createNodeFrom(token);
+function handleCloseScriptTag(
+  state: ConstructTreeState<ContextualScriptTagNode>,
+  token: AnyToken
+) {
+  state.currentNode.close = createNodeFrom(token) as CloseScriptTagNode;
   updateNodeEnd(state.currentNode, token);
 
   state.currentNode = state.currentNode.parentRef;
@@ -54,25 +76,28 @@ function handleCloseTagScript(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-export function construct(token: Token, state: ConstructTreeState) {
-  if (token.type === TokenTypes.OpenTagStartScript) {
-    return handleOpenTagStartScript(state, token);
+export function construct(
+  token: AnyToken,
+  state: ConstructTreeState<ContextualScriptTagNode>
+) {
+  if (token.type === TokenTypes.OpenScriptTagStart) {
+    return handleOpenScriptTagStart(state, token);
   }
 
   if (ATTRIBUTE_START_TOKENS.indexOf(token.type) !== -1) {
     return handleAttributeStartScript(state);
   }
 
-  if (token.type === TokenTypes.OpenTagEndScript) {
-    return handleOpenTagEndScript(state, token);
+  if (token.type === TokenTypes.OpenScriptTagEnd) {
+    return handleOpenScriptTagEnd(state, token);
   }
 
   if (token.type === TokenTypes.ScriptTagContent) {
     return handleScriptContent(state, token);
   }
 
-  if (token.type === TokenTypes.CloseTagScript) {
-    return handleCloseTagScript(state, token);
+  if (token.type === TokenTypes.CloseScriptTag) {
+    return handleCloseScriptTag(state, token);
   }
 
   state.caretPosition++;

@@ -2,7 +2,7 @@ import { TokenTypes } from "../../../constants";
 
 export default [
   {
-    type: TokenTypes.OpenTagStartStyle,
+    type: TokenTypes.OpenStyleTagStart,
     value: "<style",
     range: [0, 6],
     loc: {
@@ -167,7 +167,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEndStyle,
+    type: TokenTypes.OpenStyleTagEnd,
     value: ">",
     range: [41, 42],
     loc: {
@@ -197,7 +197,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTagStyle,
+    type: TokenTypes.CloseStyleTag,
     value: "</style>",
     range: [85, 93],
     loc: {
@@ -272,7 +272,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStartStyle,
+    type: TokenTypes.OpenStyleTagStart,
     value: "<style",
     range: [103, 109],
     loc: {
@@ -392,7 +392,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEndStyle,
+    type: TokenTypes.OpenStyleTagEnd,
     value: ">",
     range: [163, 164],
     loc: {
@@ -422,7 +422,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTagStyle,
+    type: TokenTypes.CloseStyleTag,
     value: "</style>",
     range: [213, 221],
     loc: {

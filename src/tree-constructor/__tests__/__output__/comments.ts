@@ -564,7 +564,7 @@ export default {
   loc: {
     start: {
       line: 1,
-      column: 37,
+      column: 0,
     },
     end: {
       line: 21,

@@ -1,10 +1,10 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition } from "../../utils";
-import { Token, TokenizerState } from "../../types";
+import { AnyToken, TokenizerState } from "../../types";
 
 const tokensMap: Record<string, TokenTypes> = {
-  script: TokenTypes.OpenTagEndScript,
-  style: TokenTypes.OpenTagEndStyle,
+  script: TokenTypes.OpenScriptTagEnd,
+  style: TokenTypes.OpenStyleTagEnd,
   default: TokenTypes.OpenTagEnd,
 };
 
@@ -14,7 +14,11 @@ const contextsMap: Record<string, TokenizerContextTypes> = {
   default: TokenizerContextTypes.Data,
 };
 
-export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
+export function parse(
+  chars: string,
+  state: TokenizerState,
+  tokens: AnyToken[]
+) {
   if (chars === ">") {
     return parseClosingCornerBrace(state, tokens);
   }
@@ -24,7 +28,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseClosingCornerBrace(state: TokenizerState, tokens: Token[]) {
+function parseClosingCornerBrace(state: TokenizerState, tokens: AnyToken[]) {
   const position = calculateTokenPosition(state, { keepBuffer: true });
   const tagName =
     state.contextParams[TokenizerContextTypes.OpenTagEnd]?.tagName!;

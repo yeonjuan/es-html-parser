@@ -1,5 +1,13 @@
 import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
+import {
+  AnyToken,
+  CloseTagNode,
+  ConstructTreeState,
+  ContextualTagNode,
+  OpenTagEndNode,
+  OpenTagStartNode,
+  Token,
+} from "../../types";
 import { createNodeFrom, updateNodeEnd } from "../../utils";
 
 const ATTRIBUTE_START_TOKENS = [
@@ -25,8 +33,11 @@ const SELF_CLOSING_TAGS = [
   "wbr",
 ];
 
-function handleOpenTagStart(state: ConstructTreeState, token: Token) {
-  state.currentNode.openStart = createNodeFrom(token);
+function handleOpenTagStart(
+  state: ConstructTreeState<ContextualTagNode>,
+  token: Token<TokenTypes.OpenTagStart>
+) {
+  state.currentNode.openStart = createNodeFrom(token) as OpenTagStartNode;
   state.currentContext = {
     parentRef: state.currentContext,
     type: ConstructTreeContextTypes.TagName,
@@ -35,7 +46,7 @@ function handleOpenTagStart(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleAttributeStart(state: ConstructTreeState) {
+function handleAttributeStart(state: ConstructTreeState<ContextualTagNode>) {
   state.currentContext = {
     parentRef: state.currentContext,
     type: ConstructTreeContextTypes.Attributes,
@@ -44,13 +55,17 @@ function handleAttributeStart(state: ConstructTreeState) {
   return state;
 }
 
-function handleOpenTagEnd(state: ConstructTreeState, token: Token) {
+function handleOpenTagEnd(
+  state: ConstructTreeState<ContextualTagNode>,
+  token: Token<TokenTypes.OpenTagEnd>
+) {
   const tagName = state.currentNode.name;
 
-  state.currentNode.openEnd = createNodeFrom(token);
+  state.currentNode.openEnd = createNodeFrom(token) as OpenTagEndNode;
+
   updateNodeEnd(state.currentNode, token);
 
-  if (SELF_CLOSING_TAGS.indexOf(tagName) !== -1) {
+  if (SELF_CLOSING_TAGS.indexOf(tagName!) !== -1) {
     state.currentNode.selfClosing = true;
     state.currentNode = state.currentNode.parentRef;
     state.currentContext = state.currentContext.parentRef;
@@ -69,9 +84,13 @@ function handleOpenTagEnd(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleCloseTag(state: ConstructTreeState, token: Token) {
-  state.currentNode.close = createNodeFrom(token);
+function handleCloseTag(
+  state: ConstructTreeState<ContextualTagNode>,
+  token: Token<TokenTypes.CloseTag>
+) {
+  state.currentNode.close = createNodeFrom(token) as CloseTagNode;
   updateNodeEnd(state.currentNode, token);
+
   state.currentNode = state.currentNode.parentRef;
   state.currentContext = state.currentContext.parentRef;
   state.caretPosition++;
@@ -79,7 +98,10 @@ function handleCloseTag(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-export function construct(token: Token, state: ConstructTreeState) {
+export function construct(
+  token: AnyToken,
+  state: ConstructTreeState<ContextualTagNode>
+) {
   if (token.type === TokenTypes.OpenTagStart) {
     return handleOpenTagStart(state, token);
   }

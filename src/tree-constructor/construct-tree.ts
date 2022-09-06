@@ -1,6 +1,7 @@
 import { ConstructTreeContextTypes, NodeTypes } from "../constants";
-import { ConstructTreeState, Token, DocumentNode, Range } from "../types";
-import { last } from "../utils";
+import { ConstructTreeState, DocumentNode, Range, AnyToken } from "../types";
+import { SourceLocation } from "../types/source-location";
+import { first, last } from "../utils";
 import { cloneLocation } from "../utils/clone-location";
 import {
   tagContent,
@@ -32,9 +33,21 @@ const contextHandlers = {
   [ConstructTreeContextTypes.StyleTag]: styleTag,
 };
 
+const EMPTY_RANGE: Range = [0, 0];
+const EMPTY_LOC: SourceLocation = {
+  start: {
+    line: 1,
+    column: 0,
+  },
+  end: {
+    line: 1,
+    column: 0,
+  },
+};
+
 export function constructTree(
-  tokens: Token[],
-  existingState: ConstructTreeState | undefined
+  tokens: AnyToken[],
+  existingState: ConstructTreeState<any> | undefined
 ) {
   let state = existingState;
 
@@ -45,19 +58,15 @@ export function constructTree(
       content: [],
     };
     const lastToken = last(tokens);
-    const range: Range = lastToken ? [0, lastToken.range[1]] : [0, 0];
+    const firstToken = first(tokens);
+    const range: Range = lastToken ? [0, lastToken.range[1]] : EMPTY_RANGE;
     const loc = lastToken
-      ? cloneLocation(lastToken.loc)
-      : {
-          start: {
-            line: 1,
-            column: 0,
-          },
-          end: {
-            line: 1,
-            column: 0,
-          },
-        };
+      ? {
+          start: cloneLocation(firstToken.loc).start,
+          end: cloneLocation(lastToken.loc).end,
+        }
+      : EMPTY_LOC;
+
     loc.start.line = 1;
 
     const rootNode: DocumentNode = {
@@ -81,8 +90,8 @@ export function constructTree(
 }
 
 function processTokens(
-  tokens: Token[],
-  state: ConstructTreeState,
+  tokens: AnyToken[],
+  state: ConstructTreeState<any>,
   positionOffset: number
 ) {
   let tokenIndex = state.caretPosition - positionOffset;

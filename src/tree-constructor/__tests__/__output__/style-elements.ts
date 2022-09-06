@@ -32,7 +32,7 @@ export default {
       },
       attributes: [],
       openStart: {
-        type: "OpenTagStartStyle",
+        type: "OpenStyleTagStart",
         value: "<style",
         loc: {
           start: {
@@ -47,7 +47,7 @@ export default {
         range: [14, 20],
       },
       openEnd: {
-        type: "OpenTagEndStyle",
+        type: "OpenStyleTagEnd",
         value: ">",
         loc: {
           start: {
@@ -77,7 +77,7 @@ export default {
         range: [21, 64],
       },
       close: {
-        type: "CloseTagStyle",
+        type: "CloseStyleTag",
         value: "</style>",
         loc: {
           start: {
@@ -152,7 +152,7 @@ export default {
           },
           attributes: [],
           openStart: {
-            type: "OpenTagStartStyle",
+            type: "OpenStyleTagStart",
             value: "<style",
             loc: {
               start: {
@@ -167,7 +167,7 @@ export default {
             range: [82, 88],
           },
           openEnd: {
-            type: "OpenTagEndStyle",
+            type: "OpenStyleTagEnd",
             value: ">",
             loc: {
               start: {
@@ -197,7 +197,7 @@ export default {
             range: [89, 138],
           },
           close: {
-            type: "CloseTagStyle",
+            type: "CloseStyleTag",
             value: "</style>",
             loc: {
               start: {
@@ -295,7 +295,7 @@ export default {
   loc: {
     start: {
       line: 1,
-      column: 6,
+      column: 0,
     },
     end: {
       line: 18,

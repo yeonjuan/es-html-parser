@@ -1,5 +1,5 @@
 import { TokenizerContextTypes } from "../constants";
-import { Token, TokenizerState } from "../types";
+import { AnyToken, TokenizerState } from "../types";
 import {
   attributeKey,
   attributeValueBare,
@@ -47,7 +47,7 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
 function tokenizeChars(
   chars: string,
   state: TokenizerState,
-  tokens: Token[],
+  tokens: AnyToken[],
   {
     isFinalChunk,
     positionOffset,
@@ -83,32 +83,25 @@ function tokenizeChars(
 
 export function tokenize(
   source = "",
-  existingState: TokenizerState | undefined,
   {
     isFinalChunk,
   }: {
     isFinalChunk?: boolean;
   } = {}
-): { state: TokenizerState; tokens: Token[] } {
+): { state: TokenizerState; tokens: AnyToken[] } {
   isFinalChunk = isFinalChunk === undefined ? true : isFinalChunk;
-  let state: TokenizerState;
-
-  if (existingState !== undefined) {
-    state = Object.assign({}, existingState);
-  } else {
-    state = {
-      currentContext: TokenizerContextTypes.Data,
-      contextParams: {},
-      decisionBuffer: "",
-      accumulatedContent: "",
-      caretPosition: 0,
-      linePosition: 1,
-      source,
-    };
-  }
+  const state = {
+    currentContext: TokenizerContextTypes.Data,
+    contextParams: {},
+    decisionBuffer: "",
+    accumulatedContent: "",
+    caretPosition: 0,
+    linePosition: 1,
+    source,
+  };
 
   const chars = state.decisionBuffer + source;
-  const tokens: Token[] = [];
+  const tokens: AnyToken[] = [];
   const positionOffset = state.caretPosition - state.decisionBuffer.length;
 
   tokenizeChars(chars, state, tokens, {

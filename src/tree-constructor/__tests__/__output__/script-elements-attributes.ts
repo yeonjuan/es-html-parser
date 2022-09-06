@@ -196,7 +196,7 @@ export default {
             },
           ],
           openStart: {
-            type: "OpenTagStartScript",
+            type: "OpenScriptTagStart",
             value: "<script",
             loc: {
               start: {
@@ -211,7 +211,7 @@ export default {
             range: [25, 32],
           },
           openEnd: {
-            type: "OpenTagEndScript",
+            type: "OpenScriptTagEnd",
             value: ">",
             loc: {
               start: {
@@ -241,7 +241,7 @@ export default {
             range: [80, 109],
           },
           close: {
-            type: "CloseTagScript",
+            type: "CloseScriptTag",
             value: "</script>",
             loc: {
               start: {
@@ -390,7 +390,7 @@ export default {
             },
           ],
           openStart: {
-            type: "OpenTagStartScript",
+            type: "OpenScriptTagStart",
             value: "<script",
             loc: {
               start: {
@@ -405,7 +405,7 @@ export default {
             range: [122, 129],
           },
           openEnd: {
-            type: "OpenTagEndScript",
+            type: "OpenScriptTagEnd",
             value: ">",
             loc: {
               start: {
@@ -435,7 +435,7 @@ export default {
             range: [170, 218],
           },
           close: {
-            type: "CloseTagScript",
+            type: "CloseScriptTag",
             value: "</script>",
             loc: {
               start: {
@@ -648,7 +648,7 @@ export default {
         },
       ],
       openStart: {
-        type: "OpenTagStartScript",
+        type: "OpenScriptTagStart",
         value: "<script",
         loc: {
           start: {
@@ -663,7 +663,7 @@ export default {
         range: [236, 243],
       },
       openEnd: {
-        type: "OpenTagEndScript",
+        type: "OpenScriptTagEnd",
         value: ">",
         loc: {
           start: {
@@ -693,7 +693,7 @@ export default {
         range: [273, 298],
       },
       close: {
-        type: "CloseTagScript",
+        type: "CloseScriptTag",
         value: "</script>",
         loc: {
           start: {
@@ -727,7 +727,7 @@ export default {
   loc: {
     start: {
       line: 1,
-      column: 9,
+      column: 0,
     },
     end: {
       line: 20,

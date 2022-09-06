@@ -4,15 +4,19 @@ import {
   isWhitespace,
   parseOpenTagName,
 } from "../../utils";
-import { Token, TokenizerState } from "../../types";
+import { AnyToken, TokenizerState } from "../../types";
 
 const tokensMap: Record<string, TokenTypes> = {
-  script: TokenTypes.OpenTagStartScript,
-  style: TokenTypes.OpenTagStartStyle,
+  script: TokenTypes.OpenScriptTagStart,
+  style: TokenTypes.OpenStyleTagStart,
   default: TokenTypes.OpenTagStart,
 };
 
-export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
+export function parse(
+  chars: string,
+  state: TokenizerState,
+  tokens: AnyToken[]
+) {
   if (chars === ">" || chars === "/") {
     return parseTagEnd(state, tokens);
   }
@@ -25,7 +29,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseWhitespace(state: TokenizerState, tokens: Token[]) {
+function parseWhitespace(state: TokenizerState, tokens: AnyToken[]) {
   const tagName = parseOpenTagName(state.accumulatedContent);
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
@@ -43,7 +47,7 @@ function parseWhitespace(state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseTagEnd(state: TokenizerState, tokens: Token[]) {
+function parseTagEnd(state: TokenizerState, tokens: AnyToken[]) {
   const tagName = parseOpenTagName(state.accumulatedContent);
   const position = calculateTokenPosition(state, { keepBuffer: false });
 

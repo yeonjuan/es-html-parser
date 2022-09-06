@@ -1,5 +1,11 @@
 import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
+import {
+  AnyToken,
+  ConstructTreeState,
+  ContextualDoctypeNode,
+  DoctypeEndNode,
+  DoctypeStartNode,
+} from "../../types";
 import { createNodeFrom, updateNodeEnd } from "../../utils";
 
 const ATTRIBUTES_START_TOKENS = [
@@ -7,15 +13,21 @@ const ATTRIBUTES_START_TOKENS = [
   TokenTypes.DoctypeAttributeValue,
 ];
 
-function handleDoctypeStart(state: ConstructTreeState, token: Token) {
-  state.currentNode.start = createNodeFrom(token);
+function handleDoctypeStart(
+  state: ConstructTreeState<ContextualDoctypeNode>,
+  token: AnyToken
+) {
+  state.currentNode.start = createNodeFrom(token) as DoctypeStartNode;
   state.caretPosition++;
 
   return state;
 }
 
-function handleDoctypeEnd(state: ConstructTreeState, token: Token) {
-  state.currentNode.end = createNodeFrom(token);
+function handleDoctypeEnd(
+  state: ConstructTreeState<ContextualDoctypeNode>,
+  token: AnyToken
+) {
+  state.currentNode.end = createNodeFrom(token) as DoctypeEndNode;
   updateNodeEnd(state.currentNode, token);
 
   state.currentNode = state.currentNode.parentRef;
@@ -25,7 +37,9 @@ function handleDoctypeEnd(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleDoctypeAttributes(state: ConstructTreeState) {
+function handleDoctypeAttributes(
+  state: ConstructTreeState<ContextualDoctypeNode>
+) {
   state.currentContext = {
     parentRef: state.currentContext,
     type: ConstructTreeContextTypes.DoctypeAttributes,
@@ -34,7 +48,10 @@ function handleDoctypeAttributes(state: ConstructTreeState) {
   return state;
 }
 
-export function construct(token: Token, state: ConstructTreeState) {
+export function construct(
+  token: AnyToken,
+  state: ConstructTreeState<ContextualDoctypeNode>
+) {
   if (token.type === TokenTypes.DoctypeStart) {
     return handleDoctypeStart(state, token);
   }

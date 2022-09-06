@@ -51,35 +51,35 @@ export type AttributeValueWrapperEndNode =
 export interface ScriptTagNode extends BaseNode {
   type: NodeTypes.ScriptTag;
   attributes: Array<AttributeNode>;
-  openStart: OpenTagStartScriptNode;
-  openEnd: OpenTagEndScriptNode;
-  close: CloseTagScriptNode;
+  openStart: OpenScriptTagStartNode;
+  openEnd: OpenScriptTagEndNode;
+  close: CloseScriptTagNode;
   value?: ScriptTagContentNode;
 }
-export type OpenTagStartScriptNode = SimpleNode<NodeTypes.OpenTagStartScript>;
+export type OpenScriptTagStartNode = SimpleNode<NodeTypes.OpenScriptTagStart>;
 
-export type CloseTagScriptNode = SimpleNode<NodeTypes.CloseTagScript>;
+export type CloseScriptTagNode = SimpleNode<NodeTypes.CloseScriptTag>;
 
-export type OpenTagEndScriptNode = SimpleNode<NodeTypes.OpenTagEndScript>;
+export type OpenScriptTagEndNode = SimpleNode<NodeTypes.OpenScriptTagEnd>;
 
 export type ScriptTagContentNode = SimpleNode<NodeTypes.ScriptTagContent>;
 
 export interface StyleTagNode extends BaseNode {
   type: NodeTypes.StyleTag;
   attributes: Array<AttributeNode>;
-  openStart: OpenTagStartStyleNode;
-  openEnd: OpenTagEndStyleNode;
-  close: CloseTagStyleNode;
+  openStart: OpenStyleTagStartNode;
+  openEnd: OpenStyleTagEndNode;
+  close: CloseStyleTagNode;
   value?: StyleTagContentNode;
 }
 
-export type OpenTagStartStyleNode = SimpleNode<NodeTypes.OpenTagStartStyle>;
+export type OpenStyleTagStartNode = SimpleNode<NodeTypes.OpenStyleTagStart>;
 
-export type OpenTagEndStyleNode = SimpleNode<NodeTypes.OpenTagEndStyle>;
+export type OpenStyleTagEndNode = SimpleNode<NodeTypes.OpenStyleTagEnd>;
 
 export type StyleTagContentNode = SimpleNode<NodeTypes.StyleTagContent>;
 
-export type CloseTagStyleNode = SimpleNode<NodeTypes.CloseTagStyle>;
+export type CloseStyleTagNode = SimpleNode<NodeTypes.CloseStyleTag>;
 
 export interface CommentNode extends BaseNode {
   type: NodeTypes.Comment;
@@ -98,6 +98,7 @@ export interface DoctypeNode extends BaseNode {
   type: NodeTypes.Doctype;
   start: DoctypeStartNode;
   end: DoctypeEndNode;
+  attributes: DoctypeAttributeNode[];
 }
 
 export type DoctypeStartNode = SimpleNode<NodeTypes.DoctypeStart>;
@@ -105,8 +106,7 @@ export type DoctypeStartNode = SimpleNode<NodeTypes.DoctypeStart>;
 export type DoctypeEndNode = SimpleNode<NodeTypes.DoctypeEnd>;
 
 export interface DoctypeAttributeNode extends BaseNode {
-  type: NodeTypes.Attribute;
-  key: AttributeKeyNode;
+  type: NodeTypes.DoctypeAttribute;
   startWrapper?: DoctypeAttributeWrapperStart;
   value?: DoctypeAttributeValueNode;
   endWrapper?: DoctypeAttributeWrapperEnd;
@@ -120,3 +120,37 @@ export type DoctypeAttributeWrapperStart =
 
 export type DoctypeAttributeWrapperEnd =
   SimpleNode<NodeTypes.DoctypeAttributeWrapperEnd>;
+
+export type AnyNode =
+  | DocumentNode
+  | TextNode
+  | TagNode
+  | OpenTagStartNode
+  | OpenTagEndNode
+  | CloseTagNode
+  | AttributeNode
+  | AttributeKeyNode
+  | AttributeValueNode
+  | AttributeValueWrapperStartNode
+  | AttributeValueWrapperEndNode
+  | ScriptTagNode
+  | OpenScriptTagStartNode
+  | CloseScriptTagNode
+  | OpenScriptTagEndNode
+  | ScriptTagContentNode
+  | StyleTagNode
+  | OpenStyleTagStartNode
+  | OpenStyleTagEndNode
+  | StyleTagContentNode
+  | CloseStyleTagNode
+  | CommentNode
+  | CommentStartNode
+  | CommentEndNode
+  | CommentContentNode
+  | DoctypeNode
+  | DoctypeStartNode
+  | DoctypeEndNode
+  | DoctypeAttributeNode
+  | DoctypeAttributeValueNode
+  | DoctypeAttributeWrapperStart
+  | DoctypeAttributeWrapperEnd;

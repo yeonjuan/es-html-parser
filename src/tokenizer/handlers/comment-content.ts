@@ -1,10 +1,14 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
-import { Range, Token, TokenizerState } from "../../types";
+import { Range, AnyToken, TokenizerState } from "../../types";
 
 const COMMENT_END = "-->";
 
-export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
+export function parse(
+  chars: string,
+  state: TokenizerState,
+  tokens: AnyToken[]
+) {
   if (chars === "-" || chars === "--") {
     state.caretPosition++;
     return;
@@ -19,7 +23,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseCommentEnd(state: TokenizerState, tokens: Token[]) {
+function parseCommentEnd(state: TokenizerState, tokens: AnyToken[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   const endRange: Range = [
     position.range[1],

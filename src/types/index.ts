@@ -5,5 +5,5 @@ export * from "./construct-tree-state";
 export * from "./position";
 export * from "./node";
 export * from "./range";
-export * from "./temp-node";
+export * from "./contextual-node";
 export * from "./base-node";

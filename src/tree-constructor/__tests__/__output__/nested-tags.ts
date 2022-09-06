@@ -288,7 +288,7 @@ export default {
   loc: {
     start: {
       line: 1,
-      column: 6,
+      column: 0,
     },
     end: {
       line: 10,

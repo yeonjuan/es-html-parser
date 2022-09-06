@@ -1,8 +1,12 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
-import { Range, Token, TokenizerState } from "../../types";
+import { Range, AnyToken, TokenizerState } from "../../types";
 
-export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
+export function parse(
+  chars: string,
+  state: TokenizerState,
+  tokens: AnyToken[]
+) {
   const wrapperChar =
     state.contextParams[TokenizerContextTypes.DoctypeAttributeWrapped]?.wrapper;
 
@@ -15,7 +19,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseWrapper(state: TokenizerState, tokens: Token[]) {
+function parseWrapper(state: TokenizerState, tokens: AnyToken[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   const endWrapperPosition = position.range[1];
 

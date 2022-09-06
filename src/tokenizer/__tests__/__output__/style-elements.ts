@@ -17,7 +17,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStartStyle,
+    type: TokenTypes.OpenStyleTagStart,
     value: "<style",
     range: [14, 20],
     loc: {
@@ -32,7 +32,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEndStyle,
+    type: TokenTypes.OpenStyleTagEnd,
     value: ">",
     range: [20, 21],
     loc: {
@@ -62,7 +62,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTagStyle,
+    type: TokenTypes.CloseStyleTag,
     value: "</style>",
     range: [64, 72],
     loc: {
@@ -137,7 +137,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStartStyle,
+    type: TokenTypes.OpenStyleTagStart,
     value: "<style",
     range: [82, 88],
     loc: {
@@ -152,7 +152,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEndStyle,
+    type: TokenTypes.OpenStyleTagEnd,
     value: ">",
     range: [88, 89],
     loc: {
@@ -182,7 +182,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTagStyle,
+    type: TokenTypes.CloseStyleTag,
     value: "</style>",
     range: [138, 146],
     loc: {

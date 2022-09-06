@@ -1,9 +1,13 @@
 import { TokenizerContextTypes } from "../../constants";
 import { TokenTypes } from "../../constants/token-types";
 import { calculateTokenPosition } from "../../utils";
-import { Token, TokenizerState } from "../../types";
+import { AnyToken, TokenizerState } from "../../types";
 
-export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
+export function parse(
+  chars: string,
+  state: TokenizerState,
+  tokens: AnyToken[]
+) {
   if (isKeyBreak(chars)) {
     return parseKeyEnd(state, tokens);
   }
@@ -24,7 +28,7 @@ function isKeyBreak(chars: string): boolean {
   );
 }
 
-function parseKeyEnd(state: TokenizerState, tokens: Token[]) {
+function parseKeyEnd(state: TokenizerState, tokens: AnyToken[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   tokens.push({
     type: TokenTypes.AttributeKey,

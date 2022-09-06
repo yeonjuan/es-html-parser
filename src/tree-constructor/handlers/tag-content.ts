@@ -5,22 +5,31 @@ import {
 } from "../../constants";
 import {
   ConstructTreeState,
+  AnyToken,
+  ContextualTagNode,
+  ContextualCommentNode,
   Token,
-  TempCommentNode,
-  TempDoctypeNode,
-  TempScriptNode,
-  TempStyleNode,
-  TempTagNode,
+  ContextualDocumentNode,
+  ContextualScriptTagNode,
+  ContextualStyleTagNode,
+  ContextualDoctypeNode,
+  TextNode,
 } from "../../types";
-import { cloneRange, parseCloseTagName, createNodeFrom } from "../../utils";
-import { cloneLocation } from "../../utils/clone-location";
+import {
+  cloneRange,
+  parseCloseTagName,
+  createNodeFrom,
+  cloneLocation,
+  initChildrenIfNone,
+} from "../../utils";
 
-function handleOpenTagStart(state: ConstructTreeState, token: Token) {
-  if (state.currentNode.children === undefined) {
-    state.currentNode.children = [];
-  }
+function handleOpenTagStart(
+  state: ConstructTreeState<ContextualTagNode>,
+  token: AnyToken
+) {
+  initChildrenIfNone(state.currentNode);
 
-  const tagNode: TempTagNode = {
+  const tagNode: ContextualTagNode = {
     type: NodeTypes.Tag,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
@@ -40,7 +49,10 @@ function handleOpenTagStart(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleCloseTag(state: ConstructTreeState, token: Token) {
+function handleCloseTag(
+  state: ConstructTreeState<ContextualTagNode>,
+  token: AnyToken
+) {
   const closeTagName = parseCloseTagName(token.value);
 
   if (closeTagName !== state.currentNode.name) {
@@ -54,12 +66,13 @@ function handleCloseTag(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleCommentStart(state: ConstructTreeState, token: Token) {
-  if (state.currentNode.children === undefined) {
-    state.currentNode.children = [];
-  }
+function handleCommentStart(
+  state: ConstructTreeState<ContextualTagNode>,
+  token: AnyToken
+) {
+  initChildrenIfNone(state.currentNode);
 
-  const commentNode: TempCommentNode = {
+  const commentNode: ContextualCommentNode = {
     type: NodeTypes.Comment,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
@@ -68,6 +81,7 @@ function handleCommentStart(state: ConstructTreeState, token: Token) {
 
   state.currentNode.children.push(commentNode);
 
+  // @ts-ignore
   state.currentNode = commentNode;
   state.currentContext = {
     parentRef: state.currentContext,
@@ -77,20 +91,23 @@ function handleCommentStart(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleDoctypeStart(state: ConstructTreeState, token: Token) {
-  if (state.currentNode.children === undefined) {
-    state.currentNode.children = [];
-  }
+function handleDoctypeStart(
+  state: ConstructTreeState<ContextualTagNode | ContextualDocumentNode>,
+  token: AnyToken
+) {
+  initChildrenIfNone(state.currentNode);
 
-  const doctypeNode: TempDoctypeNode = {
+  const doctypeNode: ContextualDoctypeNode = {
     type: NodeTypes.Doctype,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
     loc: cloneLocation(token.loc),
+    attributes: [],
   };
 
   state.currentNode.children.push(doctypeNode);
 
+  // @ts-ignore
   state.currentNode = doctypeNode;
   state.currentContext = {
     parentRef: state.currentContext,
@@ -100,12 +117,12 @@ function handleDoctypeStart(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleText(state: ConstructTreeState, token: Token) {
-  if (state.currentNode.children === undefined) {
-    state.currentNode.children = [];
-  }
-
-  const textNode = createNodeFrom(token);
+function handleText(
+  state: ConstructTreeState<ContextualTagNode | ContextualDocumentNode>,
+  token: Token<TokenTypes.Text>
+) {
+  initChildrenIfNone(state.currentNode);
+  const textNode = createNodeFrom(token) as TextNode;
 
   state.currentNode.children.push(textNode);
   state.caretPosition++;
@@ -113,21 +130,21 @@ function handleText(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleOpenTagStartScript(state: ConstructTreeState, token: Token) {
-  if (state.currentNode.children === undefined) {
-    state.currentNode.children = [];
-  }
-
-  const scriptNode: TempScriptNode = {
+function handleOpenScriptTagStart(
+  state: ConstructTreeState<ContextualTagNode | ContextualDocumentNode>,
+  token: Token<TokenTypes.OpenScriptTagStart>
+) {
+  initChildrenIfNone(state.currentNode);
+  const scriptNode: ContextualScriptTagNode = {
     type: NodeTypes.ScriptTag,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
     loc: cloneLocation(token.loc),
     attributes: [],
   };
-
   state.currentNode.children.push(scriptNode);
 
+  // @ts-ignore
   state.currentNode = scriptNode;
   state.currentContext = {
     type: ConstructTreeContextTypes.ScriptTag,
@@ -137,12 +154,13 @@ function handleOpenTagStartScript(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleOpenTagStartStyle(state: ConstructTreeState, token: Token) {
-  if (state.currentNode.children === undefined) {
-    state.currentNode.children = [];
-  }
+function handleOpenStyleTagStart(
+  state: ConstructTreeState<ContextualTagNode | ContextualDocumentNode>,
+  token: Token<TokenTypes.OpenStyleTagStart>
+) {
+  initChildrenIfNone(state.currentNode);
 
-  const styleNode: TempStyleNode = {
+  const styleNode: ContextualStyleTagNode = {
     type: NodeTypes.StyleTag,
     parentRef: state.currentNode,
     range: cloneRange(token.range),
@@ -152,7 +170,9 @@ function handleOpenTagStartStyle(state: ConstructTreeState, token: Token) {
 
   state.currentNode.children.push(styleNode);
 
+  // @ts-ignore
   state.currentNode = styleNode;
+
   state.currentContext = {
     type: ConstructTreeContextTypes.StyleTag,
     parentRef: state.currentContext,
@@ -161,13 +181,16 @@ function handleOpenTagStartStyle(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-export function construct(token: Token, state: ConstructTreeState) {
-  if (token.type === TokenTypes.OpenTagStartScript) {
-    return handleOpenTagStartScript(state, token);
+export function construct(
+  token: AnyToken,
+  state: ConstructTreeState<ContextualTagNode>
+) {
+  if (token.type === TokenTypes.OpenScriptTagStart) {
+    return handleOpenScriptTagStart(state, token);
   }
 
-  if (token.type === TokenTypes.OpenTagStartStyle) {
-    return handleOpenTagStartStyle(state, token);
+  if (token.type === TokenTypes.OpenStyleTagStart) {
+    return handleOpenStyleTagStart(state, token);
   }
 
   if (token.type === TokenTypes.OpenTagStart) {

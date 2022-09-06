@@ -62,7 +62,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagStartScript,
+    type: TokenTypes.OpenScriptTagStart,
     value: "<script",
     range: [22, 29],
     loc: {
@@ -77,7 +77,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.OpenTagEndScript,
+    type: TokenTypes.OpenScriptTagEnd,
     value: ">",
     range: [29, 30],
     loc: {
@@ -107,7 +107,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CloseTagScript,
+    type: TokenTypes.CloseScriptTag,
     value: "</script>",
     range: [53, 62],
     loc: {

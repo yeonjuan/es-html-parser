@@ -1,5 +1,13 @@
 import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
+import {
+  AnyToken,
+  CloseStyleTagNode,
+  ConstructTreeState,
+  ContextualStyleTagNode,
+  OpenStyleTagEndNode,
+  OpenStyleTagStartNode,
+  StyleTagContentNode,
+} from "../../types";
 import { createNodeFrom, updateNodeEnd } from "../../utils";
 
 const ATTRIBUTE_START_TOKENS = [
@@ -7,8 +15,11 @@ const ATTRIBUTE_START_TOKENS = [
   TokenTypes.AttributeAssignment,
 ];
 
-function handleOpenTagStartStyle(state: ConstructTreeState, token: Token) {
-  state.currentNode.openStart = createNodeFrom(token);
+function handleOpenStyleTagStart(
+  state: ConstructTreeState<ContextualStyleTagNode>,
+  token: AnyToken
+) {
+  state.currentNode.openStart = createNodeFrom(token) as OpenStyleTagStartNode;
   updateNodeEnd(state.currentNode, token);
 
   state.caretPosition++;
@@ -16,7 +27,9 @@ function handleOpenTagStartStyle(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleAttributeStartStyle(state: ConstructTreeState) {
+function handleAttributeStartStyle(
+  state: ConstructTreeState<ContextualStyleTagNode>
+) {
   state.currentContext = {
     parentRef: state.currentContext,
     type: ConstructTreeContextTypes.Attributes,
@@ -25,8 +38,11 @@ function handleAttributeStartStyle(state: ConstructTreeState) {
   return state;
 }
 
-function handleOpenTagEndStyle(state: ConstructTreeState, token: Token) {
-  state.currentNode.openEnd = createNodeFrom(token);
+function handleOpenStyleTagEnd(
+  state: ConstructTreeState<ContextualStyleTagNode>,
+  token: AnyToken
+) {
+  state.currentNode.openEnd = createNodeFrom(token) as OpenStyleTagEndNode;
   updateNodeEnd(state.currentNode, token);
 
   state.caretPosition++;
@@ -34,8 +50,11 @@ function handleOpenTagEndStyle(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleStyleContent(state: ConstructTreeState, token: Token) {
-  state.currentNode.value = createNodeFrom(token);
+function handleStyleContent(
+  state: ConstructTreeState<ContextualStyleTagNode>,
+  token: AnyToken
+) {
+  state.currentNode.value = createNodeFrom(token) as StyleTagContentNode;
   updateNodeEnd(state.currentNode, token);
 
   state.caretPosition++;
@@ -43,8 +62,11 @@ function handleStyleContent(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-function handleCloseTagStyle(state: ConstructTreeState, token: Token) {
-  state.currentNode.close = createNodeFrom(token);
+function handleCloseStyleTag(
+  state: ConstructTreeState<ContextualStyleTagNode>,
+  token: AnyToken
+) {
+  state.currentNode.close = createNodeFrom(token) as CloseStyleTagNode;
   updateNodeEnd(state.currentNode, token);
 
   state.currentNode = state.currentNode.parentRef;
@@ -54,25 +76,28 @@ function handleCloseTagStyle(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-export function construct(token: Token, state: ConstructTreeState) {
-  if (token.type === TokenTypes.OpenTagStartStyle) {
-    return handleOpenTagStartStyle(state, token);
+export function construct(
+  token: AnyToken,
+  state: ConstructTreeState<ContextualStyleTagNode>
+) {
+  if (token.type === TokenTypes.OpenStyleTagStart) {
+    return handleOpenStyleTagStart(state, token);
   }
 
   if (ATTRIBUTE_START_TOKENS.indexOf(token.type) !== -1) {
     return handleAttributeStartStyle(state);
   }
 
-  if (token.type === TokenTypes.OpenTagEndStyle) {
-    return handleOpenTagEndStyle(state, token);
+  if (token.type === TokenTypes.OpenStyleTagEnd) {
+    return handleOpenStyleTagEnd(state, token);
   }
 
   if (token.type === TokenTypes.StyleTagContent) {
     return handleStyleContent(state, token);
   }
 
-  if (token.type === TokenTypes.CloseTagStyle) {
-    return handleCloseTagStyle(state, token);
+  if (token.type === TokenTypes.CloseStyleTag) {
+    return handleCloseStyleTag(state, token);
   }
 
   state.caretPosition++;

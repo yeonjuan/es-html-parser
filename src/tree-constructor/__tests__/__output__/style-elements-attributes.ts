@@ -166,7 +166,7 @@ export default {
         },
       ],
       openStart: {
-        type: "OpenTagStartStyle",
+        type: "OpenStyleTagStart",
         value: "<style",
         loc: {
           start: {
@@ -181,7 +181,7 @@ export default {
         range: [0, 6],
       },
       openEnd: {
-        type: "OpenTagEndStyle",
+        type: "OpenStyleTagEnd",
         value: ">",
         loc: {
           start: {
@@ -211,7 +211,7 @@ export default {
         range: [42, 85],
       },
       close: {
-        type: "CloseTagStyle",
+        type: "CloseStyleTag",
         value: "</style>",
         loc: {
           start: {
@@ -419,7 +419,7 @@ export default {
             },
           ],
           openStart: {
-            type: "OpenTagStartStyle",
+            type: "OpenStyleTagStart",
             value: "<style",
             loc: {
               start: {
@@ -434,7 +434,7 @@ export default {
             range: [103, 109],
           },
           openEnd: {
-            type: "OpenTagEndStyle",
+            type: "OpenStyleTagEnd",
             value: ">",
             loc: {
               start: {
@@ -464,7 +464,7 @@ export default {
             range: [164, 213],
           },
           close: {
-            type: "CloseTagStyle",
+            type: "CloseStyleTag",
             value: "</style>",
             loc: {
               start: {
@@ -562,7 +562,7 @@ export default {
   loc: {
     start: {
       line: 1,
-      column: 6,
+      column: 0,
     },
     end: {
       line: 19,

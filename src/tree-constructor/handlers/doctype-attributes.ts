@@ -3,29 +3,33 @@ import {
   NodeTypes,
   TokenTypes,
 } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
-import { cloneRange } from "../../utils";
-import { cloneLocation } from "../../utils/clone-location";
+import {
+  AnyToken,
+  ConstructTreeState,
+  ContextualDoctypeNode,
+} from "../../types";
+import { cloneRange, cloneLocation, initAttributesIfNone } from "../../utils";
 
 const ATTRIBUTE_START_TOKENS = [
   TokenTypes.DoctypeAttributeWrapperStart,
   TokenTypes.DoctypeAttributeValue,
 ];
 
-function handleDoctypeEnd(state: ConstructTreeState) {
+function handleDoctypeEnd(state: ConstructTreeState<ContextualDoctypeNode>) {
   state.currentContext = state.currentContext.parentRef;
 
   return state;
 }
 
-function handleAttribute(state: ConstructTreeState, token: Token) {
-  if (state.currentNode.attributes === undefined) {
-    state.currentNode.attributes = [];
-  }
+function handleAttribute(
+  state: ConstructTreeState<ContextualDoctypeNode>,
+  token: AnyToken
+) {
+  initAttributesIfNone(state.currentNode);
 
   // new empty attribute
   state.currentNode.attributes.push({
-    type: NodeTypes.Attribute,
+    type: NodeTypes.DoctypeAttribute,
     range: cloneRange(token.range),
     loc: cloneLocation(token.loc),
   });
@@ -38,7 +42,10 @@ function handleAttribute(state: ConstructTreeState, token: Token) {
   return state;
 }
 
-export function construct(token: Token, state: ConstructTreeState) {
+export function construct(
+  token: AnyToken,
+  state: ConstructTreeState<ContextualDoctypeNode>
+) {
   if (token.type === TokenTypes.DoctypeEnd) {
     return handleDoctypeEnd(state);
   }

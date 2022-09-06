@@ -1,11 +1,15 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
-import { Range, Token, TokenizerState } from "../../types";
+import { Range, AnyToken, TokenizerState } from "../../types";
 
 const COMMENT_START = "<!--";
 const OPEN_TAG_START_PATTERN = /^<\w/;
 
-export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
+export function parse(
+  chars: string,
+  state: TokenizerState,
+  tokens: AnyToken[]
+) {
   if (OPEN_TAG_START_PATTERN.test(chars)) {
     return parseOpeningCornerBraceWithText(state, tokens);
   }
@@ -36,7 +40,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-export function handleContentEnd(state: TokenizerState, tokens: Token[]) {
+export function handleContentEnd(state: TokenizerState, tokens: AnyToken[]) {
   const textContent = state.accumulatedContent + state.decisionBuffer;
 
   if (textContent.length !== 0) {
@@ -51,7 +55,7 @@ export function handleContentEnd(state: TokenizerState, tokens: Token[]) {
   }
 }
 
-function generateTextToken(state: TokenizerState): Token {
+function generateTextToken(state: TokenizerState): AnyToken {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   return {
     type: TokenTypes.Text,
@@ -63,7 +67,7 @@ function generateTextToken(state: TokenizerState): Token {
 
 function parseOpeningCornerBraceWithText(
   state: TokenizerState,
-  tokens: Token[]
+  tokens: AnyToken[]
 ) {
   if (state.accumulatedContent.length !== 0) {
     tokens.push(generateTextToken(state));
@@ -76,7 +80,7 @@ function parseOpeningCornerBraceWithText(
 
 function parseOpeningCornerBraceWithSlash(
   state: TokenizerState,
-  tokens: Token[]
+  tokens: AnyToken[]
 ) {
   if (state.accumulatedContent.length !== 0) {
     tokens.push(generateTextToken(state));
@@ -101,7 +105,7 @@ function isIncompleteDoctype(chars: string) {
   );
 }
 
-function parseCommentStart(state: TokenizerState, tokens: Token[]) {
+function parseCommentStart(state: TokenizerState, tokens: AnyToken[]) {
   if (state.accumulatedContent.length !== 0) {
     tokens.push(generateTextToken(state));
   }
@@ -126,7 +130,7 @@ function parseCommentStart(state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseDoctypeStart(state: TokenizerState, tokens: Token[]) {
+function parseDoctypeStart(state: TokenizerState, tokens: AnyToken[]) {
   if (state.accumulatedContent.length !== 0) {
     tokens.push(generateTextToken(state));
   }

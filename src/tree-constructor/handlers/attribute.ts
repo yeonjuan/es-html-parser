@@ -1,26 +1,34 @@
 import { ConstructTreeContextTypes, TokenTypes } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
+import {
+  AnyToken,
+  AttributeKeyNode,
+  ConstructTreeState,
+  ContextualTagNode,
+} from "../../types";
 import { createNodeFrom } from "../../utils";
 
 const OPEN_TAG_END_TOKENS = [
   TokenTypes.OpenTagEnd,
-  TokenTypes.OpenTagEndScript,
-  TokenTypes.OpenTagEndStyle,
+  TokenTypes.OpenScriptTagEnd,
+  TokenTypes.OpenStyleTagEnd,
 ];
 
-function getLastAttribute(state: ConstructTreeState) {
+function getLastAttribute(state: ConstructTreeState<ContextualTagNode>) {
   const attributes = state.currentNode.attributes;
 
   return attributes[attributes.length - 1];
 }
 
-function handleOpenTagEnd(state: ConstructTreeState) {
+function handleOpenTagEnd(state: ConstructTreeState<ContextualTagNode>) {
   state.currentContext = state.currentContext.parentRef;
 
   return state;
 }
 
-function handleAttributeKey(state: ConstructTreeState, token: Token) {
+function handleAttributeKey(
+  state: ConstructTreeState<ContextualTagNode>,
+  token: AnyToken
+) {
   const attribute = getLastAttribute(state);
 
   if (attribute.key !== undefined || attribute.value !== undefined) {
@@ -29,13 +37,15 @@ function handleAttributeKey(state: ConstructTreeState, token: Token) {
     return state;
   }
 
-  attribute.key = createNodeFrom(token);
+  attribute.key = createNodeFrom(token) as AttributeKeyNode;
   state.caretPosition++;
 
   return state;
 }
 
-function handleAttributeAssignment(state: ConstructTreeState) {
+function handleAttributeAssignment(
+  state: ConstructTreeState<ContextualTagNode>
+) {
   const attribute = getLastAttribute(state);
 
   if (attribute.value !== undefined) {
@@ -53,7 +63,10 @@ function handleAttributeAssignment(state: ConstructTreeState) {
   return state;
 }
 
-export function construct(token: Token, state: ConstructTreeState) {
+export function construct(
+  token: AnyToken,
+  state: ConstructTreeState<ContextualTagNode>
+) {
   if (OPEN_TAG_END_TOKENS.indexOf(token.type) !== -1) {
     return handleOpenTagEnd(state);
   }

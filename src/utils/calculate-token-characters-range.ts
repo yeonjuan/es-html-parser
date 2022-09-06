@@ -4,14 +4,6 @@ export function calculateTokenCharactersRange(
   state: TokenizerState,
   { keepBuffer }: { keepBuffer: boolean }
 ): Range {
-  if (keepBuffer === undefined) {
-    throw new Error(
-      "Unable to calculate characters range for token.\n" +
-        '"keepBuffer" parameter is not specified to decide if ' +
-        "the decision buffer is a part of characters range."
-    );
-  }
-
   const startPosition =
     state.caretPosition -
     (state.accumulatedContent.length - 1) -

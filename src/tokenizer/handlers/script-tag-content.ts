@@ -5,9 +5,13 @@ import {
   TokenTypes,
 } from "../../constants";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
-import { Range, Token, TokenizerState } from "../../types";
+import { Range, AnyToken, TokenizerState } from "../../types";
 
-export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
+export function parse(
+  chars: string,
+  state: TokenizerState,
+  tokens: AnyToken[]
+) {
   if (
     chars === "<" ||
     chars === "</" ||
@@ -26,7 +30,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseClosingScriptTag(state: TokenizerState, tokens: Token[]) {
+function parseClosingScriptTag(state: TokenizerState, tokens: AnyToken[]) {
   if (state.accumulatedContent !== "") {
     const position = calculateTokenPosition(state, { keepBuffer: false });
     tokens.push({
@@ -45,7 +49,7 @@ function parseClosingScriptTag(state: TokenizerState, tokens: Token[]) {
   const loc = calculateTokenLocation(state.source, range);
 
   tokens.push({
-    type: TokenTypes.CloseTagScript,
+    type: TokenTypes.CloseScriptTag,
     value: state.decisionBuffer,
     range,
     loc,

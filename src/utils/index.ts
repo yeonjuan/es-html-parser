@@ -10,3 +10,6 @@ export * from "./clone-range";
 export * from "./create-node-from";
 export * from "./update-node-end";
 export * from "./get-line-info";
+export * from "./first";
+export * from "./clone-location";
+export * from "./init-if-none";

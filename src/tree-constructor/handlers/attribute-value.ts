@@ -1,54 +1,65 @@
 import { TokenTypes } from "../../constants";
-import { ConstructTreeState, Token } from "../../types";
-import { createNodeFrom, updateNodeEnd } from "../../utils";
+import {
+  AnyToken,
+  AttributeValueNode,
+  AttributeValueWrapperEndNode,
+  AttributeValueWrapperStartNode,
+  ConstructTreeState,
+  ContextualTagNode,
+  Token,
+} from "../../types";
+import {
+  cloneLocation,
+  cloneRange,
+  createNodeFrom,
+  updateNodeEnd,
+} from "../../utils";
 
 const VALUE_END_TOKENS = [
   TokenTypes.OpenTagEnd,
   TokenTypes.AttributeKey,
   TokenTypes.AttributeAssignment,
-  TokenTypes.OpenTagEndScript,
-  TokenTypes.OpenTagEndStyle,
+  TokenTypes.OpenScriptTagEnd,
+  TokenTypes.OpenStyleTagEnd,
 ];
 
-function getLastAttribute(state: ConstructTreeState) {
+function getLastAttribute(state: ConstructTreeState<ContextualTagNode>) {
   const attributes = state.currentNode.attributes;
 
   return attributes[attributes.length - 1];
 }
 
-function handleValueEnd(state: ConstructTreeState): ConstructTreeState {
+function handleValueEnd(
+  state: ConstructTreeState<ContextualTagNode>
+): ConstructTreeState<any> {
   state.currentContext = state.currentContext.parentRef;
   return state;
 }
 
 function handleAttributeValue(
-  state: ConstructTreeState,
-  token: Token
-): ConstructTreeState {
+  state: ConstructTreeState<ContextualTagNode>,
+  token: AnyToken
+): ConstructTreeState<ContextualTagNode> {
   const attribute = getLastAttribute(state);
 
-  attribute.value = createNodeFrom(token);
+  attribute.value = createNodeFrom(token) as AttributeValueNode;
   state.caretPosition++;
   return state;
 }
 
 function handleAttributeValueWrapperStart(
-  state: ConstructTreeState,
-  token: Token
-): ConstructTreeState {
+  state: ConstructTreeState<ContextualTagNode>,
+  token: AnyToken
+): ConstructTreeState<ContextualTagNode> {
   const attribute = getLastAttribute(state);
 
-  attribute.startWrapper = createNodeFrom(token);
+  attribute.startWrapper = createNodeFrom(
+    token
+  ) as AttributeValueWrapperStartNode;
+
   if (!attribute.key) {
-    attribute.range = [token.range[0], token.range[1]];
-    attribute.loc = {
-      start: {
-        ...token.loc.start,
-      },
-      end: {
-        ...token.loc.end,
-      },
-    };
+    attribute.range = cloneRange(token.range);
+    attribute.loc = cloneLocation(token.loc);
   }
   state.caretPosition++;
 
@@ -56,12 +67,12 @@ function handleAttributeValueWrapperStart(
 }
 
 function handleAttributeValueWrapperEnd(
-  state: ConstructTreeState,
-  token: Token
-): ConstructTreeState {
+  state: ConstructTreeState<ContextualTagNode>,
+  token: Token<TokenTypes.AttributeValueWrapperEnd>
+): ConstructTreeState<ContextualTagNode> {
   const attribute = getLastAttribute(state);
 
-  attribute.endWrapper = createNodeFrom(token);
+  attribute.endWrapper = createNodeFrom(token) as AttributeValueWrapperEndNode;
   updateNodeEnd(attribute, token);
 
   state.caretPosition++;
@@ -70,9 +81,9 @@ function handleAttributeValueWrapperEnd(
 }
 
 export function construct(
-  token: Token,
-  state: ConstructTreeState
-): ConstructTreeState {
+  token: AnyToken,
+  state: ConstructTreeState<ContextualTagNode>
+): ConstructTreeState<ContextualTagNode> {
   if (VALUE_END_TOKENS.indexOf(token.type) !== -1) {
     return handleValueEnd(state);
   }

@@ -1,13 +1,14 @@
 import { ConstructTreeContextTypes } from "../constants";
 import { DocumentNode } from "./node";
+import { AnyContextualNode } from "./contextual-node";
 
-export type ConstructTreeState<CurNode = any> = {
+export type ConstructTreeState<N extends AnyContextualNode> = {
   caretPosition: number;
   currentContext: {
     type: ConstructTreeContextTypes;
     parentRef?: any;
     content?: any[];
   };
-  currentNode: CurNode;
+  currentNode: N;
   rootNode: DocumentNode;
 };

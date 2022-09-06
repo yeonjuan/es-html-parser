@@ -3,12 +3,16 @@ import {
   TokenizerContextTypes,
   TokenTypes,
 } from "../../constants";
-import { Range, Token, TokenizerState } from "../../types";
+import { Range, AnyToken, TokenizerState } from "../../types";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
 
 const CLOSING_STYLE_TAG_PATTERN = /<\/style\s*>/i;
 
-export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
+export function parse(
+  chars: string,
+  state: TokenizerState,
+  tokens: AnyToken[]
+) {
   if (
     chars === "<" ||
     chars === "</" ||
@@ -27,7 +31,7 @@ export function parse(chars: string, state: TokenizerState, tokens: Token[]) {
   state.caretPosition++;
 }
 
-function parseClosingStyleTag(state: TokenizerState, tokens: Token[]) {
+function parseClosingStyleTag(state: TokenizerState, tokens: AnyToken[]) {
   if (state.accumulatedContent !== "") {
     const position = calculateTokenPosition(state, { keepBuffer: false });
     tokens.push({
@@ -45,7 +49,7 @@ function parseClosingStyleTag(state: TokenizerState, tokens: Token[]) {
   const loc = calculateTokenLocation(state.source, range);
 
   tokens.push({
-    type: TokenTypes.CloseTagStyle,
+    type: TokenTypes.CloseStyleTag,
     value: state.decisionBuffer,
     range,
     loc,

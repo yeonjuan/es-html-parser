@@ -5,6 +5,7 @@ export default {
     {
       type: "Doctype",
       range: [0, 10],
+      attributes: [],
       loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 10 } },
       start: {
         type: "DoctypeStart",
@@ -28,6 +29,7 @@ export default {
     {
       type: "Doctype",
       range: [12, 22],
+      attributes: [],
       loc: { start: { line: 3, column: 0 }, end: { line: 3, column: 10 } },
       start: {
         type: "DoctypeStart",
@@ -60,7 +62,7 @@ export default {
       },
       attributes: [
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [34, 50],
           loc: { start: { line: 5, column: 10 }, end: { line: 5, column: 26 } },
           startWrapper: {
@@ -92,7 +94,7 @@ export default {
           },
         },
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [51, 64],
           loc: { start: { line: 5, column: 27 }, end: { line: 5, column: 40 } },
           startWrapper: {
@@ -149,7 +151,7 @@ export default {
       },
       attributes: [
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [78, 82],
           loc: { start: { line: 7, column: 10 }, end: { line: 7, column: 14 } },
           value: {
@@ -163,7 +165,7 @@ export default {
           },
         },
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [83, 89],
           loc: { start: { line: 7, column: 15 }, end: { line: 7, column: 21 } },
           value: {
@@ -202,7 +204,7 @@ export default {
       },
       attributes: [
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [102, 106],
           loc: { start: { line: 9, column: 10 }, end: { line: 9, column: 14 } },
           value: {
@@ -216,7 +218,7 @@ export default {
           },
         },
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [107, 113],
           loc: { start: { line: 9, column: 15 }, end: { line: 9, column: 21 } },
           value: {
@@ -230,7 +232,7 @@ export default {
           },
         },
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [114, 150],
           loc: { start: { line: 9, column: 22 }, end: { line: 9, column: 58 } },
           startWrapper: {
@@ -262,7 +264,7 @@ export default {
           },
         },
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [151, 192],
           loc: {
             start: { line: 9, column: 59 },
@@ -322,7 +324,7 @@ export default {
       },
       attributes: [
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [207, 211],
           loc: { start: { line: 12, column: 2 }, end: { line: 12, column: 6 } },
           value: {
@@ -336,7 +338,7 @@ export default {
           },
         },
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [212, 218],
           loc: {
             start: { line: 12, column: 7 },
@@ -353,7 +355,7 @@ export default {
           },
         },
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [221, 257],
           loc: {
             start: { line: 13, column: 2 },
@@ -388,7 +390,7 @@ export default {
           },
         },
         {
-          type: "Attribute",
+          type: "DoctypeAttribute",
           range: [260, 301],
           loc: {
             start: { line: 14, column: 2 },
@@ -437,5 +439,5 @@ export default {
       range: [303, 304],
     },
   ],
-  loc: { start: { line: 1, column: 1 }, end: { line: 16, column: 0 } },
+  loc: { start: { line: 1, column: 0 }, end: { line: 16, column: 0 } },
 };

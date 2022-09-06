@@ -55,40 +55,38 @@ parse(html: string): ParseResult
   - [Position](#position)
   - [Token](#token)
 
-- [Node](#node)
-
-  - [DocumentNode](#documentnode)
-  - [TextNode](#textnode)
-  - [TagNode](#tagnode)
-    - [OpenTagStartNode](#opentagstartnode)
-    - [OpenTagEndNode](#opentagendnode)
-    - [CloseNode](#closenode)
-  - [AttributeNode](#attributenode)
-    - [AttributeKeyNode](#attributekeynode)
-    - [AttributeValueWrapperStartNode](#attributevaluewrapperstartnode)
-    - [AttributeValueWrapperEndNode](#attributevaluewrapperendnode)
-    - [AttributeValueNode](#attributevaluenode)
-  - [ScriptNode](#scriptnode)
-    - [OpenTagStartScriptNode](#ppentagstartscriptnode)
-    - [OpenTagEndScriptNode](#ppentagendscriptnode)
-    - [CloseTagScriptNode](#closetagscriptnode)
-    - [ScriptTagContentNode](#scripttagcontentnode)
-  - [StyleNode](#stylenode)
-    - [OpenTagStartStyleNode](#opentagstartstylenode)
-    - [OpenTagEndStyleNode](#opentagendstylenode)
-    - [CloseTagStyleNode](#closetagstylenode)
-    - [StyleTagContentNode](#styletagcontentnode)
-  - [CommentNode](#commentnode)
-    - [CommentStartNode](#commentstartnode)
-    - [CommentEndNode](#commentendnode)
-    - [CommentContentNode](#commentcontentnode)
-  - [DoctypeNode](#doctypenode)
-    - [DoctypeStartNode](#doctypestartnode)
-    - [DoctypeEndNode](#doctypeendnode)
-  - [DoctypeAttributeNode](#doctypeattributenode)
-    - [DoctypeAttributeValueNode](#doctypeattributevaluenode)
-    - [DoctypeAttributeWrapperStart](#doctypeattributewrapperstart)
-    - [DoctypeAttributeWrapperEnd](#doctypeattributewrapperend)
+- [DocumentNode](#documentnode)
+- [TextNode](#textnode)
+- [TagNode](#tagnode)
+  - [OpenTagStartNode](#opentagstartnode)
+  - [OpenTagEndNode](#opentagendnode)
+  - [CloseNode](#closenode)
+- [AttributeNode](#attributenode)
+  - [AttributeKeyNode](#attributekeynode)
+  - [AttributeValueWrapperStartNode](#attributevaluewrapperstartnode)
+  - [AttributeValueWrapperEndNode](#attributevaluewrapperendnode)
+  - [AttributeValueNode](#attributevaluenode)
+- [ScriptTagNode](#scriptnode)
+  - [OpenScriptTagStartNode](#ppentagstartscriptnode)
+  - [OpenScriptTagEndNode](#ppentagendscriptnode)
+  - [CloseScriptTagNode](#closetagscriptnode)
+  - [ScriptTagContentNode](#scripttagcontentnode)
+- [StyleNode](#stylenode)
+  - [OpenStyleTagStartNode](#opentagstartstylenode)
+  - [OpenStyleTagEndNode](#opentagendstylenode)
+  - [CloseStyleTagNode](#closetagstylenode)
+  - [StyleTagContentNode](#styletagcontentnode)
+- [CommentNode](#commentnode)
+  - [CommentStartNode](#commentstartnode)
+  - [CommentEndNode](#commentendnode)
+  - [CommentContentNode](#commentcontentnode)
+- [DoctypeNode](#doctypenode)
+  - [DoctypeStartNode](#doctypestartnode)
+  - [DoctypeEndNode](#doctypeendnode)
+- [DoctypeAttributeNode](#doctypeattributenode)
+  - [DoctypeAttributeValueNode](#doctypeattributevaluenode)
+  - [DoctypeAttributeWrapperStart](#doctypeattributewrapperstart)
+  - [DoctypeAttributeWrapperEnd](#doctypeattributewrapperend)
 
 ### Common
 
@@ -130,9 +128,7 @@ interface Token extends BaseNode {
 }
 ```
 
-### Node
-
-#### DocumentNode
+### DocumentNode
 
 ```ts
 interface DocumentNode extends BaseNode {
@@ -141,7 +137,7 @@ interface DocumentNode extends BaseNode {
 }
 ```
 
-#### TextNode
+### TextNode
 
 ```ts
 interface TextNode extends BaseNode {
@@ -150,7 +146,7 @@ interface TextNode extends BaseNode {
 }
 ```
 
-#### TagNode
+### TagNode
 
 ```ts
 interface TagNode extends BaseNode {
@@ -192,33 +188,153 @@ interface CloseTagNode {
 }
 ```
 
-#### ScriptNode
+### AttributeNode
 
 ```ts
-interface ScriptNode extends BaseNode {
-  type: NodeTypes.ScriptTag;
+interface AttributeNode extends BaseNode {
+  type: "Attribute";
+  key: AttributeKeyNode;
+  value?: AttributeValueNode;
+  startWrapper?: AttributeValueWrapperStartNode;
+  endWrapper?: AttributeValueWrapperEndNode;
+}
+```
+
+#### AttributeKeyNode
+
+```ts
+interface AttributeKeyNode extends BaseNode {
+  type: "AttributeKey";
+  value: string;
+}
+```
+
+#### AttributeValueWrapperStartNode
+
+```ts
+interface AttributeValueWrapperStartNode extends BaseNode {
+  type: "AttributeValueWrapperStart";
+  value: string;
+}
+```
+
+#### AttributeValueWrapperEndNode
+
+```ts
+interface AttributeValueWrapperEndNode extends BaseNode {
+  type: "AttributeValueWrapperEnd";
+  value: string;
+}
+```
+
+#### AttributeValueNode
+
+```ts
+interface AttributeValueNode extends BaseNode {
+  type: "AttributeValue";
+  value: string;
+}
+```
+
+### ScriptTagNode
+
+```ts
+interface ScriptTagNode extends BaseNode {
+  type: "ScriptTag";
   attributes: Array<AttributeNode>;
-  openStart: OpenTagStartScriptNode;
-  openEnd: OpenTagEndScriptNode;
-  close: CloseTagScriptNode;
+  openStart: OpenScriptTagStartNode;
+  openEnd: OpenScriptTagEndNode;
+  close: CloseScriptTagNode;
   value?: ScriptTagContentNode;
 }
 ```
 
-#### StyleNode
+#### OpenScriptTagStartNode
 
 ```ts
-interface StyleNode extends BaseNode {
-  type: NodeTypes.StyleTag;
+interface OpenScriptTagStartNode extends BaseNode {
+  type: "OpenScriptTagStart";
+  value: string;
+}
+```
+
+#### OpenScriptTagEndNode
+
+```ts
+interface OpenScriptTagEndNode extends BaseNode {
+  type: "OpenScriptTagEnd";
+  value: string;
+}
+```
+
+#### CloseScriptTagNode
+
+```ts
+interface CloseScriptTagNode extends BaseNode {
+  type: "CloseScriptTag";
+  value: string;
+}
+```
+
+#### ScriptTagContentNode
+
+```ts
+interface ScriptTagContentNode extends BaseNode {
+  type: "ScriptTagContent";
+  value: string;
+}
+```
+
+### StyleTagNode
+
+```ts
+interface StyleTagNode extends BaseNode {
+  type: "StyleTag";
   attributes: Array<AttributeNode>;
-  openStart: OpenTagStartStyleNode;
-  openEnd: OpenTagEndStyleNode;
-  close: CloseTagStyleNode;
+  openStart: OpenStyleTagStartNode;
+  openEnd: OpenStyleTagEndNode;
+  close: CloseStyleTagNode;
   value?: StyleTagContentNode;
 }
 ```
 
-#### CommentNOde
+#### OpenStyleTagStartNode
+
+```ts
+interface OpenStyleTagStartNode extends BaseNode {
+  type: "OpenStyleTagStart";
+  value: string;
+}
+```
+
+#### OpenStyleTagEndNode
+
+```ts
+interface OpenStyleTagEndNode extends BaseNode {
+  type: "OpenStyleTagEnd";
+  value: string;
+}
+```
+
+#### CloseStyleTagNode
+
+```ts
+interface CloseStyleTagNode extends BaseNode {
+  type: "CloseStyleTag";
+  value: string;
+}
+```
+
+#### StyleTagContentNode
+
+```ts
+interface StyleTagContentNode extends BaseNode {
+  type: "StyleTagContent";
+  value: string;
+}
+```
+
+### CommentNode
 
 ```ts
 interface CommentNode extends BaseNode {
@@ -252,6 +368,71 @@ interface CommentEndNode extends BaseNode {
 ```ts
 interface CommentContentNode extends BaseNode {
   type: "CommentContent";
+  value: string;
+}
+```
+
+### DoctypeNode
+
+```ts
+interface DoctypeNode extends BaseNode {
+  type: "Doctype";
+  attributes: Array<DoctypeAttributeNode>;
+  start: DoctypeStartNode;
+  end: DoctypeEndNode;
+}
+```
+
+#### DoctypeStartNode
+
+```ts
+interface DoctypeStartNode extends BaseNode {
+  type: "DoctypeStart";
+  value: string;
+}
+```
+
+#### DoctypeEndNode
+
+```ts
+interface DoctypeEndNode extends BaseNode {
+  type: "DoctypeEnd";
+  value: string;
+}
+```
+
+### DoctypeAttributeNode
+
+```ts
+interface DoctypeAttributeNode extends BaseNode {
+  type: "DoctypeAttribute";
+  key: DoctypeAttributeKey;
+}
+```
+
+#### DoctypeAttributeValueNode
+
+```ts
+interface DoctypeAttributeValueNode extends BaseNode {
+  type: "DoctypeAttributeValue";
+  value: string;
+}
+```
+
+#### DoctypeAttributeWrapperStartNode
+
+```ts
+interface DoctypeAttributeWrapperStartNode extends BaseNode {
+  type: "DoctypeAttributeWrapperStart";
+  value: string;
+}
+```
+
+#### DoctypeAttributeWrapperEndNode
+
+```ts
+interface DoctypeAttributeWrapperEndNode extends BaseNode {
+  type: "DoctypeAttributeWrapperEnd";
   value: string;
 }
 ```

@@ -2,8 +2,8 @@ import { BaseNode } from "./base-node";
 import {
   CommentNode,
   DoctypeNode,
-  ScriptNode,
-  StyleNode,
+  ScriptTagNode,
+  StyleTagNode,
   TagNode,
   DocumentNode,
 } from "./node";
@@ -15,11 +15,11 @@ type TempNode<T extends BaseNode, K extends keyof T = any> = PartialBy<T, K> & {
 };
 
 export type TempScriptNode = TempNode<
-  ScriptNode,
+  ScriptTagNode,
   "close" | "openStart" | "value" | "openEnd"
 >;
 export type TempStyleNode = TempNode<
-  StyleNode,
+  StyleTagNode,
   "openStart" | "openEnd" | "value" | "close"
 >;
 export type TempDoctypeNode = TempNode<DoctypeNode>;

@@ -1,8 +1,8 @@
 # ES HTML Parser
 
-The HTML parser that generates [ESTree](https://github.com/estree/estree)-like ast.
+ES HTML Parser is an HTML parser that generates an abstract syntax tree similar to the ESTree specification.
 
-This project began as a fork of [hyntax](https://github.com/mykolaharmash/hyntax). For using static analysis, it developed to follows ESTree-like ast specification.
+This project began as a fork of [hyntax](https://github.com/mykolaharmash/hyntax) and is developed to follow [ESTree](https://github.com/estree/estree)-like ast specification.
 
 ## Table of Contents
 
@@ -35,6 +35,10 @@ const { ast, tokens } = parse(input);
 ```
 
 ## API Reference
+
+- [Functions](#functions)
+- [Types](#types)
+- [Constants](#constants)
 
 ### Functions
 
@@ -139,7 +143,79 @@ type AnyToken =
   | Token<TokenTypes.CloseStyleTag>;
 ```
 
-### NodeTypes
+### Constants
+
+#### TokenTypes
+
+```ts
+enum TokenTypes {
+  Text = "Text",
+  OpenTagStart = "OpenTagStart",
+  OpenTagEnd = "OpenTagEnd",
+  CloseTag = "CloseTag",
+  AttributeKey = "AttributeKey",
+  AttributeAssignment = "AttributeAssignment",
+  AttributeValueWrapperStart = "AttributeValueWrapperStart",
+  AttributeValue = "AttributeValue",
+  AttributeValueWrapperEnd = "AttributeValueWrapperEnd",
+  DoctypeStart = "DoctypeStart",
+  DoctypeAttributeValue = "DoctypeAttributeValue",
+  DoctypeAttributeWrapperStart = "DoctypeAttributeWrapperStart",
+  DoctypeAttributeWrapperEnd = "DoctypeAttributeWrapperEnd",
+  DoctypeEnd = "DoctypeEnd",
+  CommentStart = "CommentStart",
+  CommentContent = "CommentContent",
+  CommentEnd = "CommentEnd",
+  OpenScriptTagStart = "OpenScriptTagStart",
+  OpenScriptTagEnd = "OpenScriptTagEnd",
+  ScriptTagContent = "ScriptTagContent",
+  CloseScriptTag = "CloseScriptTag",
+  OpenStyleTagStart = "OpenStyleTagStart",
+  OpenStyleTagEnd = "OpenStyleTagEnd",
+  StyleTagContent = "StyleTagContent",
+  CloseStyleTag = "CloseStyleTag",
+}
+```
+
+#### NodeTypes
+
+```ts
+enum NodeTypes {
+  Document = "Document",
+  Tag = "Tag",
+  Text = "Text",
+  Doctype = "Doctype",
+  Comment = "Comment",
+  CommentStart = "CommentStart",
+  CommentEnd = "CommentEnd",
+  CommentContent = "CommentContent",
+  Attribute = "Attribute",
+  AttributeKey = "AttributeKey",
+  AttributeValue = "AttributeValue",
+  AttributeAssignment = "AttributeAssignment",
+  AttributeValueWrapperStart = "AttributeValueWrapperStart",
+  AttributeValueWrapperEnd = "AttributeValueWrapperEnd",
+  CloseTag = "CloseTag",
+  OpenTagEnd = "OpenTagEnd",
+  OpenTagStart = "OpenTagStart",
+  DoctypeStart = "DoctypeStart",
+  DoctypeAttribute = "DoctypeAttribute",
+  DoctypeEnd = "DoctypeEnd",
+  ScriptTag = "ScriptTag",
+  OpenScriptTagStart = "OpenScriptTagStart",
+  OpenScriptTagEnd = "OpenScriptTagEnd",
+  ScriptTagContent = "ScriptTagContent",
+  StyleTag = "StyleTag",
+  OpenStyleTagStart = "OpenStyleTagStart",
+  OpenStyleTagEnd = "OpenStyleTagEnd",
+  StyleTagContent = "StyleTagContent",
+  CloseStyleTag = "CloseStyleTag",
+  CloseScriptTag = "CloseScriptTag",
+  DoctypeAttributeValue = "DoctypeAttributeValue",
+  DoctypeAttributeWrapperStart = "DoctypeAttributeWrapperStart",
+  DoctypeAttributeWrapperEnd = "DoctypeAttributeWrapperEnd",
+}
+```
 
 ## AST Format
 
@@ -187,11 +263,7 @@ type AnyToken =
 
 #### BaseNode
 
-Every AST nodes, and tokens implement `BaseNode` interface.
-
-The `type` field is representing the AST type. It's value is one of the `NodeTypes` or `TokenTypes`.
-
-The `loc` and `range` fields represent the source location of the node.
+Every AST node and token implements the `BaseNode` interface.
 
 ```ts
 interface BaseNode {
@@ -201,11 +273,10 @@ interface BaseNode {
 }
 ```
 
+The `type` field is representing the AST type. Its value is one of the `NodeTypes` or `TokenTypes`.
+The `loc` and `range` fields represent the source location of the node.
+
 #### SourceLocation
-
-The `start` field represents the start location of the node.
-
-The `end` field represents the end location of the node.
 
 ```ts
 interface SourceLocation {
@@ -214,11 +285,11 @@ interface SourceLocation {
 }
 ```
 
+The `start` field represents the start location of the node.
+
+The `end` field represents the end location of the node.
+
 #### Position
-
-The `line` is a number representing the line number where the node positioned. It use 1-based index
-
-The `column` is a number representing the offset in the line. It use 0-based index.
 
 ```ts
 interface Position {
@@ -227,9 +298,13 @@ interface Position {
 }
 ```
 
+The `line` field is a number representing the line number where the node positioned. (1-based index).
+
+The `column` field is a number representing the offset in the line. (0-based index).
+
 #### Token
 
-All tokens implement `Token` interface.
+All tokens implement the `Token` interface.
 
 ```ts
 interface Token<T extends TokenTypes> extends BaseNode {
@@ -240,7 +315,7 @@ interface Token<T extends TokenTypes> extends BaseNode {
 
 ### DocumentNode
 
-The `DocumentNode` is the root node of the AST. It represents the HTML document.
+`DocumentNode` represents a whole parsed document. It's a root node of the AST.
 
 ```ts
 interface DocumentNode extends BaseNode {
@@ -251,7 +326,7 @@ interface DocumentNode extends BaseNode {
 
 ### TextNode
 
-The `TextNode` represents any plain text in HTML.
+`TextNode` represents any plain text in HTML.
 
 ```ts
 interface TextNode extends BaseNode {
@@ -262,7 +337,7 @@ interface TextNode extends BaseNode {
 
 ### TagNode
 
-The `TagNode` represents all kinds of tag nodes in HTML except for `doctype`, `script`, `style`, `comment`. (e.g. `<div></div>`, `<span></span>` ...).
+`TagNode` represents all kinds of tag nodes in HTML except for doctype, script, style, and comment. (e.g. `<div></div>`, `<span></span>` ...)
 
 ```ts
 interface TagNode extends BaseNode {
@@ -279,7 +354,7 @@ interface TagNode extends BaseNode {
 
 #### OpenTagStartNode
 
-The `OpenTagStartNode` represents the opening part in the [Start Tags](https://www.w3.org/TR/2011/WD-html5-20110405/syntax.html#start-tags). (e.g. `<div`)
+`OpenTagStartNode` represents the opening part of the [Start tags](https://www.w3.org/TR/2011/WD-html5-20110405/syntax.html#start-tags). (e.g. `<div`)
 
 ```ts
 interface OpenTagStartNode {
@@ -290,7 +365,7 @@ interface OpenTagStartNode {
 
 #### OpenTagEndNode
 
-The `OpenTagEndNode` represents the closing part of the open tag. (e.g. `>`, `/>`)
+`OpenTagEndNode` represents the closing part of the [Start tags](https://www.w3.org/TR/2011/WD-html5-20110405/syntax.html#start-tags). (e.g. `>`, `/>`)
 
 ```ts
 interface OpenTagEndNode {
@@ -301,7 +376,7 @@ interface OpenTagEndNode {
 
 #### CloseTagNode
 
-The `ClosingTagNode` represents the end tags. (e.g. `</div>`)
+`ClosingTagNode` represents the [End tags](https://www.w3.org/TR/2011/WD-html5-20110405/syntax.html#end-tags). (e.g. `</div>`)
 
 ```ts
 interface CloseTagNode {
@@ -312,7 +387,7 @@ interface CloseTagNode {
 
 ### AttributeNode
 
-The `AttributeNode` represents the attribute parts in the tags. (e.g. `id="foo"`).
+`AttributeNode` represents an attribute. (e.g. `id="foo"`)
 
 ```ts
 interface AttributeNode extends BaseNode {
@@ -326,7 +401,7 @@ interface AttributeNode extends BaseNode {
 
 #### AttributeKeyNode
 
-The `AttributeKeyNode` represents the key part in the attribute. (e.g. `id`)
+`AttributeKeyNode` represents a key part of an attribute. (e.g. `id`)
 
 ```ts
 interface AttributeKeyNode extends BaseNode {
@@ -337,7 +412,7 @@ interface AttributeKeyNode extends BaseNode {
 
 #### AttributeValueWrapperStartNode
 
-The `AttributeValueWrapperStartNode` represents the left side character which wrap the attributes value. (e.g. `"`, `'`).
+`AttributeValueWrapperStartNode` represents the left side character that wraps the value of the attribute. (e.g. `"`, `'`)
 
 ```ts
 interface AttributeValueWrapperStartNode extends BaseNode {
@@ -348,7 +423,7 @@ interface AttributeValueWrapperStartNode extends BaseNode {
 
 #### AttributeValueWrapperEndNode
 
-The `AttributeValueWrapperEndNode` represents the right side character which wrap the attributes value. (e.g. `"`, `'`).
+`AttributeValueWrapperEndNode` represents the right side character that wraps the value of the attribute. (e.g. `"`, `'`)
 
 ```ts
 interface AttributeValueWrapperEndNode extends BaseNode {
@@ -359,7 +434,7 @@ interface AttributeValueWrapperEndNode extends BaseNode {
 
 #### AttributeValueNode
 
-The `AttributeValueNode` represents the value part of the attribute. It does not includes wrapper characters. (e.g. `foo`)
+`AttributeValueNode` represents the value part of the attribute. It does not include wrapper characters. (e.g. `foo`)
 
 ```ts
 interface AttributeValueNode extends BaseNode {
@@ -370,7 +445,7 @@ interface AttributeValueNode extends BaseNode {
 
 ### ScriptTagNode
 
-The `ScriptTagNode` represents the script tags in the HTML. (e.g.` <script> ... </script>`).
+The `ScriptTagNode` represents a script tags in the HTML. (e.g.` <script> console.log('hello'); </script>`).
 
 ```ts
 interface ScriptTagNode extends BaseNode {
@@ -385,6 +460,8 @@ interface ScriptTagNode extends BaseNode {
 
 #### OpenScriptTagStartNode
 
+`OpenScriptTagStartNode` represents an opening part of a start script tag. (e.g. `<script`)
+
 ```ts
 interface OpenScriptTagStartNode extends BaseNode {
   type: "OpenScriptTagStart";
@@ -393,6 +470,8 @@ interface OpenScriptTagStartNode extends BaseNode {
 ```
 
 #### OpenScriptTagEndNode
+
+`OpenScriptTagEndNode` represents a closing part of a start script tag. (e.g. `>`)
 
 ```ts
 interface OpenScriptTagEndNode extends BaseNode {
@@ -403,6 +482,8 @@ interface OpenScriptTagEndNode extends BaseNode {
 
 #### CloseScriptTagNode
 
+`CloseScriptTagNode` represents a close script tag. (e.g. `</script>`)
+
 ```ts
 interface CloseScriptTagNode extends BaseNode {
   type: "CloseScriptTag";
@@ -411,6 +492,8 @@ interface CloseScriptTagNode extends BaseNode {
 ```
 
 #### ScriptTagContentNode
+
+`ScriptTagContentNode` represents a script content in script tag. (e.g. `console.log('hello');`)
 
 ```ts
 interface ScriptTagContentNode extends BaseNode {
@@ -421,7 +504,7 @@ interface ScriptTagContentNode extends BaseNode {
 
 ### StyleTagNode
 
-The `StyleTagNode` represents `style` tags in HTML. (e.g. `<style>...</style>`)
+`StyleTagNode` represents style tags. (e.g. `<style> .foo {} </style>`)
 
 ```ts
 interface StyleTagNode extends BaseNode {
@@ -436,7 +519,7 @@ interface StyleTagNode extends BaseNode {
 
 #### OpenStyleTagStartNode
 
-The `OpenStyleTagStartNode` represents
+`OpenStyleTagStartNode` represents an opening part of a start style tag. (e.g. `<style`)
 
 ```ts
 interface OpenStyleTagStartNode extends BaseNode {
@@ -447,6 +530,8 @@ interface OpenStyleTagStartNode extends BaseNode {
 
 #### OpenStyleTagEndNode
 
+`OpenStyleTagEndNode` represents a closing part of a start style tag. (e.g. `>`)
+
 ```ts
 interface OpenStyleTagEndNode extends BaseNode {
   type: "OpenStyleTagEnd";
@@ -455,6 +540,8 @@ interface OpenStyleTagEndNode extends BaseNode {
 ```
 
 #### CloseStyleTagNode
+
+`CloseStyleTagNode` represents a close style tag. (e.g. `</style>`)
 
 ```ts
 interface CloseStyleTagNode extends BaseNode {
@@ -465,6 +552,8 @@ interface CloseStyleTagNode extends BaseNode {
 
 #### StyleTagContentNode
 
+`StyleTagContentNode` represents a style content in style tag.
+
 ```ts
 interface StyleTagContentNode extends BaseNode {
   type: "StyleTagContent";
@@ -474,7 +563,7 @@ interface StyleTagContentNode extends BaseNode {
 
 ### CommentNode
 
-The `CommentNode` represents comment in HTML. (e.g. `<!-- content --> `)
+`CommentNode` represents comment in HTML. (e.g. `<!-- content --> `)
 
 ```ts
 interface CommentNode extends BaseNode {
@@ -487,7 +576,7 @@ interface CommentNode extends BaseNode {
 
 #### CommentStartNode
 
-The `CommentStartNode` represents comment start character sequence. (e.g. `<!--`)
+`CommentStartNode` represents comment start character sequence. (e.g. `<!--`)
 
 ```ts
 interface CommentStartNode extends BaseNode {
@@ -498,7 +587,7 @@ interface CommentStartNode extends BaseNode {
 
 #### CommentEndNode
 
-The `CommentEndNode` represents comment end character sequence. (e.g. `-->`)
+`CommentEndNode` represents comment end character sequence. (e.g. `-->`)
 
 ```ts
 interface CommentEndNode extends BaseNode {
@@ -520,7 +609,7 @@ interface CommentContentNode extends BaseNode {
 
 ### DoctypeNode
 
-The `DoctypeNode` represents the [DOCTYPE](https://www.w3.org/TR/2011/WD-html5-20110525/syntax.html#the-doctype) in html.
+`DoctypeNode` represents the [DOCTYPE](https://www.w3.org/TR/2011/WD-html5-20110525/syntax.html#the-doctype) in html.
 
 ```ts
 interface DoctypeNode extends BaseNode {
@@ -533,7 +622,7 @@ interface DoctypeNode extends BaseNode {
 
 #### DoctypeStartNode
 
-The `DoctypeStartNode` represents the doctype start character sequence. (`<!DOCTYPE`)
+`DoctypeStartNode` represents character sequence of doctype start . (`<!DOCTYPE`)
 
 ```ts
 interface DoctypeStartNode extends BaseNode {
@@ -544,7 +633,7 @@ interface DoctypeStartNode extends BaseNode {
 
 #### DoctypeEndNode
 
-The `DoctypeEndNode` represents the doctype end character sequence (e.g. `>`)
+`DoctypeEndNode` represents the doctype end character sequence (e.g. `>`)
 
 ```ts
 interface DoctypeEndNode extends BaseNode {
@@ -555,6 +644,8 @@ interface DoctypeEndNode extends BaseNode {
 
 ### DoctypeAttributeNode
 
+`DoctypeAttributeNode` represents an attribute of doctype node. (e.g. `html`, `"-//W3C//DTD HTML 4.01 Transitional//EN"`)
+
 ```ts
 interface DoctypeAttributeNode extends BaseNode {
   type: "DoctypeAttribute";
@@ -563,6 +654,9 @@ interface DoctypeAttributeNode extends BaseNode {
 ```
 
 #### DoctypeAttributeValueNode
+
+`DoctypeAttributeValueNode` represents a value of doctype node's attribute. (e.g. `html`, `-//W3C//DTD HTML 4.01 Transitional//EN`)
+. It does not include wrapper characters (`'`, `"`)
 
 ```ts
 interface DoctypeAttributeValueNode extends BaseNode {
@@ -573,6 +667,8 @@ interface DoctypeAttributeValueNode extends BaseNode {
 
 #### DoctypeAttributeWrapperStartNode
 
+`DoctypeAttributeWrapperStartNode` represents a left side character that wraps the value of the attribute. (e.g. `"`, `'`)
+
 ```ts
 interface DoctypeAttributeWrapperStartNode extends BaseNode {
   type: "DoctypeAttributeWrapperStart";
@@ -581,6 +677,8 @@ interface DoctypeAttributeWrapperStartNode extends BaseNode {
 ```
 
 #### DoctypeAttributeWrapperEndNode
+
+`DoctypeAttributeWrapperEndNode` represents a right side character that wraps the value of the attribute. (e.g. `"`, `'`)
 
 ```ts
 interface DoctypeAttributeWrapperEndNode extends BaseNode {

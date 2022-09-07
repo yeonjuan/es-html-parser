@@ -7,3 +7,4 @@ export * from "./node";
 export * from "./range";
 export * from "./contextual-node";
 export * from "./base-node";
+export * from "./parse-result";

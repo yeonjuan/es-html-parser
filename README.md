@@ -41,12 +41,16 @@ const { ast, tokens } = parse(input);
 #### parse
 
 ```ts
-parse(html: string): ParseResult
+parse(html: string): ParseResult;
 ```
 
 **Arguments**
 
-- `html`:
+- `html`: HTML string to parse.
+
+**Returns**
+
+- `ParseResult`: Result of parsing
 
 ### Types
 
@@ -55,20 +59,84 @@ parse(html: string): ParseResult
 ```ts
 interface ParseResult {
   ast: DocumentNode;
-  tokens: Token[];
+  tokens: AnyToken[];
 }
 ```
 
+- `ast`: The root node of the ast.
+- `tokens`: An array of resulting tokens.
+
 #### AnyNode
 
+The `AnyNode` is an union type of all nodes.
+
 ```ts
-type AnyNode = |
+type AnyNode =
+  | DocumentNode
+  | TextNode
+  | TagNode
+  | OpenTagStartNode
+  | OpenTagEndNode
+  | CloseTagNode
+  | AttributeNode
+  | AttributeKeyNode
+  | AttributeValueNode
+  | AttributeValueWrapperStartNode
+  | AttributeValueWrapperEndNode
+  | ScriptTagNode
+  | OpenScriptTagStartNode
+  | CloseScriptTagNode
+  | OpenScriptTagEndNode
+  | ScriptTagContentNode
+  | StyleTagNode
+  | OpenStyleTagStartNode
+  | OpenStyleTagEndNode
+  | StyleTagContentNode
+  | CloseStyleTagNode
+  | CommentNode
+  | CommentStartNode
+  | CommentEndNode
+  | CommentContentNode
+  | DoctypeNode
+  | DoctypeStartNode
+  | DoctypeEndNode
+  | DoctypeAttributeNode
+  | DoctypeAttributeValueNode
+  | DoctypeAttributeWrapperStart
+  | DoctypeAttributeWrapperEnd;
 ```
 
 #### AnyToken
 
-```
+The `AnyToken` is an union type all tokens.
 
+```ts
+type AnyToken =
+  | Token<TokenTypes.Text>
+  | Token<TokenTypes.OpenTagStart>
+  | Token<TokenTypes.OpenTagEnd>
+  | Token<TokenTypes.CloseTag>
+  | Token<TokenTypes.AttributeKey>
+  | Token<TokenTypes.AttributeAssignment>
+  | Token<TokenTypes.AttributeValueWrapperStart>
+  | Token<TokenTypes.AttributeValue>
+  | Token<TokenTypes.AttributeValueWrapperEnd>
+  | Token<TokenTypes.DoctypeStart>
+  | Token<TokenTypes.DoctypeAttributeValue>
+  | Token<TokenTypes.DoctypeAttributeWrapperStart>
+  | Token<TokenTypes.DoctypeAttributeWrapperEnd>
+  | Token<TokenTypes.DoctypeEnd>
+  | Token<TokenTypes.CommentStart>
+  | Token<TokenTypes.CommentContent>
+  | Token<TokenTypes.CommentEnd>
+  | Token<TokenTypes.OpenScriptTagStart>
+  | Token<TokenTypes.OpenScriptTagEnd>
+  | Token<TokenTypes.ScriptTagContent>
+  | Token<TokenTypes.CloseScriptTag>
+  | Token<TokenTypes.OpenStyleTagStart>
+  | Token<TokenTypes.OpenStyleTagEnd>
+  | Token<TokenTypes.StyleTagContent>
+  | Token<TokenTypes.CloseStyleTag>;
 ```
 
 ### NodeTypes
@@ -87,21 +155,21 @@ type AnyNode = |
 - [TagNode](#tagnode)
   - [OpenTagStartNode](#opentagstartnode)
   - [OpenTagEndNode](#opentagendnode)
-  - [CloseNode](#closenode)
+  - [CloseTagNode](#closetagnode)
 - [AttributeNode](#attributenode)
   - [AttributeKeyNode](#attributekeynode)
   - [AttributeValueWrapperStartNode](#attributevaluewrapperstartnode)
   - [AttributeValueWrapperEndNode](#attributevaluewrapperendnode)
   - [AttributeValueNode](#attributevaluenode)
-- [ScriptTagNode](#scriptnode)
-  - [OpenScriptTagStartNode](#ppentagstartscriptnode)
-  - [OpenScriptTagEndNode](#ppentagendscriptnode)
-  - [CloseScriptTagNode](#closetagscriptnode)
+- [ScriptTagNode](#scripttagnode)
+  - [OpenScriptTagStartNode](#openscripttagstartnode)
+  - [OpenScriptTagEndNode](#openscripttagendnode)
+  - [CloseScriptTagNode](#closescripttagnode)
   - [ScriptTagContentNode](#scripttagcontentnode)
-- [StyleNode](#stylenode)
-  - [OpenStyleTagStartNode](#opentagstartstylenode)
-  - [OpenStyleTagEndNode](#opentagendstylenode)
-  - [CloseStyleTagNode](#closetagstylenode)
+- [StyleTagNode](#styletagnode)
+  - [OpenStyleTagStartNode](#openstyletagstartnode)
+  - [OpenStyleTagEndNode](#openstyletagendnode)
+  - [CloseStyleTagNode](#closestyletagnode)
   - [StyleTagContentNode](#styletagcontentnode)
 - [CommentNode](#commentnode)
   - [CommentStartNode](#commentstartnode)
@@ -112,8 +180,8 @@ type AnyNode = |
   - [DoctypeEndNode](#doctypeendnode)
 - [DoctypeAttributeNode](#doctypeattributenode)
   - [DoctypeAttributeValueNode](#doctypeattributevaluenode)
-  - [DoctypeAttributeWrapperStart](#doctypeattributewrapperstart)
-  - [DoctypeAttributeWrapperEnd](#doctypeattributewrapperend)
+  - [DoctypeAttributeWrapperStartNode](#doctypeattributewrapperstartnode)
+  - [DoctypeAttributeWrapperEndNode](#doctypeattributewrapperendnode)
 
 ### Common
 
@@ -134,6 +202,10 @@ interface BaseNode {
 ```
 
 #### SourceLocation
+
+The `start` field represents the start location of the node.
+
+The `end` field represents the end location of the node.
 
 ```ts
 interface SourceLocation {
@@ -157,16 +229,18 @@ interface Position {
 
 #### Token
 
+All tokens implement `Token` interface.
+
 ```ts
-interface Token extends BaseNode {
-  type: string;
+interface Token<T extends TokenTypes> extends BaseNode {
+  type: T;
   value: string;
 }
 ```
 
 ### DocumentNode
 
-The `DocumentNode` is the root node of the AST.
+The `DocumentNode` is the root node of the AST. It represents the HTML document.
 
 ```ts
 interface DocumentNode extends BaseNode {
@@ -177,7 +251,7 @@ interface DocumentNode extends BaseNode {
 
 ### TextNode
 
-The `TextNode` represents plain text in HTML.
+The `TextNode` represents any plain text in HTML.
 
 ```ts
 interface TextNode extends BaseNode {
@@ -188,7 +262,7 @@ interface TextNode extends BaseNode {
 
 ### TagNode
 
-The `TagNode` represents all kinds of tag nodes in HTML except for `doctype`, `script`, `style`, `comment`. (e.g. `<div></div>`, `<span></span>` ...)
+The `TagNode` represents all kinds of tag nodes in HTML except for `doctype`, `script`, `style`, `comment`. (e.g. `<div></div>`, `<span></span>` ...).
 
 ```ts
 interface TagNode extends BaseNode {
@@ -362,6 +436,8 @@ interface StyleTagNode extends BaseNode {
 
 #### OpenStyleTagStartNode
 
+The `OpenStyleTagStartNode` represents
+
 ```ts
 interface OpenStyleTagStartNode extends BaseNode {
   type: "OpenStyleTagStart";
@@ -467,6 +543,8 @@ interface DoctypeStartNode extends BaseNode {
 ```
 
 #### DoctypeEndNode
+
+The `DoctypeEndNode` represents the doctype end character sequence (e.g. `>`)
 
 ```ts
 interface DoctypeEndNode extends BaseNode {

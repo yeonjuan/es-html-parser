@@ -1,5 +1,7 @@
 # ES HTML Parser
 
+<img src="https://github.com/yeonjuan/es-html-parser/actions/workflows/main.yml/badge.svg?branch=main" alt="CI Badge" />
+
 ES HTML Parser is an HTML parser that generates an abstract syntax tree similar to the ESTree specification.
 
 This project began as a fork of [hyntax](https://github.com/mykolaharmash/hyntax) and is developed to follow [ESTree](https://github.com/estree/estree)-like ast specification.

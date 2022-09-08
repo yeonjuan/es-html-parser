@@ -1,6 +1,12 @@
 # ES HTML Parser
 
 <img src="https://github.com/yeonjuan/es-html-parser/actions/workflows/main.yml/badge.svg?branch=main" alt="CI Badge" />
+<a href="https://codecov.io/gh/yeonjuan/es-html-parser" >
+<img src="https://codecov.io/gh/yeonjuan/es-html-parser/branch/main/graph/badge.svg?token=LNYPD2GOJR"/>
+</a>
+<a href="https://www.npmjs.com/package/es-html-parser">
+<img src="https://img.shields.io/npm/v/es-html-parser"/>
+</a>
 
 ES HTML Parser is an HTML parser that generates an abstract syntax tree similar to the ESTree specification.
 

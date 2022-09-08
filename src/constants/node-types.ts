@@ -12,7 +12,6 @@ export enum NodeTypes {
   Attribute = "Attribute",
   AttributeKey = "AttributeKey",
   AttributeValue = "AttributeValue",
-  AttributeAssignment = "AttributeAssignment",
   AttributeValueWrapperStart = "AttributeValueWrapperStart",
   AttributeValueWrapperEnd = "AttributeValueWrapperEnd",
   CloseTag = "CloseTag",

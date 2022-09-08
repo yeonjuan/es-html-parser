@@ -1,3 +1,4 @@
 export { parse } from "./parser";
 export { NodeTypes, TokenTypes } from "./constants";
-export { AnyToken, AnyNode, ParseResult } from "./types";
+export { AnyToken, ParseResult } from "./types";
+export * from "./types/node";

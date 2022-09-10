@@ -83,8 +83,8 @@ export type CloseStyleTagNode = SimpleNode<NodeTypes.CloseStyleTag>;
 
 export interface CommentNode extends BaseNode {
   type: NodeTypes.Comment;
-  start: CommentStartNode;
-  end: CommentEndNode;
+  open: CommentStartNode;
+  close: CommentEndNode;
   value: CommentContentNode;
 }
 
@@ -96,8 +96,8 @@ export type CommentContentNode = SimpleNode<NodeTypes.CommentContent>;
 
 export interface DoctypeNode extends BaseNode {
   type: NodeTypes.Doctype;
-  start: DoctypeStartNode;
-  end: DoctypeEndNode;
+  open: DoctypeStartNode;
+  close: DoctypeEndNode;
   attributes: DoctypeAttributeNode[];
 }
 

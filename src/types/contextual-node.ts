@@ -30,12 +30,12 @@ export type ContextualStyleTagNode = ContextualNode<
 
 export type ContextualDoctypeNode = ContextualNode<
   DoctypeNode,
-  "start" | "end"
+  "open" | "close"
 >;
 
 export type ContextualCommentNode = ContextualNode<
   CommentNode,
-  "start" | "end" | "value"
+  "open" | "close" | "value"
 >;
 
 export type ContextualTagNode = ContextualNode<

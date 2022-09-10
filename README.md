@@ -575,8 +575,8 @@ interface StyleTagContentNode extends BaseNode {
 ```ts
 interface CommentNode extends BaseNode {
   type: "Comment";
-  start: CommentStartNode;
-  end: CommentEndNode;
+  open: CommentStartNode;
+  close: CommentEndNode;
   value: CommentContentNode;
 }
 ```
@@ -622,8 +622,8 @@ interface CommentContentNode extends BaseNode {
 interface DoctypeNode extends BaseNode {
   type: "Doctype";
   attributes: Array<DoctypeAttributeNode>;
-  start: DoctypeStartNode;
-  end: DoctypeEndNode;
+  open: DoctypeStartNode;
+  close: DoctypeEndNode;
 }
 ```
 

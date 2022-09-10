@@ -15,7 +15,7 @@ export default {
           column: 21,
         },
       },
-      start: {
+      open: {
         type: "CommentStart",
         value: "<!--",
         loc: {
@@ -45,7 +45,7 @@ export default {
         },
         range: [4, 18],
       },
-      end: {
+      close: {
         type: "CommentEnd",
         value: "-->",
         loc: {
@@ -149,7 +149,7 @@ export default {
                   column: 22,
                 },
               },
-              start: {
+              open: {
                 type: "CommentStart",
                 value: "<!--",
                 loc: {
@@ -179,7 +179,7 @@ export default {
                 },
                 range: [46, 57],
               },
-              end: {
+              close: {
                 type: "CommentEnd",
                 value: "-->",
                 loc: {
@@ -287,7 +287,7 @@ export default {
               column: 5,
             },
           },
-          start: {
+          open: {
             type: "CommentStart",
             value: "<!--",
             loc: {
@@ -317,7 +317,7 @@ export default {
             },
             range: [78, 98],
           },
-          end: {
+          close: {
             type: "CommentEnd",
             value: "-->",
             loc: {
@@ -425,7 +425,7 @@ export default {
           column: 11,
         },
       },
-      start: {
+      open: {
         type: "CommentStart",
         value: "<!--",
         loc: {
@@ -455,7 +455,7 @@ export default {
         },
         range: [114, 132],
       },
-      end: {
+      close: {
         type: "CommentEnd",
         value: "-->",
         loc: {
@@ -499,7 +499,7 @@ export default {
           column: 37,
         },
       },
-      start: {
+      open: {
         type: "CommentStart",
         value: "<!--",
         loc: {
@@ -529,7 +529,7 @@ export default {
         },
         range: [141, 171],
       },
-      end: {
+      close: {
         type: "CommentEnd",
         value: "-->",
         loc: {

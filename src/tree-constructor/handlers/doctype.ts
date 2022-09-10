@@ -17,7 +17,7 @@ function handleDoctypeStart(
   state: ConstructTreeState<ContextualDoctypeNode>,
   token: AnyToken
 ) {
-  state.currentNode.start = createNodeFrom(token) as DoctypeStartNode;
+  state.currentNode.open = createNodeFrom(token) as DoctypeStartNode;
   state.caretPosition++;
 
   return state;
@@ -27,7 +27,7 @@ function handleDoctypeEnd(
   state: ConstructTreeState<ContextualDoctypeNode>,
   token: AnyToken
 ) {
-  state.currentNode.end = createNodeFrom(token) as DoctypeEndNode;
+  state.currentNode.close = createNodeFrom(token) as DoctypeEndNode;
   updateNodeEnd(state.currentNode, token);
 
   state.currentNode = state.currentNode.parentRef;

@@ -13,7 +13,7 @@ function handleCommentStart(
   state: ConstructTreeState<ContextualCommentNode>,
   token: AnyToken
 ) {
-  state.currentNode.start = createNodeFrom(token) as CommentStartNode;
+  state.currentNode.open = createNodeFrom(token) as CommentStartNode;
 
   state.caretPosition++;
 
@@ -34,7 +34,7 @@ function handleCommentEnd(
   state: ConstructTreeState<ContextualCommentNode>,
   token: AnyToken
 ) {
-  state.currentNode.end = createNodeFrom(token) as CommentEndNode;
+  state.currentNode.close = createNodeFrom(token) as CommentEndNode;
   updateNodeEnd(state.currentNode, token);
 
   state.currentNode = state.currentNode.parentRef;

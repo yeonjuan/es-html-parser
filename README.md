@@ -1,6 +1,6 @@
 # ES HTML Parser
 
-<p align="center">
+<p align="left">
 <img src="https://github.com/yeonjuan/es-html-parser/actions/workflows/main.yml/badge.svg?branch=main" alt="CI Badge" />
 <a href="https://codecov.io/gh/yeonjuan/es-html-parser" >
 <img src="https://codecov.io/gh/yeonjuan/es-html-parser/branch/main/graph/badge.svg?token=LNYPD2GOJR"/>

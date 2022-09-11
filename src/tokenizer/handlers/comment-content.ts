@@ -15,7 +15,7 @@ export function parse(
   }
 
   if (chars === COMMENT_END) {
-    return parseCommentEnd(state, tokens);
+    return parseCommentClose(state, tokens);
   }
 
   state.accumulatedContent += state.decisionBuffer;
@@ -23,7 +23,7 @@ export function parse(
   state.caretPosition++;
 }
 
-function parseCommentEnd(state: TokenizerState, tokens: AnyToken[]) {
+function parseCommentClose(state: TokenizerState, tokens: AnyToken[]) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   const endRange: Range = [
     position.range[1],
@@ -39,7 +39,7 @@ function parseCommentEnd(state: TokenizerState, tokens: AnyToken[]) {
       loc: position.loc,
     },
     {
-      type: TokenTypes.CommentEnd,
+      type: TokenTypes.CommentClose,
       value: state.decisionBuffer,
       range: endRange,
       loc: endLoc,

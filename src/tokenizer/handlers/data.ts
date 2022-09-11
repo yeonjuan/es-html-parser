@@ -24,7 +24,7 @@ export function parse(
   }
 
   if (chars === COMMENT_START) {
-    return parseCommentStart(state, tokens);
+    return parseCommentOpen(state, tokens);
   }
 
   if (isIncompleteDoctype(chars)) {
@@ -33,7 +33,7 @@ export function parse(
   }
 
   if (chars.toUpperCase() === "<!DOCTYPE") {
-    return parseDoctypeStart(state, tokens);
+    return parseDoctypeOpen(state, tokens);
   }
   state.accumulatedContent += state.decisionBuffer;
   state.decisionBuffer = "";
@@ -105,7 +105,7 @@ function isIncompleteDoctype(chars: string) {
   );
 }
 
-function parseCommentStart(state: TokenizerState, tokens: AnyToken[]) {
+function parseCommentOpen(state: TokenizerState, tokens: AnyToken[]) {
   if (state.accumulatedContent.length !== 0) {
     tokens.push(generateTextToken(state));
   }
@@ -118,7 +118,7 @@ function parseCommentStart(state: TokenizerState, tokens: AnyToken[]) {
   const loc = calculateTokenLocation(state.source, range);
 
   tokens.push({
-    type: TokenTypes.CommentStart,
+    type: TokenTypes.CommentOpen,
     value: state.decisionBuffer,
     range: range,
     loc,
@@ -130,13 +130,13 @@ function parseCommentStart(state: TokenizerState, tokens: AnyToken[]) {
   state.caretPosition++;
 }
 
-function parseDoctypeStart(state: TokenizerState, tokens: AnyToken[]) {
+function parseDoctypeOpen(state: TokenizerState, tokens: AnyToken[]) {
   if (state.accumulatedContent.length !== 0) {
     tokens.push(generateTextToken(state));
   }
 
   state.accumulatedContent = state.decisionBuffer;
   state.decisionBuffer = "";
-  state.currentContext = TokenizerContextTypes.DoctypeStart;
+  state.currentContext = TokenizerContextTypes.DoctypeOpen;
   state.caretPosition++;
 }

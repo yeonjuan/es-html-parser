@@ -2,7 +2,7 @@ import { TokenTypes } from "../../../constants";
 
 export default [
   {
-    type: TokenTypes.CommentStart,
+    type: TokenTypes.CommentOpen,
     value: "<!--",
     range: [0, 4],
     loc: {
@@ -32,7 +32,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CommentEnd,
+    type: TokenTypes.CommentClose,
     value: "-->",
     range: [18, 21],
     loc: {
@@ -152,7 +152,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CommentStart,
+    type: TokenTypes.CommentOpen,
     value: "<!--",
     range: [42, 46],
     loc: {
@@ -182,7 +182,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CommentEnd,
+    type: TokenTypes.CommentClose,
     value: "-->",
     range: [57, 60],
     loc: {
@@ -242,7 +242,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CommentStart,
+    type: TokenTypes.CommentOpen,
     value: "<!--",
     range: [74, 78],
     loc: {
@@ -272,7 +272,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CommentEnd,
+    type: TokenTypes.CommentClose,
     value: "-->",
     range: [98, 101],
     loc: {
@@ -332,7 +332,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CommentStart,
+    type: TokenTypes.CommentOpen,
     value: "<!--",
     range: [110, 114],
     loc: {
@@ -362,7 +362,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CommentEnd,
+    type: TokenTypes.CommentClose,
     value: "-->",
     range: [132, 135],
     loc: {
@@ -392,7 +392,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CommentStart,
+    type: TokenTypes.CommentOpen,
     value: "<!--",
     range: [137, 141],
     loc: {
@@ -422,7 +422,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.CommentEnd,
+    type: TokenTypes.CommentClose,
     value: "-->",
     range: [171, 174],
     loc: {

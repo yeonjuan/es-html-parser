@@ -7,14 +7,14 @@ export default {
       range: [0, 10],
       attributes: [],
       loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 10 } },
-      start: {
-        type: "DoctypeStart",
+      open: {
+        type: "DoctypeOpen",
         value: "<!DOCTYPE",
         loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 9 } },
         range: [0, 9],
       },
-      end: {
-        type: "DoctypeEnd",
+      close: {
+        type: "DoctypeClose",
         value: ">",
         loc: { start: { line: 1, column: 9 }, end: { line: 1, column: 10 } },
         range: [9, 10],
@@ -31,14 +31,14 @@ export default {
       range: [12, 22],
       attributes: [],
       loc: { start: { line: 3, column: 0 }, end: { line: 3, column: 10 } },
-      start: {
-        type: "DoctypeStart",
+      open: {
+        type: "DoctypeOpen",
         value: "<!doctype",
         loc: { start: { line: 3, column: 0 }, end: { line: 3, column: 9 } },
         range: [12, 21],
       },
-      end: {
-        type: "DoctypeEnd",
+      close: {
+        type: "DoctypeClose",
         value: ">",
         loc: { start: { line: 3, column: 9 }, end: { line: 3, column: 10 } },
         range: [21, 22],
@@ -54,8 +54,8 @@ export default {
       type: "Doctype",
       range: [24, 66],
       loc: { start: { line: 5, column: 0 }, end: { line: 5, column: 42 } },
-      start: {
-        type: "DoctypeStart",
+      open: {
+        type: "DoctypeOpen",
         value: "<!DOCTYPE",
         loc: { start: { line: 5, column: 0 }, end: { line: 5, column: 9 } },
         range: [24, 33],
@@ -126,8 +126,8 @@ export default {
           },
         },
       ],
-      end: {
-        type: "DoctypeEnd",
+      close: {
+        type: "DoctypeClose",
         value: ">",
         loc: { start: { line: 5, column: 41 }, end: { line: 5, column: 42 } },
         range: [65, 66],
@@ -143,8 +143,8 @@ export default {
       type: "Doctype",
       range: [68, 90],
       loc: { start: { line: 7, column: 0 }, end: { line: 7, column: 22 } },
-      start: {
-        type: "DoctypeStart",
+      open: {
+        type: "DoctypeOpen",
         value: "<!DOCTYPE",
         loc: { start: { line: 7, column: 0 }, end: { line: 7, column: 9 } },
         range: [68, 77],
@@ -179,8 +179,8 @@ export default {
           },
         },
       ],
-      end: {
-        type: "DoctypeEnd",
+      close: {
+        type: "DoctypeClose",
         value: ">",
         loc: { start: { line: 7, column: 21 }, end: { line: 7, column: 22 } },
         range: [89, 90],
@@ -196,8 +196,8 @@ export default {
       type: "Doctype",
       range: [92, 193],
       loc: { start: { line: 9, column: 0 }, end: { line: 9, column: 101 } },
-      start: {
-        type: "DoctypeStart",
+      open: {
+        type: "DoctypeOpen",
         value: "<!DOCTYPE",
         loc: { start: { line: 9, column: 0 }, end: { line: 9, column: 9 } },
         range: [92, 101],
@@ -299,8 +299,8 @@ export default {
           },
         },
       ],
-      end: {
-        type: "DoctypeEnd",
+      close: {
+        type: "DoctypeClose",
         value: ">",
         loc: { start: { line: 9, column: 100 }, end: { line: 9, column: 101 } },
         range: [192, 193],
@@ -316,8 +316,8 @@ export default {
       type: "Doctype",
       range: [195, 303],
       loc: { start: { line: 11, column: 0 }, end: { line: 15, column: 1 } },
-      start: {
-        type: "DoctypeStart",
+      open: {
+        type: "DoctypeOpen",
         value: "<!DOCTYPE",
         loc: { start: { line: 11, column: 0 }, end: { line: 11, column: 9 } },
         range: [195, 204],
@@ -425,8 +425,8 @@ export default {
           },
         },
       ],
-      end: {
-        type: "DoctypeEnd",
+      close: {
+        type: "DoctypeClose",
         value: ">",
         loc: { start: { line: 15, column: 0 }, end: { line: 15, column: 1 } },
         range: [302, 303],

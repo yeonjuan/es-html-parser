@@ -16,7 +16,7 @@ function getLastAttribute(state: ConstructTreeState<ContextualDoctypeNode>) {
   return attributes[attributes.length - 1];
 }
 
-function handleDoctypeEnd(state: ConstructTreeState<ContextualDoctypeNode>) {
+function handleDoctypeClose(state: ConstructTreeState<ContextualDoctypeNode>) {
   state.currentContext = state.currentContext.parentRef;
 
   return state;
@@ -84,8 +84,8 @@ export function construct(
   token: AnyToken,
   state: ConstructTreeState<ContextualDoctypeNode>
 ) {
-  if (token.type === TokenTypes.DoctypeEnd) {
-    return handleDoctypeEnd(state);
+  if (token.type === TokenTypes.DoctypeClose) {
+    return handleDoctypeClose(state);
   }
 
   if (token.type === TokenTypes.DoctypeAttributeWrapperStart) {

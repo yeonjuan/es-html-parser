@@ -15,8 +15,8 @@ export default {
           column: 21,
         },
       },
-      start: {
-        type: "CommentStart",
+      open: {
+        type: "CommentOpen",
         value: "<!--",
         loc: {
           start: {
@@ -45,8 +45,8 @@ export default {
         },
         range: [4, 18],
       },
-      end: {
-        type: "CommentEnd",
+      close: {
+        type: "CommentClose",
         value: "-->",
         loc: {
           start: {
@@ -149,8 +149,8 @@ export default {
                   column: 22,
                 },
               },
-              start: {
-                type: "CommentStart",
+              open: {
+                type: "CommentOpen",
                 value: "<!--",
                 loc: {
                   start: {
@@ -179,8 +179,8 @@ export default {
                 },
                 range: [46, 57],
               },
-              end: {
-                type: "CommentEnd",
+              close: {
+                type: "CommentClose",
                 value: "-->",
                 loc: {
                   start: {
@@ -287,8 +287,8 @@ export default {
               column: 5,
             },
           },
-          start: {
-            type: "CommentStart",
+          open: {
+            type: "CommentOpen",
             value: "<!--",
             loc: {
               start: {
@@ -317,8 +317,8 @@ export default {
             },
             range: [78, 98],
           },
-          end: {
-            type: "CommentEnd",
+          close: {
+            type: "CommentClose",
             value: "-->",
             loc: {
               start: {
@@ -425,8 +425,8 @@ export default {
           column: 11,
         },
       },
-      start: {
-        type: "CommentStart",
+      open: {
+        type: "CommentOpen",
         value: "<!--",
         loc: {
           start: {
@@ -455,8 +455,8 @@ export default {
         },
         range: [114, 132],
       },
-      end: {
-        type: "CommentEnd",
+      close: {
+        type: "CommentClose",
         value: "-->",
         loc: {
           start: {
@@ -499,8 +499,8 @@ export default {
           column: 37,
         },
       },
-      start: {
-        type: "CommentStart",
+      open: {
+        type: "CommentOpen",
         value: "<!--",
         loc: {
           start: {
@@ -529,8 +529,8 @@ export default {
         },
         range: [141, 171],
       },
-      end: {
-        type: "CommentEnd",
+      close: {
+        type: "CommentClose",
         value: "-->",
         loc: {
           start: {

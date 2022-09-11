@@ -3,8 +3,8 @@ import {
   AnyToken,
   ConstructTreeState,
   ContextualDoctypeNode,
-  DoctypeEndNode,
-  DoctypeStartNode,
+  DoctypeCloseNode,
+  DoctypeOpenNode,
 } from "../../types";
 import { createNodeFrom, updateNodeEnd } from "../../utils";
 
@@ -13,21 +13,21 @@ const ATTRIBUTES_START_TOKENS = [
   TokenTypes.DoctypeAttributeValue,
 ];
 
-function handleDoctypeStart(
+function handleDoctypeOpen(
   state: ConstructTreeState<ContextualDoctypeNode>,
   token: AnyToken
 ) {
-  state.currentNode.start = createNodeFrom(token) as DoctypeStartNode;
+  state.currentNode.open = createNodeFrom(token) as DoctypeOpenNode;
   state.caretPosition++;
 
   return state;
 }
 
-function handleDoctypeEnd(
+function handleDoctypeClose(
   state: ConstructTreeState<ContextualDoctypeNode>,
   token: AnyToken
 ) {
-  state.currentNode.end = createNodeFrom(token) as DoctypeEndNode;
+  state.currentNode.close = createNodeFrom(token) as DoctypeCloseNode;
   updateNodeEnd(state.currentNode, token);
 
   state.currentNode = state.currentNode.parentRef;
@@ -52,12 +52,12 @@ export function construct(
   token: AnyToken,
   state: ConstructTreeState<ContextualDoctypeNode>
 ) {
-  if (token.type === TokenTypes.DoctypeStart) {
-    return handleDoctypeStart(state, token);
+  if (token.type === TokenTypes.DoctypeOpen) {
+    return handleDoctypeOpen(state, token);
   }
 
-  if (token.type === TokenTypes.DoctypeEnd) {
-    return handleDoctypeEnd(state, token);
+  if (token.type === TokenTypes.DoctypeClose) {
+    return handleDoctypeClose(state, token);
   }
 
   if (ATTRIBUTES_START_TOKENS.indexOf(token.type) !== -1) {

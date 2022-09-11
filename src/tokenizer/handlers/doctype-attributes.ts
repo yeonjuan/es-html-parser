@@ -56,5 +56,5 @@ function parseBare(state: TokenizerState) {
 function parseClosingCornerBrace(state: TokenizerState) {
   state.accumulatedContent = "";
   state.decisionBuffer = "";
-  state.currentContext = TokenizerContextTypes.DoctypeEnd;
+  state.currentContext = TokenizerContextTypes.DoctypeClose;
 }

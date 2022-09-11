@@ -15,7 +15,7 @@ const ATTRIBUTE_START_TOKENS = [
   TokenTypes.DoctypeAttributeValue,
 ];
 
-function handleDoctypeEnd(state: ConstructTreeState<ContextualDoctypeNode>) {
+function handleDoctypeClose(state: ConstructTreeState<ContextualDoctypeNode>) {
   state.currentContext = state.currentContext.parentRef;
 
   return state;
@@ -46,8 +46,8 @@ export function construct(
   token: AnyToken,
   state: ConstructTreeState<ContextualDoctypeNode>
 ) {
-  if (token.type === TokenTypes.DoctypeEnd) {
-    return handleDoctypeEnd(state);
+  if (token.type === TokenTypes.DoctypeClose) {
+    return handleDoctypeClose(state);
   }
 
   if (ATTRIBUTE_START_TOKENS.indexOf(token.type) !== -1) {

@@ -2,7 +2,7 @@ import { TokenTypes } from "../../../constants";
 
 export default [
   {
-    type: TokenTypes.DoctypeStart,
+    type: TokenTypes.DoctypeOpen,
     value: "<!DOCTYPE",
     range: [0, 9],
     loc: {
@@ -17,7 +17,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeEnd,
+    type: TokenTypes.DoctypeClose,
     value: ">",
     range: [9, 10],
     loc: {
@@ -47,7 +47,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeStart,
+    type: TokenTypes.DoctypeOpen,
     value: "<!doctype",
     range: [12, 21],
     loc: {
@@ -62,7 +62,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeEnd,
+    type: TokenTypes.DoctypeClose,
     value: ">",
     range: [21, 22],
     loc: {
@@ -92,7 +92,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeStart,
+    type: TokenTypes.DoctypeOpen,
     value: "<!DOCTYPE",
     range: [24, 33],
     loc: {
@@ -197,7 +197,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeEnd,
+    type: TokenTypes.DoctypeClose,
     value: ">",
     range: [65, 66],
     loc: {
@@ -227,7 +227,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeStart,
+    type: TokenTypes.DoctypeOpen,
     value: "<!DOCTYPE",
     range: [68, 77],
     loc: {
@@ -272,7 +272,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeEnd,
+    type: TokenTypes.DoctypeClose,
     value: ">",
     range: [89, 90],
     loc: {
@@ -302,7 +302,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeStart,
+    type: TokenTypes.DoctypeOpen,
     value: "<!DOCTYPE",
     range: [92, 101],
     loc: {
@@ -437,7 +437,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeEnd,
+    type: TokenTypes.DoctypeClose,
     value: ">",
     range: [192, 193],
     loc: {
@@ -467,7 +467,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeStart,
+    type: TokenTypes.DoctypeOpen,
     value: "<!DOCTYPE",
     range: [195, 204],
     loc: {
@@ -602,7 +602,7 @@ export default [
     },
   },
   {
-    type: TokenTypes.DoctypeEnd,
+    type: TokenTypes.DoctypeClose,
     value: ">",
     range: [302, 303],
     loc: {

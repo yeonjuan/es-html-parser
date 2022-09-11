@@ -83,27 +83,27 @@ export type CloseStyleTagNode = SimpleNode<NodeTypes.CloseStyleTag>;
 
 export interface CommentNode extends BaseNode {
   type: NodeTypes.Comment;
-  open: CommentStartNode;
-  close: CommentEndNode;
+  open: CommentOpenNode;
+  close: CommentCloseNode;
   value: CommentContentNode;
 }
 
-export type CommentStartNode = SimpleNode<NodeTypes.CommentStart>;
+export type CommentOpenNode = SimpleNode<NodeTypes.CommentOpen>;
 
-export type CommentEndNode = SimpleNode<NodeTypes.CommentEnd>;
+export type CommentCloseNode = SimpleNode<NodeTypes.CommentClose>;
 
 export type CommentContentNode = SimpleNode<NodeTypes.CommentContent>;
 
 export interface DoctypeNode extends BaseNode {
   type: NodeTypes.Doctype;
-  open: DoctypeStartNode;
-  close: DoctypeEndNode;
+  open: DoctypeOpenNode;
+  close: DoctypeCloseNode;
   attributes: DoctypeAttributeNode[];
 }
 
-export type DoctypeStartNode = SimpleNode<NodeTypes.DoctypeStart>;
+export type DoctypeOpenNode = SimpleNode<NodeTypes.DoctypeOpen>;
 
-export type DoctypeEndNode = SimpleNode<NodeTypes.DoctypeEnd>;
+export type DoctypeCloseNode = SimpleNode<NodeTypes.DoctypeClose>;
 
 export interface DoctypeAttributeNode extends BaseNode {
   type: NodeTypes.DoctypeAttribute;
@@ -144,12 +144,12 @@ export type AnyNode =
   | StyleTagContentNode
   | CloseStyleTagNode
   | CommentNode
-  | CommentStartNode
-  | CommentEndNode
+  | CommentOpenNode
+  | CommentCloseNode
   | CommentContentNode
   | DoctypeNode
-  | DoctypeStartNode
-  | DoctypeEndNode
+  | DoctypeOpenNode
+  | DoctypeCloseNode
   | DoctypeAttributeNode
   | DoctypeAttributeValueNode
   | DoctypeAttributeWrapperStart

@@ -5,8 +5,8 @@ export enum NodeTypes {
   Doctype = "Doctype",
 
   Comment = "Comment",
-  CommentStart = "CommentStart",
-  CommentEnd = "CommentEnd",
+  CommentOpen = "CommentOpen",
+  CommentClose = "CommentClose",
   CommentContent = "CommentContent",
 
   Attribute = "Attribute",
@@ -17,9 +17,9 @@ export enum NodeTypes {
   CloseTag = "CloseTag",
   OpenTagEnd = "OpenTagEnd",
   OpenTagStart = "OpenTagStart",
-  DoctypeStart = "DoctypeStart",
+  DoctypeOpen = "DoctypeOpen",
   DoctypeAttribute = "DoctypeAttribute",
-  DoctypeEnd = "DoctypeEnd",
+  DoctypeClose = "DoctypeClose",
 
   ScriptTag = "ScriptTag",
   OpenScriptTagStart = "OpenScriptTagStart",

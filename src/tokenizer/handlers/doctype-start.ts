@@ -19,11 +19,11 @@ export function parse(
   state.caretPosition++;
 }
 
-function generateDoctypeStartToken(state: TokenizerState): AnyToken {
+function generateDoctypeOpenToken(state: TokenizerState): AnyToken {
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
   return {
-    type: TokenTypes.DoctypeStart,
+    type: TokenTypes.DoctypeOpen,
     value: state.accumulatedContent,
     range: position.range,
     loc: position.loc,
@@ -31,7 +31,7 @@ function generateDoctypeStartToken(state: TokenizerState): AnyToken {
 }
 
 function parseWhitespace(state: TokenizerState, tokens: AnyToken[]) {
-  tokens.push(generateDoctypeStartToken(state));
+  tokens.push(generateDoctypeOpenToken(state));
 
   state.accumulatedContent = "";
   state.decisionBuffer = "";
@@ -39,9 +39,9 @@ function parseWhitespace(state: TokenizerState, tokens: AnyToken[]) {
 }
 
 function parseClosingCornerBrace(state: TokenizerState, tokens: AnyToken[]) {
-  tokens.push(generateDoctypeStartToken(state));
+  tokens.push(generateDoctypeOpenToken(state));
 
   state.accumulatedContent = "";
   state.decisionBuffer = "";
-  state.currentContext = TokenizerContextTypes.DoctypeEnd;
+  state.currentContext = TokenizerContextTypes.DoctypeClose;
 }

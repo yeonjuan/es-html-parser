@@ -66,7 +66,7 @@ function handleCloseTag(
   return state;
 }
 
-function handleCommentStart(
+function handleCommentOpen(
   state: ConstructTreeState<ContextualTagNode>,
   token: AnyToken
 ) {
@@ -91,7 +91,7 @@ function handleCommentStart(
   return state;
 }
 
-function handleDoctypeStart(
+function handleDoctypeOpen(
   state: ConstructTreeState<ContextualTagNode | ContextualDocumentNode>,
   token: AnyToken
 ) {
@@ -205,12 +205,12 @@ export function construct(
     return handleCloseTag(state, token);
   }
 
-  if (token.type === TokenTypes.CommentStart) {
-    return handleCommentStart(state, token);
+  if (token.type === TokenTypes.CommentOpen) {
+    return handleCommentOpen(state, token);
   }
 
-  if (token.type === TokenTypes.DoctypeStart) {
-    return handleDoctypeStart(state, token);
+  if (token.type === TokenTypes.DoctypeOpen) {
+    return handleDoctypeOpen(state, token);
   }
 
   state.caretPosition++;

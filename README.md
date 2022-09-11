@@ -106,12 +106,12 @@ type AnyNode =
   | StyleTagContentNode
   | CloseStyleTagNode
   | CommentNode
-  | CommentStartNode
-  | CommentEndNode
+  | CommentOpenNode
+  | CommentCloseNode
   | CommentContentNode
   | DoctypeNode
-  | DoctypeStartNode
-  | DoctypeEndNode
+  | DoctypeOpenNode
+  | DoctypeCloseNode
   | DoctypeAttributeNode
   | DoctypeAttributeValueNode
   | DoctypeAttributeWrapperStart
@@ -133,14 +133,14 @@ type AnyToken =
   | Token<TokenTypes.AttributeValueWrapperStart>
   | Token<TokenTypes.AttributeValue>
   | Token<TokenTypes.AttributeValueWrapperEnd>
-  | Token<TokenTypes.DoctypeStart>
+  | Token<TokenTypes.DoctypeOpen>
   | Token<TokenTypes.DoctypeAttributeValue>
   | Token<TokenTypes.DoctypeAttributeWrapperStart>
   | Token<TokenTypes.DoctypeAttributeWrapperEnd>
-  | Token<TokenTypes.DoctypeEnd>
-  | Token<TokenTypes.CommentStart>
+  | Token<TokenTypes.DoctypeClose>
+  | Token<TokenTypes.CommentOpen>
   | Token<TokenTypes.CommentContent>
-  | Token<TokenTypes.CommentEnd>
+  | Token<TokenTypes.CommentClose>
   | Token<TokenTypes.OpenScriptTagStart>
   | Token<TokenTypes.OpenScriptTagEnd>
   | Token<TokenTypes.ScriptTagContent>
@@ -166,14 +166,14 @@ enum TokenTypes {
   AttributeValueWrapperStart = "AttributeValueWrapperStart",
   AttributeValue = "AttributeValue",
   AttributeValueWrapperEnd = "AttributeValueWrapperEnd",
-  DoctypeStart = "DoctypeStart",
+  DoctypeOpen = "DoctypeOpen",
   DoctypeAttributeValue = "DoctypeAttributeValue",
   DoctypeAttributeWrapperStart = "DoctypeAttributeWrapperStart",
   DoctypeAttributeWrapperEnd = "DoctypeAttributeWrapperEnd",
-  DoctypeEnd = "DoctypeEnd",
-  CommentStart = "CommentStart",
+  DoctypeClose = "DoctypeClose",
+  CommentOpen = "CommentOpen",
   CommentContent = "CommentContent",
-  CommentEnd = "CommentEnd",
+  CommentClose = "CommentClose",
   OpenScriptTagStart = "OpenScriptTagStart",
   OpenScriptTagEnd = "OpenScriptTagEnd",
   ScriptTagContent = "ScriptTagContent",
@@ -194,8 +194,8 @@ enum NodeTypes {
   Text = "Text",
   Doctype = "Doctype",
   Comment = "Comment",
-  CommentStart = "CommentStart",
-  CommentEnd = "CommentEnd",
+  CommentOpen = "CommentOpen",
+  CommentClose = "CommentClose",
   CommentContent = "CommentContent",
   Attribute = "Attribute",
   AttributeKey = "AttributeKey",
@@ -205,9 +205,9 @@ enum NodeTypes {
   CloseTag = "CloseTag",
   OpenTagEnd = "OpenTagEnd",
   OpenTagStart = "OpenTagStart",
-  DoctypeStart = "DoctypeStart",
+  DoctypeOpen = "DoctypeOpen",
   DoctypeAttribute = "DoctypeAttribute",
-  DoctypeEnd = "DoctypeEnd",
+  DoctypeClose = "DoctypeClose",
   ScriptTag = "ScriptTag",
   OpenScriptTagStart = "OpenScriptTagStart",
   OpenScriptTagEnd = "OpenScriptTagEnd",
@@ -255,12 +255,12 @@ enum NodeTypes {
   - [CloseStyleTagNode](#closestyletagnode)
   - [StyleTagContentNode](#styletagcontentnode)
 - [CommentNode](#commentnode)
-  - [CommentStartNode](#commentstartnode)
-  - [CommentEndNode](#commentendnode)
+  - [CommentOpenNode](#commentopennode)
+  - [CommentCloseNode](#commentclosenode)
   - [CommentContentNode](#commentcontentnode)
 - [DoctypeNode](#doctypenode)
-  - [DoctypeStartNode](#doctypestartnode)
-  - [DoctypeEndNode](#doctypeendnode)
+  - [DoctypeOpenNode](#doctypeopennode)
+  - [DoctypeCloseNode](#doctypeclosenode)
 - [DoctypeAttributeNode](#doctypeattributenode)
   - [DoctypeAttributeValueNode](#doctypeattributevaluenode)
   - [DoctypeAttributeWrapperStartNode](#doctypeattributewrapperstartnode)
@@ -575,30 +575,30 @@ interface StyleTagContentNode extends BaseNode {
 ```ts
 interface CommentNode extends BaseNode {
   type: "Comment";
-  open: CommentStartNode;
-  close: CommentEndNode;
+  open: CommentOpenNode;
+  close: CommentCloseNode;
   value: CommentContentNode;
 }
 ```
 
-#### CommentStartNode
+#### CommentOpenNode
 
-`CommentStartNode` represents comment start character sequence. (e.g. `<!--`)
+`CommentOpenNode` represents comment start character sequence. (e.g. `<!--`)
 
 ```ts
-interface CommentStartNode extends BaseNode {
-  type: "CommentStart";
+interface CommentOpenNode extends BaseNode {
+  type: "CommentOpen";
   value: string;
 }
 ```
 
-#### CommentEndNode
+#### CommentCloseNode
 
-`CommentEndNode` represents comment end character sequence. (e.g. `-->`)
+`CommentCloseNode` represents comment end character sequence. (e.g. `-->`)
 
 ```ts
-interface CommentEndNode extends BaseNode {
-  type: "CommentEnd";
+interface CommentCloseNode extends BaseNode {
+  type: "CommentClose";
   value: string;
 }
 ```
@@ -622,29 +622,29 @@ interface CommentContentNode extends BaseNode {
 interface DoctypeNode extends BaseNode {
   type: "Doctype";
   attributes: Array<DoctypeAttributeNode>;
-  open: DoctypeStartNode;
-  close: DoctypeEndNode;
+  open: DoctypeOpenNode;
+  close: DoctypeCloseNode;
 }
 ```
 
-#### DoctypeStartNode
+#### DoctypeOpenNode
 
-`DoctypeStartNode` represents character sequence of doctype start . (`<!DOCTYPE`)
+`DoctypeOpenNode` represents character sequence of doctype start . (`<!DOCTYPE`)
 
 ```ts
-interface DoctypeStartNode extends BaseNode {
-  type: "DoctypeStart";
+interface DoctypeOpenNode extends BaseNode {
+  type: "DoctypeOpen";
   value: string;
 }
 ```
 
-#### DoctypeEndNode
+#### DoctypeCloseNode
 
-`DoctypeEndNode` represents the doctype end character sequence (e.g. `>`)
+`DoctypeCloseNode` represents the doctype end character sequence (e.g. `>`)
 
 ```ts
-interface DoctypeEndNode extends BaseNode {
-  type: "DoctypeEnd";
+interface DoctypeCloseNode extends BaseNode {
+  type: "DoctypeClose";
   value: string;
 }
 ```

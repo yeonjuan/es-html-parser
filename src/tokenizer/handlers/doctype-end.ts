@@ -10,7 +10,7 @@ export function parse(
   const position = calculateTokenPosition(state, { keepBuffer: true });
 
   tokens.push({
-    type: TokenTypes.DoctypeEnd,
+    type: TokenTypes.DoctypeClose,
     value: state.decisionBuffer,
     range: position.range,
     loc: position.loc,

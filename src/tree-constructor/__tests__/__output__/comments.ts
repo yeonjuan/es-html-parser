@@ -16,7 +16,7 @@ export default {
         },
       },
       open: {
-        type: "CommentStart",
+        type: "CommentOpen",
         value: "<!--",
         loc: {
           start: {
@@ -46,7 +46,7 @@ export default {
         range: [4, 18],
       },
       close: {
-        type: "CommentEnd",
+        type: "CommentClose",
         value: "-->",
         loc: {
           start: {
@@ -150,7 +150,7 @@ export default {
                 },
               },
               open: {
-                type: "CommentStart",
+                type: "CommentOpen",
                 value: "<!--",
                 loc: {
                   start: {
@@ -180,7 +180,7 @@ export default {
                 range: [46, 57],
               },
               close: {
-                type: "CommentEnd",
+                type: "CommentClose",
                 value: "-->",
                 loc: {
                   start: {
@@ -288,7 +288,7 @@ export default {
             },
           },
           open: {
-            type: "CommentStart",
+            type: "CommentOpen",
             value: "<!--",
             loc: {
               start: {
@@ -318,7 +318,7 @@ export default {
             range: [78, 98],
           },
           close: {
-            type: "CommentEnd",
+            type: "CommentClose",
             value: "-->",
             loc: {
               start: {
@@ -426,7 +426,7 @@ export default {
         },
       },
       open: {
-        type: "CommentStart",
+        type: "CommentOpen",
         value: "<!--",
         loc: {
           start: {
@@ -456,7 +456,7 @@ export default {
         range: [114, 132],
       },
       close: {
-        type: "CommentEnd",
+        type: "CommentClose",
         value: "-->",
         loc: {
           start: {
@@ -500,7 +500,7 @@ export default {
         },
       },
       open: {
-        type: "CommentStart",
+        type: "CommentOpen",
         value: "<!--",
         loc: {
           start: {
@@ -530,7 +530,7 @@ export default {
         range: [141, 171],
       },
       close: {
-        type: "CommentEnd",
+        type: "CommentClose",
         value: "-->",
         loc: {
           start: {

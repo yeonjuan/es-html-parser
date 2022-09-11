@@ -19,14 +19,14 @@ export type AnyToken =
   | Token<TokenTypes.AttributeValueWrapperStart>
   | Token<TokenTypes.AttributeValue>
   | Token<TokenTypes.AttributeValueWrapperEnd>
-  | Token<TokenTypes.DoctypeStart>
+  | Token<TokenTypes.DoctypeOpen>
   | Token<TokenTypes.DoctypeAttributeValue>
   | Token<TokenTypes.DoctypeAttributeWrapperStart>
   | Token<TokenTypes.DoctypeAttributeWrapperEnd>
-  | Token<TokenTypes.DoctypeEnd>
-  | Token<TokenTypes.CommentStart>
+  | Token<TokenTypes.DoctypeClose>
+  | Token<TokenTypes.CommentOpen>
   | Token<TokenTypes.CommentContent>
-  | Token<TokenTypes.CommentEnd>
+  | Token<TokenTypes.CommentClose>
   | Token<TokenTypes.OpenScriptTagStart>
   | Token<TokenTypes.OpenScriptTagEnd>
   | Token<TokenTypes.ScriptTagContent>

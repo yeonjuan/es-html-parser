@@ -1,6 +1,6 @@
 {
   "name": "es-html-parser",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "license": "MIT",
   "types": "dist/index.d.ts",

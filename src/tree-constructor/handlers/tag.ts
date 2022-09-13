@@ -65,7 +65,10 @@ function handleOpenTagEnd(
 
   updateNodeEnd(state.currentNode, token);
 
-  if (SELF_CLOSING_TAGS.indexOf(tagName!) !== -1) {
+  if (
+    SELF_CLOSING_TAGS.indexOf(tagName!) !== -1 ||
+    state.currentNode.openEnd.value === "/>"
+  ) {
     state.currentNode.selfClosing = true;
     state.currentNode = state.currentNode.parentRef;
     state.currentContext = state.currentContext.parentRef;

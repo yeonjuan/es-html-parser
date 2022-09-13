@@ -107,18 +107,18 @@ export type DoctypeCloseNode = SimpleNode<NodeTypes.DoctypeClose>;
 
 export interface DoctypeAttributeNode extends BaseNode {
   type: NodeTypes.DoctypeAttribute;
-  startWrapper?: DoctypeAttributeWrapperStart;
+  startWrapper?: DoctypeAttributeWrapperStartNode;
   value?: DoctypeAttributeValueNode;
-  endWrapper?: DoctypeAttributeWrapperEnd;
+  endWrapper?: DoctypeAttributeWrapperEndNode;
 }
 
 export type DoctypeAttributeValueNode =
   SimpleNode<NodeTypes.DoctypeAttributeValue>;
 
-export type DoctypeAttributeWrapperStart =
+export type DoctypeAttributeWrapperStartNode =
   SimpleNode<NodeTypes.DoctypeAttributeWrapperStart>;
 
-export type DoctypeAttributeWrapperEnd =
+export type DoctypeAttributeWrapperEndNode =
   SimpleNode<NodeTypes.DoctypeAttributeWrapperEnd>;
 
 export type AnyNode =
@@ -152,5 +152,5 @@ export type AnyNode =
   | DoctypeCloseNode
   | DoctypeAttributeNode
   | DoctypeAttributeValueNode
-  | DoctypeAttributeWrapperStart
-  | DoctypeAttributeWrapperEnd;
+  | DoctypeAttributeWrapperStartNode
+  | DoctypeAttributeWrapperEndNode;

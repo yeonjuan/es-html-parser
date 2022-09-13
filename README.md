@@ -116,8 +116,8 @@ type AnyNode =
   | DoctypeCloseNode
   | DoctypeAttributeNode
   | DoctypeAttributeValueNode
-  | DoctypeAttributeWrapperStart
-  | DoctypeAttributeWrapperEnd;
+  | DoctypeAttributeWrapperStartNode
+  | DoctypeAttributeWrapperEndNode;
 ```
 
 #### AnyToken

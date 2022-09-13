@@ -4,8 +4,8 @@ import {
   ConstructTreeState,
   ContextualDoctypeNode,
   DoctypeAttributeValueNode,
-  DoctypeAttributeWrapperEnd,
-  DoctypeAttributeWrapperStart,
+  DoctypeAttributeWrapperEndNode,
+  DoctypeAttributeWrapperStartNode,
   Token,
 } from "../../types";
 import { cloneRange, createNodeFrom, updateNodeEnd } from "../../utils";
@@ -57,7 +57,7 @@ function handleAttributeWrapperStart(
 
   attribute.startWrapper = createNodeFrom(
     token
-  ) as DoctypeAttributeWrapperStart;
+  ) as DoctypeAttributeWrapperStartNode;
 
   attribute.range = cloneRange(token.range);
   state.caretPosition++;
@@ -71,7 +71,9 @@ function handleAttributeWrapperEnd(
 ) {
   const attribute = getLastAttribute(state);
 
-  attribute.endWrapper = createNodeFrom(token) as DoctypeAttributeWrapperEnd;
+  attribute.endWrapper = createNodeFrom(
+    token
+  ) as DoctypeAttributeWrapperEndNode;
   updateNodeEnd(attribute, token);
 
   state.currentContext = state.currentContext.parentRef;

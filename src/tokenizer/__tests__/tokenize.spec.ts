@@ -17,6 +17,7 @@ import STYLE_ELEMENTS from "./__output__/style-elements";
 import TAGS_REGISTER from "./__output__/tags-register";
 import VOID_TAGS from "./__output__/void-tags";
 import EMPTY from "./__output__/empty";
+import SVG from "./__output__/svg";
 
 describe("tokenize", () => {
   test.each(
@@ -101,6 +102,11 @@ describe("tokenize", () => {
         "Empty",
         "empty.html",
         EMPTY,
+      ],
+      [
+        "Svg",
+        "svg.html",
+        SVG,
       ]
     ]
   )("%s", (name, input, output) => {

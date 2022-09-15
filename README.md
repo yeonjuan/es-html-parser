@@ -366,7 +366,7 @@ interface TagNode extends BaseNode {
 `OpenTagStartNode` represents the opening part of the [Start tags](https://www.w3.org/TR/2011/WD-html5-20110405/syntax.html#start-tags). (e.g. `<div`)
 
 ```ts
-interface OpenTagStartNode {
+interface OpenTagStartNode extends BaseNode {
   type: "OpenTagStart";
   value: string;
 }
@@ -377,7 +377,7 @@ interface OpenTagStartNode {
 `OpenTagEndNode` represents the closing part of the [Start tags](https://www.w3.org/TR/2011/WD-html5-20110405/syntax.html#start-tags). (e.g. `>`, `/>`)
 
 ```ts
-interface OpenTagEndNode {
+interface OpenTagEndNode extends BaseNode {
   type: "OpenTagEnd";
   value: string;
 }
@@ -388,7 +388,7 @@ interface OpenTagEndNode {
 `ClosingTagNode` represents the [End tags](https://www.w3.org/TR/2011/WD-html5-20110405/syntax.html#end-tags). (e.g. `</div>`)
 
 ```ts
-interface CloseTagNode {
+interface CloseTagNode extends BaseNode {
   type: "CloseTag";
   value: string;
 }

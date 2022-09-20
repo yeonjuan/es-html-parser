@@ -14,6 +14,8 @@ ES HTML Parser is an HTML parser that generates an abstract syntax tree similar 
 
 This project began as a fork of [hyntax](https://github.com/mykolaharmash/hyntax) and is developed to follow [ESTree](https://github.com/estree/estree)-like ast specification.
 
+See [online demo](https://yeonjuan.github.io/es-html-parser/).
+
 ## Table of Contents
 
 - [Install](#install)

@@ -18,6 +18,7 @@ import TAGS_REGISTER from "./__output__/tags-register";
 import VOID_TAGS from "./__output__/void-tags";
 import EMPTY from "./__output__/empty";
 import SVG from "./__output__/svg";
+import ATTRIBUTES_MULTILINE_CRLF from "./__output__/attributes-multiline-crlf";
 
 describe("tokenize", () => {
   test.each(
@@ -107,12 +108,31 @@ describe("tokenize", () => {
         "Svg",
         "svg.html",
         SVG,
+      ],
+      [
+        "Attributes multiline CRLF",
+        "attributes-multiline.html",
+        ATTRIBUTES_MULTILINE_CRLF,
+        (html: string) => {
+          return html.replace(/\n/gi, "\r\n");
+        }
       ]
     ]
-  )("%s", (name, input, output) => {
-    const inputPath = path.join(__dirname, "__input__", input);
-    const html = fs.readFileSync(inputPath, "utf-8");
-    const { tokens } = tokenize(html, undefined);
-    expect(tokens).toEqual(output);
-  });
+  )(
+    "%s",
+    (
+      name,
+      input,
+      output,
+      process: null | ((html: string) => string) = null
+    ) => {
+      const inputPath = path.join(__dirname, "__input__", input);
+      let html = fs.readFileSync(inputPath, "utf-8");
+      if (process) {
+        html = process(html);
+      }
+      const { tokens } = tokenize(html, undefined);
+      expect(tokens).toEqual(output);
+    }
+  );
 });

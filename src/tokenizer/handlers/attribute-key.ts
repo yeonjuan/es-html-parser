@@ -1,6 +1,6 @@
 import { TokenizerContextTypes } from "../../constants";
 import { TokenTypes } from "../../constants/token-types";
-import { calculateTokenPosition } from "../../utils";
+import { calculateTokenPosition, isWhitespace } from "../../utils";
 import { AnyToken, TokenizerState } from "../../types";
 
 export function parse(
@@ -18,14 +18,7 @@ export function parse(
 }
 
 function isKeyBreak(chars: string): boolean {
-  return (
-    chars === "=" ||
-    chars === " " ||
-    chars === "\n" ||
-    chars === "\t" ||
-    chars === "/" ||
-    chars === ">"
-  );
+  return chars === "=" || chars === "/" || chars === ">" || isWhitespace(chars);
 }
 
 function parseKeyEnd(state: TokenizerState, tokens: AnyToken[]) {

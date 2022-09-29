@@ -20,6 +20,7 @@ export function parse(
   if (chars === ">" || chars === "/") {
     return parseTagEnd(state, tokens);
   }
+
   if (isWhitespace(chars)) {
     return parseWhitespace(state, tokens);
   }

@@ -45,6 +45,9 @@ import EMPTY_OUTPUT from "./__output__/empty";
 import SVG_INPUT from "../../tokenizer/__tests__/__output__/svg";
 import SVG_OUTPUT from "./__output__/svg";
 
+import ATTRIBUTES_MULTILINE_CRLF_INPUT from "../../tokenizer/__tests__/__output__/attributes-multiline-crlf";
+import ATTRIBUTES_MULTILINE_CRLF_OUTPUT from "./__output__/attributes-multiline-crlf";
+
 import { clearParent } from "../../utils";
 
 describe("construct-tree", () => {
@@ -80,6 +83,11 @@ describe("construct-tree", () => {
     ["Tag register", TAGS_REGISTER_INPUT, TAGS_REGISTERS_OUTPUT],
     ["Empty", EMPTY_INPUT, EMPTY_OUTPUT],
     ["Svg", SVG_INPUT, SVG_OUTPUT],
+    [
+      "Attributes multiline (CRLF)",
+      ATTRIBUTES_MULTILINE_CRLF_INPUT,
+      ATTRIBUTES_MULTILINE_CRLF_OUTPUT,
+    ],
   ])("%s", (name: string, inputTokens: any, output: any) => {
     const { ast } = constructTree(inputTokens, undefined);
     expect(clearParent(ast)).toEqual(output);

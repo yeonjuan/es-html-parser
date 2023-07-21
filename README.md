@@ -10,7 +10,7 @@
 </a>
 </p>
 
-ES HTML Parser is an HTML parser that generates an abstract syntax tree similar to the ESTree specification.
+ES HTML Parser is a HTML parser that generates an abstract syntax tree similar to the ESTree specification.
 
 This project began as a fork of [hyntax](https://github.com/mykolaharmash/hyntax) and is developed to follow [ESTree](https://github.com/estree/estree)-like ast specification.
 

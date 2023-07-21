@@ -48,6 +48,9 @@ import SVG_OUTPUT from "./__output__/svg";
 import ATTRIBUTES_MULTILINE_CRLF_INPUT from "../../tokenizer/__tests__/__output__/attributes-multiline-crlf";
 import ATTRIBUTES_MULTILINE_CRLF_OUTPUT from "./__output__/attributes-multiline-crlf";
 
+import ATTRIBUTES_BARE_WRONG_QUOTE_INPUT from "../../tokenizer/__tests__/__output__/attributes-bare-wrong-quote";
+import ATTRIBUTES_BARE_WRONG_QUOTE_OUTPUT from "./__output__/attributes-bare-wrong-quote";
+
 import { clearParent } from "../../utils";
 
 describe("construct-tree", () => {
@@ -58,6 +61,11 @@ describe("construct-tree", () => {
       ATTRIBUTES_APOSTROPHE_OUTPUT,
     ],
     ["Attributes empty", ATTRIBUTES_EMPTY_INPUT, ATTRIBUTES_EMPTY_OUTPUT],
+    [
+      "Attributes bare wrong quote",
+      ATTRIBUTES_BARE_WRONG_QUOTE_INPUT,
+      ATTRIBUTES_BARE_WRONG_QUOTE_OUTPUT,
+    ],
     ["Comments", COMMENTS_INPUT, COMMENTS_OUTPUT],
     [
       "Opening closing text",

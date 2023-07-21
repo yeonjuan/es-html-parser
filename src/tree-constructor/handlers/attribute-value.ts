@@ -43,6 +43,7 @@ function handleAttributeValue(
   const attribute = getLastAttribute(state);
 
   attribute.value = createNodeFrom(token) as AttributeValueNode;
+  updateNodeEnd(attribute, token);
   state.caretPosition++;
   return state;
 }

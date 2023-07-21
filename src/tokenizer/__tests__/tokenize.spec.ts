@@ -19,6 +19,7 @@ import VOID_TAGS from "./__output__/void-tags";
 import EMPTY from "./__output__/empty";
 import SVG from "./__output__/svg";
 import ATTRIBUTES_MULTILINE_CRLF from "./__output__/attributes-multiline-crlf";
+import ATTRIBUTES_BARE_WRONG_QUOTE from "./__output__/attributes-bare-wrong-quote";
 
 describe("tokenize", () => {
   test.each(
@@ -33,6 +34,11 @@ describe("tokenize", () => {
         "Attributes bare",
         "attributes-bare.html",
         ATTRIBUTES_BARE
+      ],
+      [
+        "Attributes bare wrong quotes",
+        "attributes-bare-wrong-quote.html",
+        ATTRIBUTES_BARE_WRONG_QUOTE
       ],
       [
         "Attributes empty",

@@ -8,6 +8,9 @@
 <a href="https://www.npmjs.com/package/es-html-parser">
 <img src="https://img.shields.io/npm/v/es-html-parser"/>
 </a>
+<a href="https://www.npmjs.com/package/es-html-parser">
+<img src="https://img.shields.io/npm/dw/es-html-parser"/>
+</a>
 </p>
 
 ES HTML Parser is a HTML parser that generates an abstract syntax tree similar to the ESTree specification.

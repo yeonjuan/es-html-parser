@@ -100,7 +100,6 @@ export function tokenize(
     caretPosition: 0,
     linePosition: 1,
     source,
-    tokenAdapter,
     tokens: {
       push(token: AnyToken) {
         tokens.push({

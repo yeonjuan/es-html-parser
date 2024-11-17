@@ -60,12 +60,14 @@ const { ast, tokens } = parse(input);
 #### parse
 
 ```ts
-parse(html: string): ParseResult;
+parse(html: string, options?: Options): ParseResult;
 ```
 
 **Arguments**
 
 - `html`: HTML string to parse.
+- `options (optional)`
+  - `tokenAdapter`: The adapter option for changing tokens information.
 
 **Returns**
 

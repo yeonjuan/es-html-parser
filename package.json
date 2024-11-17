@@ -10,7 +10,7 @@
     "build": "rimraf dist && tsc -b tsconfig.build.json",
     "check:lint": "eslint src",
     "check:ts": "tsc --noEmit",
-    "check:format": "prettier --list-different .",
+    "check:format": "prettier . --check",
     "prepublish": "yarn check:lint && yarn check:ts && yarn check:format && yarn build"
   },
   "devDependencies": {
@@ -22,11 +22,12 @@
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^29.1.1",
-    "typescript": "^4.8.2"
+    "typescript": "^5.6.3"
   },
   "files": [
     "README.md",
     "LICENSE.md",
     "dist"
-  ]
+  ],
+  "packageManager": "yarn@4.0.2"
 }

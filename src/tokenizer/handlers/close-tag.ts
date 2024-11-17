@@ -1,14 +1,10 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition } from "../../utils";
-import { AnyToken, TokenizerState } from "../../types";
+import type { TokenizerState } from "../../types";
 
-export function parse(
-  chars: string,
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+export function parse(chars: string, state: TokenizerState) {
   if (chars === ">") {
-    return parseClosingCornerBrace(state, tokens);
+    return parseClosingCornerBrace(state);
   }
 
   state.accumulatedContent += state.decisionBuffer;
@@ -16,10 +12,10 @@ export function parse(
   state.caretPosition++;
 }
 
-function parseClosingCornerBrace(state: TokenizerState, tokens: AnyToken[]) {
+function parseClosingCornerBrace(state: TokenizerState) {
   const position = calculateTokenPosition(state, { keepBuffer: true });
 
-  tokens.push({
+  state.tokens.push({
     type: TokenTypes.CloseTag,
     value: state.accumulatedContent + state.decisionBuffer,
     range: position.range,

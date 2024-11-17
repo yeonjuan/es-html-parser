@@ -5,13 +5,9 @@ import {
   TokenTypes,
 } from "../../constants";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
-import { Range, AnyToken, TokenizerState } from "../../types";
+import { Range, TokenizerState } from "../../types";
 
-export function parse(
-  chars: string,
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+export function parse(chars: string, state: TokenizerState) {
   if (
     chars === "<" ||
     chars === "</" ||
@@ -22,7 +18,7 @@ export function parse(
   }
 
   if (CLOSING_SCRIPT_TAG_PATTERN.test(chars)) {
-    return parseClosingScriptTag(state, tokens);
+    return parseClosingScriptTag(state);
   }
 
   state.accumulatedContent += state.decisionBuffer;
@@ -30,10 +26,10 @@ export function parse(
   state.caretPosition++;
 }
 
-function parseClosingScriptTag(state: TokenizerState, tokens: AnyToken[]) {
+function parseClosingScriptTag(state: TokenizerState) {
   if (state.accumulatedContent !== "") {
     const position = calculateTokenPosition(state, { keepBuffer: false });
-    tokens.push({
+    state.tokens.push({
       type: TokenTypes.ScriptTagContent,
       value: state.accumulatedContent,
       range: position.range,
@@ -48,7 +44,7 @@ function parseClosingScriptTag(state: TokenizerState, tokens: AnyToken[]) {
 
   const loc = calculateTokenLocation(state.source, range);
 
-  tokens.push({
+  state.tokens.push({
     type: TokenTypes.CloseScriptTag,
     value: state.decisionBuffer,
     range,

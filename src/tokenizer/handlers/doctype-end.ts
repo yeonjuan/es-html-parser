@@ -1,15 +1,11 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition } from "../../utils";
-import { AnyToken, TokenizerState } from "../../types";
+import type { TokenizerState } from "../../types";
 
-export function parse(
-  chars: string,
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+export function parse(chars: string, state: TokenizerState) {
   const position = calculateTokenPosition(state, { keepBuffer: true });
 
-  tokens.push({
+  state.tokens.push({
     type: TokenTypes.DoctypeClose,
     value: state.decisionBuffer,
     range: position.range,

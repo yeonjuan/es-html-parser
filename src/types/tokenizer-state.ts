@@ -1,4 +1,5 @@
 import { TokenizerContextTypes } from "../constants";
+import { AnyToken } from "./token";
 
 type ContextParams = {
   [TokenizerContextTypes.AttributeValueWrapped]?: {
@@ -23,4 +24,7 @@ export type TokenizerState = {
   caretPosition: number;
   linePosition: number;
   source: string;
+  tokens: {
+    push(token: AnyToken): void;
+  };
 };

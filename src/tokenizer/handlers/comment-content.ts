@@ -1,21 +1,17 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
-import { Range, AnyToken, TokenizerState } from "../../types";
+import type { Range, TokenizerState } from "../../types";
 
 const COMMENT_END = "-->";
 
-export function parse(
-  chars: string,
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+export function parse(chars: string, state: TokenizerState) {
   if (chars === "-" || chars === "--") {
     state.caretPosition++;
     return;
   }
 
   if (chars === COMMENT_END) {
-    return parseCommentClose(state, tokens);
+    return parseCommentClose(state);
   }
 
   state.accumulatedContent += state.decisionBuffer;
@@ -23,7 +19,7 @@ export function parse(
   state.caretPosition++;
 }
 
-function parseCommentClose(state: TokenizerState, tokens: AnyToken[]) {
+function parseCommentClose(state: TokenizerState) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   const endRange: Range = [
     position.range[1],
@@ -31,20 +27,18 @@ function parseCommentClose(state: TokenizerState, tokens: AnyToken[]) {
   ];
   const endLoc = calculateTokenLocation(state.source, endRange);
 
-  tokens.push(
-    {
-      type: TokenTypes.CommentContent,
-      value: state.accumulatedContent,
-      range: position.range,
-      loc: position.loc,
-    },
-    {
-      type: TokenTypes.CommentClose,
-      value: state.decisionBuffer,
-      range: endRange,
-      loc: endLoc,
-    }
-  );
+  state.tokens.push({
+    type: TokenTypes.CommentContent,
+    value: state.accumulatedContent,
+    range: position.range,
+    loc: position.loc,
+  });
+  state.tokens.push({
+    type: TokenTypes.CommentClose,
+    value: state.decisionBuffer,
+    range: endRange,
+    loc: endLoc,
+  });
 
   state.accumulatedContent = "";
   state.decisionBuffer = "";

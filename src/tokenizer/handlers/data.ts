@@ -5,17 +5,13 @@ import { Range, AnyToken, TokenizerState } from "../../types";
 const COMMENT_START = "<!--";
 const OPEN_TAG_START_PATTERN = /^<\w/;
 
-export function parse(
-  chars: string,
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+export function parse(chars: string, state: TokenizerState) {
   if (OPEN_TAG_START_PATTERN.test(chars)) {
-    return parseOpeningCornerBraceWithText(state, tokens);
+    return parseOpeningCornerBraceWithText(state);
   }
 
   if (chars === "</") {
-    return parseOpeningCornerBraceWithSlash(state, tokens);
+    return parseOpeningCornerBraceWithSlash(state);
   }
 
   if (chars === "<" || chars === "<!" || chars === "<!-") {
@@ -24,7 +20,7 @@ export function parse(
   }
 
   if (chars === COMMENT_START) {
-    return parseCommentOpen(state, tokens);
+    return parseCommentOpen(state);
   }
 
   if (isIncompleteDoctype(chars)) {
@@ -33,20 +29,20 @@ export function parse(
   }
 
   if (chars.toUpperCase() === "<!DOCTYPE") {
-    return parseDoctypeOpen(state, tokens);
+    return parseDoctypeOpen(state);
   }
   state.accumulatedContent += state.decisionBuffer;
   state.decisionBuffer = "";
   state.caretPosition++;
 }
 
-export function handleContentEnd(state: TokenizerState, tokens: AnyToken[]) {
+export function handleContentEnd(state: TokenizerState) {
   const textContent = state.accumulatedContent + state.decisionBuffer;
 
   if (textContent.length !== 0) {
     const position = calculateTokenPosition(state, { keepBuffer: false });
 
-    tokens.push({
+    state.tokens.push({
       type: TokenTypes.Text,
       value: textContent,
       range: position.range,
@@ -65,12 +61,9 @@ function generateTextToken(state: TokenizerState): AnyToken {
   };
 }
 
-function parseOpeningCornerBraceWithText(
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+function parseOpeningCornerBraceWithText(state: TokenizerState) {
   if (state.accumulatedContent.length !== 0) {
-    tokens.push(generateTextToken(state));
+    state.tokens.push(generateTextToken(state));
   }
   state.accumulatedContent = state.decisionBuffer;
   state.decisionBuffer = "";
@@ -78,12 +71,9 @@ function parseOpeningCornerBraceWithText(
   state.caretPosition++;
 }
 
-function parseOpeningCornerBraceWithSlash(
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+function parseOpeningCornerBraceWithSlash(state: TokenizerState) {
   if (state.accumulatedContent.length !== 0) {
-    tokens.push(generateTextToken(state));
+    state.tokens.push(generateTextToken(state));
   }
   state.accumulatedContent = state.decisionBuffer;
   state.decisionBuffer = "";
@@ -105,9 +95,9 @@ function isIncompleteDoctype(chars: string) {
   );
 }
 
-function parseCommentOpen(state: TokenizerState, tokens: AnyToken[]) {
+function parseCommentOpen(state: TokenizerState) {
   if (state.accumulatedContent.length !== 0) {
-    tokens.push(generateTextToken(state));
+    state.tokens.push(generateTextToken(state));
   }
 
   const range: Range = [
@@ -117,7 +107,7 @@ function parseCommentOpen(state: TokenizerState, tokens: AnyToken[]) {
 
   const loc = calculateTokenLocation(state.source, range);
 
-  tokens.push({
+  state.tokens.push({
     type: TokenTypes.CommentOpen,
     value: state.decisionBuffer,
     range: range,
@@ -130,9 +120,9 @@ function parseCommentOpen(state: TokenizerState, tokens: AnyToken[]) {
   state.caretPosition++;
 }
 
-function parseDoctypeOpen(state: TokenizerState, tokens: AnyToken[]) {
+function parseDoctypeOpen(state: TokenizerState) {
   if (state.accumulatedContent.length !== 0) {
-    tokens.push(generateTextToken(state));
+    state.tokens.push(generateTextToken(state));
   }
 
   state.accumulatedContent = state.decisionBuffer;

@@ -11,14 +11,16 @@ jobs:
     name: CI
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup node 16
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 18.16.1
+
+      - name: setup
+        run: corepack enable
 
       - name: install
-        run: yarn
+        run: yarn install --immutable
 
       - name: lint
         run: yarn check:lint

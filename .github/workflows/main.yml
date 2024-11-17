@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 18.x
 
-     - name: setup
+      - name: setup
         run: corepack enable
 
       - name: install

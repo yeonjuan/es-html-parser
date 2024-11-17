@@ -54,7 +54,7 @@ function tokenizeChars(
   }: {
     isFinalChunk?: boolean;
     positionOffset: number;
-  },
+  }
 ) {
   let charIndex = state.caretPosition - positionOffset;
   let charIndexBefore = charIndex;
@@ -88,7 +88,7 @@ export function tokenize(
     isFinalChunk,
   }: {
     isFinalChunk?: boolean;
-  } = {},
+  } = {}
 ): { state: TokenizerState; tokens: AnyToken[] } {
   isFinalChunk = isFinalChunk === undefined ? true : isFinalChunk;
   const tokens: AnyToken[] = [];

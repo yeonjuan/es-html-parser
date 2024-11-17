@@ -124,14 +124,14 @@ describe("tokenize", () => {
           return html.replace(/\n/gi, "\r\n");
         }
       ]
-    ],
+    ]
   )(
     "%s",
     (
       name,
       input,
       output,
-      process: null | ((html: string) => string) = null,
+      process: null | ((html: string) => string) = null
     ) => {
       const inputPath = path.join(__dirname, "__input__", input);
       let html = fs.readFileSync(inputPath, "utf-8");
@@ -140,6 +140,6 @@ describe("tokenize", () => {
       }
       const { tokens } = tokenize(html, defaultTokenAdapter);
       expect(tokens).toEqual(output);
-    },
+    }
   );
 });

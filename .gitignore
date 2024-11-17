@@ -1,4 +1,5 @@
 node_modules
 coverage
 dist
-.yarn
+.yarn/*
+!.yarn/releases

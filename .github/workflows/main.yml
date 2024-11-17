@@ -20,7 +20,7 @@ jobs:
         run: corepack enable
 
       - name: install
-        run: yarn
+        run: yarn install --immutable
 
       - name: lint
         run: yarn check:lint

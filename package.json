@@ -10,7 +10,7 @@
     "build": "rimraf dist && tsc -b tsconfig.build.json",
     "check:lint": "eslint src",
     "check:ts": "tsc --noEmit",
-    "check:format": "prettier --list-different .",
+    "check:format": "prettier . --check",
     "prepublish": "yarn check:lint && yarn check:ts && yarn check:format && yarn build"
   },
   "devDependencies": {

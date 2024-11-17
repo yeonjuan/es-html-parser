@@ -47,7 +47,7 @@ const EMPTY_LOC: SourceLocation = {
 
 export function constructTree(
   tokens: AnyToken[],
-  existingState: ConstructTreeState<any> | undefined,
+  existingState: ConstructTreeState<any> | undefined
 ) {
   let state = existingState;
 
@@ -92,7 +92,7 @@ export function constructTree(
 function processTokens(
   tokens: AnyToken[],
   state: ConstructTreeState<any>,
-  positionOffset: number,
+  positionOffset: number
 ) {
   let tokenIndex = state.caretPosition - positionOffset;
   while (tokenIndex < tokens.length) {

@@ -1,14 +1,10 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenLocation, isWhitespace } from "../../utils";
-import { Range, AnyToken, TokenizerState } from "../../types";
+import type { Range, TokenizerState } from "../../types";
 
-export function parse(
-  chars: string,
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+export function parse(chars: string, state: TokenizerState) {
   if (chars === '"' || chars === "'") {
-    return parseWrapper(state, tokens);
+    return parseWrapper(state);
   }
 
   if (chars === ">") {
@@ -23,14 +19,14 @@ export function parse(
   state.caretPosition++;
 }
 
-function parseWrapper(state: TokenizerState, tokens: AnyToken[]) {
+function parseWrapper(state: TokenizerState) {
   const wrapper = state.decisionBuffer;
   const range: Range = [
     state.caretPosition,
     state.caretPosition + wrapper.length,
   ];
   const loc = calculateTokenLocation(state.source, range);
-  tokens.push({
+  state.tokens.push({
     type: TokenTypes.DoctypeAttributeWrapperStart,
     value: wrapper,
     range,

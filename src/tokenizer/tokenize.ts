@@ -1,5 +1,5 @@
 import { TokenizerContextTypes } from "../constants";
-import { AnyToken, TokenizerState } from "../types";
+import { AnyToken, TokenAdapter, TokenizerState } from "../types";
 import {
   attributeKey,
   attributeValueBare,
@@ -54,7 +54,7 @@ function tokenizeChars(
   }: {
     isFinalChunk?: boolean;
     positionOffset: number;
-  }
+  },
 ) {
   let charIndex = state.caretPosition - positionOffset;
   let charIndexBefore = charIndex;
@@ -83,13 +83,15 @@ function tokenizeChars(
 
 export function tokenize(
   source = "",
+  tokenAdapter: TokenAdapter,
   {
     isFinalChunk,
   }: {
     isFinalChunk?: boolean;
-  } = {}
+  } = {},
 ): { state: TokenizerState; tokens: AnyToken[] } {
   isFinalChunk = isFinalChunk === undefined ? true : isFinalChunk;
+  const tokens: AnyToken[] = [];
   const state = {
     currentContext: TokenizerContextTypes.Data,
     contextParams: {},
@@ -98,10 +100,19 @@ export function tokenize(
     caretPosition: 0,
     linePosition: 1,
     source,
+    tokenAdapter,
+    tokens: {
+      push(token: AnyToken) {
+        tokens.push({
+          ...token,
+          range: tokenAdapter.finalizeRange(token),
+          loc: tokenAdapter.finalizeLocation(token),
+        });
+      },
+    },
   };
 
   const chars = state.decisionBuffer + source;
-  const tokens: AnyToken[] = [];
   const positionOffset = state.caretPosition - state.decisionBuffer.length;
 
   tokenizeChars(chars, state, tokens, {

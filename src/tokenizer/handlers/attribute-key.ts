@@ -1,15 +1,11 @@
 import { TokenizerContextTypes } from "../../constants";
 import { TokenTypes } from "../../constants/token-types";
 import { calculateTokenPosition, isWhitespace } from "../../utils";
-import { AnyToken, TokenizerState } from "../../types";
+import type { TokenizerState } from "../../types";
 
-export function parse(
-  chars: string,
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+export function parse(chars: string, state: TokenizerState) {
   if (isKeyBreak(chars)) {
-    return parseKeyEnd(state, tokens);
+    return parseKeyEnd(state);
   }
 
   state.accumulatedContent += state.decisionBuffer;
@@ -21,9 +17,10 @@ function isKeyBreak(chars: string): boolean {
   return chars === "=" || chars === "/" || chars === ">" || isWhitespace(chars);
 }
 
-function parseKeyEnd(state: TokenizerState, tokens: AnyToken[]) {
+function parseKeyEnd(state: TokenizerState) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
-  tokens.push({
+
+  state.tokens.push({
     type: TokenTypes.AttributeKey,
     value: state.accumulatedContent,
     range: position.range,

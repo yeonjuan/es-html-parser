@@ -24,4 +24,6 @@ export enum TokenTypes {
   OpenStyleTagEnd = "OpenStyleTagEnd",
   StyleTagContent = "StyleTagContent",
   CloseStyleTag = "CloseStyleTag",
+  TemplateSyntaxStart = "TemplateSyntaxStart",
+  TemplateSyntaxEnd = "TemplateSyntaxEnd",
 }

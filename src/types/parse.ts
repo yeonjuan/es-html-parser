@@ -7,6 +7,13 @@ export type ParseResult = {
   tokens: AnyToken[];
 };
 
+export type TemplateSyntaxOption = {
+  name: string;
+  start: string;
+  end: string;
+};
+
 export type Options = {
-  tokenAdapter: TokenAdapter;
+  tokenAdapter?: TokenAdapter;
+  templateSyntax?: TemplateSyntaxOption[];
 };

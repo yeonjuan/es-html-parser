@@ -1,13 +1,13 @@
 import { constructTree } from "../tree-constructor";
 import { tokenize } from "../tokenizer";
-import { ParseResult } from "../types";
+import { ParseResult, Options } from "../types";
 import { clearParent } from "../utils";
 import { defaultTokenAdapter } from "../token-adapter";
-import { Options } from "../types/parse";
 
 export function parse(html: string, options?: Options): ParseResult {
   const tokenAdapter = (options && options.tokenAdapter) || defaultTokenAdapter;
-  const { tokens } = tokenize(html, tokenAdapter);
+  const templateSyntax = (options && options.templateSyntax) || [];
+  const { tokens } = tokenize(html, tokenAdapter, templateSyntax);
   const { ast } = constructTree(tokens, undefined);
   return {
     ast: clearParent(ast),

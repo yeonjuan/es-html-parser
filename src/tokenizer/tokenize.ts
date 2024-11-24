@@ -1,5 +1,10 @@
 import { TokenizerContextTypes } from "../constants";
-import { AnyToken, TokenAdapter, TokenizerState } from "../types";
+import {
+  AnyToken,
+  TemplateSyntaxOption,
+  TokenAdapter,
+  TokenizerState,
+} from "../types";
 import {
   attributeKey,
   attributeValueBare,
@@ -47,7 +52,6 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
 function tokenizeChars(
   chars: string,
   state: TokenizerState,
-  tokens: AnyToken[],
   {
     isFinalChunk,
     positionOffset,
@@ -67,7 +71,7 @@ function tokenizeChars(
     }
     charIndexBefore = charIndex;
 
-    handler.parse(state.decisionBuffer, state, tokens);
+    handler.parse(state.decisionBuffer, state, state.getTokens());
     charIndex = state.caretPosition - positionOffset;
   }
 
@@ -76,7 +80,7 @@ function tokenizeChars(
     state.caretPosition--;
 
     if (handler.handleContentEnd !== undefined) {
-      handler.handleContentEnd(state, tokens);
+      handler.handleContentEnd(state, state.getTokens());
     }
   }
 }
@@ -84,6 +88,7 @@ function tokenizeChars(
 export function tokenize(
   source = "",
   tokenAdapter: TokenAdapter,
+  templateSyntax: TemplateSyntaxOption[],
   {
     isFinalChunk,
   }: {
@@ -91,33 +96,15 @@ export function tokenize(
   } = {}
 ): { state: TokenizerState; tokens: AnyToken[] } {
   isFinalChunk = isFinalChunk === undefined ? true : isFinalChunk;
-  const tokens: AnyToken[] = [];
-  const state = {
-    currentContext: TokenizerContextTypes.Data,
-    contextParams: {},
-    decisionBuffer: "",
-    accumulatedContent: "",
-    caretPosition: 0,
-    linePosition: 1,
-    source,
-    tokens: {
-      push(token: AnyToken) {
-        tokens.push({
-          ...token,
-          range: tokenAdapter.finalizeRange(token),
-          loc: tokenAdapter.finalizeLocation(token),
-        });
-      },
-    },
-  };
+  const state = new TokenizerState(source, templateSyntax, tokenAdapter);
 
   const chars = state.decisionBuffer + source;
   const positionOffset = state.caretPosition - state.decisionBuffer.length;
 
-  tokenizeChars(chars, state, tokens, {
+  tokenizeChars(chars, state, {
     isFinalChunk,
     positionOffset,
   });
 
-  return { state, tokens };
+  return { state, tokens: state.getTokens() };
 }

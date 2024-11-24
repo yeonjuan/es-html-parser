@@ -31,6 +31,16 @@ export function parse(chars: string, state: TokenizerState) {
   if (chars.toUpperCase() === "<!DOCTYPE") {
     return parseDoctypeOpen(state);
   }
+
+  if (state.isIncompleteTemplateSyntaxStart(chars)) {
+    state.caretPosition++;
+    return;
+  }
+  if (state.isCompleteTemplateSyntaxStart(chars)) {
+    // TODO
+    return;
+  }
+
   state.accumulatedContent += state.decisionBuffer;
   state.decisionBuffer = "";
   state.caretPosition++;

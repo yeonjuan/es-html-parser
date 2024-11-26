@@ -138,7 +138,7 @@ describe("tokenize", () => {
       if (process) {
         html = process(html);
       }
-      const { tokens } = tokenize(html, defaultTokenAdapter);
+      const { tokens } = tokenize(html, defaultTokenAdapter, []);
       expect(tokens).toEqual(output);
     }
   );

@@ -34,4 +34,7 @@ export type AnyToken =
   | Token<TokenTypes.OpenStyleTagStart>
   | Token<TokenTypes.OpenStyleTagEnd>
   | Token<TokenTypes.StyleTagContent>
-  | Token<TokenTypes.CloseStyleTag>;
+  | Token<TokenTypes.CloseStyleTag>
+  | Token<TokenTypes.TemplateSyntaxStart>
+  | Token<TokenTypes.TemplateSyntaxContent>
+  | Token<TokenTypes.TemplateSyntaxEnd>;

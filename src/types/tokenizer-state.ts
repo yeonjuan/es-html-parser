@@ -1,7 +1,7 @@
-import { TokenizerContextTypes } from "../constants";
+import { TokenTypes, TokenizerContextTypes } from "../constants";
+import { Range } from "./range";
 import { AnyToken } from "./token";
-
-type ContextParams = {
+export type ContextParams = {
   [TokenizerContextTypes.AttributeValueWrapped]?: {
     wrapper: string;
   };
@@ -16,7 +16,15 @@ type ContextParams = {
   };
 };
 
-export type TokenizerState = {
+export type TemplateSytaxTokenOption = {
+  type:
+    | TokenTypes.TemplateSyntaxStart
+    | TokenTypes.TemplateSyntaxContent
+    | TokenTypes.TemplateSyntaxEnd;
+  range: Range;
+};
+
+export interface TokenizerState {
   currentContext: TokenizerContextTypes;
   contextParams: ContextParams;
   decisionBuffer: string;
@@ -27,4 +35,4 @@ export type TokenizerState = {
   tokens: {
     push(token: AnyToken): void;
   };
-};
+}

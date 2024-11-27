@@ -3,3 +3,4 @@ coverage
 dist
 .yarn/*
 !.yarn/releases
+tsconfig.build.tsbuildinfo

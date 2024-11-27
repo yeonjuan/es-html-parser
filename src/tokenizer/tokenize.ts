@@ -49,48 +49,32 @@ function tokenizeChars(
   state: TokenizerState,
   tokens: AnyToken[],
   {
-    isFinalChunk,
     positionOffset,
   }: {
-    isFinalChunk?: boolean;
     positionOffset: number;
   }
 ) {
   let charIndex = state.caretPosition - positionOffset;
-  let charIndexBefore = charIndex;
   while (charIndex < chars.length) {
     const handler = contextHandlers[state.currentContext];
     state.decisionBuffer += chars[charIndex];
-
-    if (charIndexBefore !== charIndex && chars[charIndex] === "\n") {
-      state.linePosition++;
-    }
-    charIndexBefore = charIndex;
 
     handler.parse(state.decisionBuffer, state, tokens);
     charIndex = state.caretPosition - positionOffset;
   }
 
-  if (isFinalChunk) {
-    const handler = contextHandlers[state.currentContext];
-    state.caretPosition--;
+  const handler = contextHandlers[state.currentContext];
+  state.caretPosition--;
 
-    if (handler.handleContentEnd !== undefined) {
-      handler.handleContentEnd(state, tokens);
-    }
+  if (handler.handleContentEnd !== undefined) {
+    handler.handleContentEnd(state, tokens);
   }
 }
 
 export function tokenize(
   source = "",
-  tokenAdapter: TokenAdapter,
-  {
-    isFinalChunk,
-  }: {
-    isFinalChunk?: boolean;
-  } = {}
+  tokenAdapter: TokenAdapter
 ): { state: TokenizerState; tokens: AnyToken[] } {
-  isFinalChunk = isFinalChunk === undefined ? true : isFinalChunk;
   const tokens: AnyToken[] = [];
   const state = {
     currentContext: TokenizerContextTypes.Data,
@@ -98,7 +82,6 @@ export function tokenize(
     decisionBuffer: "",
     accumulatedContent: "",
     caretPosition: 0,
-    linePosition: 1,
     source,
     tokens: {
       push(token: AnyToken) {
@@ -115,7 +98,6 @@ export function tokenize(
   const positionOffset = state.caretPosition - state.decisionBuffer.length;
 
   tokenizeChars(chars, state, tokens, {
-    isFinalChunk,
     positionOffset,
   });
 

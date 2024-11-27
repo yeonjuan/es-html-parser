@@ -22,7 +22,6 @@ export type TokenizerState = {
   decisionBuffer: string;
   accumulatedContent: string;
   caretPosition: number;
-  linePosition: number;
   source: string;
   tokens: {
     push(token: AnyToken): void;

@@ -24,6 +24,7 @@ import TEMPLATE_SYNTAX_ATTRIBUTES from "./__output__/template-syntax-attributes"
 import TEMPLATE_SYNTAX_ATTRIBUTES_KEY from "./__output__/template-syntax-attributes-key";
 import TEMPLATE_SYNTAX_DATA from "./__output__/template-syntax-data";
 import TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_BARE from "./__output__/template-syntax-attributes-value-bare";
+import TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_QUOTE from "./__output__/template-syntax-attributes-value-quote";
 
 import { defaultTokenAdapter } from "../../token-adapter";
 import { TemplateSytaxToken } from "../../types";
@@ -200,26 +201,49 @@ describe("tokenize", () => {
     //     },
     //   ] as TemplateSytaxToken[]
     // ]
+    // [
+    //   "Template Syntax Attributes Value Bare",
+    //   "template-syntax-attributes-value-bare.html",
+    //   TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_BARE,
+    //   null,
+    //   [
+    //     {
+    //       type: TokenTypes.TemplateSyntaxStart,
+    //       value: "${",
+    //       range: [8, 10],
+    //     },
+    //     {
+    //       type: TokenTypes.TemplateSyntaxContent,
+    //       value: "id",
+    //       range: [10, 12],
+    //     },
+    //     {
+    //       type: TokenTypes.TemplateSyntaxEnd,
+    //       value: "}",
+    //       range: [12, 13],
+    //     },
+    //   ] as TemplateSytaxToken[]
+    // ],
     [
-      "Template Syntax Attributes Value Bare",
-      "template-syntax-attributes-value-bare.html",
-      TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_BARE,
+      "Template Syntax Attributes Value Quote",
+      "template-syntax-attributes-value-quote.html",
+      TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_QUOTE,
       null,
       [
         {
           type: TokenTypes.TemplateSyntaxStart,
           value: "${",
-          range: [8, 10],
+          range: [9, 11],
         },
         {
           type: TokenTypes.TemplateSyntaxContent,
           value: "id",
-          range: [10, 12],
+          range: [11, 13],
         },
         {
           type: TokenTypes.TemplateSyntaxEnd,
           value: "}",
-          range: [12, 13],
+          range: [13, 14],
         },
       ] as TemplateSytaxToken[]
     ]

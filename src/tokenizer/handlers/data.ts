@@ -1,11 +1,21 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
-import { Range, AnyToken, TokenizerState } from "../../types";
+import {
+  AnyToken,
+  Range,
+  TemplateSytaxToken,
+  TokenizerState,
+} from "../../types";
 
 const COMMENT_START = "<!--";
 const OPEN_TAG_START_PATTERN = /^<\w/;
 
-export function parse(chars: string, state: TokenizerState) {
+export function parse(chars: string, state: TokenizerState, charIndex: number) {
+  const templateSyntaxToken = state.consumeTemplateSyntaxTokenAt(charIndex);
+  if (templateSyntaxToken) {
+    return parseTemplateSyntax(templateSyntaxToken, state);
+  }
+
   if (OPEN_TAG_START_PATTERN.test(chars)) {
     return parseOpeningCornerBraceWithText(state);
   }
@@ -129,4 +139,20 @@ function parseDoctypeOpen(state: TokenizerState) {
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.DoctypeOpen;
   state.caretPosition++;
+}
+
+function parseTemplateSyntax(
+  templateSyntaxToken: TemplateSytaxToken,
+  state: TokenizerState
+) {
+  if (state.accumulatedContent.length !== 0) {
+    state.tokens.push(generateTextToken(state));
+  }
+  state.tokens.push({
+    ...templateSyntaxToken,
+    loc: calculateTokenLocation(state.source, templateSyntaxToken.range),
+  });
+  state.accumulatedContent = "";
+  state.decisionBuffer = "";
+  state.caretPosition = templateSyntaxToken.range[1];
 }

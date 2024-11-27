@@ -1,7 +1,7 @@
 import { DocumentNode } from "./node";
 import { TokenAdapter } from "./token-adapter";
 import { AnyToken } from "./token";
-import { TemplateSytaxTokenOption } from "./tokenizer-state";
+import { TemplateSytaxToken } from "./tokenizer-state";
 
 export type ParseResult = {
   ast: DocumentNode;
@@ -10,5 +10,5 @@ export type ParseResult = {
 
 export type Options = {
   tokenAdapter?: TokenAdapter;
-  templateSyntaxTokens?: TemplateSytaxTokenOption[];
+  templateSyntaxTokens?: TemplateSytaxToken[];
 };

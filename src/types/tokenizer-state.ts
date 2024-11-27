@@ -16,12 +16,13 @@ export type ContextParams = {
   };
 };
 
-export type TemplateSytaxTokenOption = {
+export type TemplateSytaxToken = {
   type:
     | TokenTypes.TemplateSyntaxStart
     | TokenTypes.TemplateSyntaxContent
     | TokenTypes.TemplateSyntaxEnd;
   range: Range;
+  value: string;
 };
 
 export interface TokenizerState {
@@ -35,4 +36,7 @@ export interface TokenizerState {
   tokens: {
     push(token: AnyToken): void;
   };
+
+  consumeTemplateSyntaxTokenAt(charIndex: number): TemplateSytaxToken | null;
+  getTemplateSyntaxTokenAt(charIndex: number): TemplateSytaxToken | null;
 }

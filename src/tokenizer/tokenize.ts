@@ -1,5 +1,5 @@
 import { TokenizerContextTypes } from "../constants";
-import { AnyToken, TemplateSytaxTokenOption, TokenAdapter } from "../types";
+import { AnyToken, TemplateSytaxToken, TokenAdapter } from "../types";
 import {
   attributeKey,
   attributeValueBare,
@@ -50,20 +50,19 @@ function tokenizeChars(
   state: TokenizerState,
   {
     isFinalChunk,
-    positionOffset,
   }: {
     isFinalChunk?: boolean;
-    positionOffset: number;
   }
 ) {
-  let charIndex = state.caretPosition - positionOffset;
+  let charIndex = state.caretPosition;
 
   while (charIndex < chars.length) {
     const handler = contextHandlers[state.currentContext];
     state.decisionBuffer += chars[charIndex];
 
-    handler.parse(state.decisionBuffer, state);
-    charIndex = state.caretPosition - positionOffset;
+    handler.parse(state.decisionBuffer, state, charIndex);
+
+    charIndex = state.caretPosition;
   }
 
   if (isFinalChunk) {
@@ -79,7 +78,7 @@ function tokenizeChars(
 export function tokenize(
   source = "",
   tokenAdapter: TokenAdapter,
-  templateSyntaxTokens: TemplateSytaxTokenOption[],
+  templateSyntaxTokens: TemplateSytaxToken[],
   {
     isFinalChunk,
   }: {
@@ -88,14 +87,16 @@ export function tokenize(
 ): { tokens: AnyToken[] } {
   isFinalChunk = isFinalChunk === undefined ? true : isFinalChunk;
 
-  const state = new HTMLTokenizerState(source, tokenAdapter, []);
+  const state = new HTMLTokenizerState(
+    source,
+    tokenAdapter,
+    templateSyntaxTokens
+  );
 
   const chars = state.decisionBuffer + source;
-  const positionOffset = state.caretPosition - state.decisionBuffer.length;
 
   tokenizeChars(chars, state, {
     isFinalChunk,
-    positionOffset,
   });
 
   return { tokens: state.getTokens() };

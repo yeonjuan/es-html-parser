@@ -26,6 +26,7 @@ import TEMPLATE_SYNTAX_DATA from "./__output__/template-syntax-data";
 import TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_BARE from "./__output__/template-syntax-attributes-value-bare";
 import TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_QUOTE from "./__output__/template-syntax-attributes-value-quote";
 import TEMPLATE_SYNTAX_SCRIPT_ATTRIBUTES from "./__output__/template-syntax-script-attributes";
+import TEMPLATE_SYNTAX_STYLE_ATTRIBUTES from "./__output__/template-syntax-style-attributes";
 import TEMPLATE_SYNTAX_ATTRIBUTES_KEY_VALUE from "./__output__/template-syntax-attributes-key-value";
 import TEMPLATE_SYNTAX_SCRIPT_CONTENT from "./__output__/template-syntax-script-content";
 import TEMPLATE_SYNTAX_STYLE_CONTENT from "./__output__/template-syntax-style-content";
@@ -188,6 +189,15 @@ describe("tokenize", () => {
       null,
       [
         [8, 15]
+      ] as Range[]
+    ],
+    [
+      "Template Syntax Style Attributes",
+      "template-syntax-style-attributes.html",
+      TEMPLATE_SYNTAX_STYLE_ATTRIBUTES,
+      null,
+      [
+        [12, 19]
       ] as Range[]
     ],
     [

@@ -8,7 +8,7 @@ export interface Token<T extends TokenTypes> {
   range: Range;
   loc: SourceLocation;
 }
-type TemplatableToken<T extends TokenTypes> = Token<T> & {
+export type TemplatableToken<T extends TokenTypes> = Token<T> & {
   isTemplate: boolean;
 };
 

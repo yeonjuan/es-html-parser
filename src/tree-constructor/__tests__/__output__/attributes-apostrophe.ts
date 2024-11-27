@@ -19,6 +19,7 @@ export default {
       children: [
         {
           type: "Text",
+          isTemplate: false,
           value: "\n  ",
           loc: {
             start: {
@@ -61,6 +62,7 @@ export default {
               },
               key: {
                 type: "AttributeKey",
+                isTemplate: false,
                 value: "class",
                 loc: {
                   start: {
@@ -91,6 +93,7 @@ export default {
               },
               value: {
                 type: "AttributeValue",
+                isTemplate: false,
                 value: "test class",
                 loc: {
                   start: {
@@ -135,6 +138,7 @@ export default {
               },
               key: {
                 type: "AttributeKey",
+                isTemplate: false,
                 value: "data-test",
                 loc: {
                   start: {
@@ -165,6 +169,7 @@ export default {
               },
               value: {
                 type: "AttributeValue",
+                isTemplate: false,
                 value: "data<test>",
                 loc: {
                   start: {
@@ -198,6 +203,7 @@ export default {
           children: [
             {
               type: "Text",
+              isTemplate: false,
               value: "\n    some text\n\n    ",
               loc: {
                 start: {
@@ -228,6 +234,7 @@ export default {
               children: [
                 {
                   type: "Text",
+                  isTemplate: false,
                   value: "\n      another text\n\n      ",
                   loc: {
                     start: {
@@ -270,6 +277,7 @@ export default {
                       },
                       key: {
                         type: "AttributeKey",
+                        isTemplate: false,
                         value: "custom-attr",
                         loc: {
                           start: {
@@ -300,6 +308,7 @@ export default {
                       },
                       value: {
                         type: "AttributeValue",
+                        isTemplate: false,
                         value: "custom >test",
                         loc: {
                           start: {
@@ -344,6 +353,7 @@ export default {
                       },
                       key: {
                         type: "AttributeKey",
+                        isTemplate: false,
                         value: "with-spaces",
                         loc: {
                           start: {
@@ -374,6 +384,7 @@ export default {
                       },
                       value: {
                         type: "AttributeValue",
+                        isTemplate: false,
                         value: "spaces test",
                         loc: {
                           start: {
@@ -407,6 +418,7 @@ export default {
                   children: [
                     {
                       type: "Text",
+                      isTemplate: false,
                       value: "\n        custom element\n        text\n      ",
                       loc: {
                         start: {
@@ -471,6 +483,7 @@ export default {
                 },
                 {
                   type: "Text",
+                  isTemplate: false,
                   value: "\n    ",
                   loc: {
                     start: {
@@ -535,6 +548,7 @@ export default {
             },
             {
               type: "Text",
+              isTemplate: false,
               value: "\n  ",
               loc: {
                 start: {
@@ -599,6 +613,7 @@ export default {
         },
         {
           type: "Text",
+          isTemplate: false,
           value: "\n",
           loc: {
             start: {
@@ -663,6 +678,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n",
       loc: {
         start: {

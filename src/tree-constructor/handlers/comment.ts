@@ -24,7 +24,8 @@ function handleCommentContent(
   state: ConstructTreeState<ContextualCommentNode>,
   token: AnyToken
 ) {
-  state.currentNode.value = createNodeFrom(token) as CommentContentNode;
+  const node = createNodeFrom(token) as CommentContentNode;
+  state.currentNode.children.push(node);
   state.caretPosition++;
 
   return state;

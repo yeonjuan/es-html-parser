@@ -19,6 +19,7 @@ export default {
       children: [
         {
           type: "Text",
+          isTemplate: false,
           value: "\n  ",
           loc: {
             start: {
@@ -49,6 +50,7 @@ export default {
           children: [
             {
               type: "Text",
+              isTemplate: false,
               value: "\n    some text\n\n    ",
               loc: {
                 start: {
@@ -79,6 +81,7 @@ export default {
               children: [
                 {
                   type: "Text",
+                  isTemplate: false,
                   value: "\n      another text\n    ",
                   loc: {
                     start: {
@@ -143,6 +146,7 @@ export default {
             },
             {
               type: "Text",
+              isTemplate: false,
               value: "\n  ",
               loc: {
                 start: {
@@ -207,6 +211,7 @@ export default {
         },
         {
           type: "Text",
+          isTemplate: false,
           value: "\n",
           loc: {
             start: {
@@ -271,6 +276,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n",
       loc: {
         start: {

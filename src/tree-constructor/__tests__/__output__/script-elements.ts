@@ -4,6 +4,7 @@ export default {
   children: [
     {
       type: "Text",
+      isTemplate: false,
       value: "opening text\n\n",
       loc: {
         start: {
@@ -34,6 +35,7 @@ export default {
       children: [
         {
           type: "Text",
+          isTemplate: false,
           value: "\n  ",
           loc: {
             start: {
@@ -91,21 +93,24 @@ export default {
             },
             range: [29, 30],
           },
-          value: {
-            type: "ScriptTagContent",
-            value: "\n    console.log('')\n  ",
-            loc: {
-              start: {
-                line: 4,
-                column: 10,
+          children: [
+            {
+              type: "ScriptTagContent",
+              isTemplate: false,
+              value: "\n    console.log('')\n  ",
+              loc: {
+                start: {
+                  line: 4,
+                  column: 10,
+                },
+                end: {
+                  line: 6,
+                  column: 2,
+                },
               },
-              end: {
-                line: 6,
-                column: 2,
-              },
+              range: [30, 53],
             },
-            range: [30, 53],
-          },
+          ],
           close: {
             type: "CloseScriptTag",
             value: "</script>",
@@ -124,6 +129,7 @@ export default {
         },
         {
           type: "Text",
+          isTemplate: false,
           value: "\n",
           loc: {
             start: {
@@ -188,6 +194,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n\nclosing text\n",
       loc: {
         start: {

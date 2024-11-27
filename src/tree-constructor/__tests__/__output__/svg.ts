@@ -31,6 +31,7 @@ export default {
             },
             range: [5, 10],
             type: "AttributeKey",
+            isTemplate: false,
             value: "xmlns",
           },
           loc: {
@@ -73,6 +74,7 @@ export default {
             },
             range: [12, 38],
             type: "AttributeValue",
+            isTemplate: false,
             value: "http://www.w3.org/2000/svg",
           },
         },

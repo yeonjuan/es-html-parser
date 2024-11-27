@@ -14,6 +14,7 @@ import {
   ContextualStyleTagNode,
   ContextualDoctypeNode,
   TextNode,
+  TemplatableToken,
 } from "../../types";
 import {
   cloneRange,
@@ -77,6 +78,7 @@ function handleCommentOpen(
     parentRef: state.currentNode,
     range: cloneRange(token.range),
     loc: cloneLocation(token.loc),
+    children: [],
   };
 
   state.currentNode.children.push(commentNode);
@@ -119,7 +121,7 @@ function handleDoctypeOpen(
 
 function handleText(
   state: ConstructTreeState<ContextualTagNode | ContextualDocumentNode>,
-  token: Token<TokenTypes.Text>
+  token: TemplatableToken<TokenTypes.Text>
 ) {
   initChildrenIfNone(state.currentNode);
   const textNode = createNodeFrom(token) as TextNode;
@@ -141,6 +143,7 @@ function handleOpenScriptTagStart(
     range: cloneRange(token.range),
     loc: cloneLocation(token.loc),
     attributes: [],
+    children: [],
   };
   state.currentNode.children.push(scriptNode);
 
@@ -166,6 +169,7 @@ function handleOpenStyleTagStart(
     range: cloneRange(token.range),
     loc: cloneLocation(token.loc),
     attributes: [],
+    children: [],
   };
 
   state.currentNode.children.push(styleNode);

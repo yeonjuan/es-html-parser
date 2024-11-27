@@ -7,8 +7,8 @@ import { Options } from "../types/parse";
 
 export function parse(html: string, options?: Options): ParseResult {
   const tokenAdapter = (options && options.tokenAdapter) || defaultTokenAdapter;
-  const templateSyntaxTokens = (options && options.templateSyntaxTokens) || [];
-  const { tokens } = tokenize(html, tokenAdapter, templateSyntaxTokens);
+  const templateRanges = (options && options.templateRanges) || [];
+  const { tokens } = tokenize(html, tokenAdapter, templateRanges);
   const { ast } = constructTree(tokens, undefined);
   return {
     ast: clearParent(ast),

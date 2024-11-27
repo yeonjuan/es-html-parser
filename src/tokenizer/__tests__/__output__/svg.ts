@@ -18,6 +18,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
+    isTemplate: false,
     range: [5, 10],
     value: "xmlns",
     loc: {
@@ -63,6 +64,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
+    isTemplate: false,
     value: "http://www.w3.org/2000/svg",
     range: [12, 38],
     loc: {

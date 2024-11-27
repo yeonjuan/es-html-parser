@@ -18,6 +18,7 @@ export default [
   },
   {
     type: TokenTypes.CommentContent,
+    isTemplate: false,
     value: " some comment ",
     range: [4, 18],
     loc: {
@@ -49,6 +50,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n\n",
+    isTemplate: false,
     range: [21, 23],
     loc: {
       start: {
@@ -93,6 +95,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n  ",
     range: [28, 31],
     loc: {
@@ -138,6 +141,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n    ",
     range: [37, 42],
     loc: {
@@ -168,6 +172,7 @@ export default [
   },
   {
     type: TokenTypes.CommentContent,
+    isTemplate: false,
     value: "another-one",
     range: [46, 57],
     loc: {
@@ -198,6 +203,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n  ",
     range: [60, 63],
     loc: {
@@ -228,6 +234,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\n  ",
     range: [70, 74],
     loc: {
@@ -258,6 +265,7 @@ export default [
   },
   {
     type: TokenTypes.CommentContent,
+    isTemplate: false,
     value: "\n\n  multi\n\n  line\n  ",
     range: [78, 98],
     loc: {
@@ -288,6 +296,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [101, 102],
     loc: {
@@ -318,6 +327,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\n",
     range: [108, 110],
     loc: {
@@ -348,6 +358,7 @@ export default [
   },
   {
     type: TokenTypes.CommentContent,
+    isTemplate: false,
     value: " closing\n\ncomment ",
     range: [114, 132],
     loc: {
@@ -378,6 +389,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\n",
     range: [135, 137],
     loc: {
@@ -408,6 +420,7 @@ export default [
   },
   {
     type: TokenTypes.CommentContent,
+    isTemplate: false,
     value: "         spaces here          ",
     range: [141, 171],
     loc: {
@@ -438,6 +451,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [174, 175],
     loc: {

@@ -3,6 +3,7 @@ import { TokenTypes } from "../../../constants";
 export default [
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "opening text\n\n",
     range: [0, 14],
     loc: {
@@ -48,6 +49,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n  ",
     range: [19, 22],
     loc: {
@@ -93,6 +95,7 @@ export default [
   },
   {
     type: TokenTypes.ScriptTagContent,
+    isTemplate: false,
     value: "\n    console.log('')\n  ",
     range: [30, 53],
     loc: {
@@ -123,6 +126,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [62, 63],
     loc: {
@@ -153,6 +157,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\nclosing text\n",
     range: [69, 84],
     loc: {

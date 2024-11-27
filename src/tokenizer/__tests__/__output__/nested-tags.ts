@@ -33,6 +33,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n  ",
     range: [5, 8],
     loc: {
@@ -78,6 +79,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n    some text\n\n    ",
     range: [14, 34],
     loc: {
@@ -123,6 +125,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n      another text\n    ",
     range: [40, 64],
     loc: {
@@ -153,6 +156,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n  ",
     range: [71, 74],
     loc: {
@@ -183,6 +187,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [81, 82],
     loc: {
@@ -213,6 +218,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [88, 89],
     loc: {

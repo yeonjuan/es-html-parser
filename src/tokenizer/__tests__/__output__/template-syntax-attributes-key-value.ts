@@ -3,8 +3,8 @@ import { TokenTypes } from "../../../constants";
 export default [
   {
     type: TokenTypes.OpenTagStart,
-    value: "<a",
-    range: [0, 2],
+    value: "<div",
+    range: [0, 4],
     loc: {
       start: {
         line: 1,
@@ -12,84 +12,84 @@ export default [
       },
       end: {
         line: 1,
-        column: 2,
+        column: 4,
       },
     },
   },
   {
     type: TokenTypes.AttributeKey,
-    isTemplate: false,
-    value: "target",
-    range: [3, 9],
+    isTemplate: true,
+    value: "${key}",
+    range: [5, 11],
     loc: {
       start: {
         line: 1,
-        column: 3,
+        column: 5,
       },
       end: {
         line: 1,
-        column: 9,
+        column: 11,
       },
     },
   },
   {
     type: TokenTypes.AttributeAssignment,
     value: "=",
-    range: [9, 10],
+    range: [11, 12],
     loc: {
       start: {
         line: 1,
-        column: 9,
+        column: 11,
       },
       end: {
         line: 1,
-        column: 10,
+        column: 12,
       },
     },
   },
   {
     type: TokenTypes.AttributeValue,
-    isTemplate: false,
-    value: "”_blank”",
-    range: [10, 18],
+    isTemplate: true,
+    value: "${value}",
+    range: [12, 20],
     loc: {
       start: {
         line: 1,
-        column: 10,
+        column: 12,
       },
       end: {
         line: 1,
-        column: 18,
+        column: 20,
       },
     },
   },
   {
     type: TokenTypes.OpenTagEnd,
     value: ">",
-    range: [18, 19],
+    range: [20, 21],
     loc: {
       start: {
         line: 1,
-        column: 18,
+        column: 20,
       },
       end: {
         line: 1,
-        column: 19,
+        column: 21,
       },
     },
   },
   {
     type: TokenTypes.CloseTag,
-    value: "</a>",
-    range: [19, 23],
+    value: "</div>",
+    range: [21, 27],
     loc: {
       start: {
         line: 1,
-        column: 19,
+        column: 21,
       },
       end: {
         line: 1,
-        column: 23,
+        column: 27,
       },
     },
   },

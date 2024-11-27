@@ -34,6 +34,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n  ",
+    isTemplate: false,
     range: [5, 8],
     loc: {
       start: {
@@ -64,6 +65,7 @@ export default [
   {
     type: TokenTypes.AttributeKey,
     value: "class",
+    isTemplate: false,
     range: [14, 19],
     loc: {
       start: {
@@ -108,6 +110,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
+    isTemplate: false,
     value: "test class",
     range: [21, 31],
     loc: {
@@ -138,6 +141,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
+    isTemplate: false,
     value: "data-test",
     range: [33, 42],
     loc: {
@@ -183,6 +187,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
+    isTemplate: false,
     value: "data<test>",
     range: [44, 54],
     loc: {
@@ -228,6 +233,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n    some text\n\n    ",
     range: [56, 76],
     loc: {
@@ -273,6 +279,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n      another text\n\n      ",
     range: [81, 108],
     loc: {
@@ -303,6 +310,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
+    isTemplate: false,
     value: "custom-attr",
     range: [132, 143],
     loc: {
@@ -348,6 +356,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
+    isTemplate: false,
     value: "custom >test",
     range: [145, 157],
     loc: {
@@ -378,6 +387,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
+    isTemplate: false,
     value: "with-spaces",
     range: [167, 178],
     loc: {
@@ -423,6 +433,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
+    isTemplate: false,
     value: "spaces test",
     range: [185, 196],
     loc: {
@@ -468,6 +479,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n        custom element\n        text\n      ",
     range: [205, 248],
     loc: {
@@ -498,6 +510,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n    ",
     range: [265, 270],
     loc: {
@@ -528,6 +541,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n  ",
     range: [276, 279],
     loc: {
@@ -559,6 +573,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n",
+    isTemplate: false,
     range: [286, 287],
     loc: {
       start: {
@@ -588,6 +603,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [293, 294],
     loc: {

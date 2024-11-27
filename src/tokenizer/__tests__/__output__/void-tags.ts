@@ -33,6 +33,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\n",
     range: [7, 9],
     loc: {

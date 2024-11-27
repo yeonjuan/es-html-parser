@@ -54,8 +54,7 @@ function handleStyleContent(
   state: ConstructTreeState<ContextualStyleTagNode>,
   token: AnyToken
 ) {
-  const node = createNodeFrom(token) as StyleTagContentNode;
-  state.currentNode.children.push(node);
+  state.currentNode.value = createNodeFrom(token) as StyleTagContentNode;
   updateNodeEnd(state.currentNode, token);
 
   state.caretPosition++;

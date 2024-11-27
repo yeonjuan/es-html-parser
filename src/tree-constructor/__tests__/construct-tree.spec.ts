@@ -51,36 +51,6 @@ import ATTRIBUTES_MULTILINE_CRLF_OUTPUT from "./__output__/attributes-multiline-
 import ATTRIBUTES_BARE_WRONG_QUOTE_INPUT from "../../tokenizer/__tests__/__output__/attributes-bare-wrong-quote";
 import ATTRIBUTES_BARE_WRONG_QUOTE_OUTPUT from "./__output__/attributes-bare-wrong-quote";
 
-import TEMPLATE_SYNTAX_ATTRIBUTES_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-attributes";
-import TEMPLATE_SYNTAX_ATTRIBUTES_OUTPUT from "./__output__/template-syntax-attributes";
-
-import TEMPLATE_SYNTAX_ATTRIBUTES_KEY_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-attributes-key";
-import TEMPLATE_SYNTAX_ATTRIBUTES_KEY_OUTPUT from "./__output__/template-syntax-attributes-key";
-
-import TEMPLATE_SYNTAX_DATA_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-data";
-import TEMPLATE_SYNTAX_DATA_OUTPUT from "./__output__/template-syntax-data";
-
-import TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_BARE_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-attributes-value-bare";
-import TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_BARE_OUTPUT from "./__output__/template-syntax-attributes-value-bare";
-
-import TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_QUOTE_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-attributes-value-quote";
-import TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_QUOTE_OUTPUT from "./__output__/template-syntax-attributes-value-quote";
-
-import TEMPLATE_SYNTAX_SCRIPT_ATTRIBUTES_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-script-attributes";
-import TEMPLATE_SYNTAX_SCRIPT_ATTRIBUTES_OUTPUT from "./__output__/template-syntax-script-attributes";
-
-import TEMPLATE_SYNTAX_ATTRIBUTES_KEY_VALUE_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-attributes-key-value";
-import TEMPLATE_SYNTAX_ATTRIBUTES_KEY_VALUE_OUTPUT from "./__output__/template-syntax-attributes-key-value";
-
-import TEMPLATE_SYNTAX_SCRIPT_CONTENT_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-script-content";
-import TEMPLATE_SYNTAX_SCRIPT_CONTENT_OUTPUT from "./__output__/template-syntax-script-content";
-
-import TEMPLATE_SYNTAX_STYLE_CONTENT_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-style-content";
-import TEMPLATE_SYNTAX_STYLE_CONTENT_OUTPUT from "./__output__/template-syntax-style-content";
-
-import TEMPLATE_SYNTAX_COMMENT_CONTENT_INPUT from "../../tokenizer/__tests__/__output__/template-syntax-comment-content";
-import TEMPLATE_SYNTAX_COMMENT_CONTENT_OUTPUT from "./__output__/template-syntax-comment-content";
-
 import { clearParent } from "../../utils";
 
 describe("construct-tree", () => {
@@ -125,56 +95,6 @@ describe("construct-tree", () => {
       "Attributes multiline (CRLF)",
       ATTRIBUTES_MULTILINE_CRLF_INPUT,
       ATTRIBUTES_MULTILINE_CRLF_OUTPUT,
-    ],
-    [
-      "Template Syntax Attributes",
-      TEMPLATE_SYNTAX_ATTRIBUTES_INPUT,
-      TEMPLATE_SYNTAX_ATTRIBUTES_OUTPUT,
-    ],
-    [
-      "Template Syntax Attributes Key",
-      TEMPLATE_SYNTAX_ATTRIBUTES_KEY_INPUT,
-      TEMPLATE_SYNTAX_ATTRIBUTES_KEY_OUTPUT,
-    ],
-    [
-      "Template Syntax Data",
-      TEMPLATE_SYNTAX_DATA_INPUT,
-      TEMPLATE_SYNTAX_DATA_OUTPUT,
-    ],
-    [
-      "Template Syntax Attributes Value Bare",
-      TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_BARE_INPUT,
-      TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_BARE_OUTPUT,
-    ],
-    [
-      "Template Syntax Attributes Quote Input",
-      TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_QUOTE_INPUT,
-      TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_QUOTE_OUTPUT,
-    ],
-    [
-      "Template Syntax Script Attributes",
-      TEMPLATE_SYNTAX_SCRIPT_ATTRIBUTES_INPUT,
-      TEMPLATE_SYNTAX_SCRIPT_ATTRIBUTES_OUTPUT,
-    ],
-    [
-      "Template Syntax Attributes Key Value",
-      TEMPLATE_SYNTAX_ATTRIBUTES_KEY_VALUE_INPUT,
-      TEMPLATE_SYNTAX_ATTRIBUTES_KEY_VALUE_OUTPUT,
-    ],
-    [
-      "Template Syntax Script Content Input",
-      TEMPLATE_SYNTAX_SCRIPT_CONTENT_INPUT,
-      TEMPLATE_SYNTAX_SCRIPT_CONTENT_OUTPUT,
-    ],
-    [
-      "Template Syntax Style Content",
-      TEMPLATE_SYNTAX_STYLE_CONTENT_INPUT,
-      TEMPLATE_SYNTAX_STYLE_CONTENT_OUTPUT,
-    ],
-    [
-      "Template Syntax Comment Content",
-      TEMPLATE_SYNTAX_COMMENT_CONTENT_INPUT,
-      TEMPLATE_SYNTAX_COMMENT_CONTENT_OUTPUT,
     ],
   ])("%s", (name: string, inputTokens: any, output: any) => {
     const { ast } = constructTree(inputTokens, undefined);

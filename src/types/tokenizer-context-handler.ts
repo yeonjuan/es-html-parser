@@ -1,6 +1,7 @@
+import { AnyToken } from "./token";
 import { TokenizerState } from "./tokenizer-state";
 
 export interface TokenizeHandler {
-  parse(chars: string, state: TokenizerState, charIndex: number): void;
-  handleContentEnd?: (state: TokenizerState) => void;
+  parse(chars: string, state: TokenizerState, tokens: AnyToken[]): void;
+  handleContentEnd?: (state: TokenizerState, tokens: AnyToken[]) => void;
 }

@@ -4,11 +4,7 @@ import type { Range, TokenizerState } from "../../types";
 
 const COMMENT_END = "-->";
 
-export function parse(chars: string, state: TokenizerState, charIndex: number) {
-  const range = state.consumeTemplateRangeAt(charIndex);
-  if (range) {
-    return parseTemplate(state, range);
-  }
+export function parse(chars: string, state: TokenizerState) {
   if (chars === "-" || chars === "--") {
     state.caretPosition++;
     return;
@@ -31,16 +27,12 @@ function parseCommentClose(state: TokenizerState) {
   ];
   const endLoc = calculateTokenLocation(state.source, endRange);
 
-  if (state.accumulatedContent.length !== 0) {
-    state.tokens.push({
-      type: TokenTypes.CommentContent,
-      value: state.accumulatedContent,
-      range: position.range,
-      loc: position.loc,
-      isTemplate: false,
-    });
-  }
-
+  state.tokens.push({
+    type: TokenTypes.CommentContent,
+    value: state.accumulatedContent,
+    range: position.range,
+    loc: position.loc,
+  });
   state.tokens.push({
     type: TokenTypes.CommentClose,
     value: state.decisionBuffer,
@@ -52,31 +44,4 @@ function parseCommentClose(state: TokenizerState) {
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.Data;
   state.caretPosition++;
-}
-
-function parseTemplate(state: TokenizerState, [start, end]: Range) {
-  if (state.accumulatedContent.length !== 0) {
-    const position = calculateTokenPosition(state, { keepBuffer: false });
-    state.tokens.push({
-      type: TokenTypes.CommentContent,
-      value: state.accumulatedContent,
-      range: position.range,
-      loc: position.loc,
-      isTemplate: false,
-    });
-  }
-
-  const value = state.source.slice(start, end);
-  const range: Range = [start, end];
-
-  state.tokens.push({
-    type: TokenTypes.CommentContent,
-    value,
-    range,
-    loc: calculateTokenLocation(state.source, range),
-    isTemplate: true,
-  });
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
-  state.caretPosition = end;
 }

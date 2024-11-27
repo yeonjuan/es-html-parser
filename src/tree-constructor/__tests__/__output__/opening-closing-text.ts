@@ -4,7 +4,6 @@ export default {
   children: [
     {
       type: "Text",
-      isTemplate: false,
       value: "opening text\n\n",
       loc: {
         start: {
@@ -83,7 +82,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\nclosing text\n",
       loc: {
         start: {

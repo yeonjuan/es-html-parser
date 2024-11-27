@@ -1,16 +1,11 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
-import { AnyToken, Range, TokenizerState } from "../../types";
+import { Range, AnyToken, TokenizerState } from "../../types";
 
 const COMMENT_START = "<!--";
 const OPEN_TAG_START_PATTERN = /^<\w/;
 
-export function parse(chars: string, state: TokenizerState, charIndex: number) {
-  const range = state.consumeTemplateRangeAt(charIndex);
-  if (range) {
-    return parseTemplate(state, range);
-  }
-
+export function parse(chars: string, state: TokenizerState) {
   if (OPEN_TAG_START_PATTERN.test(chars)) {
     return parseOpeningCornerBraceWithText(state);
   }
@@ -52,7 +47,6 @@ export function handleContentEnd(state: TokenizerState) {
       value: textContent,
       range: position.range,
       loc: position.loc,
-      isTemplate: false,
     });
   }
 }
@@ -64,7 +58,6 @@ function generateTextToken(state: TokenizerState): AnyToken {
     value: state.accumulatedContent,
     range: position.range,
     loc: position.loc,
-    isTemplate: false,
   };
 }
 
@@ -136,24 +129,4 @@ function parseDoctypeOpen(state: TokenizerState) {
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.DoctypeOpen;
   state.caretPosition++;
-}
-
-function parseTemplate(state: TokenizerState, [start, end]: Range) {
-  if (state.accumulatedContent.length !== 0) {
-    state.tokens.push(generateTextToken(state));
-  }
-
-  const value = state.source.slice(start, end);
-  const range: Range = [start, end];
-
-  state.tokens.push({
-    type: TokenTypes.Text,
-    value,
-    range,
-    loc: calculateTokenLocation(state.source, range),
-    isTemplate: true,
-  });
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
-  state.caretPosition = end;
 }

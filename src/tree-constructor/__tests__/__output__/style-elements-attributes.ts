@@ -31,7 +31,6 @@ export default {
           },
           key: {
             type: "AttributeKey",
-            isTemplate: false,
             value: "type",
             loc: {
               start: {
@@ -62,7 +61,6 @@ export default {
           },
           value: {
             type: "AttributeValue",
-            isTemplate: false,
             value: "text/css",
             loc: {
               start: {
@@ -107,7 +105,6 @@ export default {
           },
           key: {
             type: "AttributeKey",
-            isTemplate: false,
             value: "custom",
             loc: {
               start: {
@@ -138,7 +135,6 @@ export default {
           },
           value: {
             type: "AttributeValue",
-            isTemplate: false,
             value: "attribute",
             loc: {
               start: {
@@ -199,24 +195,21 @@ export default {
         },
         range: [41, 42],
       },
-      children: [
-        {
-          type: "StyleTagContent",
-          isTemplate: false,
-          value: "\n  body {\n    background-color: white;\n  }\n",
-          loc: {
-            start: {
-              line: 1,
-              column: 42,
-            },
-            end: {
-              line: 5,
-              column: 0,
-            },
+      value: {
+        type: "StyleTagContent",
+        value: "\n  body {\n    background-color: white;\n  }\n",
+        loc: {
+          start: {
+            line: 1,
+            column: 42,
           },
-          range: [42, 85],
+          end: {
+            line: 5,
+            column: 0,
+          },
         },
-      ],
+        range: [42, 85],
+      },
       close: {
         type: "CloseStyleTag",
         value: "</style>",
@@ -235,7 +228,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: {
         start: {
@@ -266,7 +258,6 @@ export default {
       children: [
         {
           type: "Text",
-          isTemplate: false,
           value: "\n  ",
           loc: {
             start: {
@@ -309,7 +300,6 @@ export default {
               },
               key: {
                 type: "AttributeKey",
-                isTemplate: false,
                 value: "custom",
                 loc: {
                   start: {
@@ -339,7 +329,6 @@ export default {
               },
               key: {
                 type: "AttributeKey",
-                isTemplate: false,
                 value: "type",
                 loc: {
                   start: {
@@ -370,7 +359,6 @@ export default {
               },
               value: {
                 type: "AttributeValue",
-                isTemplate: false,
                 value: "text/css",
                 loc: {
                   start: {
@@ -415,7 +403,6 @@ export default {
               },
               key: {
                 type: "AttributeKey",
-                isTemplate: false,
                 value: "another-custom",
                 loc: {
                   start: {
@@ -461,24 +448,21 @@ export default {
             },
             range: [163, 164],
           },
-          children: [
-            {
-              type: "StyleTagContent",
-              isTemplate: false,
-              value: "\n    body {\n      background-color: red;\n    }\n  ",
-              loc: {
-                start: {
-                  line: 13,
-                  column: 3,
-                },
-                end: {
-                  line: 17,
-                  column: 2,
-                },
+          value: {
+            type: "StyleTagContent",
+            value: "\n    body {\n      background-color: red;\n    }\n  ",
+            loc: {
+              start: {
+                line: 13,
+                column: 3,
               },
-              range: [164, 213],
+              end: {
+                line: 17,
+                column: 2,
+              },
             },
-          ],
+            range: [164, 213],
+          },
           close: {
             type: "CloseStyleTag",
             value: "</style>",
@@ -497,7 +481,6 @@ export default {
         },
         {
           type: "Text",
-          isTemplate: false,
           value: "\n",
           loc: {
             start: {
@@ -562,7 +545,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: {
         start: {

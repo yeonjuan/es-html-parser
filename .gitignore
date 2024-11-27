@@ -3,4 +3,3 @@ coverage
 dist
 .yarn/*
 !.yarn/releases
-.DS_store

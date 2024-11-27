@@ -13,7 +13,6 @@ export default {
           loc: { start: { line: 2, column: 2 }, end: { line: 2, column: 10 } },
           key: {
             type: "AttributeKey",
-            isTemplate: false,
             value: "id",
             loc: { start: { line: 2, column: 2 }, end: { line: 2, column: 4 } },
             range: [8, 10],
@@ -26,7 +25,6 @@ export default {
           },
           value: {
             type: "AttributeValue",
-            isTemplate: false,
             value: "foo",
             loc: { start: { line: 2, column: 6 }, end: { line: 2, column: 9 } },
             range: [12, 15],
@@ -47,7 +45,6 @@ export default {
           loc: { start: { line: 3, column: 2 }, end: { line: 3, column: 13 } },
           key: {
             type: "AttributeKey",
-            isTemplate: false,
             value: "style",
             loc: { start: { line: 3, column: 2 }, end: { line: 3, column: 7 } },
             range: [20, 25],
@@ -60,7 +57,6 @@ export default {
           },
           value: {
             type: "AttributeValue",
-            isTemplate: false,
             value: "bar",
             loc: {
               start: { line: 3, column: 9 },
@@ -84,7 +80,6 @@ export default {
           loc: { start: { line: 4, column: 2 }, end: { line: 4, column: 6 } },
           key: {
             type: "AttributeKey",
-            isTemplate: false,
             value: "bool",
             loc: { start: { line: 4, column: 2 }, end: { line: 4, column: 6 } },
             range: [35, 39],
@@ -94,7 +89,6 @@ export default {
       children: [
         {
           type: "Text",
-          isTemplate: false,
           value: "\r\n",
           loc: { start: { line: 5, column: 1 }, end: { line: 6, column: 0 } },
           range: [42, 44],
@@ -123,7 +117,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\r\n",
       loc: { start: { line: 6, column: 6 }, end: { line: 7, column: 0 } },
       range: [50, 52],

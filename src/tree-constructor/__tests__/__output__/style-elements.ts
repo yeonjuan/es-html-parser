@@ -4,7 +4,6 @@ export default {
   children: [
     {
       type: "Text",
-      isTemplate: false,
       value: "opening text\n\n",
       loc: {
         start: {
@@ -62,24 +61,21 @@ export default {
         },
         range: [20, 21],
       },
-      children: [
-        {
-          type: "StyleTagContent",
-          isTemplate: false,
-          value: "\n  body {\n    background-color: white;\n  }\n",
-          loc: {
-            start: {
-              line: 3,
-              column: 7,
-            },
-            end: {
-              line: 7,
-              column: 0,
-            },
+      value: {
+        type: "StyleTagContent",
+        value: "\n  body {\n    background-color: white;\n  }\n",
+        loc: {
+          start: {
+            line: 3,
+            column: 7,
           },
-          range: [21, 64],
+          end: {
+            line: 7,
+            column: 0,
+          },
         },
-      ],
+        range: [21, 64],
+      },
       close: {
         type: "CloseStyleTag",
         value: "</style>",
@@ -98,7 +94,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: {
         start: {
@@ -128,7 +123,6 @@ export default {
       attributes: [],
       children: [
         {
-          isTemplate: false,
           type: "Text",
           value: "\n  ",
           loc: {
@@ -187,24 +181,21 @@ export default {
             },
             range: [88, 89],
           },
-          children: [
-            {
-              isTemplate: false,
-              type: "StyleTagContent",
-              value: "\n    body {\n      background-color: red;\n    }\n  ",
-              loc: {
-                start: {
-                  line: 10,
-                  column: 9,
-                },
-                end: {
-                  line: 14,
-                  column: 2,
-                },
+          value: {
+            type: "StyleTagContent",
+            value: "\n    body {\n      background-color: red;\n    }\n  ",
+            loc: {
+              start: {
+                line: 10,
+                column: 9,
               },
-              range: [89, 138],
+              end: {
+                line: 14,
+                column: 2,
+              },
             },
-          ],
+            range: [89, 138],
+          },
           close: {
             type: "CloseStyleTag",
             value: "</style>",
@@ -223,7 +214,6 @@ export default {
         },
         {
           type: "Text",
-          isTemplate: false,
           value: "\n",
           loc: {
             start: {
@@ -288,7 +278,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\nclosing text\n",
       loc: {
         start: {

@@ -10,7 +10,6 @@ export default {
       children: [
         {
           type: "Text",
-          isTemplate: false,
           value: "\n",
           loc: { start: { line: 1, column: 5 }, end: { line: 2, column: 0 } },
           range: [5, 6],
@@ -39,7 +38,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 2, column: 6 }, end: { line: 4, column: 0 } },
       range: [12, 14],
@@ -73,7 +71,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 4, column: 11 }, end: { line: 6, column: 0 } },
       range: [25, 27],
@@ -86,7 +83,6 @@ export default {
       children: [
         {
           type: "Text",
-          isTemplate: false,
           value: "\n",
           loc: { start: { line: 6, column: 6 }, end: { line: 7, column: 0 } },
           range: [33, 34],
@@ -115,7 +111,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 7, column: 7 }, end: { line: 9, column: 0 } },
       range: [41, 43],
@@ -149,7 +144,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 9, column: 13 }, end: { line: 11, column: 0 } },
       range: [56, 58],
@@ -177,11 +171,9 @@ export default {
         loc: { start: { line: 11, column: 8 }, end: { line: 11, column: 17 } },
         range: [66, 75],
       },
-      children: [],
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: { start: { line: 11, column: 17 }, end: { line: 12, column: 0 } },
       range: [75, 76],
@@ -203,15 +195,12 @@ export default {
         loc: { start: { line: 12, column: 7 }, end: { line: 12, column: 8 } },
         range: [83, 84],
       },
-      children: [
-        {
-          type: "ScriptTagContent",
-          isTemplate: false,
-          value: "\n",
-          loc: { start: { line: 12, column: 8 }, end: { line: 13, column: 0 } },
-          range: [84, 85],
-        },
-      ],
+      value: {
+        type: "ScriptTagContent",
+        value: "\n",
+        loc: { start: { line: 12, column: 8 }, end: { line: 13, column: 0 } },
+        range: [84, 85],
+      },
       close: {
         type: "CloseScriptTag",
         value: "</SCRIPT>",
@@ -221,7 +210,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: { start: { line: 13, column: 9 }, end: { line: 14, column: 0 } },
       range: [94, 95],
@@ -249,11 +237,9 @@ export default {
         loc: { start: { line: 14, column: 8 }, end: { line: 14, column: 17 } },
         range: [103, 112],
       },
-      children: [],
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: { start: { line: 14, column: 17 }, end: { line: 15, column: 0 } },
       range: [112, 113],
@@ -275,15 +261,12 @@ export default {
         loc: { start: { line: 15, column: 7 }, end: { line: 15, column: 8 } },
         range: [120, 121],
       },
-      children: [
-        {
-          type: "ScriptTagContent",
-          isTemplate: false,
-          value: "\n",
-          loc: { start: { line: 15, column: 8 }, end: { line: 16, column: 0 } },
-          range: [121, 122],
-        },
-      ],
+      value: {
+        type: "ScriptTagContent",
+        value: "\n",
+        loc: { start: { line: 15, column: 8 }, end: { line: 16, column: 0 } },
+        range: [121, 122],
+      },
       close: {
         type: "CloseScriptTag",
         value: "</SCRIPT>",
@@ -293,7 +276,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 16, column: 9 }, end: { line: 18, column: 0 } },
       range: [131, 133],
@@ -321,11 +303,9 @@ export default {
         loc: { start: { line: 18, column: 7 }, end: { line: 18, column: 15 } },
         range: [140, 148],
       },
-      children: [],
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: { start: { line: 18, column: 15 }, end: { line: 19, column: 0 } },
       range: [148, 149],
@@ -347,15 +327,12 @@ export default {
         loc: { start: { line: 19, column: 6 }, end: { line: 19, column: 7 } },
         range: [155, 156],
       },
-      children: [
-        {
-          type: "StyleTagContent",
-          isTemplate: false,
-          value: "\n",
-          loc: { start: { line: 19, column: 7 }, end: { line: 20, column: 0 } },
-          range: [156, 157],
-        },
-      ],
+      value: {
+        type: "StyleTagContent",
+        value: "\n",
+        loc: { start: { line: 19, column: 7 }, end: { line: 20, column: 0 } },
+        range: [156, 157],
+      },
       close: {
         type: "CloseStyleTag",
         value: "</STYLE>",
@@ -365,7 +342,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: { start: { line: 20, column: 8 }, end: { line: 21, column: 0 } },
       range: [165, 166],
@@ -393,11 +369,9 @@ export default {
         loc: { start: { line: 21, column: 7 }, end: { line: 21, column: 15 } },
         range: [173, 181],
       },
-      children: [],
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: { start: { line: 21, column: 15 }, end: { line: 22, column: 0 } },
       range: [181, 182],
@@ -425,11 +399,9 @@ export default {
         loc: { start: { line: 22, column: 7 }, end: { line: 22, column: 15 } },
         range: [189, 197],
       },
-      children: [],
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: { start: { line: 22, column: 15 }, end: { line: 23, column: 0 } },
       range: [197, 198],

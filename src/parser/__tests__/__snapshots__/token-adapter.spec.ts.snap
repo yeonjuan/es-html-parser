@@ -8,7 +8,6 @@ exports[`parse basic 1`] = `
         "attributes": [],
         "children": [
           {
-            "isTemplate": false,
             "loc": {
               "end": {
                 "column": 12,
@@ -154,7 +153,6 @@ exports[`parse basic 1`] = `
       "value": ">",
     },
     {
-      "isTemplate": false,
       "loc": {
         "end": {
           "column": 12,
@@ -202,7 +200,6 @@ exports[`parse token adapter 1`] = `
         "attributes": [],
         "children": [
           {
-            "isTemplate": false,
             "loc": {
               "end": {
                 "column": 12,
@@ -348,7 +345,6 @@ exports[`parse token adapter 1`] = `
       "value": ">",
     },
     {
-      "isTemplate": false,
       "loc": {
         "end": {
           "column": 12,

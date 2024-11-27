@@ -8,5 +8,5 @@
     "rootDir": "src",
     "skipLibCheck": true
   },
-  "exclude": ["website", "dist"]
+  "exclude": ["website"]
 }

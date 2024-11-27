@@ -19,7 +19,6 @@ export default {
       children: [
         {
           type: "Text",
-          isTemplate: false,
           value: "\n  dummy content\n\n  ",
           loc: {
             start: {
@@ -62,7 +61,6 @@ export default {
               },
               key: {
                 type: "AttributeKey",
-                isTemplate: false,
                 value: "type",
                 loc: {
                   start: {
@@ -93,7 +91,6 @@ export default {
               },
               value: {
                 type: "AttributeValue",
-                isTemplate: false,
                 value: "text/javascript",
                 loc: {
                   start: {
@@ -138,7 +135,6 @@ export default {
               },
               key: {
                 type: "AttributeKey",
-                isTemplate: false,
                 value: "some-custom",
                 loc: {
                   start: {
@@ -169,7 +165,6 @@ export default {
               },
               value: {
                 type: "AttributeValue",
-                isTemplate: false,
                 value: "thing",
                 loc: {
                   start: {
@@ -230,24 +225,21 @@ export default {
             },
             range: [79, 80],
           },
-          children: [
-            {
-              type: "ScriptTagContent",
-              isTemplate: false,
-              value: "\n    console.log('test 1')\n  ",
-              loc: {
-                start: {
-                  line: 4,
-                  column: 57,
-                },
-                end: {
-                  line: 6,
-                  column: 2,
-                },
+          value: {
+            type: "ScriptTagContent",
+            value: "\n    console.log('test 1')\n  ",
+            loc: {
+              start: {
+                line: 4,
+                column: 57,
               },
-              range: [80, 109],
+              end: {
+                line: 6,
+                column: 2,
+              },
             },
-          ],
+            range: [80, 109],
+          },
           close: {
             type: "CloseScriptTag",
             value: "</script>",
@@ -266,7 +258,6 @@ export default {
         },
         {
           type: "Text",
-          isTemplate: false,
           value: "\n\n  ",
           loc: {
             start: {
@@ -309,7 +300,6 @@ export default {
               },
               key: {
                 type: "AttributeKey",
-                isTemplate: false,
                 value: "type",
                 loc: {
                   start: {
@@ -340,7 +330,6 @@ export default {
               },
               value: {
                 type: "AttributeValue",
-                isTemplate: false,
                 value: "text/javascript",
                 loc: {
                   start: {
@@ -385,7 +374,6 @@ export default {
               },
               key: {
                 type: "AttributeKey",
-                isTemplate: false,
                 value: "async",
                 loc: {
                   start: {
@@ -431,24 +419,21 @@ export default {
             },
             range: [169, 170],
           },
-          children: [
-            {
-              isTemplate: false,
-              type: "ScriptTagContent",
-              value: "\n    let a = '<div></div>'\n    console.log(a)\n  ",
-              loc: {
-                start: {
-                  line: 11,
-                  column: 3,
-                },
-                end: {
-                  line: 14,
-                  column: 2,
-                },
+          value: {
+            type: "ScriptTagContent",
+            value: "\n    let a = '<div></div>'\n    console.log(a)\n  ",
+            loc: {
+              start: {
+                line: 11,
+                column: 3,
               },
-              range: [170, 218],
+              end: {
+                line: 14,
+                column: 2,
+              },
             },
-          ],
+            range: [170, 218],
+          },
           close: {
             type: "CloseScriptTag",
             value: "</script>",
@@ -467,7 +452,6 @@ export default {
         },
         {
           type: "Text",
-          isTemplate: false,
           value: "\n",
           loc: {
             start: {
@@ -532,7 +516,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: {
         start: {
@@ -575,7 +558,6 @@ export default {
           },
           key: {
             type: "AttributeKey",
-            isTemplate: false,
             value: "async",
             loc: {
               start: {
@@ -605,7 +587,6 @@ export default {
           },
           key: {
             type: "AttributeKey",
-            isTemplate: false,
             value: "type",
             loc: {
               start: {
@@ -636,7 +617,6 @@ export default {
           },
           value: {
             type: "AttributeValue",
-            isTemplate: false,
             value: "text/javascript",
             loc: {
               start: {
@@ -697,24 +677,21 @@ export default {
         },
         range: [272, 273],
       },
-      children: [
-        {
-          type: "ScriptTagContent",
-          isTemplate: false,
-          value: "\n  console.log('test 2')\n",
-          loc: {
-            start: {
-              line: 17,
-              column: 37,
-            },
-            end: {
-              line: 19,
-              column: 0,
-            },
+      value: {
+        type: "ScriptTagContent",
+        value: "\n  console.log('test 2')\n",
+        loc: {
+          start: {
+            line: 17,
+            column: 37,
           },
-          range: [273, 298],
+          end: {
+            line: 19,
+            column: 0,
+          },
         },
-      ],
+        range: [273, 298],
+      },
       close: {
         type: "CloseScriptTag",
         value: "</script>",
@@ -733,7 +710,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: {
         start: {

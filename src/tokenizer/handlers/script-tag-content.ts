@@ -7,7 +7,7 @@ import {
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
 import { Range, TokenizerState } from "../../types";
 
-export function parse(chars: string, state: TokenizerState, charIndex: number) {
+export function parse(chars: string, state: TokenizerState) {
   if (
     chars === "<" ||
     chars === "</" ||
@@ -19,11 +19,6 @@ export function parse(chars: string, state: TokenizerState, charIndex: number) {
 
   if (CLOSING_SCRIPT_TAG_PATTERN.test(chars)) {
     return parseClosingScriptTag(state);
-  }
-
-  const range = state.consumeTemplateRangeAt(charIndex);
-  if (range) {
-    return parseTemplate(state, range);
   }
 
   state.accumulatedContent += state.decisionBuffer;
@@ -39,7 +34,6 @@ function parseClosingScriptTag(state: TokenizerState) {
       value: state.accumulatedContent,
       range: position.range,
       loc: position.loc,
-      isTemplate: false,
     });
   }
 
@@ -61,31 +55,4 @@ function parseClosingScriptTag(state: TokenizerState) {
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.Data;
   state.caretPosition++;
-}
-
-function parseTemplate(state: TokenizerState, [start, end]: Range) {
-  if (state.accumulatedContent.length !== 0) {
-    const position = calculateTokenPosition(state, { keepBuffer: false });
-    state.tokens.push({
-      type: TokenTypes.ScriptTagContent,
-      value: state.accumulatedContent,
-      range: position.range,
-      loc: position.loc,
-      isTemplate: false,
-    });
-  }
-
-  const value = state.source.slice(start, end);
-  const range: Range = [start, end];
-
-  state.tokens.push({
-    type: TokenTypes.ScriptTagContent,
-    value,
-    range,
-    loc: calculateTokenLocation(state.source, range),
-    isTemplate: true,
-  });
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
-  state.caretPosition = end;
 }

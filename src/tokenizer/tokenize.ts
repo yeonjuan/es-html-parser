@@ -1,5 +1,5 @@
 import { TokenizerContextTypes } from "../constants";
-import { AnyToken, Range, TokenAdapter } from "../types";
+import { AnyToken, TokenAdapter, TokenizerState } from "../types";
 import {
   attributeKey,
   attributeValueBare,
@@ -20,8 +20,7 @@ import {
   attributeValueWrapped,
   noop,
 } from "./handlers";
-import { TokenizeHandler, TokenizerState } from "../types";
-import { HTMLTokenizerState } from "./tokenizer-state";
+import { TokenizeHandler } from "../types";
 
 const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.Data]: data,
@@ -48,21 +47,28 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
 function tokenizeChars(
   chars: string,
   state: TokenizerState,
+  tokens: AnyToken[],
   {
     isFinalChunk,
+    positionOffset,
   }: {
     isFinalChunk?: boolean;
+    positionOffset: number;
   }
 ) {
-  let charIndex = state.caretPosition;
-
+  let charIndex = state.caretPosition - positionOffset;
+  let charIndexBefore = charIndex;
   while (charIndex < chars.length) {
     const handler = contextHandlers[state.currentContext];
     state.decisionBuffer += chars[charIndex];
 
-    handler.parse(state.decisionBuffer, state, charIndex);
+    if (charIndexBefore !== charIndex && chars[charIndex] === "\n") {
+      state.linePosition++;
+    }
+    charIndexBefore = charIndex;
 
-    charIndex = state.caretPosition;
+    handler.parse(state.decisionBuffer, state, tokens);
+    charIndex = state.caretPosition - positionOffset;
   }
 
   if (isFinalChunk) {
@@ -70,7 +76,7 @@ function tokenizeChars(
     state.caretPosition--;
 
     if (handler.handleContentEnd !== undefined) {
-      handler.handleContentEnd(state);
+      handler.handleContentEnd(state, tokens);
     }
   }
 }
@@ -78,22 +84,40 @@ function tokenizeChars(
 export function tokenize(
   source = "",
   tokenAdapter: TokenAdapter,
-  templateRanges: Range[],
   {
     isFinalChunk,
   }: {
     isFinalChunk?: boolean;
   } = {}
-): { tokens: AnyToken[] } {
+): { state: TokenizerState; tokens: AnyToken[] } {
   isFinalChunk = isFinalChunk === undefined ? true : isFinalChunk;
-
-  const state = new HTMLTokenizerState(source, tokenAdapter, templateRanges);
+  const tokens: AnyToken[] = [];
+  const state = {
+    currentContext: TokenizerContextTypes.Data,
+    contextParams: {},
+    decisionBuffer: "",
+    accumulatedContent: "",
+    caretPosition: 0,
+    linePosition: 1,
+    source,
+    tokens: {
+      push(token: AnyToken) {
+        tokens.push({
+          ...token,
+          range: tokenAdapter.finalizeRange(token),
+          loc: tokenAdapter.finalizeLocation(token),
+        });
+      },
+    },
+  };
 
   const chars = state.decisionBuffer + source;
+  const positionOffset = state.caretPosition - state.decisionBuffer.length;
 
-  tokenizeChars(chars, state, {
+  tokenizeChars(chars, state, tokens, {
     isFinalChunk,
+    positionOffset,
   });
 
-  return { tokens: state.getTokens() };
+  return { state, tokens };
 }

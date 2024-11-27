@@ -30,24 +30,21 @@ export default {
         },
         range: [0, 4],
       },
-      children: [
-        {
-          type: "CommentContent",
-          isTemplate: false,
-          value: " some comment ",
-          loc: {
-            start: {
-              line: 1,
-              column: 4,
-            },
-            end: {
-              line: 1,
-              column: 18,
-            },
+      value: {
+        type: "CommentContent",
+        value: " some comment ",
+        loc: {
+          start: {
+            line: 1,
+            column: 4,
           },
-          range: [4, 18],
+          end: {
+            line: 1,
+            column: 18,
+          },
         },
-      ],
+        range: [4, 18],
+      },
       close: {
         type: "CommentClose",
         value: "-->",
@@ -66,7 +63,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: {
         start: {
@@ -97,7 +93,6 @@ export default {
       children: [
         {
           type: "Text",
-          isTemplate: false,
           value: "\n  ",
           loc: {
             start: {
@@ -128,7 +123,6 @@ export default {
           children: [
             {
               type: "Text",
-              isTemplate: false,
               value: "\n    ",
               loc: {
                 start: {
@@ -170,24 +164,21 @@ export default {
                 },
                 range: [42, 46],
               },
-              children: [
-                {
-                  type: "CommentContent",
-                  isTemplate: false,
-                  value: "another-one",
-                  loc: {
-                    start: {
-                      line: 5,
-                      column: 8,
-                    },
-                    end: {
-                      line: 5,
-                      column: 19,
-                    },
+              value: {
+                type: "CommentContent",
+                value: "another-one",
+                loc: {
+                  start: {
+                    line: 5,
+                    column: 8,
                   },
-                  range: [46, 57],
+                  end: {
+                    line: 5,
+                    column: 19,
+                  },
                 },
-              ],
+                range: [46, 57],
+              },
               close: {
                 type: "CommentClose",
                 value: "-->",
@@ -206,7 +197,6 @@ export default {
             },
             {
               type: "Text",
-              isTemplate: false,
               value: "\n  ",
               loc: {
                 start: {
@@ -271,7 +261,6 @@ export default {
         },
         {
           type: "Text",
-          isTemplate: false,
           value: "\n\n  ",
           loc: {
             start: {
@@ -313,24 +302,21 @@ export default {
             },
             range: [74, 78],
           },
-          children: [
-            {
-              type: "CommentContent",
-              isTemplate: false,
-              value: "\n\n  multi\n\n  line\n  ",
-              loc: {
-                start: {
-                  line: 8,
-                  column: 6,
-                },
-                end: {
-                  line: 13,
-                  column: 2,
-                },
+          value: {
+            type: "CommentContent",
+            value: "\n\n  multi\n\n  line\n  ",
+            loc: {
+              start: {
+                line: 8,
+                column: 6,
               },
-              range: [78, 98],
+              end: {
+                line: 13,
+                column: 2,
+              },
             },
-          ],
+            range: [78, 98],
+          },
           close: {
             type: "CommentClose",
             value: "-->",
@@ -349,7 +335,6 @@ export default {
         },
         {
           type: "Text",
-          isTemplate: false,
           value: "\n",
           loc: {
             start: {
@@ -414,7 +399,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: {
         start: {
@@ -456,24 +440,21 @@ export default {
         },
         range: [110, 114],
       },
-      children: [
-        {
-          type: "CommentContent",
-          isTemplate: false,
-          value: " closing\n\ncomment ",
-          loc: {
-            start: {
-              line: 16,
-              column: 4,
-            },
-            end: {
-              line: 18,
-              column: 8,
-            },
+      value: {
+        type: "CommentContent",
+        value: " closing\n\ncomment ",
+        loc: {
+          start: {
+            line: 16,
+            column: 4,
           },
-          range: [114, 132],
+          end: {
+            line: 18,
+            column: 8,
+          },
         },
-      ],
+        range: [114, 132],
+      },
       close: {
         type: "CommentClose",
         value: "-->",
@@ -492,7 +473,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n\n",
       loc: {
         start: {
@@ -534,24 +514,21 @@ export default {
         },
         range: [137, 141],
       },
-      children: [
-        {
-          type: "CommentContent",
-          isTemplate: false,
-          value: "         spaces here          ",
-          loc: {
-            start: {
-              line: 20,
-              column: 4,
-            },
-            end: {
-              line: 20,
-              column: 34,
-            },
+      value: {
+        type: "CommentContent",
+        value: "         spaces here          ",
+        loc: {
+          start: {
+            line: 20,
+            column: 4,
           },
-          range: [141, 171],
+          end: {
+            line: 20,
+            column: 34,
+          },
         },
-      ],
+        range: [141, 171],
+      },
       close: {
         type: "CommentClose",
         value: "-->",
@@ -570,7 +547,6 @@ export default {
     },
     {
       type: "Text",
-      isTemplate: false,
       value: "\n",
       loc: {
         start: {

@@ -20,12 +20,12 @@ export type ContextualNode<T extends AnyNode, K extends keyof T> = PartialBy<
 
 export type ContextualScriptTagNode = ContextualNode<
   ScriptTagNode,
-  "close" | "openStart" | "openEnd"
+  "close" | "openStart" | "value" | "openEnd"
 >;
 
 export type ContextualStyleTagNode = ContextualNode<
   StyleTagNode,
-  "openStart" | "openEnd" | "close"
+  "openStart" | "openEnd" | "value" | "close"
 >;
 
 export type ContextualDoctypeNode = ContextualNode<
@@ -35,7 +35,7 @@ export type ContextualDoctypeNode = ContextualNode<
 
 export type ContextualCommentNode = ContextualNode<
   CommentNode,
-  "open" | "close"
+  "open" | "close" | "value"
 >;
 
 export type ContextualTagNode = ContextualNode<

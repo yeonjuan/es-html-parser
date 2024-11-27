@@ -33,7 +33,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n  dummy content\n\n  ",
     range: [5, 25],
     loc: {
@@ -64,7 +63,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
-    isTemplate: false,
     value: "type",
     range: [33, 37],
     loc: {
@@ -110,7 +108,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
-    isTemplate: false,
     value: "text/javascript",
     range: [39, 54],
     loc: {
@@ -141,7 +138,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
-    isTemplate: false,
     value: "some-custom",
     range: [56, 67],
     loc: {
@@ -187,7 +183,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
-    isTemplate: false,
     value: "thing",
     range: [72, 77],
     loc: {
@@ -233,7 +228,6 @@ export default [
   },
   {
     type: TokenTypes.ScriptTagContent,
-    isTemplate: false,
     value: "\n    console.log('test 1')\n  ",
     range: [80, 109],
     loc: {
@@ -264,7 +258,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n\n  ",
     range: [118, 122],
     loc: {
@@ -296,7 +289,6 @@ export default [
   {
     type: TokenTypes.AttributeKey,
     value: "type",
-    isTemplate: false,
     range: [134, 138],
     loc: {
       start: {
@@ -341,7 +333,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
-    isTemplate: false,
     value: "text/javascript",
     range: [140, 155],
     loc: {
@@ -372,7 +363,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
-    isTemplate: false,
     value: "async",
     range: [161, 166],
     loc: {
@@ -403,7 +393,6 @@ export default [
   },
   {
     type: TokenTypes.ScriptTagContent,
-    isTemplate: false,
     value: "\n    let a = '<div></div>'\n    console.log(a)\n  ",
     range: [170, 218],
     loc: {
@@ -434,7 +423,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n",
     range: [227, 228],
     loc: {
@@ -465,7 +453,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n\n",
     range: [234, 236],
     loc: {
@@ -496,7 +483,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
-    isTemplate: false,
     value: "async",
     range: [244, 249],
     loc: {
@@ -512,7 +498,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
-    isTemplate: false,
     value: "type",
     range: [250, 254],
     loc: {
@@ -558,7 +543,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
-    isTemplate: false,
     value: "text/javascript",
     range: [256, 271],
     loc: {
@@ -604,7 +588,6 @@ export default [
   },
   {
     type: TokenTypes.ScriptTagContent,
-    isTemplate: false,
     value: "\n  console.log('test 2')\n",
     range: [273, 298],
     loc: {
@@ -635,7 +618,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n",
     range: [307, 308],
     loc: {

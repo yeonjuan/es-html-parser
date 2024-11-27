@@ -1,15 +1,6 @@
 import { NodeTypes } from "../constants";
+import { SimpleNode } from "./simple-node";
 import { BaseNode } from "./base-node";
-
-interface SimpleNode<T extends NodeTypes> extends BaseNode {
-  type: T;
-  value: string;
-}
-
-interface TemplatableNode<T extends NodeTypes> extends BaseNode {
-  type: T;
-  value: string;
-}
 
 export interface DocumentNode extends BaseNode {
   type: NodeTypes.Document;
@@ -18,7 +9,7 @@ export interface DocumentNode extends BaseNode {
   >;
 }
 
-export type TextNode = TemplatableNode<NodeTypes.Text>;
+export type TextNode = SimpleNode<NodeTypes.Text>;
 
 export interface TagNode extends BaseNode {
   type: NodeTypes.Tag;
@@ -47,9 +38,9 @@ export interface AttributeNode extends BaseNode {
   endWrapper?: AttributeValueWrapperEndNode;
 }
 
-export type AttributeKeyNode = TemplatableNode<NodeTypes.AttributeKey>;
+export type AttributeKeyNode = SimpleNode<NodeTypes.AttributeKey>;
 
-export type AttributeValueNode = TemplatableNode<NodeTypes.AttributeValue>;
+export type AttributeValueNode = SimpleNode<NodeTypes.AttributeValue>;
 
 export type AttributeValueWrapperStartNode =
   SimpleNode<NodeTypes.AttributeValueWrapperStart>;
@@ -63,7 +54,7 @@ export interface ScriptTagNode extends BaseNode {
   openStart: OpenScriptTagStartNode;
   openEnd: OpenScriptTagEndNode;
   close: CloseScriptTagNode;
-  children: ScriptTagContentNode[];
+  value?: ScriptTagContentNode;
 }
 export type OpenScriptTagStartNode = SimpleNode<NodeTypes.OpenScriptTagStart>;
 
@@ -71,7 +62,7 @@ export type CloseScriptTagNode = SimpleNode<NodeTypes.CloseScriptTag>;
 
 export type OpenScriptTagEndNode = SimpleNode<NodeTypes.OpenScriptTagEnd>;
 
-export type ScriptTagContentNode = TemplatableNode<NodeTypes.ScriptTagContent>;
+export type ScriptTagContentNode = SimpleNode<NodeTypes.ScriptTagContent>;
 
 export interface StyleTagNode extends BaseNode {
   type: NodeTypes.StyleTag;
@@ -79,14 +70,14 @@ export interface StyleTagNode extends BaseNode {
   openStart: OpenStyleTagStartNode;
   openEnd: OpenStyleTagEndNode;
   close: CloseStyleTagNode;
-  children: StyleTagContentNode[];
+  value?: StyleTagContentNode;
 }
 
 export type OpenStyleTagStartNode = SimpleNode<NodeTypes.OpenStyleTagStart>;
 
 export type OpenStyleTagEndNode = SimpleNode<NodeTypes.OpenStyleTagEnd>;
 
-export type StyleTagContentNode = TemplatableNode<NodeTypes.StyleTagContent>;
+export type StyleTagContentNode = SimpleNode<NodeTypes.StyleTagContent>;
 
 export type CloseStyleTagNode = SimpleNode<NodeTypes.CloseStyleTag>;
 
@@ -94,14 +85,14 @@ export interface CommentNode extends BaseNode {
   type: NodeTypes.Comment;
   open: CommentOpenNode;
   close: CommentCloseNode;
-  children: CommentContentNode[];
+  value: CommentContentNode;
 }
 
 export type CommentOpenNode = SimpleNode<NodeTypes.CommentOpen>;
 
 export type CommentCloseNode = SimpleNode<NodeTypes.CommentClose>;
 
-export type CommentContentNode = TemplatableNode<NodeTypes.CommentContent>;
+export type CommentContentNode = SimpleNode<NodeTypes.CommentContent>;
 
 export interface DoctypeNode extends BaseNode {
   type: NodeTypes.Doctype;

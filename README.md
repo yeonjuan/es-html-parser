@@ -470,7 +470,7 @@ interface ScriptTagNode extends BaseNode {
   openStart: OpenScriptTagStartNode;
   openEnd: OpenScriptTagEndNode;
   close: CloseScriptTagNode;
-  children: ScriptTagContentNode[];
+  value?: ScriptTagContentNode;
 }
 ```
 
@@ -529,7 +529,7 @@ interface StyleTagNode extends BaseNode {
   openStart: OpenStyleTagStartNode;
   openEnd: OpenStyleTagEndNode;
   close: CloseStyleTagNode;
-  children: StyleTagContentNode[];
+  value?: StyleTagContentNode;
 }
 ```
 
@@ -586,7 +586,7 @@ interface CommentNode extends BaseNode {
   type: "Comment";
   open: CommentOpenNode;
   close: CommentCloseNode;
-  children: CommentContentNode[];
+  value: CommentContentNode;
 }
 ```
 

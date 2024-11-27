@@ -47,20 +47,15 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
 function tokenizeChars(
   chars: string,
   state: TokenizerState,
-  tokens: AnyToken[],
-  {
-    positionOffset,
-  }: {
-    positionOffset: number;
-  }
+  tokens: AnyToken[]
 ) {
-  let charIndex = state.caretPosition - positionOffset;
+  let charIndex = state.caretPosition;
   while (charIndex < chars.length) {
     const handler = contextHandlers[state.currentContext];
     state.decisionBuffer += chars[charIndex];
 
     handler.parse(state.decisionBuffer, state, tokens);
-    charIndex = state.caretPosition - positionOffset;
+    charIndex = state.caretPosition;
   }
 
   const handler = contextHandlers[state.currentContext];
@@ -95,11 +90,8 @@ export function tokenize(
   };
 
   const chars = state.decisionBuffer + source;
-  const positionOffset = state.caretPosition - state.decisionBuffer.length;
 
-  tokenizeChars(chars, state, tokens, {
-    positionOffset,
-  });
+  tokenizeChars(chars, state, tokens);
 
   return { state, tokens };
 }

@@ -2,7 +2,7 @@ import { TokenizerContextTypes } from "../constants";
 import {
   AnyToken,
   ContextParams,
-  TemplateSytaxToken,
+  Range,
   TokenAdapter,
   TokenizerState,
 } from "../types";
@@ -28,27 +28,27 @@ export class HTMLTokenizerState implements TokenizerState {
   constructor(
     public source: string,
     private tokenAdapter: TokenAdapter,
-    private templateSyntaxTokens: TemplateSytaxToken[]
+    private templateRanges: Range[]
   ) {}
 
-  consumeTemplateSyntaxTokenAt(charIndex: number) {
-    const index = this.templateSyntaxTokens.findIndex(
-      (token) => token.range[0] <= charIndex && charIndex < token.range[1]
+  consumeTemplateRangeAt(charIndex: number) {
+    const index = this.templateRanges.findIndex(
+      ([start, end]) => start <= charIndex && charIndex < end
     );
     if (index < 0) {
       return null;
     }
-    return this.templateSyntaxTokens.splice(index, 1)[0];
+    return this.templateRanges.splice(index, 1)[0];
   }
 
-  getTemplateSyntaxTokenAt(charIndex: number) {
-    const index = this.templateSyntaxTokens.findIndex(
-      (token) => token.range[0] <= charIndex && charIndex < token.range[1]
+  getTemplateRangeAt(charIndex: number) {
+    const index = this.templateRanges.findIndex(
+      ([start, end]) => start <= charIndex && charIndex < end
     );
     if (index < 0) {
       return null;
     }
-    return this.templateSyntaxTokens[index];
+    return this.templateRanges[index];
   }
 
   public getTokens() {

@@ -34,6 +34,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "  ",
+    isTemplate: false,
     range: [5, 7],
     loc: {
       start: {
@@ -47,43 +48,14 @@ export default [
     },
   },
   {
-    type: TokenTypes.TemplateSyntaxStart,
-    value: "${",
-    range: [7, 9],
+    type: TokenTypes.Text,
+    isTemplate: true,
+    range: [7, 17],
+    value: "${ data  }",
     loc: {
       start: {
         line: 1,
         column: 7,
-      },
-      end: {
-        line: 1,
-        column: 9,
-      },
-    },
-  },
-  {
-    type: TokenTypes.TemplateSyntaxContent,
-    value: " data  ",
-    range: [9, 16],
-    loc: {
-      start: {
-        line: 1,
-        column: 9,
-      },
-      end: {
-        line: 1,
-        column: 16,
-      },
-    },
-  },
-  {
-    type: TokenTypes.TemplateSyntaxEnd,
-    value: "}",
-    range: [16, 17],
-    loc: {
-      start: {
-        line: 1,
-        column: 16,
       },
       end: {
         line: 1,
@@ -94,6 +66,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: " text ",
+    isTemplate: false,
     range: [17, 23],
     loc: {
       start: {

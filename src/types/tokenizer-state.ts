@@ -1,4 +1,4 @@
-import { TokenTypes, TokenizerContextTypes } from "../constants";
+import { TokenizerContextTypes } from "../constants";
 import { Range } from "./range";
 import { AnyToken } from "./token";
 export type ContextParams = {
@@ -16,15 +16,6 @@ export type ContextParams = {
   };
 };
 
-export type TemplateSytaxToken = {
-  type:
-    | TokenTypes.TemplateSyntaxStart
-    | TokenTypes.TemplateSyntaxContent
-    | TokenTypes.TemplateSyntaxEnd;
-  range: Range;
-  value: string;
-};
-
 export interface TokenizerState {
   currentContext: TokenizerContextTypes;
   contextParams: ContextParams;
@@ -37,6 +28,6 @@ export interface TokenizerState {
     push(token: AnyToken): void;
   };
 
-  consumeTemplateSyntaxTokenAt(charIndex: number): TemplateSytaxToken | null;
-  getTemplateSyntaxTokenAt(charIndex: number): TemplateSytaxToken | null;
+  consumeTemplateRangeAt(charIndex: number): Range | null;
+  getTemplateRangeAt(charIndex: number): Range | null;
 }

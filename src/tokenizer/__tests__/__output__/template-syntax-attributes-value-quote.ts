@@ -19,6 +19,7 @@ export default [
   {
     type: TokenTypes.AttributeKey,
     value: "id",
+    isTemplate: false,
     range: [5, 7],
     loc: {
       start: {
@@ -62,43 +63,14 @@ export default [
     },
   },
   {
-    type: TokenTypes.TemplateSyntaxStart,
-    value: "${",
-    range: [9, 11],
+    type: TokenTypes.AttributeValue,
+    value: "${id}",
+    isTemplate: true,
+    range: [9, 14],
     loc: {
       start: {
         line: 1,
         column: 9,
-      },
-      end: {
-        line: 1,
-        column: 11,
-      },
-    },
-  },
-  {
-    type: TokenTypes.TemplateSyntaxContent,
-    value: "id",
-    range: [11, 13],
-    loc: {
-      start: {
-        line: 1,
-        column: 11,
-      },
-      end: {
-        line: 1,
-        column: 13,
-      },
-    },
-  },
-  {
-    type: TokenTypes.TemplateSyntaxEnd,
-    value: "}",
-    range: [13, 14],
-    loc: {
-      start: {
-        line: 1,
-        column: 13,
       },
       end: {
         line: 1,

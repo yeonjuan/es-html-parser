@@ -1,5 +1,5 @@
 import { TokenizerContextTypes } from "../constants";
-import { AnyToken, TemplateSytaxToken, TokenAdapter } from "../types";
+import { AnyToken, Range, TokenAdapter } from "../types";
 import {
   attributeKey,
   attributeValueBare,
@@ -78,7 +78,7 @@ function tokenizeChars(
 export function tokenize(
   source = "",
   tokenAdapter: TokenAdapter,
-  templateSyntaxTokens: TemplateSytaxToken[],
+  templateRanges: Range[],
   {
     isFinalChunk,
   }: {
@@ -87,11 +87,7 @@ export function tokenize(
 ): { tokens: AnyToken[] } {
   isFinalChunk = isFinalChunk === undefined ? true : isFinalChunk;
 
-  const state = new HTMLTokenizerState(
-    source,
-    tokenAdapter,
-    templateSyntaxTokens
-  );
+  const state = new HTMLTokenizerState(source, tokenAdapter, templateRanges);
 
   const chars = state.decisionBuffer + source;
 

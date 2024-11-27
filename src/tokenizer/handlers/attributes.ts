@@ -1,24 +1,8 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import {
-  calculateTokenLocation,
-  calculateTokenPosition,
-  isWhitespace,
-} from "../../utils";
+import { calculateTokenPosition, isWhitespace } from "../../utils";
 import type { TokenizerState } from "../../types";
 
-export function parse(chars: string, state: TokenizerState, charIndex: number) {
-  const templateSyntaxToken = state.consumeTemplateSyntaxTokenAt(charIndex);
-  if (templateSyntaxToken) {
-    state.tokens.push({
-      ...templateSyntaxToken,
-      loc: calculateTokenLocation(state.source, templateSyntaxToken.range),
-    });
-    state.accumulatedContent = "";
-    state.decisionBuffer = "";
-    state.caretPosition = templateSyntaxToken.range[1];
-    return;
-  }
-
+export function parse(chars: string, state: TokenizerState) {
   if (chars === ">" || chars === "/") {
     return parseTagEnd(state);
   }

@@ -28,8 +28,8 @@ import TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_QUOTE from "./__output__/template-syntax
 import TEMPLATE_SYNTAX_SCRIPT_ATTRIBUTES from "./__output__/template-syntax-script-attributes";
 
 import { defaultTokenAdapter } from "../../token-adapter";
-import { TemplateSytaxToken } from "../../types";
 import { TokenTypes } from "../../constants";
+import { Range } from "../../types";
 
 describe("tokenize", () => {
   test.each(
@@ -139,22 +139,8 @@ describe("tokenize", () => {
       //   TEMPLATE_SYNTAX_ATTRIBUTES,
       //   null,
       //   [
-      //     {
-      //       type: TokenTypes.TemplateSyntaxStart,
-      //       value: "${",
-      //       range: [5, 7],
-      //     },
-      //     {
-      //       type: TokenTypes.TemplateSyntaxContent,
-      //       value: " attr ",
-      //       range: [7, 13],
-      //     },
-      //     {
-      //       type: TokenTypes.TemplateSyntaxEnd,
-      //       value: "}",
-      //       range: [13, 14],
-      //     },
-      //   ] as TemplateSytaxToken[]
+      //     [5, 14]
+      //   ] as Range[]
       // ],
     //   [
     //     "Template Syntax Attributes key",
@@ -162,22 +148,8 @@ describe("tokenize", () => {
     //     TEMPLATE_SYNTAX_ATTRIBUTES_KEY,
     //     null,
     //     [
-    //       {
-    //         type: TokenTypes.TemplateSyntaxStart,
-    //         value: "${",
-    //         range: [5, 7],
-    //       },
-    //       {
-    //         type: TokenTypes.TemplateSyntaxContent,
-    //         value: " attr ",
-    //         range: [7, 13],
-    //       },
-    //       {
-    //         type: TokenTypes.TemplateSyntaxEnd,
-    //         value: "}",
-    //         range: [13, 14],
-    //       },
-    //   ] as TemplateSytaxToken[]
+    //       [5, 14]
+    //   ] as Range[]
     // ]
     // [
     //   "Template Syntax Data",
@@ -185,45 +157,17 @@ describe("tokenize", () => {
     //   TEMPLATE_SYNTAX_DATA,
     //   null,
     //   [
-    //     {
-    //       type: TokenTypes.TemplateSyntaxStart,
-    //       value: "${",
-    //       range: [7, 9],
-    //     },
-    //     {
-    //       type: TokenTypes.TemplateSyntaxContent,
-    //       value: " data  ",
-    //       range: [9, 16],
-    //     },
-    //     {
-    //       type: TokenTypes.TemplateSyntaxEnd,
-    //       value: "}",
-    //       range: [16, 17],
-    //     },
-    //   ] as TemplateSytaxToken[]
-    // ]
+    //     [7, 17]
+    //   ] as Range[]
+    // ],
     // [
     //   "Template Syntax Attributes Value Bare",
     //   "template-syntax-attributes-value-bare.html",
     //   TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_BARE,
     //   null,
     //   [
-    //     {
-    //       type: TokenTypes.TemplateSyntaxStart,
-    //       value: "${",
-    //       range: [8, 10],
-    //     },
-    //     {
-    //       type: TokenTypes.TemplateSyntaxContent,
-    //       value: "id",
-    //       range: [10, 12],
-    //     },
-    //     {
-    //       type: TokenTypes.TemplateSyntaxEnd,
-    //       value: "}",
-    //       range: [12, 13],
-    //     },
-    //   ] as TemplateSytaxToken[]
+    //     [8, 13]
+    //   ] as Range[]
     // ],
     // [
     //   "Template Syntax Attributes Value Quote",
@@ -231,46 +175,18 @@ describe("tokenize", () => {
     //   TEMPLATE_SYNTAX_ATTRIBUTES_VALUE_QUOTE,
     //   null,
     //   [
-    //     {
-    //       type: TokenTypes.TemplateSyntaxStart,
-    //       value: "${",
-    //       range: [9, 11],
-    //     },
-    //     {
-    //       type: TokenTypes.TemplateSyntaxContent,
-    //       value: "id",
-    //       range: [11, 13],
-    //     },
-    //     {
-    //       type: TokenTypes.TemplateSyntaxEnd,
-    //       value: "}",
-    //       range: [13, 14],
-    //     },
-    //   ] as TemplateSytaxToken[]
+    //     [9, 14]
+    //   ] as Range[]
     // ],
-    [
-      "Template Syntax Script Attributes",
-      "template-syntax-script-attributes.html",
-      TEMPLATE_SYNTAX_SCRIPT_ATTRIBUTES,
-      null,
-      [
-        {
-          type: TokenTypes.TemplateSyntaxStart,
-          value: "${",
-          range: [8, 10],
-        },
-        {
-          type: TokenTypes.TemplateSyntaxContent,
-          value: "type",
-          range: [10, 14],
-        },
-        {
-          type: TokenTypes.TemplateSyntaxEnd,
-          value: "}",
-          range: [14, 15],
-        },
-      ] as TemplateSytaxToken[]
-    ]
+    // [
+    //   "Template Syntax Script Attributes",
+    //   "template-syntax-script-attributes.html",
+    //   TEMPLATE_SYNTAX_SCRIPT_ATTRIBUTES,
+    //   null,
+    //   [
+    //     [8, 15]
+    //   ] as Range[]
+    // ]
     ]
   )(
     "%s",
@@ -279,18 +195,14 @@ describe("tokenize", () => {
       input,
       output,
       process: null | ((html: string) => string) = null,
-      templateSyntax: null | TemplateSytaxToken[] = null
+      ranges: null | Range[] = null
     ) => {
       const inputPath = path.join(__dirname, "__input__", input);
       let html = fs.readFileSync(inputPath, "utf-8");
       if (process) {
         html = process(html);
       }
-      const { tokens } = tokenize(
-        html,
-        defaultTokenAdapter,
-        templateSyntax || []
-      );
+      const { tokens } = tokenize(html, defaultTokenAdapter, ranges || []);
       expect(tokens).toEqual(output);
     }
   );

@@ -17,43 +17,14 @@ export default [
     },
   },
   {
-    type: TokenTypes.TemplateSyntaxStart,
-    value: "${",
-    range: [8, 10],
+    type: TokenTypes.AttributeKey,
+    value: "${type}",
+    isTemplate: true,
+    range: [8, 15],
     loc: {
       start: {
         line: 1,
         column: 8,
-      },
-      end: {
-        line: 1,
-        column: 10,
-      },
-    },
-  },
-  {
-    type: TokenTypes.TemplateSyntaxContent,
-    value: "type",
-    range: [10, 14],
-    loc: {
-      start: {
-        line: 1,
-        column: 10,
-      },
-      end: {
-        line: 1,
-        column: 14,
-      },
-    },
-  },
-  {
-    type: TokenTypes.TemplateSyntaxEnd,
-    value: "}",
-    range: [14, 15],
-    loc: {
-      start: {
-        line: 1,
-        column: 14,
       },
       end: {
         line: 1,

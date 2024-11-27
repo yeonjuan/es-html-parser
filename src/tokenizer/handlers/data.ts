@@ -1,19 +1,14 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
-import {
-  AnyToken,
-  Range,
-  TemplateSytaxToken,
-  TokenizerState,
-} from "../../types";
+import { AnyToken, Range, TokenizerState } from "../../types";
 
 const COMMENT_START = "<!--";
 const OPEN_TAG_START_PATTERN = /^<\w/;
 
 export function parse(chars: string, state: TokenizerState, charIndex: number) {
-  const templateSyntaxToken = state.consumeTemplateSyntaxTokenAt(charIndex);
-  if (templateSyntaxToken) {
-    return parseTemplateSyntax(templateSyntaxToken, state);
+  const range = state.consumeTemplateRangeAt(charIndex);
+  if (range) {
+    return parseTemplate(state, range);
   }
 
   if (OPEN_TAG_START_PATTERN.test(chars)) {
@@ -57,6 +52,7 @@ export function handleContentEnd(state: TokenizerState) {
       value: textContent,
       range: position.range,
       loc: position.loc,
+      isTemplate: false,
     });
   }
 }
@@ -68,6 +64,7 @@ function generateTextToken(state: TokenizerState): AnyToken {
     value: state.accumulatedContent,
     range: position.range,
     loc: position.loc,
+    isTemplate: false,
   };
 }
 
@@ -141,18 +138,22 @@ function parseDoctypeOpen(state: TokenizerState) {
   state.caretPosition++;
 }
 
-function parseTemplateSyntax(
-  templateSyntaxToken: TemplateSytaxToken,
-  state: TokenizerState
-) {
+function parseTemplate(state: TokenizerState, [start, end]: Range) {
   if (state.accumulatedContent.length !== 0) {
     state.tokens.push(generateTextToken(state));
   }
+
+  const value = state.source.slice(start, end);
+  const range: Range = [start, end];
+
   state.tokens.push({
-    ...templateSyntaxToken,
-    loc: calculateTokenLocation(state.source, templateSyntaxToken.range),
+    type: TokenTypes.Text,
+    value,
+    range,
+    loc: calculateTokenLocation(state.source, range),
+    isTemplate: true,
   });
   state.accumulatedContent = "";
   state.decisionBuffer = "";
-  state.caretPosition = templateSyntaxToken.range[1];
+  state.caretPosition = end;
 }

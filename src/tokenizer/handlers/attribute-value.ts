@@ -3,18 +3,6 @@ import { calculateTokenLocation, isWhitespace } from "../../utils";
 import type { TokenizerState, Range } from "../../types";
 
 export function parse(chars: string, state: TokenizerState, charIndex: number) {
-  const templateSyntaxToken = state.consumeTemplateSyntaxTokenAt(charIndex);
-  if (templateSyntaxToken) {
-    state.tokens.push({
-      ...templateSyntaxToken,
-      loc: calculateTokenLocation(state.source, templateSyntaxToken.range),
-    });
-    state.accumulatedContent = "";
-    state.decisionBuffer = "";
-    state.caretPosition = templateSyntaxToken.range[1];
-    return;
-  }
-
   if (chars === '"' || chars === "'") {
     return parseWrapper(state);
   }
@@ -23,7 +11,7 @@ export function parse(chars: string, state: TokenizerState, charIndex: number) {
     return parseTagEnd(state);
   }
 
-  if (!isWhitespace(chars)) {
+  if (!isWhitespace(chars) || state.getTemplateRangeAt(charIndex)) {
     return parseBare(state);
   }
 

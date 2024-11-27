@@ -6,17 +6,11 @@ export function parse(chars: string, state: TokenizerState, charIndex: number) {
   const wrapperChar =
     state.contextParams[TokenizerContextTypes.AttributeValueWrapped]?.wrapper;
 
-  const templateSyntaxToken = state.consumeTemplateSyntaxTokenAt(charIndex);
-  if (templateSyntaxToken) {
-    state.tokens.push({
-      ...templateSyntaxToken,
-      loc: calculateTokenLocation(state.source, templateSyntaxToken.range),
-    });
-    state.accumulatedContent = "";
-    state.decisionBuffer = "";
-    state.caretPosition = templateSyntaxToken.range[1];
-    return;
+  const range = state.consumeTemplateRangeAt(charIndex);
+  if (range) {
+    return parseTemplate(state, range);
   }
+
   if (chars === wrapperChar) {
     return parseWrapper(state);
   }
@@ -36,6 +30,7 @@ function parseWrapper(state: TokenizerState) {
       value: state.accumulatedContent,
       range: position.range,
       loc: position.loc,
+      isTemplate: false,
     });
   }
 
@@ -54,4 +49,19 @@ function parseWrapper(state: TokenizerState) {
   state.caretPosition++;
 
   state.contextParams[TokenizerContextTypes.AttributeValueWrapped] = undefined;
+}
+
+function parseTemplate(state: TokenizerState, [start, end]: Range) {
+  const value = state.source.slice(start, end);
+  const range: Range = [start, end];
+  state.tokens.push({
+    type: TokenTypes.AttributeValue,
+    isTemplate: true,
+    value,
+    range,
+    loc: calculateTokenLocation(state.source, range),
+  });
+  state.accumulatedContent = "";
+  state.decisionBuffer = "";
+  state.caretPosition = end;
 }

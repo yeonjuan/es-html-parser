@@ -6,10 +6,17 @@ export function createNodeFrom<T extends AnyToken>(token: T): unknown {
   const loc = cloneLocation(token.loc);
   const range = cloneRange(token.range);
 
-  return {
+  const ret = {
     type: token.type,
     value: token.value,
     loc,
     range,
-  } as unknown;
+    // @ts-ignore
+    isTemplate: token["isTemplate"],
+  };
+
+  if (ret.isTemplate === undefined) {
+    delete ret.isTemplate;
+  }
+  return ret as unknown;
 }

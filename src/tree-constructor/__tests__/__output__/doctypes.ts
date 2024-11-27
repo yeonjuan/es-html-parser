@@ -22,6 +22,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 1, column: 10 }, end: { line: 3, column: 0 } },
       range: [10, 12],
@@ -46,6 +47,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 3, column: 10 }, end: { line: 5, column: 0 } },
       range: [22, 24],
@@ -135,6 +137,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 5, column: 42 }, end: { line: 7, column: 0 } },
       range: [66, 68],
@@ -188,6 +191,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 7, column: 22 }, end: { line: 9, column: 0 } },
       range: [90, 92],
@@ -308,6 +312,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n\n",
       loc: { start: { line: 9, column: 101 }, end: { line: 11, column: 0 } },
       range: [193, 195],
@@ -434,6 +439,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n",
       loc: { start: { line: 15, column: 1 }, end: { line: 16, column: 0 } },
       range: [303, 304],

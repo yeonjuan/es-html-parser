@@ -3,6 +3,7 @@ import { TokenTypes } from "../../../constants";
 export default [
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "opening text\n\n",
     range: [0, 14],
     loc: {
@@ -63,6 +64,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\nclosing text\n",
     range: [25, 40],
     loc: {

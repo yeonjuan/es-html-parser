@@ -58,6 +58,7 @@ export default {
           range: [3, 18],
           key: {
             type: "AttributeKey",
+            isTemplate: false,
             value: "target",
             loc: {
               start: { line: 1, column: 3 },
@@ -67,6 +68,7 @@ export default {
           },
           value: {
             type: "AttributeValue",
+            isTemplate: false,
             value: "”_blank”",
             loc: {
               start: { line: 1, column: 10 },

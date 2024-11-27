@@ -19,6 +19,7 @@ export default [
   {
     type: TokenTypes.AttributeKey,
     range: [8, 10],
+    isTemplate: false,
     value: "id",
     loc: {
       start: {
@@ -64,6 +65,7 @@ export default [
   {
     type: TokenTypes.AttributeValue,
     value: "foo",
+    isTemplate: false,
     range: [12, 15],
     loc: {
       start: {
@@ -94,6 +96,7 @@ export default [
   {
     type: TokenTypes.AttributeKey,
     value: "style",
+    isTemplate: false,
     range: [20, 25],
     loc: {
       start: {
@@ -138,6 +141,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
+    isTemplate: false,
     value: "bar",
     range: [27, 30],
     loc: {
@@ -168,6 +172,7 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
+    isTemplate: false,
     value: "bool",
     range: [35, 39],
     loc: {
@@ -198,6 +203,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\r\n",
     range: [42, 44],
     loc: {
@@ -228,6 +234,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\r\n",
     range: [50, 52],
     loc: {

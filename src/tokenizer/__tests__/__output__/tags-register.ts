@@ -33,6 +33,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [5, 6],
     loc: {
@@ -63,6 +64,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\n",
     range: [12, 14],
     loc: {
@@ -123,6 +125,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\n",
     range: [25, 27],
     loc: {
@@ -168,6 +171,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [33, 34],
     loc: {
@@ -198,6 +202,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\n",
     range: [41, 43],
     loc: {
@@ -258,6 +263,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\n",
     range: [56, 58],
     loc: {
@@ -318,6 +324,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [75, 76],
     loc: {
@@ -363,6 +370,7 @@ export default [
   },
   {
     type: TokenTypes.ScriptTagContent,
+    isTemplate: false,
     value: "\n",
     range: [84, 85],
     loc: {
@@ -393,6 +401,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [94, 95],
     loc: {
@@ -453,6 +462,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [112, 113],
     loc: {
@@ -498,6 +508,7 @@ export default [
   },
   {
     type: TokenTypes.ScriptTagContent,
+    isTemplate: false,
     value: "\n",
     range: [121, 122],
     loc: {
@@ -528,6 +539,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n\n",
     range: [131, 133],
     loc: {
@@ -588,6 +600,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [148, 149],
     loc: {
@@ -633,6 +646,7 @@ export default [
   },
   {
     type: TokenTypes.StyleTagContent,
+    isTemplate: false,
     value: "\n",
     range: [156, 157],
     loc: {
@@ -663,6 +677,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [165, 166],
     loc: {
@@ -723,6 +738,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [181, 182],
     loc: {
@@ -783,6 +799,7 @@ export default [
   },
   {
     type: TokenTypes.Text,
+    isTemplate: false,
     value: "\n",
     range: [197, 198],
     loc: {

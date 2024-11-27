@@ -34,6 +34,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n\n",
+    isTemplate: false,
     range: [10, 12],
     loc: {
       start: {
@@ -79,6 +80,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n\n",
+    isTemplate: false,
     range: [22, 24],
     loc: {
       start: {
@@ -214,6 +216,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n\n",
+    isTemplate: false,
     range: [66, 68],
     loc: {
       start: {
@@ -289,6 +292,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n\n",
+    isTemplate: false,
     range: [90, 92],
     loc: {
       start: {
@@ -454,6 +458,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n\n",
+    isTemplate: false,
     range: [193, 195],
     loc: {
       start: {
@@ -619,6 +624,7 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n",
+    isTemplate: false,
     range: [303, 304],
     loc: {
       start: {

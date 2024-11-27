@@ -54,7 +54,8 @@ function handleScriptContent(
   state: ConstructTreeState<ContextualScriptTagNode>,
   token: AnyToken
 ) {
-  state.currentNode.value = createNodeFrom(token) as ScriptTagContentNode;
+  const node = createNodeFrom(token) as ScriptTagContentNode;
+  state.currentNode.children.push(node);
   updateNodeEnd(state.currentNode, token);
 
   state.caretPosition++;

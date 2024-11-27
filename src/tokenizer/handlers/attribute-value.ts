@@ -2,7 +2,7 @@ import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenLocation, isWhitespace } from "../../utils";
 import type { TokenizerState, Range } from "../../types";
 
-export function parse(chars: string, state: TokenizerState) {
+export function parse(chars: string, state: TokenizerState, charIndex: number) {
   if (chars === '"' || chars === "'") {
     return parseWrapper(state);
   }
@@ -11,7 +11,7 @@ export function parse(chars: string, state: TokenizerState) {
     return parseTagEnd(state);
   }
 
-  if (!isWhitespace(chars)) {
+  if (!isWhitespace(chars) || state.getTemplateRangeAt(charIndex)) {
     return parseBare(state);
   }
 

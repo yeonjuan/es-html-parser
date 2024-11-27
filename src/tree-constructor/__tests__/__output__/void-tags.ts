@@ -52,6 +52,7 @@ export default {
     },
     {
       type: "Text",
+      isTemplate: false,
       value: "\n\n",
       loc: {
         start: {

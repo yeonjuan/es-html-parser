@@ -33,7 +33,7 @@ function parseTagEnd(state: TokenizerState) {
 }
 
 function parseNoneWhitespace(state: TokenizerState) {
-  state.accumulatedContent = state.decisionBuffer;
+  state.accumulatedContent.replace(state.decisionBuffer);
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.AttributeKey;
   state.pointer.next();

@@ -34,7 +34,8 @@ export class CharsBuffer {
   }
 
   public value() {
-    return this.charsBuffer.map((chars) => chars.value).join("");
+    const v = this.charsBuffer.map((chars) => chars.value).join("");
+    return v;
   }
 
   public last(): Chars | undefined {
@@ -51,5 +52,9 @@ export class CharsBuffer {
 
   public removeFirst(): void {
     this.charsBuffer.splice(0, 1);
+  }
+
+  public replace(other: CharsBuffer) {
+    this.charsBuffer = [...other.charsBuffer];
   }
 }

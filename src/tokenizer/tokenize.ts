@@ -48,12 +48,12 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.CommentClose]: noop,
 };
 
-function tokenizeChars(chars: string, state: TokenizerState) {
-  while (state.pointer.index < chars.length) {
+function tokenizeChars(state: TokenizerState) {
+  while (state.pointer.index < state.sourceCode.source.length) {
     const handler = contextHandlers[state.currentContext];
     state.decisionBuffer.concat(
       new Chars(
-        chars[state.pointer.index],
+        state.sourceCode.source[state.pointer.index],
         [state.pointer.index, state.pointer.index + 1],
         false
       )
@@ -92,9 +92,7 @@ export function tokenize(
     },
   };
 
-  const chars = state.decisionBuffer + source;
-
-  tokenizeChars(chars, state);
+  tokenizeChars(state);
 
   return { state, tokens };
 }

@@ -68,7 +68,7 @@ function parseOpeningCornerBraceWithText(state: TokenizerState) {
   if (state.accumulatedContent.length() !== 0) {
     state.tokens.push(generateTextToken(state));
   }
-  state.accumulatedContent = state.decisionBuffer;
+  state.accumulatedContent.replace(state.decisionBuffer);
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.OpenTagStart;
   state.pointer.next();
@@ -78,7 +78,7 @@ function parseOpeningCornerBraceWithSlash(state: TokenizerState) {
   if (state.accumulatedContent.length() !== 0) {
     state.tokens.push(generateTextToken(state));
   }
-  state.accumulatedContent = state.decisionBuffer;
+  state.accumulatedContent.replace(state.decisionBuffer);
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.CloseTag;
   state.pointer.next();
@@ -126,7 +126,7 @@ function parseDoctypeOpen(state: TokenizerState) {
     state.tokens.push(generateTextToken(state));
   }
 
-  state.accumulatedContent = state.decisionBuffer;
+  state.accumulatedContent.replace(state.decisionBuffer);
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.DoctypeOpen;
   state.pointer.next();

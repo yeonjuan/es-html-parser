@@ -22,11 +22,11 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
 }
 
 function parseWrapper(state: TokenizerState) {
-  const wrapper = state.decisionBuffer;
+  const wrapper = state.decisionBuffer.value();
   const range: Range = [state.pointer.index, state.pointer.index + 1];
   state.tokens.push({
     type: TokenTypes.AttributeValueWrapperStart,
-    value: wrapper.value(),
+    value: wrapper,
     range,
     loc: state.sourceCode.getLocationOf(range),
   });
@@ -35,13 +35,13 @@ function parseWrapper(state: TokenizerState) {
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.AttributeValueWrapped;
   state.contextParams[TokenizerContextTypes.AttributeValueWrapped] = {
-    wrapper: wrapper.value(),
+    wrapper: wrapper,
   };
   state.pointer.next();
 }
 
 function parseBare(state: TokenizerState) {
-  state.accumulatedContent = state.decisionBuffer;
+  state.accumulatedContent.replace(state.decisionBuffer);
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.AttributeValueBare;
   state.pointer.next();

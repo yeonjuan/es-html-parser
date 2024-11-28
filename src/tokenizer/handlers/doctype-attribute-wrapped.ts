@@ -12,7 +12,7 @@ export function parse(chars: string, state: TokenizerState) {
 
   state.accumulatedContent += state.decisionBuffer;
   state.decisionBuffer = "";
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseWrapper(state: TokenizerState) {
@@ -38,7 +38,7 @@ function parseWrapper(state: TokenizerState) {
   state.accumulatedContent = "";
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.DoctypeAttributes;
-  state.caretPosition++;
+  state.pointer.next();
 
   state.contextParams[TokenizerContextTypes.DoctypeAttributeWrapped] =
     undefined;

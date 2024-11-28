@@ -15,5 +15,5 @@ export function parse(chars: string, state: TokenizerState) {
   state.accumulatedContent = "";
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.Data;
-  state.caretPosition++;
+  state.pointer.next();
 }

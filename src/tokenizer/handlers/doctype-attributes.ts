@@ -16,14 +16,14 @@ export function parse(chars: string, state: TokenizerState) {
   }
 
   state.decisionBuffer = "";
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseWrapper(state: TokenizerState) {
   const wrapper = state.decisionBuffer;
   const range: Range = [
-    state.caretPosition,
-    state.caretPosition + wrapper.length,
+    state.pointer.index,
+    state.pointer.index + wrapper.length,
   ];
   const loc = calculateTokenLocation(state.source, range);
   state.tokens.push({
@@ -39,14 +39,14 @@ function parseWrapper(state: TokenizerState) {
   state.contextParams[TokenizerContextTypes.DoctypeAttributeWrapped] = {
     wrapper,
   };
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseBare(state: TokenizerState) {
   state.accumulatedContent = state.decisionBuffer;
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.DoctypeAttributeBare;
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseClosingCornerBrace(state: TokenizerState) {

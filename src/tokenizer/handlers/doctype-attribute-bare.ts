@@ -9,7 +9,7 @@ export function parse(chars: string, state: TokenizerState) {
 
   state.accumulatedContent += state.decisionBuffer;
   state.decisionBuffer = "";
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseAttributeEnd(state: TokenizerState) {

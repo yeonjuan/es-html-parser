@@ -23,7 +23,7 @@ export function parse(chars: string, state: TokenizerState) {
 
   state.accumulatedContent += state.decisionBuffer;
   state.decisionBuffer = "";
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseWhitespace(state: TokenizerState) {
@@ -41,7 +41,7 @@ function parseWhitespace(state: TokenizerState) {
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.Attributes;
   state.contextParams[TokenizerContextTypes.Attributes] = { tagName };
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseTagEnd(state: TokenizerState) {

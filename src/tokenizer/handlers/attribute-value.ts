@@ -16,12 +16,12 @@ export function parse(chars: string, state: TokenizerState) {
   }
 
   state.decisionBuffer = "";
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseWrapper(state: TokenizerState) {
   const wrapper = state.decisionBuffer;
-  const range: Range = [state.caretPosition, state.caretPosition + 1];
+  const range: Range = [state.pointer.index, state.pointer.index + 1];
   const loc = calculateTokenLocation(state.source, range);
   state.tokens.push({
     type: TokenTypes.AttributeValueWrapperStart,
@@ -36,14 +36,14 @@ function parseWrapper(state: TokenizerState) {
   state.contextParams[TokenizerContextTypes.AttributeValueWrapped] = {
     wrapper,
   };
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseBare(state: TokenizerState) {
   state.accumulatedContent = state.decisionBuffer;
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.AttributeValueBare;
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseTagEnd(state: TokenizerState) {

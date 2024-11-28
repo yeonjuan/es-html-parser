@@ -12,7 +12,7 @@ export function parse(chars: string, state: TokenizerState) {
   }
 
   state.decisionBuffer = "";
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function generateDoctypeOpenToken(state: TokenizerState): AnyToken {

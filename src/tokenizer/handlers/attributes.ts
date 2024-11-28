@@ -16,7 +16,7 @@ export function parse(chars: string, state: TokenizerState) {
   }
 
   state.decisionBuffer = "";
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseTagEnd(state: TokenizerState) {
@@ -34,7 +34,7 @@ function parseNoneWhitespace(state: TokenizerState) {
   state.accumulatedContent = state.decisionBuffer;
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.AttributeKey;
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseEqual(state: TokenizerState) {
@@ -49,5 +49,5 @@ function parseEqual(state: TokenizerState) {
   state.accumulatedContent = "";
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.AttributeValue;
-  state.caretPosition++;
+  state.pointer.next();
 }

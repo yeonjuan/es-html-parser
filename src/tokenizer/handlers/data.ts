@@ -15,7 +15,7 @@ export function parse(chars: string, state: TokenizerState) {
   }
 
   if (chars === "<" || chars === "<!" || chars === "<!-") {
-    state.caretPosition++;
+    state.pointer.next();
     return;
   }
 
@@ -24,7 +24,7 @@ export function parse(chars: string, state: TokenizerState) {
   }
 
   if (isIncompleteDoctype(chars)) {
-    state.caretPosition++;
+    state.pointer.next();
     return;
   }
 
@@ -33,7 +33,7 @@ export function parse(chars: string, state: TokenizerState) {
   }
   state.accumulatedContent += state.decisionBuffer;
   state.decisionBuffer = "";
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 export function handleContentEnd(state: TokenizerState) {
@@ -68,7 +68,7 @@ function parseOpeningCornerBraceWithText(state: TokenizerState) {
   state.accumulatedContent = state.decisionBuffer;
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.OpenTagStart;
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseOpeningCornerBraceWithSlash(state: TokenizerState) {
@@ -78,7 +78,7 @@ function parseOpeningCornerBraceWithSlash(state: TokenizerState) {
   state.accumulatedContent = state.decisionBuffer;
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.CloseTag;
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function isIncompleteDoctype(chars: string) {
@@ -101,8 +101,8 @@ function parseCommentOpen(state: TokenizerState) {
   }
 
   const range: Range = [
-    state.caretPosition - (COMMENT_START.length - 1),
-    state.caretPosition + 1,
+    state.pointer.index - (COMMENT_START.length - 1),
+    state.pointer.index + 1,
   ];
 
   const loc = calculateTokenLocation(state.source, range);
@@ -117,7 +117,7 @@ function parseCommentOpen(state: TokenizerState) {
   state.accumulatedContent = "";
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.CommentContent;
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseDoctypeOpen(state: TokenizerState) {
@@ -128,5 +128,5 @@ function parseDoctypeOpen(state: TokenizerState) {
   state.accumulatedContent = state.decisionBuffer;
   state.decisionBuffer = "";
   state.currentContext = TokenizerContextTypes.DoctypeOpen;
-  state.caretPosition++;
+  state.pointer.next();
 }

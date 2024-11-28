@@ -21,6 +21,7 @@ import {
   noop,
 } from "./handlers";
 import { TokenizeHandler } from "../types";
+import { CharPointer } from "./pointer";
 
 const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.Data]: data,
@@ -49,17 +50,15 @@ function tokenizeChars(
   state: TokenizerState,
   tokens: AnyToken[]
 ) {
-  let charIndex = state.caretPosition;
-  while (charIndex < chars.length) {
+  while (state.pointer.index < chars.length) {
     const handler = contextHandlers[state.currentContext];
-    state.decisionBuffer += chars[charIndex];
+    state.decisionBuffer += chars[state.pointer.index];
 
     handler.parse(state.decisionBuffer, state, tokens);
-    charIndex = state.caretPosition;
   }
 
   const handler = contextHandlers[state.currentContext];
-  state.caretPosition--;
+  state.pointer.prev();
 
   if (handler.handleContentEnd !== undefined) {
     handler.handleContentEnd(state, tokens);
@@ -71,13 +70,13 @@ export function tokenize(
   tokenAdapter: TokenAdapter
 ): { state: TokenizerState; tokens: AnyToken[] } {
   const tokens: AnyToken[] = [];
-  const state = {
+  const state: TokenizerState = {
     currentContext: TokenizerContextTypes.Data,
     contextParams: {},
     decisionBuffer: "",
     accumulatedContent: "",
-    caretPosition: 0,
     source,
+    pointer: new CharPointer(),
     tokens: {
       push(token: AnyToken) {
         tokens.push({

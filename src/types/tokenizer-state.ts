@@ -1,4 +1,5 @@
 import { TokenizerContextTypes } from "../constants";
+import { CharPointer } from "../tokenizer/pointer";
 import { AnyToken } from "./token";
 
 type ContextParams = {
@@ -21,7 +22,8 @@ export type TokenizerState = {
   contextParams: ContextParams;
   decisionBuffer: string;
   accumulatedContent: string;
-  caretPosition: number;
+  pointer: CharPointer;
+  // caretPosition: number;
   source: string;
   tokens: {
     push(token: AnyToken): void;

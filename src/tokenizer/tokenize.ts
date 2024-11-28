@@ -21,7 +21,10 @@ import {
   noop,
 } from "./handlers";
 import { TokenizeHandler } from "../types";
-import { CharPointer } from "./pointer";
+import { CharPointer } from "./char-pointer";
+import { SourceCode } from "./source-code";
+import { CharsBuffer } from "./chars-buffer";
+import { Chars } from "./chars";
 
 const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.Data]: data,
@@ -45,23 +48,24 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.CommentClose]: noop,
 };
 
-function tokenizeChars(
-  chars: string,
-  state: TokenizerState,
-  tokens: AnyToken[]
-) {
+function tokenizeChars(chars: string, state: TokenizerState) {
   while (state.pointer.index < chars.length) {
     const handler = contextHandlers[state.currentContext];
-    state.decisionBuffer += chars[state.pointer.index];
-
-    handler.parse(state.decisionBuffer, state, tokens);
+    state.decisionBuffer.concat(
+      new Chars(
+        chars[state.pointer.index],
+        [state.pointer.index, state.pointer.index + 1],
+        false
+      )
+    );
+    handler.parse(state.decisionBuffer, state);
   }
 
   const handler = contextHandlers[state.currentContext];
   state.pointer.prev();
 
   if (handler.handleContentEnd !== undefined) {
-    handler.handleContentEnd(state, tokens);
+    handler.handleContentEnd(state);
   }
 }
 
@@ -73,10 +77,10 @@ export function tokenize(
   const state: TokenizerState = {
     currentContext: TokenizerContextTypes.Data,
     contextParams: {},
-    decisionBuffer: "",
-    accumulatedContent: "",
-    source,
+    decisionBuffer: new CharsBuffer(),
+    accumulatedContent: new CharsBuffer(),
     pointer: new CharPointer(),
+    sourceCode: new SourceCode(source),
     tokens: {
       push(token: AnyToken) {
         tokens.push({
@@ -90,7 +94,7 @@ export function tokenize(
 
   const chars = state.decisionBuffer + source;
 
-  tokenizeChars(chars, state, tokens);
+  tokenizeChars(chars, state);
 
   return { state, tokens };
 }

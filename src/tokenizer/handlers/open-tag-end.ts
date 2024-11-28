@@ -1,6 +1,7 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition } from "../../utils";
 import type { TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
 const tokensMap: Record<string, TokenTypes> = {
   script: TokenTypes.OpenScriptTagEnd,
@@ -14,13 +15,13 @@ const contextsMap: Record<string, TokenizerContextTypes> = {
   default: TokenizerContextTypes.Data,
 };
 
-export function parse(chars: string, state: TokenizerState) {
-  if (chars === ">") {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
+  if (chars.value() === ">") {
     return parseClosingCornerBrace(state);
   }
 
-  state.accumulatedContent += state.decisionBuffer;
-  state.decisionBuffer = "";
+  state.accumulatedContent.concatBuffer(state.decisionBuffer);
+  state.decisionBuffer.clear();
   state.pointer.next();
 }
 
@@ -31,13 +32,13 @@ function parseClosingCornerBrace(state: TokenizerState) {
 
   state.tokens.push({
     type: tokensMap[tagName] || tokensMap.default,
-    value: state.accumulatedContent + state.decisionBuffer,
+    value: state.accumulatedContent.value() + state.decisionBuffer.value(),
     range: position.range,
     loc: position.loc,
   });
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext =
     contextsMap[tagName || "default"] || contextsMap["default"];
   state.pointer.next();

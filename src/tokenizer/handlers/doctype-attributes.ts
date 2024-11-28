@@ -1,21 +1,22 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenLocation, isWhitespace } from "../../utils";
+import { isWhitespace } from "../../utils";
 import type { Range, TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
-export function parse(chars: string, state: TokenizerState) {
-  if (chars === '"' || chars === "'") {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
+  if (chars.value() === '"' || chars.value() === "'") {
     return parseWrapper(state);
   }
 
-  if (chars === ">") {
+  if (chars.value() === ">") {
     return parseClosingCornerBrace(state);
   }
 
-  if (!isWhitespace(chars)) {
+  if (!isWhitespace(chars.value())) {
     return parseBare(state);
   }
 
-  state.decisionBuffer = "";
+  state.decisionBuffer.clear();
   state.pointer.next();
 }
 
@@ -23,34 +24,33 @@ function parseWrapper(state: TokenizerState) {
   const wrapper = state.decisionBuffer;
   const range: Range = [
     state.pointer.index,
-    state.pointer.index + wrapper.length,
+    state.pointer.index + wrapper.length(),
   ];
-  const loc = calculateTokenLocation(state.source, range);
   state.tokens.push({
     type: TokenTypes.DoctypeAttributeWrapperStart,
-    value: wrapper,
+    value: wrapper.value(),
     range,
-    loc,
+    loc: state.sourceCode.getLocationOf(range),
   });
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.DoctypeAttributeWrapped;
   state.contextParams[TokenizerContextTypes.DoctypeAttributeWrapped] = {
-    wrapper,
+    wrapper: wrapper.value(),
   };
   state.pointer.next();
 }
 
 function parseBare(state: TokenizerState) {
   state.accumulatedContent = state.decisionBuffer;
-  state.decisionBuffer = "";
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.DoctypeAttributeBare;
   state.pointer.next();
 }
 
 function parseClosingCornerBrace(state: TokenizerState) {
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.DoctypeClose;
 }

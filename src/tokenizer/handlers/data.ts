@@ -1,43 +1,46 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
+import { calculateTokenPosition } from "../../utils";
 import { Range, AnyToken, TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
 const COMMENT_START = "<!--";
 const OPEN_TAG_START_PATTERN = /^<\w/;
 
-export function parse(chars: string, state: TokenizerState) {
-  if (OPEN_TAG_START_PATTERN.test(chars)) {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
+  const value = chars.value();
+  if (OPEN_TAG_START_PATTERN.test(value)) {
     return parseOpeningCornerBraceWithText(state);
   }
 
-  if (chars === "</") {
+  if (value === "</") {
     return parseOpeningCornerBraceWithSlash(state);
   }
 
-  if (chars === "<" || chars === "<!" || chars === "<!-") {
+  if (value === "<" || value === "<!" || value === "<!-") {
     state.pointer.next();
     return;
   }
 
-  if (chars === COMMENT_START) {
+  if (value === COMMENT_START) {
     return parseCommentOpen(state);
   }
 
-  if (isIncompleteDoctype(chars)) {
+  if (isIncompleteDoctype(value)) {
     state.pointer.next();
     return;
   }
 
-  if (chars.toUpperCase() === "<!DOCTYPE") {
+  if (value.toUpperCase() === "<!DOCTYPE") {
     return parseDoctypeOpen(state);
   }
-  state.accumulatedContent += state.decisionBuffer;
-  state.decisionBuffer = "";
+  state.accumulatedContent.concatBuffer(state.decisionBuffer);
+  state.decisionBuffer.clear();
   state.pointer.next();
 }
 
 export function handleContentEnd(state: TokenizerState) {
-  const textContent = state.accumulatedContent + state.decisionBuffer;
+  const textContent =
+    state.accumulatedContent.value() + state.decisionBuffer.value();
 
   if (textContent.length !== 0) {
     const position = calculateTokenPosition(state, { keepBuffer: false });
@@ -55,28 +58,28 @@ function generateTextToken(state: TokenizerState): AnyToken {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   return {
     type: TokenTypes.Text,
-    value: state.accumulatedContent,
+    value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
   };
 }
 
 function parseOpeningCornerBraceWithText(state: TokenizerState) {
-  if (state.accumulatedContent.length !== 0) {
+  if (state.accumulatedContent.length() !== 0) {
     state.tokens.push(generateTextToken(state));
   }
   state.accumulatedContent = state.decisionBuffer;
-  state.decisionBuffer = "";
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.OpenTagStart;
   state.pointer.next();
 }
 
 function parseOpeningCornerBraceWithSlash(state: TokenizerState) {
-  if (state.accumulatedContent.length !== 0) {
+  if (state.accumulatedContent.length() !== 0) {
     state.tokens.push(generateTextToken(state));
   }
   state.accumulatedContent = state.decisionBuffer;
-  state.decisionBuffer = "";
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.CloseTag;
   state.pointer.next();
 }
@@ -96,7 +99,7 @@ function isIncompleteDoctype(chars: string) {
 }
 
 function parseCommentOpen(state: TokenizerState) {
-  if (state.accumulatedContent.length !== 0) {
+  if (state.accumulatedContent.length() !== 0) {
     state.tokens.push(generateTextToken(state));
   }
 
@@ -105,28 +108,26 @@ function parseCommentOpen(state: TokenizerState) {
     state.pointer.index + 1,
   ];
 
-  const loc = calculateTokenLocation(state.source, range);
-
   state.tokens.push({
     type: TokenTypes.CommentOpen,
-    value: state.decisionBuffer,
+    value: state.decisionBuffer.value(),
     range: range,
-    loc,
+    loc: state.sourceCode.getLocationOf(range),
   });
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.CommentContent;
   state.pointer.next();
 }
 
 function parseDoctypeOpen(state: TokenizerState) {
-  if (state.accumulatedContent.length !== 0) {
+  if (state.accumulatedContent.length() !== 0) {
     state.tokens.push(generateTextToken(state));
   }
 
   state.accumulatedContent = state.decisionBuffer;
-  state.decisionBuffer = "";
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.DoctypeOpen;
   state.pointer.next();
 }

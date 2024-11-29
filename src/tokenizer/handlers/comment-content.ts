@@ -8,7 +8,7 @@ const COMMENT_END = "-->";
 export function parse(chars: CharsBuffer, state: TokenizerState) {
   const value = chars.value();
   if (value === "-" || value === "--") {
-    state.pointer.next();
+    state.sourceCode.next();
     return;
   }
 
@@ -18,7 +18,7 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
 
   state.accumulatedContent.concatBuffer(state.decisionBuffer);
   state.decisionBuffer.clear();
-  state.pointer.next();
+  state.sourceCode.next();
 }
 
 function parseCommentClose(state: TokenizerState) {
@@ -45,5 +45,5 @@ function parseCommentClose(state: TokenizerState) {
   state.accumulatedContent.clear();
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.Data;
-  state.pointer.next();
+  state.sourceCode.next();
 }

@@ -14,7 +14,7 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
   }
 
   state.decisionBuffer.clear();
-  state.pointer.next();
+  state.sourceCode.next();
 }
 
 function generateDoctypeOpenToken(state: TokenizerState): AnyToken {

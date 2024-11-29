@@ -22,7 +22,7 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
 
   state.accumulatedContent.concatBuffer(state.decisionBuffer);
   state.decisionBuffer.clear();
-  state.pointer.next();
+  state.sourceCode.next();
 }
 
 function parseClosingCornerBrace(state: TokenizerState) {
@@ -41,7 +41,7 @@ function parseClosingCornerBrace(state: TokenizerState) {
   state.decisionBuffer.clear();
   state.currentContext =
     contextsMap[tagName || "default"] || contextsMap["default"];
-  state.pointer.next();
+  state.sourceCode.next();
 
   state.contextParams[TokenizerContextTypes.OpenTagEnd] = undefined;
 }

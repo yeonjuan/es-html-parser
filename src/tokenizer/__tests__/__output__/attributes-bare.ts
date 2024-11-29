@@ -30,6 +30,7 @@ export default [
         column: 8,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -60,6 +61,7 @@ export default [
         column: 16,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeKey,
@@ -75,6 +77,7 @@ export default [
         column: 29,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -105,6 +108,7 @@ export default [
         column: 37,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagEnd,
@@ -150,6 +154,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -180,6 +185,7 @@ export default [
         column: 10,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -210,6 +216,7 @@ export default [
         column: 27,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagEnd,
@@ -240,6 +247,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -270,6 +278,7 @@ export default [
         column: 21,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -300,6 +309,7 @@ export default [
         column: 26,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeKey,
@@ -315,6 +325,7 @@ export default [
         column: 12,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -345,6 +356,7 @@ export default [
         column: 19,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagEnd,
@@ -375,6 +387,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -405,6 +418,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -435,5 +449,6 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
 ];

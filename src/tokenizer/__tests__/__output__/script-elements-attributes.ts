@@ -1,6 +1,7 @@
 import { TokenTypes } from "../../../constants";
+import { AnyToken } from "../../../types";
 
-export default [
+const OUTPUT: AnyToken[] = [
   {
     type: TokenTypes.OpenTagStart,
     value: "<div",
@@ -45,6 +46,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -75,6 +77,7 @@ export default [
         column: 14,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -120,6 +123,7 @@ export default [
         column: 31,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -150,6 +154,7 @@ export default [
         column: 44,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -195,6 +200,7 @@ export default [
         column: 54,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -240,6 +246,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseScriptTag,
@@ -270,6 +277,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -300,6 +308,7 @@ export default [
         column: 8,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -345,6 +354,7 @@ export default [
         column: 25,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -375,6 +385,7 @@ export default [
         column: 9,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenScriptTagEnd,
@@ -405,6 +416,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseScriptTag,
@@ -435,6 +447,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -465,6 +478,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -495,6 +509,7 @@ export default [
         column: 13,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeKey,
@@ -510,6 +525,7 @@ export default [
         column: 18,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -555,6 +571,7 @@ export default [
         column: 35,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -600,6 +617,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseScriptTag,
@@ -630,5 +648,8 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
 ];
+
+export default OUTPUT;

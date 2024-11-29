@@ -1,5 +1,5 @@
 import { TokenizerContextTypes } from "../constants";
-import { AnyToken, TokenAdapter, TokenizerState } from "../types";
+import { AnyToken, Range, TokenAdapter, TokenizerState } from "../types";
 import {
   attributeKey,
   attributeValueBare,
@@ -21,10 +21,8 @@ import {
   noop,
 } from "./handlers";
 import { TokenizeHandler } from "../types";
-import { CharPointer } from "./char-pointer";
 import { SourceCode } from "./source-code";
 import { CharsBuffer } from "./chars-buffer";
-import { Chars } from "./chars";
 
 const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.Data]: data,
@@ -49,20 +47,14 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
 };
 
 function tokenizeChars(state: TokenizerState) {
-  while (state.pointer.index < state.sourceCode.source.length) {
+  while (!state.sourceCode.isEof()) {
     const handler = contextHandlers[state.currentContext];
-    state.decisionBuffer.concat(
-      new Chars(
-        state.sourceCode.source[state.pointer.index],
-        [state.pointer.index, state.pointer.index + 1],
-        false
-      )
-    );
+    state.decisionBuffer.concat(state.sourceCode.current());
     handler.parse(state.decisionBuffer, state);
   }
 
   const handler = contextHandlers[state.currentContext];
-  state.pointer.prev();
+  state.sourceCode.prev();
 
   if (handler.handleContentEnd !== undefined) {
     handler.handleContentEnd(state);
@@ -71,16 +63,18 @@ function tokenizeChars(state: TokenizerState) {
 
 export function tokenize(
   source = "",
-  tokenAdapter: TokenAdapter
+  tokenAdapter: TokenAdapter,
+  templateRanges?: Range[]
 ): { state: TokenizerState; tokens: AnyToken[] } {
   const tokens: AnyToken[] = [];
   const state: TokenizerState = {
     currentContext: TokenizerContextTypes.Data,
     contextParams: {},
+    mode: templateRanges ? "template" : "default",
+    templateRanges: templateRanges || [],
     decisionBuffer: new CharsBuffer(),
     accumulatedContent: new CharsBuffer(),
-    pointer: new CharPointer(),
-    sourceCode: new SourceCode(source),
+    sourceCode: new SourceCode(source, templateRanges || []),
     tokens: {
       push(token: AnyToken) {
         tokens.push({

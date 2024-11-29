@@ -1,6 +1,7 @@
 import { TokenTypes } from "../../../constants";
+import { AnyToken } from "../../../types";
 
-export default [
+const OUTPUT: AnyToken[] = [
   {
     type: TokenTypes.OpenTagStart,
     value: "<div",
@@ -45,6 +46,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -75,6 +77,7 @@ export default [
         column: 13,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -120,6 +123,7 @@ export default [
         column: 25,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -150,6 +154,7 @@ export default [
         column: 36,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -195,6 +200,7 @@ export default [
         column: 48,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -240,6 +246,7 @@ export default [
         column: 4,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -285,6 +292,7 @@ export default [
         column: 6,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -315,6 +323,7 @@ export default [
         column: 19,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -360,6 +369,7 @@ export default [
         column: 33,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -390,6 +400,7 @@ export default [
         column: 19,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -435,6 +446,7 @@ export default [
         column: 37,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -480,6 +492,7 @@ export default [
         column: 6,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -510,6 +523,7 @@ export default [
         column: 4,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -540,6 +554,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -570,6 +585,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -600,5 +616,8 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
 ];
+
+export default OUTPUT;

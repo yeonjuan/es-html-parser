@@ -14,7 +14,6 @@ import {
   ContextualStyleTagNode,
   ContextualDoctypeNode,
   TextNode,
-  TemplatableToken,
   TemplatesContainerToken,
 } from "../../types";
 import {

@@ -16,5 +16,5 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
   state.accumulatedContent.clear();
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.Data;
-  state.pointer.next();
+  state.sourceCode.next();
 }

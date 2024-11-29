@@ -1,6 +1,7 @@
 import { TokenTypes } from "../../../constants";
+import { AnyToken } from "../../../types";
 
-export default [
+const OUTPUT: AnyToken[] = [
   {
     type: TokenTypes.OpenTagStart,
     range: [0, 4],
@@ -30,6 +31,7 @@ export default [
         column: 4,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -75,6 +77,7 @@ export default [
         column: 9,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -105,6 +108,7 @@ export default [
         column: 7,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -150,6 +154,7 @@ export default [
         column: 12,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -180,6 +185,7 @@ export default [
         column: 6,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagEnd,
@@ -210,6 +216,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -240,5 +247,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
 ];
+export default OUTPUT;

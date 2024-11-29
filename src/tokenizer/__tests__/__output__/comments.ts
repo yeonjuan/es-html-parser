@@ -1,6 +1,7 @@
 import { TokenTypes } from "../../../constants";
+import { AnyToken } from "../../../types";
 
-export default [
+const OUTPUT: AnyToken[] = [
   {
     type: TokenTypes.CommentOpen,
     value: "<!--",
@@ -30,6 +31,7 @@ export default [
         column: 18,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -60,6 +62,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -105,6 +108,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -150,6 +154,7 @@ export default [
         column: 4,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CommentOpen,
@@ -180,6 +185,7 @@ export default [
         column: 19,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -210,6 +216,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -240,6 +247,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CommentOpen,
@@ -270,6 +278,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -300,6 +309,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -330,6 +340,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CommentOpen,
@@ -360,6 +371,7 @@ export default [
         column: 8,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -390,6 +402,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CommentOpen,
@@ -420,6 +433,7 @@ export default [
         column: 34,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -450,5 +464,8 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
 ];
+
+export default OUTPUT;

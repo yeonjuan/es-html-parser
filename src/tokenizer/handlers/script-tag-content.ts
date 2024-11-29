@@ -14,7 +14,7 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
     chars.value() === "</" ||
     INCOMPLETE_CLOSING_TAG_PATTERN.test(chars.value())
   ) {
-    state.pointer.next();
+    state.sourceCode.next();
     return;
   }
 
@@ -24,7 +24,7 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
 
   state.accumulatedContent.concatBuffer(state.decisionBuffer);
   state.decisionBuffer.clear();
-  state.pointer.next();
+  state.sourceCode.next();
 }
 
 function parseClosingScriptTag(state: TokenizerState) {
@@ -40,8 +40,8 @@ function parseClosingScriptTag(state: TokenizerState) {
   }
 
   const range: Range = [
-    state.pointer.index - (state.decisionBuffer.length() - 1),
-    state.pointer.index + 1,
+    state.sourceCode.index() - (state.decisionBuffer.length() - 1),
+    state.sourceCode.index() + 1,
   ];
 
   state.tokens.push({
@@ -54,5 +54,5 @@ function parseClosingScriptTag(state: TokenizerState) {
   state.accumulatedContent.clear();
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.Data;
-  state.pointer.next();
+  state.sourceCode.next();
 }

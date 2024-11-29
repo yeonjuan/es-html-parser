@@ -11,7 +11,7 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
 
   state.accumulatedContent.concatBuffer(state.decisionBuffer);
   state.decisionBuffer.clear();
-  state.pointer.next();
+  state.sourceCode.next();
 }
 
 function isKeyBreak(chars: CharsBuffer): boolean {
@@ -27,7 +27,16 @@ function parseKeyEnd(state: TokenizerState) {
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
-    templates: [],
+    templates:
+      state.mode === "template"
+        ? state.accumulatedContent.getTemplates().map((chars) => ({
+            type: TokenTypes.AttributeKey,
+            range: chars.range,
+            loc: state.sourceCode.getLocationOf(chars.range),
+            isTemplate: chars.isTemplate,
+            value: chars.value,
+          }))
+        : [],
   });
 
   state.accumulatedContent.clear();

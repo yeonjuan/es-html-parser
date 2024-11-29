@@ -24,7 +24,7 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
 
   state.accumulatedContent.concatBuffer(state.decisionBuffer);
   state.decisionBuffer.clear();
-  state.pointer.next();
+  state.sourceCode.next();
 }
 
 function parseWhitespace(state: TokenizerState) {
@@ -42,7 +42,7 @@ function parseWhitespace(state: TokenizerState) {
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.Attributes;
   state.contextParams[TokenizerContextTypes.Attributes] = { tagName };
-  state.pointer.next();
+  state.sourceCode.next();
 }
 
 function parseTagEnd(state: TokenizerState) {

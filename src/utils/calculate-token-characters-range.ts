@@ -5,16 +5,16 @@ export function calculateTokenCharactersRange(
   { keepBuffer }: { keepBuffer: boolean }
 ): Range {
   const startPosition =
-    state.pointer.index -
+    state.sourceCode.index() -
     (state.accumulatedContent.length() - 1) -
     state.decisionBuffer.length();
 
   let endPosition;
 
   if (!keepBuffer) {
-    endPosition = state.pointer.index - state.decisionBuffer.length();
+    endPosition = state.sourceCode.index() - state.decisionBuffer.length();
   } else {
-    endPosition = state.pointer.index;
+    endPosition = state.sourceCode.index();
   }
 
   return [startPosition, endPosition + 1];

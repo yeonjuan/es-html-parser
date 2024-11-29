@@ -4,3 +4,4 @@ yarn.lock
 dist
 website
 .yarn
+__file_snapshots__

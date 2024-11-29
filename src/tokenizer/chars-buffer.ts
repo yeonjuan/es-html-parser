@@ -23,6 +23,14 @@ export class CharsBuffer {
     this.charsBuffer.push(...buffer.charsBuffer);
   }
 
+  public hasTemplate() {
+    return this.charsBuffer.some((char) => char.isTemplate);
+  }
+
+  public getTemplates() {
+    return [...this.charsBuffer];
+  }
+
   public length(): number {
     return this.charsBuffer
       .map((chars) => chars.length())

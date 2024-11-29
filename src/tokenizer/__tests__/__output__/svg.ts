@@ -1,6 +1,7 @@
 import { TokenTypes } from "../../../constants";
+import { AnyToken } from "../../../types";
 
-export default [
+const OUTPUT: AnyToken[] = [
   {
     type: TokenTypes.OpenTagStart,
     value: "<svg",
@@ -30,6 +31,7 @@ export default [
         line: 1,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -75,6 +77,7 @@ export default [
         line: 1,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -152,3 +155,5 @@ export default [
     },
   },
 ];
+
+export default OUTPUT;

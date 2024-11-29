@@ -11,7 +11,7 @@ export function parse(chars: CharsBuffer, state: TokenizerState) {
 
   state.accumulatedContent.concatBuffer(state.decisionBuffer);
   state.decisionBuffer.clear();
-  state.pointer.next();
+  state.sourceCode.next();
 }
 
 function parseClosingCornerBrace(state: TokenizerState) {
@@ -27,5 +27,5 @@ function parseClosingCornerBrace(state: TokenizerState) {
   state.accumulatedContent.clear();
   state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.Data;
-  state.pointer.next();
+  state.sourceCode.next();
 }

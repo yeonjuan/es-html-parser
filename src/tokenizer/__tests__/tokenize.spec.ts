@@ -25,7 +25,7 @@ import TEMPLATE_ATTRIBUTES_VALUE_BARE from "./__output__/templates-attributes-va
 import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED from "./__output__/templates-attributes-value-wrapped";
 import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED_2 from "./__output__/templates-attributes-value-wrapped-2";
 import TEMPLATE_DATA from "./__output__/templates-data";
-
+import TEMPLATE_COMMENT from "./__output__/templates-comment";
 import { defaultTokenAdapter } from "../../token-adapter";
 import { Range } from "../../types";
 
@@ -125,6 +125,13 @@ describe("tokenize", () => {
       TEMPLATE_DATA,
       null,
       [[5, 16]] as Range[],
+    ],
+    [
+      "Templates Comment",
+      "templates-comment.html",
+      TEMPLATE_COMMENT,
+      null,
+      [[4, 14]] as Range[],
     ],
   ])(
     "%s",

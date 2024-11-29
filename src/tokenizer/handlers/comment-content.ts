@@ -2,6 +2,7 @@ import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition } from "../../utils";
 import type { Range, TokenizerState } from "../../types";
 import { CharsBuffer } from "../chars-buffer";
+import { createTemplates } from "../../utils/create-templates";
 
 const COMMENT_END = "-->";
 
@@ -33,7 +34,7 @@ function parseCommentClose(state: TokenizerState) {
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
-    templates: [],
+    templates: createTemplates(state, TokenTypes.CommentContent),
   });
   state.tokens.push({
     type: TokenTypes.CommentClose,

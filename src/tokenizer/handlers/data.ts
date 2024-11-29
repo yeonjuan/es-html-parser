@@ -51,7 +51,7 @@ export function handleContentEnd(state: TokenizerState) {
       value: textContent,
       range: position.range,
       loc: position.loc,
-      templates: [],
+      templates: createTemplates(state, TokenTypes.Text),
     });
   }
 }

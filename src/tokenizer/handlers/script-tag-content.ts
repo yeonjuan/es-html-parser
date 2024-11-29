@@ -7,6 +7,7 @@ import {
 import { calculateTokenPosition } from "../../utils";
 import { Range, TokenizerState } from "../../types";
 import { CharsBuffer } from "../chars-buffer";
+import { createTemplates } from "../../utils/create-templates";
 
 export function parse(chars: CharsBuffer, state: TokenizerState) {
   if (
@@ -35,7 +36,7 @@ function parseClosingScriptTag(state: TokenizerState) {
       value: state.accumulatedContent.value(),
       range: position.range,
       loc: position.loc,
-      templates: [],
+      templates: createTemplates(state, TokenTypes.ScriptTagContent),
     });
   }
 

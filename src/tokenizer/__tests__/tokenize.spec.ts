@@ -26,6 +26,7 @@ import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED from "./__output__/templates-attributes
 import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED_2 from "./__output__/templates-attributes-value-wrapped-2";
 import TEMPLATE_DATA from "./__output__/templates-data";
 import TEMPLATE_COMMENT from "./__output__/templates-comment";
+import TEMPLATE_SCRIPT_CONTENT from "./__output__/templates-script-content";
 import { defaultTokenAdapter } from "../../token-adapter";
 import { Range } from "../../types";
 
@@ -132,6 +133,13 @@ describe("tokenize", () => {
       TEMPLATE_COMMENT,
       null,
       [[4, 14]] as Range[],
+    ],
+    [
+      "Templates Script Content",
+      "templates-script-content.html",
+      TEMPLATE_SCRIPT_CONTENT,
+      null,
+      [[8, 18]] as Range[],
     ],
   ])(
     "%s",

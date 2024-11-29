@@ -1,18 +1,20 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition, isWhitespace } from "../../utils";
 import { AnyToken, TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
-export function parse(chars: string, state: TokenizerState) {
-  if (isWhitespace(chars)) {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
+  const value = chars.value();
+  if (isWhitespace(value)) {
     return parseWhitespace(state);
   }
 
-  if (chars === ">") {
+  if (value === ">") {
     return parseClosingCornerBrace(state);
   }
 
-  state.decisionBuffer = "";
-  state.caretPosition++;
+  state.decisionBuffer.clear();
+  state.pointer.next();
 }
 
 function generateDoctypeOpenToken(state: TokenizerState): AnyToken {
@@ -20,7 +22,7 @@ function generateDoctypeOpenToken(state: TokenizerState): AnyToken {
 
   return {
     type: TokenTypes.DoctypeOpen,
-    value: state.accumulatedContent,
+    value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
   };
@@ -29,15 +31,15 @@ function generateDoctypeOpenToken(state: TokenizerState): AnyToken {
 function parseWhitespace(state: TokenizerState) {
   state.tokens.push(generateDoctypeOpenToken(state));
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.DoctypeAttributes;
 }
 
 function parseClosingCornerBrace(state: TokenizerState) {
   state.tokens.push(generateDoctypeOpenToken(state));
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.DoctypeClose;
 }

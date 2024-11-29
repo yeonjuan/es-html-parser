@@ -5,58 +5,59 @@ import {
   parseOpenTagName,
 } from "../../utils";
 import type { TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
-const tokensMap = {
+const tokensMap: Record<string, TokenTypes> = {
   script: TokenTypes.OpenScriptTagStart,
   style: TokenTypes.OpenStyleTagStart,
   default: TokenTypes.OpenTagStart,
-} as const;
+};
 
-export function parse(chars: string, state: TokenizerState) {
-  if (chars === ">" || chars === "/") {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
+  if (chars.value() === ">" || chars.value() === "/") {
     return parseTagEnd(state);
   }
 
-  if (isWhitespace(chars)) {
+  if (isWhitespace(chars.value())) {
     return parseWhitespace(state);
   }
 
-  state.accumulatedContent += state.decisionBuffer;
-  state.decisionBuffer = "";
-  state.caretPosition++;
+  state.accumulatedContent.concatBuffer(state.decisionBuffer);
+  state.decisionBuffer.clear();
+  state.pointer.next();
 }
 
 function parseWhitespace(state: TokenizerState) {
-  const tagName = parseOpenTagName(state.accumulatedContent);
+  const tagName = parseOpenTagName(state.accumulatedContent.value());
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
   state.tokens.push({
-    type: tokensMap[tagName as keyof typeof tokensMap] || tokensMap.default,
-    value: state.accumulatedContent,
+    type: tokensMap[tagName] || tokensMap.default,
+    value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
   });
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.Attributes;
   state.contextParams[TokenizerContextTypes.Attributes] = { tagName };
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseTagEnd(state: TokenizerState) {
-  const tagName = parseOpenTagName(state.accumulatedContent);
+  const tagName = parseOpenTagName(state.accumulatedContent.value());
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
   state.tokens.push({
-    type: tokensMap[tagName as keyof typeof tokensMap] || tokensMap.default,
-    value: state.accumulatedContent,
+    type: tokensMap[tagName] || tokensMap.default,
+    value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
   });
 
-  state.decisionBuffer = "";
-  state.accumulatedContent = "";
+  state.decisionBuffer.clear();
+  state.accumulatedContent.clear();
   state.currentContext = TokenizerContextTypes.OpenTagEnd;
   state.contextParams[TokenizerContextTypes.OpenTagEnd] = { tagName };
 }

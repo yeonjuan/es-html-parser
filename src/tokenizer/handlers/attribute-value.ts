@@ -1,53 +1,54 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenLocation, isWhitespace } from "../../utils";
+import { isWhitespace } from "../../utils";
 import type { TokenizerState, Range } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
-export function parse(chars: string, state: TokenizerState, charIndex: number) {
-  if (chars === '"' || chars === "'") {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
+  const value = chars.value();
+  if (value === '"' || value === "'") {
     return parseWrapper(state);
   }
 
-  if (chars === ">" || chars === "/") {
+  if (value === ">" || value === "/") {
     return parseTagEnd(state);
   }
 
-  if (!isWhitespace(chars) || state.getTemplateRangeAt(charIndex)) {
+  if (!isWhitespace(value)) {
     return parseBare(state);
   }
 
-  state.decisionBuffer = "";
-  state.caretPosition++;
+  state.decisionBuffer.clear();
+  state.pointer.next();
 }
 
 function parseWrapper(state: TokenizerState) {
-  const wrapper = state.decisionBuffer;
-  const range: Range = [state.caretPosition, state.caretPosition + 1];
-  const loc = calculateTokenLocation(state.source, range);
+  const wrapper = state.decisionBuffer.value();
+  const range: Range = [state.pointer.index, state.pointer.index + 1];
   state.tokens.push({
     type: TokenTypes.AttributeValueWrapperStart,
     value: wrapper,
     range,
-    loc,
+    loc: state.sourceCode.getLocationOf(range),
   });
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.AttributeValueWrapped;
   state.contextParams[TokenizerContextTypes.AttributeValueWrapped] = {
-    wrapper,
+    wrapper: wrapper,
   };
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseBare(state: TokenizerState) {
-  state.accumulatedContent = state.decisionBuffer;
-  state.decisionBuffer = "";
+  state.accumulatedContent.replace(state.decisionBuffer);
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.AttributeValueBare;
-  state.caretPosition++;
+  state.pointer.next();
 }
 
 function parseTagEnd(state: TokenizerState) {
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.Attributes;
 }

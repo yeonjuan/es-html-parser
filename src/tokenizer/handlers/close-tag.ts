@@ -1,15 +1,17 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition } from "../../utils";
 import type { TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
-export function parse(chars: string, state: TokenizerState) {
-  if (chars === ">") {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
+  const value = chars.value();
+  if (value === ">") {
     return parseClosingCornerBrace(state);
   }
 
-  state.accumulatedContent += state.decisionBuffer;
-  state.decisionBuffer = "";
-  state.caretPosition++;
+  state.accumulatedContent.concatBuffer(state.decisionBuffer);
+  state.decisionBuffer.clear();
+  state.pointer.next();
 }
 
 function parseClosingCornerBrace(state: TokenizerState) {
@@ -17,13 +19,13 @@ function parseClosingCornerBrace(state: TokenizerState) {
 
   state.tokens.push({
     type: TokenTypes.CloseTag,
-    value: state.accumulatedContent + state.decisionBuffer,
+    value: state.accumulatedContent.value() + state.decisionBuffer.value(),
     range: position.range,
     loc: position.loc,
   });
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.Data;
-  state.caretPosition++;
+  state.pointer.next();
 }

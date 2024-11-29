@@ -1,7 +1,10 @@
 import { TokenizerContextTypes } from "../constants";
-import { Range } from "./range";
+import { CharPointer } from "../tokenizer/char-pointer";
+import { CharsBuffer } from "../tokenizer/chars-buffer";
+import { SourceCode } from "../tokenizer/source-code";
 import { AnyToken } from "./token";
-export type ContextParams = {
+
+type ContextParams = {
   [TokenizerContextTypes.AttributeValueWrapped]?: {
     wrapper: string;
   };
@@ -16,18 +19,14 @@ export type ContextParams = {
   };
 };
 
-export interface TokenizerState {
+export type TokenizerState = {
   currentContext: TokenizerContextTypes;
   contextParams: ContextParams;
-  decisionBuffer: string;
-  accumulatedContent: string;
-  caretPosition: number;
-  linePosition: number;
-  source: string;
+  decisionBuffer: CharsBuffer;
+  accumulatedContent: CharsBuffer;
+  pointer: CharPointer;
+  sourceCode: SourceCode;
   tokens: {
     push(token: AnyToken): void;
   };
-
-  consumeTemplateRangeAt(charIndex: number): Range | null;
-  getTemplateRangeAt(charIndex: number): Range | null;
-}
+};

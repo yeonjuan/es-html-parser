@@ -7,7 +7,7 @@ export function calculateTokenPosition(
   options: { keepBuffer: boolean }
 ) {
   const range = calculateTokenCharactersRange(state, options);
-  const loc = calculateTokenLocation(state.source, range);
+  const loc = calculateTokenLocation(state.sourceCode.source, range);
   return {
     range,
     loc,

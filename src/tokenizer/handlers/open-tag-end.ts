@@ -1,27 +1,28 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition } from "../../utils";
 import type { TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
-const tokensMap = {
+const tokensMap: Record<string, TokenTypes> = {
   script: TokenTypes.OpenScriptTagEnd,
   style: TokenTypes.OpenStyleTagEnd,
   default: TokenTypes.OpenTagEnd,
-} as const;
+};
 
-const contextsMap = {
+const contextsMap: Record<string, TokenizerContextTypes> = {
   script: TokenizerContextTypes.ScriptContent,
   style: TokenizerContextTypes.StyleContent,
   default: TokenizerContextTypes.Data,
-} as const;
+};
 
-export function parse(chars: string, state: TokenizerState) {
-  if (chars === ">") {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
+  if (chars.value() === ">") {
     return parseClosingCornerBrace(state);
   }
 
-  state.accumulatedContent += state.decisionBuffer;
-  state.decisionBuffer = "";
-  state.caretPosition++;
+  state.accumulatedContent.concatBuffer(state.decisionBuffer);
+  state.decisionBuffer.clear();
+  state.pointer.next();
 }
 
 function parseClosingCornerBrace(state: TokenizerState) {
@@ -30,18 +31,17 @@ function parseClosingCornerBrace(state: TokenizerState) {
     state.contextParams[TokenizerContextTypes.OpenTagEnd]?.tagName!;
 
   state.tokens.push({
-    type: tokensMap[tagName as keyof typeof tokensMap] || tokensMap.default,
-    value: state.accumulatedContent + state.decisionBuffer,
+    type: tokensMap[tagName] || tokensMap.default,
+    value: state.accumulatedContent.value() + state.decisionBuffer.value(),
     range: position.range,
     loc: position.loc,
   });
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext =
-    contextsMap[(tagName as keyof typeof contextsMap) || "default"] ||
-    contextsMap["default"];
-  state.caretPosition++;
+    contextsMap[tagName || "default"] || contextsMap["default"];
+  state.pointer.next();
 
   state.contextParams[TokenizerContextTypes.OpenTagEnd] = undefined;
 }

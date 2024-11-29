@@ -3,7 +3,6 @@ import { TokenTypes } from "../../../constants";
 export default [
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "opening text\n\n",
     range: [0, 14],
     loc: {
@@ -49,7 +48,6 @@ export default [
   },
   {
     type: TokenTypes.StyleTagContent,
-    isTemplate: false,
     value: "\n  body {\n    background-color: white;\n  }\n",
     range: [21, 64],
     loc: {
@@ -80,7 +78,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n\n",
     range: [72, 74],
     loc: {
@@ -126,7 +123,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n  ",
     range: [79, 82],
     loc: {
@@ -172,7 +168,6 @@ export default [
   },
   {
     type: TokenTypes.StyleTagContent,
-    isTemplate: false,
     value: "\n    body {\n      background-color: red;\n    }\n  ",
     range: [89, 138],
     loc: {
@@ -203,7 +198,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n",
     range: [146, 147],
     loc: {
@@ -234,7 +228,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n\nclosing text\n",
     range: [153, 168],
     loc: {

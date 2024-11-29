@@ -1,67 +1,44 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
+import { calculateTokenPosition } from "../../utils";
 import type { Range, TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
-export function parse(chars: string, state: TokenizerState, charIndex: number) {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
   const wrapperChar =
     state.contextParams[TokenizerContextTypes.AttributeValueWrapped]?.wrapper;
 
-  const range = state.consumeTemplateRangeAt(charIndex);
-  if (range) {
-    return parseTemplate(state, range);
-  }
-
-  if (chars === wrapperChar) {
+  if (chars.value() === wrapperChar) {
     return parseWrapper(state);
   }
 
-  state.accumulatedContent += state.decisionBuffer;
-  state.decisionBuffer = "";
-  state.caretPosition++;
+  state.accumulatedContent.concatBuffer(state.decisionBuffer);
+  state.decisionBuffer.clear();
+  state.pointer.next();
 }
 
 function parseWrapper(state: TokenizerState) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
   const endWrapperPosition = position.range[1];
 
-  if (state.accumulatedContent) {
-    state.tokens.push({
-      type: TokenTypes.AttributeValue,
-      value: state.accumulatedContent,
-      range: position.range,
-      loc: position.loc,
-      isTemplate: false,
-    });
-  }
-
-  const range: Range = [endWrapperPosition, endWrapperPosition + 1];
-  const loc = calculateTokenLocation(state.source, range);
-  state.tokens.push({
-    type: TokenTypes.AttributeValueWrapperEnd,
-    value: state.decisionBuffer,
-    range,
-    loc,
-  });
-
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
-  state.currentContext = TokenizerContextTypes.Attributes;
-  state.caretPosition++;
-
-  state.contextParams[TokenizerContextTypes.AttributeValueWrapped] = undefined;
-}
-
-function parseTemplate(state: TokenizerState, [start, end]: Range) {
-  const value = state.source.slice(start, end);
-  const range: Range = [start, end];
   state.tokens.push({
     type: TokenTypes.AttributeValue,
-    isTemplate: true,
-    value,
-    range,
-    loc: calculateTokenLocation(state.source, range),
+    value: state.accumulatedContent.value(),
+    range: position.range,
+    loc: position.loc,
   });
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
-  state.caretPosition = end;
+
+  const range: Range = [endWrapperPosition, endWrapperPosition + 1];
+  state.tokens.push({
+    type: TokenTypes.AttributeValueWrapperEnd,
+    value: state.decisionBuffer.value(),
+    range,
+    loc: state.sourceCode.getLocationOf(range),
+  });
+
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
+  state.currentContext = TokenizerContextTypes.Attributes;
+  state.pointer.next();
+
+  state.contextParams[TokenizerContextTypes.AttributeValueWrapped] = undefined;
 }

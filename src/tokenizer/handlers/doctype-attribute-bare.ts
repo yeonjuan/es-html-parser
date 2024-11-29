@@ -1,15 +1,16 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition, isWhitespace } from "../../utils";
 import type { TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
-export function parse(chars: string, state: TokenizerState) {
-  if (isWhitespace(chars) || chars === ">") {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
+  if (isWhitespace(chars.value()) || chars.value() === ">") {
     return parseAttributeEnd(state);
   }
 
-  state.accumulatedContent += state.decisionBuffer;
-  state.decisionBuffer = "";
-  state.caretPosition++;
+  state.accumulatedContent.concatBuffer(state.decisionBuffer);
+  state.decisionBuffer.clear();
+  state.pointer.next();
 }
 
 function parseAttributeEnd(state: TokenizerState) {
@@ -17,12 +18,12 @@ function parseAttributeEnd(state: TokenizerState) {
 
   state.tokens.push({
     type: TokenTypes.DoctypeAttributeValue,
-    value: state.accumulatedContent,
+    value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
   });
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.DoctypeAttributes;
 }

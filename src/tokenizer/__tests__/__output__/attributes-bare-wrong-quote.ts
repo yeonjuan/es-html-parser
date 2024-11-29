@@ -18,7 +18,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeKey,
-    isTemplate: false,
     value: "target",
     range: [3, 9],
     loc: {
@@ -49,7 +48,6 @@ export default [
   },
   {
     type: TokenTypes.AttributeValue,
-    isTemplate: false,
     value: "”_blank”",
     range: [10, 18],
     loc: {

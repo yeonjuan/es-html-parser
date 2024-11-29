@@ -33,7 +33,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n  some text\n\n  ",
     range: [7, 23],
     loc: {
@@ -79,7 +78,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n    custom element\n    text\n  ",
     range: [43, 74],
     loc: {
@@ -111,7 +109,6 @@ export default [
   {
     type: TokenTypes.Text,
     value: "\n",
-    isTemplate: false,
     range: [91, 92],
     loc: {
       start: {
@@ -141,7 +138,6 @@ export default [
   },
   {
     type: TokenTypes.Text,
-    isTemplate: false,
     value: "\n",
     range: [99, 100],
     loc: {

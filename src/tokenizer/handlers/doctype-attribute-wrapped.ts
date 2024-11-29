@@ -1,18 +1,19 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenLocation, calculateTokenPosition } from "../../utils";
+import { calculateTokenPosition } from "../../utils";
 import type { Range, TokenizerState } from "../../types";
+import { CharsBuffer } from "../chars-buffer";
 
-export function parse(chars: string, state: TokenizerState) {
+export function parse(chars: CharsBuffer, state: TokenizerState) {
   const wrapperChar =
     state.contextParams[TokenizerContextTypes.DoctypeAttributeWrapped]?.wrapper;
 
-  if (chars === wrapperChar) {
+  if (chars.value() === wrapperChar) {
     return parseWrapper(state);
   }
 
-  state.accumulatedContent += state.decisionBuffer;
-  state.decisionBuffer = "";
-  state.caretPosition++;
+  state.accumulatedContent.concatBuffer(state.decisionBuffer);
+  state.decisionBuffer.clear();
+  state.pointer.next();
 }
 
 function parseWrapper(state: TokenizerState) {
@@ -21,24 +22,23 @@ function parseWrapper(state: TokenizerState) {
 
   state.tokens.push({
     type: TokenTypes.DoctypeAttributeValue,
-    value: state.accumulatedContent,
+    value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
   });
 
   const range: Range = [endWrapperPosition, endWrapperPosition + 1];
-  const loc = calculateTokenLocation(state.source, range);
   state.tokens.push({
     type: TokenTypes.DoctypeAttributeWrapperEnd,
-    value: state.decisionBuffer,
+    value: state.decisionBuffer.value(),
     range,
-    loc,
+    loc: state.sourceCode.getLocationOf(range),
   });
 
-  state.accumulatedContent = "";
-  state.decisionBuffer = "";
+  state.accumulatedContent.clear();
+  state.decisionBuffer.clear();
   state.currentContext = TokenizerContextTypes.DoctypeAttributes;
-  state.caretPosition++;
+  state.pointer.next();
 
   state.contextParams[TokenizerContextTypes.DoctypeAttributeWrapped] =
     undefined;

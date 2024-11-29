@@ -7,10 +7,7 @@ export class SourceCode {
   private charsList: Chars[];
   private charsIndex = 0;
 
-  public constructor(
-    public readonly source: string,
-    templateRanges: Range[]
-  ) {
+  public constructor(public readonly source: string, templateRanges: Range[]) {
     this.charsList = this.createCharsList(templateRanges);
   }
 

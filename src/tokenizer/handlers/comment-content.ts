@@ -33,6 +33,7 @@ function parseCommentClose(state: TokenizerState) {
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
+    templates: [],
   });
   state.tokens.push({
     type: TokenTypes.CommentClose,

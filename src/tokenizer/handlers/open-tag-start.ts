@@ -7,11 +7,11 @@ import {
 import type { TokenizerState } from "../../types";
 import { CharsBuffer } from "../chars-buffer";
 
-const tokensMap: Record<string, TokenTypes> = {
+const tokensMap = {
   script: TokenTypes.OpenScriptTagStart,
   style: TokenTypes.OpenStyleTagStart,
   default: TokenTypes.OpenTagStart,
-};
+} as const;
 
 export function parse(chars: CharsBuffer, state: TokenizerState) {
   if (chars.value() === ">" || chars.value() === "/") {
@@ -32,7 +32,7 @@ function parseWhitespace(state: TokenizerState) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
   state.tokens.push({
-    type: tokensMap[tagName] || tokensMap.default,
+    type: tokensMap[tagName as keyof typeof tokensMap] || tokensMap.default,
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
@@ -50,7 +50,7 @@ function parseTagEnd(state: TokenizerState) {
   const position = calculateTokenPosition(state, { keepBuffer: false });
 
   state.tokens.push({
-    type: tokensMap[tagName] || tokensMap.default,
+    type: tokensMap[tagName as keyof typeof tokensMap] || tokensMap.default,
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,

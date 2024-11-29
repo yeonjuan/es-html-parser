@@ -35,6 +35,7 @@ function parseClosingScriptTag(state: TokenizerState) {
       value: state.accumulatedContent.value(),
       range: position.range,
       loc: position.loc,
+      templates: [],
     });
   }
 

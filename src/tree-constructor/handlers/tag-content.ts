@@ -14,6 +14,8 @@ import {
   ContextualStyleTagNode,
   ContextualDoctypeNode,
   TextNode,
+  TemplatableToken,
+  TemplatesContainerToken,
 } from "../../types";
 import {
   cloneRange,
@@ -119,7 +121,7 @@ function handleDoctypeOpen(
 
 function handleText(
   state: ConstructTreeState<ContextualTagNode | ContextualDocumentNode>,
-  token: Token<TokenTypes.Text>
+  token: TemplatesContainerToken<TokenTypes.Text>
 ) {
   initChildrenIfNone(state.currentNode);
   const textNode = createNodeFrom(token) as TextNode;

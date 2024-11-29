@@ -50,6 +50,7 @@ export function handleContentEnd(state: TokenizerState) {
       value: textContent,
       range: position.range,
       loc: position.loc,
+      templates: [],
     });
   }
 }
@@ -61,6 +62,7 @@ function generateTextToken(state: TokenizerState): AnyToken {
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
+    templates: [],
   };
 }
 

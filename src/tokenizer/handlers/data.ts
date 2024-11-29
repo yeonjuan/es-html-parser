@@ -2,6 +2,7 @@ import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition } from "../../utils";
 import { Range, AnyToken, TokenizerState } from "../../types";
 import { CharsBuffer } from "../chars-buffer";
+import { createTemplates } from "../../utils/create-templates";
 
 const COMMENT_START = "<!--";
 const OPEN_TAG_START_PATTERN = /^<\w/;
@@ -62,7 +63,7 @@ function generateTextToken(state: TokenizerState): AnyToken {
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
-    templates: [],
+    templates: createTemplates(state, TokenTypes.Text),
   };
 }
 

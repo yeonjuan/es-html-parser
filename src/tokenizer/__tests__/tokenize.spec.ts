@@ -24,6 +24,7 @@ import TEMPLATE_ATTRIBUTES_KEY from "./__output__/templates-attributes-key";
 import TEMPLATE_ATTRIBUTES_VALUE_BARE from "./__output__/templates-attributes-value-bare";
 import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED from "./__output__/templates-attributes-value-wrapped";
 import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED_2 from "./__output__/templates-attributes-value-wrapped-2";
+import TEMPLATE_DATA from "./__output__/templates-data";
 
 import { defaultTokenAdapter } from "../../token-adapter";
 import { Range } from "../../types";
@@ -117,6 +118,13 @@ describe("tokenize", () => {
         [16, 22],
         [23, 31],
       ] as Range[],
+    ],
+    [
+      "Templates Data",
+      "templates-data.html",
+      TEMPLATE_DATA,
+      null,
+      [[5, 16]] as Range[],
     ],
   ])(
     "%s",

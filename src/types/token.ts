@@ -9,15 +9,24 @@ export interface Token<T extends TokenTypes> {
   loc: SourceLocation;
 }
 
+export interface TemplatableToken<T extends TokenTypes> extends Token<T> {
+  isTemplate?: boolean;
+}
+
+export interface TemplatesContainerToken<T extends TokenTypes>
+  extends Token<T> {
+  templates: TemplatableToken<T>[];
+}
+
 export type AnyToken =
-  | Token<TokenTypes.Text>
+  | TemplatesContainerToken<TokenTypes.Text>
   | Token<TokenTypes.OpenTagStart>
   | Token<TokenTypes.OpenTagEnd>
   | Token<TokenTypes.CloseTag>
-  | Token<TokenTypes.AttributeKey>
+  | TemplatesContainerToken<TokenTypes.AttributeKey>
   | Token<TokenTypes.AttributeAssignment>
   | Token<TokenTypes.AttributeValueWrapperStart>
-  | Token<TokenTypes.AttributeValue>
+  | TemplatesContainerToken<TokenTypes.AttributeValue>
   | Token<TokenTypes.AttributeValueWrapperEnd>
   | Token<TokenTypes.DoctypeOpen>
   | Token<TokenTypes.DoctypeAttributeValue>
@@ -25,13 +34,13 @@ export type AnyToken =
   | Token<TokenTypes.DoctypeAttributeWrapperEnd>
   | Token<TokenTypes.DoctypeClose>
   | Token<TokenTypes.CommentOpen>
-  | Token<TokenTypes.CommentContent>
+  | TemplatesContainerToken<TokenTypes.CommentContent>
   | Token<TokenTypes.CommentClose>
   | Token<TokenTypes.OpenScriptTagStart>
   | Token<TokenTypes.OpenScriptTagEnd>
-  | Token<TokenTypes.ScriptTagContent>
+  | TemplatesContainerToken<TokenTypes.ScriptTagContent>
   | Token<TokenTypes.CloseScriptTag>
   | Token<TokenTypes.OpenStyleTagStart>
   | Token<TokenTypes.OpenStyleTagEnd>
-  | Token<TokenTypes.StyleTagContent>
+  | TemplatesContainerToken<TokenTypes.StyleTagContent>
   | Token<TokenTypes.CloseStyleTag>;

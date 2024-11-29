@@ -1,6 +1,7 @@
 import { TokenTypes } from "../../../constants";
+import { AnyToken } from "../../../types";
 
-export default [
+const OUTPUT: AnyToken[] = [
   {
     type: TokenTypes.OpenTagStart,
     value: "<img",
@@ -45,6 +46,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -77,3 +79,5 @@ export default [
     },
   },
 ];
+
+export default OUTPUT;

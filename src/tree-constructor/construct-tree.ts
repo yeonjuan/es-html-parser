@@ -45,44 +45,38 @@ const EMPTY_LOC: SourceLocation = {
   },
 };
 
-export function constructTree(
-  tokens: AnyToken[],
-  existingState: ConstructTreeState<any> | undefined
-) {
-  let state = existingState;
+export function constructTree(tokens: AnyToken[]) {
+  const rootContext = {
+    type: ConstructTreeContextTypes.TagContent,
+    parentRef: undefined,
+    content: [],
+  };
+  const lastToken = last(tokens);
+  const firstToken = first(tokens);
+  const range: Range = lastToken ? [0, lastToken.range[1]] : EMPTY_RANGE;
+  const loc = lastToken
+    ? {
+        start: cloneLocation(firstToken.loc).start,
+        end: cloneLocation(lastToken.loc).end,
+      }
+    : EMPTY_LOC;
 
-  if (existingState === undefined) {
-    const rootContext = {
-      type: ConstructTreeContextTypes.TagContent,
-      parentRef: undefined,
-      content: [],
-    };
-    const lastToken = last(tokens);
-    const firstToken = first(tokens);
-    const range: Range = lastToken ? [0, lastToken.range[1]] : EMPTY_RANGE;
-    const loc = lastToken
-      ? {
-          start: cloneLocation(firstToken.loc).start,
-          end: cloneLocation(lastToken.loc).end,
-        }
-      : EMPTY_LOC;
+  loc.start.line = 1;
 
-    loc.start.line = 1;
+  const rootNode: DocumentNode = {
+    type: NodeTypes.Document,
+    range,
+    children: [],
+    loc,
+  };
 
-    const rootNode: DocumentNode = {
-      type: NodeTypes.Document,
-      range,
-      children: [],
-      loc,
-    };
+  const state = {
+    caretPosition: 0,
+    currentContext: rootContext,
+    currentNode: rootNode,
+    rootNode,
+  };
 
-    state = {
-      caretPosition: 0,
-      currentContext: rootContext,
-      currentNode: rootNode,
-      rootNode,
-    };
-  }
   const positionOffset = state!.caretPosition;
   processTokens(tokens, state!, positionOffset);
 

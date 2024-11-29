@@ -1,6 +1,7 @@
 import { TokenTypes } from "../../../constants";
+import { AnyToken } from "../../../types";
 
-export default [
+const OUTPUT: AnyToken[] = [
   {
     type: TokenTypes.DoctypeOpen,
     value: "<!DOCTYPE",
@@ -45,6 +46,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.DoctypeOpen,
@@ -90,6 +92,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.DoctypeOpen,
@@ -225,6 +228,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.DoctypeOpen,
@@ -300,6 +304,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.DoctypeOpen,
@@ -465,6 +470,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.DoctypeOpen,
@@ -630,5 +636,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
 ];
+export default OUTPUT;

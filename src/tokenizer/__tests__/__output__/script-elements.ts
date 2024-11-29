@@ -1,6 +1,7 @@
 import { TokenTypes } from "../../../constants";
+import { AnyToken } from "../../../types";
 
-export default [
+const OUTPUT: AnyToken[] = [
   {
     type: TokenTypes.Text,
     value: "opening text\n\n",
@@ -15,6 +16,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -60,6 +62,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -105,6 +108,7 @@ export default [
         column: 2,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseScriptTag,
@@ -135,6 +139,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -165,5 +170,7 @@ export default [
         column: 0,
       },
     },
+    templates: [],
   },
 ];
+export default OUTPUT;

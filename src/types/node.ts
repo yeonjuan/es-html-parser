@@ -1,5 +1,5 @@
 import { NodeTypes } from "../constants";
-import { SimpleNode } from "./simple-node";
+import { SimpleNode, TemplatesContainerNode } from "./simple-node";
 import { BaseNode } from "./base-node";
 
 export interface DocumentNode extends BaseNode {
@@ -9,7 +9,7 @@ export interface DocumentNode extends BaseNode {
   >;
 }
 
-export type TextNode = SimpleNode<NodeTypes.Text>;
+export type TextNode = TemplatesContainerNode<NodeTypes.Text>;
 
 export interface TagNode extends BaseNode {
   type: NodeTypes.Tag;
@@ -38,9 +38,10 @@ export interface AttributeNode extends BaseNode {
   endWrapper?: AttributeValueWrapperEndNode;
 }
 
-export type AttributeKeyNode = SimpleNode<NodeTypes.AttributeKey>;
+export type AttributeKeyNode = TemplatesContainerNode<NodeTypes.AttributeKey>;
 
-export type AttributeValueNode = SimpleNode<NodeTypes.AttributeValue>;
+export type AttributeValueNode =
+  TemplatesContainerNode<NodeTypes.AttributeValue>;
 
 export type AttributeValueWrapperStartNode =
   SimpleNode<NodeTypes.AttributeValueWrapperStart>;
@@ -62,7 +63,8 @@ export type CloseScriptTagNode = SimpleNode<NodeTypes.CloseScriptTag>;
 
 export type OpenScriptTagEndNode = SimpleNode<NodeTypes.OpenScriptTagEnd>;
 
-export type ScriptTagContentNode = SimpleNode<NodeTypes.ScriptTagContent>;
+export type ScriptTagContentNode =
+  TemplatesContainerNode<NodeTypes.ScriptTagContent>;
 
 export interface StyleTagNode extends BaseNode {
   type: NodeTypes.StyleTag;
@@ -77,7 +79,8 @@ export type OpenStyleTagStartNode = SimpleNode<NodeTypes.OpenStyleTagStart>;
 
 export type OpenStyleTagEndNode = SimpleNode<NodeTypes.OpenStyleTagEnd>;
 
-export type StyleTagContentNode = SimpleNode<NodeTypes.StyleTagContent>;
+export type StyleTagContentNode =
+  TemplatesContainerNode<NodeTypes.StyleTagContent>;
 
 export type CloseStyleTagNode = SimpleNode<NodeTypes.CloseStyleTag>;
 
@@ -92,7 +95,8 @@ export type CommentOpenNode = SimpleNode<NodeTypes.CommentOpen>;
 
 export type CommentCloseNode = SimpleNode<NodeTypes.CommentClose>;
 
-export type CommentContentNode = SimpleNode<NodeTypes.CommentContent>;
+export type CommentContentNode =
+  TemplatesContainerNode<NodeTypes.CommentContent>;
 
 export interface DoctypeNode extends BaseNode {
   type: NodeTypes.Doctype;

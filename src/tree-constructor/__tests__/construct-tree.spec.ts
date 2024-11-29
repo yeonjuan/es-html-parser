@@ -34,6 +34,16 @@ import ATTRIBUTES_MULTILINE_CRLF_INPUT from "../../tokenizer/__tests__/__output_
 
 import ATTRIBUTES_BARE_WRONG_QUOTE_INPUT from "../../tokenizer/__tests__/__output__/attributes-bare-wrong-quote";
 
+import TEMPLATE_ATTRIBUTES_KEY from "../../tokenizer/__tests__/__output__/templates-attributes-key";
+import TEMPLATE_ATTRIBUTES_VALUE_BARE from "../../tokenizer/__tests__/__output__/templates-attributes-value-bare";
+import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED from "../../tokenizer/__tests__/__output__/templates-attributes-value-wrapped";
+import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED_2 from "../../tokenizer/__tests__/__output__/templates-attributes-value-wrapped-2";
+import TEMPLATE_DATA from "../../tokenizer/__tests__/__output__/templates-data";
+import TEMPLATE_COMMENT from "../../tokenizer/__tests__/__output__/templates-comment";
+import TEMPLATE_SCRIPT_CONTENT from "../../tokenizer/__tests__/__output__/templates-script-content";
+import TEMPLATE_STYLE_CONTENT from "../../tokenizer/__tests__/__output__/templates-style-content";
+import TEMPLATE_CONTENT_END from "../../tokenizer/__tests__/__output__/templates-content-end";
+
 import { clearParent } from "../../utils";
 import { toMatchFile } from "jest-file-snapshot";
 
@@ -57,8 +67,20 @@ describe("construct-tree", () => {
     ["Empty", EMPTY_INPUT],
     ["Svg", SVG_INPUT],
     ["Attributes multiline (CRLF)", ATTRIBUTES_MULTILINE_CRLF_INPUT],
+    ["Templates Attributes Key", TEMPLATE_ATTRIBUTES_KEY],
+    ["Templates Attributes Value Bare", TEMPLATE_ATTRIBUTES_VALUE_BARE],
+    ["Templates Attributes Value Wrapped", TEMPLATE_ATTRIBUTES_VALUE_WRAPPED],
+    [
+      "Templates Attributes Value Wrapped 2",
+      TEMPLATE_ATTRIBUTES_VALUE_WRAPPED_2,
+    ],
+    ["Templates Data", TEMPLATE_DATA],
+    ["Templates Comment", TEMPLATE_COMMENT],
+    ["Templates Script Content", TEMPLATE_SCRIPT_CONTENT],
+    ["Templates Style Content", TEMPLATE_STYLE_CONTENT],
+    ["Templates Content End", TEMPLATE_CONTENT_END],
   ])("%s", (name: string, inputTokens: any) => {
-    const { ast } = constructTree(inputTokens, undefined);
+    const { ast } = constructTree(inputTokens);
     expect(JSON.stringify(clearParent(ast), null, 2)).toMatchFile(undefined, {
       fileExtension: ".json",
     });

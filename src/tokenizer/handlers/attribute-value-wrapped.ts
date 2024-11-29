@@ -2,6 +2,7 @@ import { TokenizerContextTypes, TokenTypes } from "../../constants";
 import { calculateTokenPosition } from "../../utils";
 import type { Range, TokenizerState } from "../../types";
 import { CharsBuffer } from "../chars-buffer";
+import { createTemplates } from "../../utils/create-templates";
 
 export function parse(chars: CharsBuffer, state: TokenizerState) {
   const wrapperChar =
@@ -25,7 +26,7 @@ function parseWrapper(state: TokenizerState) {
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
-    templates: [],
+    templates: createTemplates(state, TokenTypes.AttributeValue),
   });
 
   const range: Range = [endWrapperPosition, endWrapperPosition + 1];

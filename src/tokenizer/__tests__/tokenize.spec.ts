@@ -21,6 +21,9 @@ import SVG from "./__output__/svg";
 import ATTRIBUTES_MULTILINE_CRLF from "./__output__/attributes-multiline-crlf";
 import ATTRIBUTES_BARE_WRONG_QUOTE from "./__output__/attributes-bare-wrong-quote";
 import TEMPLATE_ATTRIBUTES_KEY from "./__output__/templates-attributes-key";
+import TEMPLATE_ATTRIBUTES_VALUE_BARE from "./__output__/templates-attributes-value-bare";
+import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED from "./__output__/templates-attributes-value-wrapped";
+import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED_2 from "./__output__/templates-attributes-value-wrapped-2";
 
 import { defaultTokenAdapter } from "../../token-adapter";
 import { Range } from "../../types";
@@ -90,6 +93,30 @@ describe("tokenize", () => {
       TEMPLATE_ATTRIBUTES_KEY,
       null,
       [[5, 11]] as Range[],
+    ],
+    [
+      "Template Attributes Value Bare",
+      "templates-attributes-value-bare.html",
+      TEMPLATE_ATTRIBUTES_VALUE_BARE,
+      null,
+      [[8, 13]] as Range[],
+    ],
+    [
+      "Template Attributes Value Wrapped",
+      "templates-attributes-value-wrapped.html",
+      TEMPLATE_ATTRIBUTES_VALUE_WRAPPED,
+      null,
+      [[9, 14]] as Range[],
+    ],
+    [
+      "Template Attributes Value Wrapped 2",
+      "templates-attributes-value-wrapped-2.html",
+      TEMPLATE_ATTRIBUTES_VALUE_WRAPPED_2,
+      null,
+      [
+        [16, 22],
+        [23, 31],
+      ] as Range[],
     ],
   ])(
     "%s",

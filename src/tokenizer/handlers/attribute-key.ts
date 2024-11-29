@@ -3,6 +3,7 @@ import { TokenTypes } from "../../constants/token-types";
 import { calculateTokenPosition, isWhitespace } from "../../utils";
 import type { TokenizerState } from "../../types";
 import { CharsBuffer } from "../chars-buffer";
+import { createTemplates } from "../../utils/create-templates";
 
 export function parse(chars: CharsBuffer, state: TokenizerState) {
   if (isKeyBreak(chars)) {
@@ -27,16 +28,7 @@ function parseKeyEnd(state: TokenizerState) {
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
-    templates:
-      state.mode === "template"
-        ? state.accumulatedContent.getTemplates().map((chars) => ({
-            type: TokenTypes.AttributeKey,
-            range: chars.range,
-            loc: state.sourceCode.getLocationOf(chars.range),
-            isTemplate: chars.isTemplate,
-            value: chars.value,
-          }))
-        : [],
+    templates: createTemplates(state, TokenTypes.AttributeKey),
   });
 
   state.accumulatedContent.clear();

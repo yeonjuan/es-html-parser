@@ -39,7 +39,8 @@
           "range": [
             5,
             25
-          ]
+          ],
+          "templates": []
         },
         {
           "type": "ScriptTag",
@@ -90,7 +91,8 @@
                 "range": [
                   33,
                   37
-                ]
+                ],
+                "templates": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -126,7 +128,8 @@
                 "range": [
                   39,
                   54
-                ]
+                ],
+                "templates": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -179,7 +182,8 @@
                 "range": [
                   56,
                   67
-                ]
+                ],
+                "templates": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -215,7 +219,8 @@
                 "range": [
                   72,
                   77
-                ]
+                ],
+                "templates": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -289,7 +294,8 @@
             "range": [
               80,
               109
-            ]
+            ],
+            "templates": []
           },
           "close": {
             "type": "CloseScriptTag",
@@ -326,7 +332,8 @@
           "range": [
             118,
             122
-          ]
+          ],
+          "templates": []
         },
         {
           "type": "ScriptTag",
@@ -377,7 +384,8 @@
                 "range": [
                   134,
                   138
-                ]
+                ],
+                "templates": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -413,7 +421,8 @@
                 "range": [
                   140,
                   155
-                ]
+                ],
+                "templates": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -466,7 +475,8 @@
                 "range": [
                   161,
                   166
-                ]
+                ],
+                "templates": []
               }
             }
           ],
@@ -522,7 +532,8 @@
             "range": [
               170,
               218
-            ]
+            ],
+            "templates": []
           },
           "close": {
             "type": "CloseScriptTag",
@@ -559,7 +570,8 @@
           "range": [
             227,
             228
-          ]
+          ],
+          "templates": []
         }
       ],
       "openStart": {
@@ -635,7 +647,8 @@
       "range": [
         234,
         236
-      ]
+      ],
+      "templates": []
     },
     {
       "type": "ScriptTag",
@@ -686,7 +699,8 @@
             "range": [
               244,
               249
-            ]
+            ],
+            "templates": []
           }
         },
         {
@@ -721,7 +735,8 @@
             "range": [
               250,
               254
-            ]
+            ],
+            "templates": []
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -757,7 +772,8 @@
             "range": [
               256,
               271
-            ]
+            ],
+            "templates": []
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",
@@ -831,7 +847,8 @@
         "range": [
           273,
           298
-        ]
+        ],
+        "templates": []
       },
       "close": {
         "type": "CloseScriptTag",
@@ -868,7 +885,8 @@
       "range": [
         307,
         308
-      ]
+      ],
+      "templates": []
     }
   ],
   "loc": {

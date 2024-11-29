@@ -75,7 +75,8 @@
       "range": [
         10,
         12
-      ]
+      ],
+      "templates": []
     },
     {
       "type": "Doctype",
@@ -147,7 +148,8 @@
       "range": [
         22,
         24
-      ]
+      ],
+      "templates": []
     },
     {
       "type": "Doctype",
@@ -362,7 +364,8 @@
       "range": [
         66,
         68
-      ]
+      ],
+      "templates": []
     },
     {
       "type": "Doctype",
@@ -505,7 +508,8 @@
       "range": [
         90,
         92
-      ]
+      ],
+      "templates": []
     },
     {
       "type": "Doctype",
@@ -790,7 +794,8 @@
       "range": [
         193,
         195
-      ]
+      ],
+      "templates": []
     },
     {
       "type": "Doctype",
@@ -1075,7 +1080,8 @@
       "range": [
         303,
         304
-      ]
+      ],
+      "templates": []
     }
   ],
   "loc": {

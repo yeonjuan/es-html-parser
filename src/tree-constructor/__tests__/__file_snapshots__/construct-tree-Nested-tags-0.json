@@ -39,7 +39,8 @@
           "range": [
             5,
             8
-          ]
+          ],
+          "templates": []
         },
         {
           "type": "Tag",
@@ -75,7 +76,8 @@
               "range": [
                 14,
                 34
-              ]
+              ],
+              "templates": []
             },
             {
               "type": "Tag",
@@ -111,7 +113,8 @@
                   "range": [
                     40,
                     64
-                  ]
+                  ],
+                  "templates": []
                 }
               ],
               "openStart": {
@@ -187,7 +190,8 @@
               "range": [
                 71,
                 74
-              ]
+              ],
+              "templates": []
             }
           ],
           "openStart": {
@@ -263,7 +267,8 @@
           "range": [
             81,
             82
-          ]
+          ],
+          "templates": []
         }
       ],
       "openStart": {
@@ -339,7 +344,8 @@
       "range": [
         88,
         89
-      ]
+      ],
+      "templates": []
     }
   ],
   "loc": {

@@ -13,6 +13,6 @@ export interface TemplatableNode<T extends NodeTypes> extends BaseNode {
 }
 
 export interface TemplatesContainerNode<T extends NodeTypes> extends BaseNode {
-  templates: TemplatableNode<T>;
+  templates: TemplatableNode<T>[];
   value: string;
 }

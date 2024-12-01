@@ -74,6 +74,7 @@ export function tokenize(
     templateRanges: templateRanges || [],
     decisionBuffer: new CharsBuffer(),
     accumulatedContent: new CharsBuffer(),
+    tokenAdapter,
     sourceCode: new SourceCode(source, templateRanges || []),
     tokens: {
       push(token: AnyToken) {

@@ -4,6 +4,7 @@ import { CharsBuffer } from "../tokenizer/chars-buffer";
 import { SourceCode } from "../tokenizer/source-code";
 import { Range } from "./range";
 import { AnyToken } from "./token";
+import { TokenAdapter } from "./token-adapter";
 
 type ContextParams = {
   [TokenizerContextTypes.AttributeValueWrapped]?: {
@@ -26,8 +27,8 @@ export type TokenizerState = {
   contextParams: ContextParams;
   decisionBuffer: CharsBuffer;
   accumulatedContent: CharsBuffer;
-  // pointer: CharPointer;
   templateRanges: Range[];
+  tokenAdapter: TokenAdapter;
   sourceCode: SourceCode;
   tokens: {
     push(token: AnyToken): void;

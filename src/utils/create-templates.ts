@@ -1,10 +1,9 @@
 import { TokenTypes } from "../constants";
-import { TemplatableToken, TokenAdapter, TokenizerState } from "../types";
+import { TemplatableToken, TokenizerState } from "../types";
 
 export function createTemplates<T extends TokenTypes>(
   state: TokenizerState,
-  type: T,
-  tokenAdapter: TokenAdapter
+  type: T
 ): TemplatableToken<T>[] {
   return state.mode === "template" && state.accumulatedContent.hasTemplate()
     ? state.accumulatedContent.getTemplates().map((chars) => {
@@ -17,8 +16,8 @@ export function createTemplates<T extends TokenTypes>(
         };
         return {
           ...token,
-          range: tokenAdapter.finalizeRange(token),
-          loc: tokenAdapter.finalizeLocation(token),
+          range: state.tokenAdapter.finalizeRange(token),
+          loc: state.tokenAdapter.finalizeLocation(token),
         };
       })
     : [];

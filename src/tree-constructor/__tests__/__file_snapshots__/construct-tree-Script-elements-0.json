@@ -21,8 +21,7 @@
       "range": [
         0,
         14
-      ],
-      "templates": []
+      ]
     },
     {
       "type": "Tag",
@@ -58,8 +57,7 @@
           "range": [
             19,
             22
-          ],
-          "templates": []
+          ]
         },
         {
           "type": "ScriptTag",
@@ -130,8 +128,7 @@
             "range": [
               30,
               53
-            ],
-            "templates": []
+            ]
           },
           "close": {
             "type": "CloseScriptTag",
@@ -168,8 +165,7 @@
           "range": [
             62,
             63
-          ],
-          "templates": []
+          ]
         }
       ],
       "openStart": {
@@ -245,8 +241,7 @@
       "range": [
         69,
         84
-      ],
-      "templates": []
+      ]
     }
   ],
   "loc": {

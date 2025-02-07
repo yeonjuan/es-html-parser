@@ -45,7 +45,7 @@ export default [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -76,7 +76,7 @@ export default [
         column: 13,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -122,7 +122,7 @@ export default [
         column: 25,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -153,7 +153,7 @@ export default [
         column: 36,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -199,7 +199,7 @@ export default [
         column: 48,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -245,7 +245,7 @@ export default [
         column: 4,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -291,7 +291,7 @@ export default [
         column: 6,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -322,7 +322,7 @@ export default [
         column: 19,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -368,7 +368,7 @@ export default [
         column: 33,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -399,7 +399,7 @@ export default [
         column: 19,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -445,7 +445,7 @@ export default [
         line: 10,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -491,7 +491,7 @@ export default [
         line: 14,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -522,7 +522,7 @@ export default [
         column: 4,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -553,7 +553,7 @@ export default [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -584,7 +584,7 @@ export default [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -615,6 +615,6 @@ export default [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
 ];

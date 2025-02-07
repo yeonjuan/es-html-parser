@@ -2,31 +2,41 @@ import { TokenTypes } from "../constants";
 import { SourceLocation } from "./source-location";
 import { Range } from "./range";
 
-export interface Token<T extends TokenTypes> {
-  type: T;
+export interface BaseToken {
   value: string;
   range: Range;
   loc: SourceLocation;
 }
 
-export interface TemplatableToken<T extends TokenTypes> extends Token<T> {
-  isTemplate?: boolean;
+export interface Token<T extends TokenTypes> extends BaseToken {
+  type: T;
 }
 
-export interface TemplatesContainerToken<T extends TokenTypes>
-  extends Token<T> {
-  templates: TemplatableToken<T>[];
+export interface PartToken<T extends TokenTypes>
+  extends Token<TokenTypes.Part> {
+  partOf: T;
+}
+
+export interface TemplateToken<T extends TokenTypes>
+  extends Token<TokenTypes.Template> {
+  partOf: T;
+  open?: Token<TokenTypes.OpenTemplate>;
+  close?: Token<TokenTypes.CloseTemplate>;
+}
+
+export interface CompositeToken<T extends TokenTypes> extends Token<T> {
+  parts: (PartToken<T> | TemplateToken<T>)[];
 }
 
 export type AnyToken =
-  | TemplatesContainerToken<TokenTypes.Text>
+  | CompositeToken<TokenTypes.Text>
   | Token<TokenTypes.OpenTagStart>
   | Token<TokenTypes.OpenTagEnd>
   | Token<TokenTypes.CloseTag>
-  | TemplatesContainerToken<TokenTypes.AttributeKey>
+  | CompositeToken<TokenTypes.AttributeKey>
   | Token<TokenTypes.AttributeAssignment>
   | Token<TokenTypes.AttributeValueWrapperStart>
-  | TemplatesContainerToken<TokenTypes.AttributeValue>
+  | CompositeToken<TokenTypes.AttributeValue>
   | Token<TokenTypes.AttributeValueWrapperEnd>
   | Token<TokenTypes.DoctypeOpen>
   | Token<TokenTypes.DoctypeAttributeValue>
@@ -34,13 +44,13 @@ export type AnyToken =
   | Token<TokenTypes.DoctypeAttributeWrapperEnd>
   | Token<TokenTypes.DoctypeClose>
   | Token<TokenTypes.CommentOpen>
-  | TemplatesContainerToken<TokenTypes.CommentContent>
+  | CompositeToken<TokenTypes.CommentContent>
   | Token<TokenTypes.CommentClose>
   | Token<TokenTypes.OpenScriptTagStart>
   | Token<TokenTypes.OpenScriptTagEnd>
-  | TemplatesContainerToken<TokenTypes.ScriptTagContent>
+  | CompositeToken<TokenTypes.ScriptTagContent>
   | Token<TokenTypes.CloseScriptTag>
   | Token<TokenTypes.OpenStyleTagStart>
   | Token<TokenTypes.OpenStyleTagEnd>
-  | TemplatesContainerToken<TokenTypes.StyleTagContent>
+  | CompositeToken<TokenTypes.StyleTagContent>
   | Token<TokenTypes.CloseStyleTag>;

@@ -19,7 +19,7 @@ const OUTPUT: AnyToken[] = [
       start: { line: 1, column: 5 },
       end: { line: 1, column: 7 },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -38,15 +38,15 @@ const OUTPUT: AnyToken[] = [
       end: { line: 1, column: 13 },
     },
     value: "${id}",
-    templates: [
+    parts: [
       {
-        type: TokenTypes.AttributeValue,
+        type: TokenTypes.Template,
+        partOf: TokenTypes.AttributeValue,
         range: [8, 13],
         loc: {
           start: { line: 1, column: 8 },
           end: { line: 1, column: 13 },
         },
-        isTemplate: true,
         value: "${id}",
       },
     ],

@@ -9,3 +9,4 @@ export * from "./contextual-node";
 export * from "./base-node";
 export * from "./parse-result";
 export * from "./token-adapter";
+export * from "./template";

@@ -39,8 +39,7 @@
           "range": [
             12,
             28
-          ],
-          "templates": []
+          ]
         },
         {
           "type": "Tag",
@@ -76,8 +75,7 @@
               "range": [
                 40,
                 60
-              ],
-              "templates": []
+              ]
             }
           ],
           "openStart": {
@@ -153,8 +151,7 @@
           "range": [
             73,
             74
-          ],
-          "templates": []
+          ]
         }
       ],
       "openStart": {
@@ -230,8 +227,7 @@
       "range": [
         87,
         88
-      ],
-      "templates": []
+      ]
     }
   ],
   "loc": {

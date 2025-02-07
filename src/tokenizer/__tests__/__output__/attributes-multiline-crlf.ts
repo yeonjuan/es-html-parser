@@ -31,7 +31,7 @@ const OUTPUT: AnyToken[] = [
         column: 4,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -77,7 +77,7 @@ const OUTPUT: AnyToken[] = [
         column: 9,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -108,7 +108,7 @@ const OUTPUT: AnyToken[] = [
         column: 7,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -154,7 +154,7 @@ const OUTPUT: AnyToken[] = [
         column: 12,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -185,7 +185,7 @@ const OUTPUT: AnyToken[] = [
         column: 6,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagEnd,
@@ -216,7 +216,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -247,7 +247,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
 ];
 export default OUTPUT;

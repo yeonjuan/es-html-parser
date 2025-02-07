@@ -27,7 +27,7 @@ export class CharsBuffer {
     return this.charsBuffer.some((char) => char.isTemplate);
   }
 
-  public getTemplates() {
+  public getParts() {
     return [...this.charsBuffer];
   }
 

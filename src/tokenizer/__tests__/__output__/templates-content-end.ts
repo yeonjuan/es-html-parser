@@ -16,7 +16,7 @@ const OUTPUT: AnyToken[] = [
     range: [0, 10],
     type: TokenTypes.Text,
     value: "${content}",
-    templates: [
+    parts: [
       {
         loc: {
           end: {
@@ -29,9 +29,11 @@ const OUTPUT: AnyToken[] = [
           },
         },
         range: [0, 10],
-        type: TokenTypes.Text,
+        type: TokenTypes.Template,
         value: "${content}",
-        isTemplate: true,
+        partOf: TokenTypes.Text,
+        open: undefined,
+        close: undefined,
       },
     ],
   },

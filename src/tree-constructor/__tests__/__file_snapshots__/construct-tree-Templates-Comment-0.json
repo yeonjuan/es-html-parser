@@ -55,27 +55,6 @@
         "range": [
           4,
           14
-        ],
-        "templates": [
-          {
-            "type": "CommentContent",
-            "value": "${comment}",
-            "range": [
-              4,
-              14
-            ],
-            "loc": {
-              "start": {
-                "line": 1,
-                "column": 4
-              },
-              "end": {
-                "line": 1,
-                "column": 14
-              }
-            },
-            "isTemplate": true
-          }
         ]
       },
       "close": {

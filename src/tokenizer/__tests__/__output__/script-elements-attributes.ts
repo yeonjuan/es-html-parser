@@ -46,7 +46,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -77,7 +77,7 @@ const OUTPUT: AnyToken[] = [
         column: 14,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -123,7 +123,7 @@ const OUTPUT: AnyToken[] = [
         column: 31,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -154,7 +154,7 @@ const OUTPUT: AnyToken[] = [
         column: 44,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -200,7 +200,7 @@ const OUTPUT: AnyToken[] = [
         column: 54,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -246,7 +246,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseScriptTag,
@@ -277,7 +277,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -308,7 +308,7 @@ const OUTPUT: AnyToken[] = [
         column: 8,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -354,7 +354,7 @@ const OUTPUT: AnyToken[] = [
         column: 25,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -385,7 +385,7 @@ const OUTPUT: AnyToken[] = [
         column: 9,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenScriptTagEnd,
@@ -416,7 +416,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseScriptTag,
@@ -447,7 +447,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -478,7 +478,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -509,7 +509,7 @@ const OUTPUT: AnyToken[] = [
         column: 13,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeKey,
@@ -525,7 +525,7 @@ const OUTPUT: AnyToken[] = [
         column: 18,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -571,7 +571,7 @@ const OUTPUT: AnyToken[] = [
         column: 35,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -617,7 +617,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseScriptTag,
@@ -648,7 +648,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
 ];
 

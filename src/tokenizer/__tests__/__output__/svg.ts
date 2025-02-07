@@ -31,7 +31,7 @@ const OUTPUT: AnyToken[] = [
         line: 1,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -77,7 +77,7 @@ const OUTPUT: AnyToken[] = [
         line: 1,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,

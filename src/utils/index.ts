@@ -13,3 +13,4 @@ export * from "./get-line-info";
 export * from "./first";
 export * from "./clone-location";
 export * from "./init-if-none";
+export * from "./templates";

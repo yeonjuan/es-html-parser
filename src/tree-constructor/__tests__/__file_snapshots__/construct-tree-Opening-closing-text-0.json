@@ -21,8 +21,7 @@
       "range": [
         0,
         14
-      ],
-      "templates": []
+      ]
     },
     {
       "type": "Tag",
@@ -115,8 +114,7 @@
       "range": [
         25,
         40
-      ],
-      "templates": []
+      ]
     }
   ],
   "loc": {

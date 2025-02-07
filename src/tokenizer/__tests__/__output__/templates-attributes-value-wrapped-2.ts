@@ -19,7 +19,7 @@ const OUTPUT: AnyToken[] = [
       start: { line: 1, column: 5 },
       end: { line: 1, column: 10 },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -47,45 +47,45 @@ const OUTPUT: AnyToken[] = [
       end: { line: 1, column: 31 },
     },
     value: "one ${two} ${three}",
-    templates: [
+    parts: [
       {
-        type: TokenTypes.AttributeValue,
+        type: TokenTypes.Part,
         range: [12, 16],
         loc: {
           start: { line: 1, column: 12 },
           end: { line: 1, column: 16 },
         },
-        isTemplate: false,
+        partOf: TokenTypes.AttributeValue,
         value: "one ",
       },
       {
-        type: TokenTypes.AttributeValue,
+        partOf: TokenTypes.AttributeValue,
+        type: TokenTypes.Template,
         range: [16, 22],
         loc: {
           start: { line: 1, column: 16 },
           end: { line: 1, column: 22 },
         },
-        isTemplate: true,
         value: "${two}",
       },
       {
-        type: TokenTypes.AttributeValue,
+        type: TokenTypes.Part,
         range: [22, 23],
         loc: {
           start: { line: 1, column: 22 },
           end: { line: 1, column: 23 },
         },
-        isTemplate: false,
+        partOf: TokenTypes.AttributeValue,
         value: " ",
       },
       {
-        type: TokenTypes.AttributeValue,
+        partOf: TokenTypes.AttributeValue,
+        type: TokenTypes.Template,
         range: [23, 31],
         loc: {
           start: { line: 1, column: 23 },
           end: { line: 1, column: 31 },
         },
-        isTemplate: true,
         value: "${three}",
       },
     ],

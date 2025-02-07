@@ -54,8 +54,7 @@
             "range": [
               7,
               11
-            ],
-            "templates": []
+            ]
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -91,8 +90,7 @@
             "range": [
               13,
               21
-            ],
-            "templates": []
+            ]
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",
@@ -145,8 +143,7 @@
             "range": [
               23,
               29
-            ],
-            "templates": []
+            ]
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -182,8 +179,7 @@
             "range": [
               31,
               40
-            ],
-            "templates": []
+            ]
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",
@@ -257,8 +253,7 @@
         "range": [
           42,
           85
-        ],
-        "templates": []
+        ]
       },
       "close": {
         "type": "CloseStyleTag",
@@ -295,8 +290,7 @@
       "range": [
         93,
         95
-      ],
-      "templates": []
+      ]
     },
     {
       "type": "Tag",
@@ -332,8 +326,7 @@
           "range": [
             100,
             103
-          ],
-          "templates": []
+          ]
         },
         {
           "type": "StyleTag",
@@ -384,8 +377,7 @@
                 "range": [
                   114,
                   120
-                ],
-                "templates": []
+                ]
               }
             },
             {
@@ -420,8 +412,7 @@
                 "range": [
                   125,
                   129
-                ],
-                "templates": []
+                ]
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -457,8 +448,7 @@
                 "range": [
                   131,
                   139
-                ],
-                "templates": []
+                ]
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -511,8 +501,7 @@
                 "range": [
                   146,
                   160
-                ],
-                "templates": []
+                ]
               }
             }
           ],
@@ -568,8 +557,7 @@
             "range": [
               164,
               213
-            ],
-            "templates": []
+            ]
           },
           "close": {
             "type": "CloseStyleTag",
@@ -606,8 +594,7 @@
           "range": [
             221,
             222
-          ],
-          "templates": []
+          ]
         }
       ],
       "openStart": {
@@ -683,8 +670,7 @@
       "range": [
         228,
         229
-      ],
-      "templates": []
+      ]
     }
   ],
   "loc": {

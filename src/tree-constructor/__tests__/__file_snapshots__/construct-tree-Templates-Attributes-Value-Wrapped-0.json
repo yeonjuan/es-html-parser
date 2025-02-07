@@ -54,8 +54,7 @@
             "range": [
               5,
               7
-            ],
-            "templates": []
+            ]
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -91,27 +90,6 @@
             "range": [
               9,
               14
-            ],
-            "templates": [
-              {
-                "type": "AttributeValue",
-                "range": [
-                  9,
-                  14
-                ],
-                "loc": {
-                  "start": {
-                    "line": 1,
-                    "column": 9
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 14
-                  }
-                },
-                "isTemplate": true,
-                "value": "${id}"
-              }
             ]
           },
           "endWrapper": {

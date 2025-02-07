@@ -1,11 +1,25 @@
 import { Range } from "../types";
 
+export enum CharsType {
+  HTML = "HTML",
+  OpenTemplate = "OpenTemplate",
+  Template = "Template",
+  CloseTemplate = "CloseTemplate",
+}
+
 export class Chars {
+  public isTemplate: boolean;
   constructor(
+    public type: CharsType,
     public value: string,
     public range: Range,
-    public isTemplate: boolean
-  ) {}
+    public wrapper?: {
+      open: Range;
+      close: Range;
+    }
+  ) {
+    this.isTemplate = type !== CharsType.HTML;
+  }
 
   public concat(chars: Chars): void {
     this.value += chars.value;

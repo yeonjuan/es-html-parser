@@ -21,8 +21,7 @@
       "range": [
         0,
         14
-      ],
-      "templates": []
+      ]
     },
     {
       "type": "StyleTag",
@@ -93,8 +92,7 @@
         "range": [
           21,
           64
-        ],
-        "templates": []
+        ]
       },
       "close": {
         "type": "CloseStyleTag",
@@ -131,8 +129,7 @@
       "range": [
         72,
         74
-      ],
-      "templates": []
+      ]
     },
     {
       "type": "Tag",
@@ -168,8 +165,7 @@
           "range": [
             79,
             82
-          ],
-          "templates": []
+          ]
         },
         {
           "type": "StyleTag",
@@ -240,8 +236,7 @@
             "range": [
               89,
               138
-            ],
-            "templates": []
+            ]
           },
           "close": {
             "type": "CloseStyleTag",
@@ -278,8 +273,7 @@
           "range": [
             146,
             147
-          ],
-          "templates": []
+          ]
         }
       ],
       "openStart": {
@@ -355,8 +349,7 @@
       "range": [
         153,
         168
-      ],
-      "templates": []
+      ]
     }
   ],
   "loc": {

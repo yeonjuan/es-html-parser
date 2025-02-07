@@ -55,8 +55,7 @@
         "range": [
           4,
           18
-        ],
-        "templates": []
+        ]
       },
       "close": {
         "type": "CommentClose",
@@ -93,8 +92,7 @@
       "range": [
         21,
         23
-      ],
-      "templates": []
+      ]
     },
     {
       "type": "Tag",
@@ -130,8 +128,7 @@
           "range": [
             28,
             31
-          ],
-          "templates": []
+          ]
         },
         {
           "type": "Tag",
@@ -167,8 +164,7 @@
               "range": [
                 37,
                 42
-              ],
-              "templates": []
+              ]
             },
             {
               "type": "Comment",
@@ -220,8 +216,7 @@
                 "range": [
                   46,
                   57
-                ],
-                "templates": []
+                ]
               },
               "close": {
                 "type": "CommentClose",
@@ -258,8 +253,7 @@
               "range": [
                 60,
                 63
-              ],
-              "templates": []
+              ]
             }
           ],
           "openStart": {
@@ -335,8 +329,7 @@
           "range": [
             70,
             74
-          ],
-          "templates": []
+          ]
         },
         {
           "type": "Comment",
@@ -388,8 +381,7 @@
             "range": [
               78,
               98
-            ],
-            "templates": []
+            ]
           },
           "close": {
             "type": "CommentClose",
@@ -426,8 +418,7 @@
           "range": [
             101,
             102
-          ],
-          "templates": []
+          ]
         }
       ],
       "openStart": {
@@ -503,8 +494,7 @@
       "range": [
         108,
         110
-      ],
-      "templates": []
+      ]
     },
     {
       "type": "Comment",
@@ -556,8 +546,7 @@
         "range": [
           114,
           132
-        ],
-        "templates": []
+        ]
       },
       "close": {
         "type": "CommentClose",
@@ -594,8 +583,7 @@
       "range": [
         135,
         137
-      ],
-      "templates": []
+      ]
     },
     {
       "type": "Comment",
@@ -647,8 +635,7 @@
         "range": [
           141,
           171
-        ],
-        "templates": []
+        ]
       },
       "close": {
         "type": "CommentClose",
@@ -685,8 +672,7 @@
       "range": [
         174,
         175
-      ],
-      "templates": []
+      ]
     }
   ],
   "loc": {

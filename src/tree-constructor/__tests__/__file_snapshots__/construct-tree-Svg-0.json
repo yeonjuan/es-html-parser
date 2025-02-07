@@ -54,8 +54,7 @@
             "range": [
               5,
               10
-            ],
-            "templates": []
+            ]
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -91,8 +90,7 @@
             "range": [
               12,
               38
-            ],
-            "templates": []
+            ]
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",

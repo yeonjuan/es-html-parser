@@ -28,16 +28,16 @@ const OUTPUT: AnyToken[] = [
       start: { line: 1, column: 7 },
       end: { line: 1, column: 17 },
     },
-    templates: [
+    parts: [
       {
-        type: TokenTypes.StyleTagContent,
+        type: TokenTypes.Template,
         value: "${content}",
         range: [7, 17],
         loc: {
           start: { line: 1, column: 7 },
           end: { line: 1, column: 17 },
         },
-        isTemplate: true,
+        partOf: TokenTypes.StyleTagContent,
       },
     ],
   },

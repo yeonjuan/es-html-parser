@@ -36,4 +36,9 @@ export enum NodeTypes {
   DoctypeAttributeValue = "DoctypeAttributeValue",
   DoctypeAttributeWrapperStart = "DoctypeAttributeWrapperStart",
   DoctypeAttributeWrapperEnd = "DoctypeAttributeWrapperEnd",
+
+  OpenTemplate = "OpenTemplate",
+  Template = "Template",
+  CloseTemplate = "CloseTemplate",
+  Part = "Part",
 }

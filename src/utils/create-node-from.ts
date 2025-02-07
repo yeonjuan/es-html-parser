@@ -12,14 +12,9 @@ export function createNodeFrom<T extends AnyToken>(token: T): unknown {
     range,
   };
   // @ts-ignore
-  if (token.templates) {
+  if (token.parts) {
     // @ts-ignore
-    ret.templates = token.templates;
-  }
-  // @ts-ignore
-  if (token.isTemplate) {
-    // @ts-ignore
-    ret.isTemplate = token.isTemplate;
+    ret.parts = token.parts;
   }
 
   return ret;

@@ -6,13 +6,12 @@ export interface SimpleNode<T extends NodeTypes> extends BaseNode {
   value: string;
 }
 
-export interface TemplatableNode<T extends NodeTypes> extends BaseNode {
+export interface PartNode<T extends NodeTypes> extends BaseNode {
   type: T;
   value: string;
-  isTemplate?: boolean;
 }
 
-export interface TemplatesContainerNode<T extends NodeTypes> extends BaseNode {
-  templates: TemplatableNode<T>[];
+export interface CompositeNode<T extends NodeTypes> extends BaseNode {
+  parts: PartNode<T>[];
   value: string;
 }

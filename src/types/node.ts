@@ -1,6 +1,13 @@
 import { NodeTypes } from "../constants";
-import { SimpleNode, CompositeNode } from "./simple-node";
+import {
+  SimpleNode,
+  CompositeNode,
+  PartNode,
+  TemplateNode,
+} from "./simple-node";
 import { BaseNode } from "./base-node";
+
+export { PartNode, TemplateNode };
 
 export interface DocumentNode extends BaseNode {
   type: NodeTypes.Document;

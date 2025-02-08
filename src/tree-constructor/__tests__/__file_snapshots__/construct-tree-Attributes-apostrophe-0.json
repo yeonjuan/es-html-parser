@@ -39,7 +39,8 @@
           "range": [
             5,
             8
-          ]
+          ],
+          "parts": []
         },
         {
           "type": "Tag",
@@ -90,7 +91,8 @@
                 "range": [
                   14,
                   19
-                ]
+                ],
+                "parts": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -126,7 +128,8 @@
                 "range": [
                   21,
                   31
-                ]
+                ],
+                "parts": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -179,7 +182,8 @@
                 "range": [
                   33,
                   42
-                ]
+                ],
+                "parts": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -215,7 +219,8 @@
                 "range": [
                   44,
                   54
-                ]
+                ],
+                "parts": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -254,7 +259,8 @@
               "range": [
                 56,
                 76
-              ]
+              ],
+              "parts": []
             },
             {
               "type": "Tag",
@@ -290,7 +296,8 @@
                   "range": [
                     81,
                     108
-                  ]
+                  ],
+                  "parts": []
                 },
                 {
                   "type": "Tag",
@@ -341,7 +348,8 @@
                         "range": [
                           132,
                           143
-                        ]
+                        ],
+                        "parts": []
                       },
                       "startWrapper": {
                         "type": "AttributeValueWrapperStart",
@@ -377,7 +385,8 @@
                         "range": [
                           145,
                           157
-                        ]
+                        ],
+                        "parts": []
                       },
                       "endWrapper": {
                         "type": "AttributeValueWrapperEnd",
@@ -430,7 +439,8 @@
                         "range": [
                           167,
                           178
-                        ]
+                        ],
+                        "parts": []
                       },
                       "startWrapper": {
                         "type": "AttributeValueWrapperStart",
@@ -466,7 +476,8 @@
                         "range": [
                           185,
                           196
-                        ]
+                        ],
+                        "parts": []
                       },
                       "endWrapper": {
                         "type": "AttributeValueWrapperEnd",
@@ -505,7 +516,8 @@
                       "range": [
                         205,
                         248
-                      ]
+                      ],
+                      "parts": []
                     }
                   ],
                   "openStart": {
@@ -581,7 +593,8 @@
                   "range": [
                     265,
                     270
-                  ]
+                  ],
+                  "parts": []
                 }
               ],
               "openStart": {
@@ -657,7 +670,8 @@
               "range": [
                 276,
                 279
-              ]
+              ],
+              "parts": []
             }
           ],
           "openStart": {
@@ -733,7 +747,8 @@
           "range": [
             286,
             287
-          ]
+          ],
+          "parts": []
         }
       ],
       "openStart": {
@@ -809,7 +824,8 @@
       "range": [
         293,
         294
-      ]
+      ],
+      "parts": []
     }
   ],
   "loc": {

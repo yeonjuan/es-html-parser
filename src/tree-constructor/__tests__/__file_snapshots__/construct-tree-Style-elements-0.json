@@ -21,7 +21,8 @@
       "range": [
         0,
         14
-      ]
+      ],
+      "parts": []
     },
     {
       "type": "StyleTag",
@@ -92,7 +93,8 @@
         "range": [
           21,
           64
-        ]
+        ],
+        "parts": []
       },
       "close": {
         "type": "CloseStyleTag",
@@ -129,7 +131,8 @@
       "range": [
         72,
         74
-      ]
+      ],
+      "parts": []
     },
     {
       "type": "Tag",
@@ -165,7 +168,8 @@
           "range": [
             79,
             82
-          ]
+          ],
+          "parts": []
         },
         {
           "type": "StyleTag",
@@ -236,7 +240,8 @@
             "range": [
               89,
               138
-            ]
+            ],
+            "parts": []
           },
           "close": {
             "type": "CloseStyleTag",
@@ -273,7 +278,8 @@
           "range": [
             146,
             147
-          ]
+          ],
+          "parts": []
         }
       ],
       "openStart": {
@@ -349,7 +355,8 @@
       "range": [
         153,
         168
-      ]
+      ],
+      "parts": []
     }
   ],
   "loc": {

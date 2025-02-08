@@ -18,6 +18,7 @@ exports[`parse basic 1`] = `
                 "line": 1,
               },
             },
+            "parts": [],
             "range": [
               5,
               12,
@@ -211,6 +212,7 @@ exports[`parse token adapter 1`] = `
                 "line": 2,
               },
             },
+            "parts": [],
             "range": [
               6,
               13,

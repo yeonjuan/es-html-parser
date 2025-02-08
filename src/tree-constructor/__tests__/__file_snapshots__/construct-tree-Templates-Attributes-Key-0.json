@@ -54,6 +54,27 @@
             "range": [
               5,
               11
+            ],
+            "parts": [
+              {
+                "loc": {
+                  "end": {
+                    "column": 11,
+                    "line": 1
+                  },
+                  "start": {
+                    "column": 5,
+                    "line": 1
+                  }
+                },
+                "range": [
+                  5,
+                  11
+                ],
+                "type": "Template",
+                "value": "${key}",
+                "partOf": "AttributeKey"
+              }
             ]
           }
         }

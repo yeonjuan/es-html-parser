@@ -54,7 +54,8 @@
             "range": [
               3,
               9
-            ]
+            ],
+            "parts": []
           },
           "value": {
             "type": "AttributeValue",
@@ -72,7 +73,8 @@
             "range": [
               10,
               18
-            ]
+            ],
+            "parts": []
           }
         }
       ],

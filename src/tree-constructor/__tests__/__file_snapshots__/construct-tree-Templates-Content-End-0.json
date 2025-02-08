@@ -21,6 +21,27 @@
       "range": [
         0,
         10
+      ],
+      "parts": [
+        {
+          "loc": {
+            "end": {
+              "column": 10,
+              "line": 1
+            },
+            "start": {
+              "column": 0,
+              "line": 1
+            }
+          },
+          "range": [
+            0,
+            10
+          ],
+          "type": "Template",
+          "value": "${content}",
+          "partOf": "Text"
+        }
       ]
     }
   ],

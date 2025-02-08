@@ -7,33 +7,13 @@ export const getRange = (info: TemplateInfo) => {
   return Array.isArray(info) ? info : [info.open[0], info.close[1]];
 };
 
-const toTokenType = (
-  charsType: CharsType
-):
-  | TokenTypes.Part
-  | TokenTypes.OpenTemplate
-  | TokenTypes.CloseTemplate
-  | TokenTypes.Template => {
-  switch (charsType) {
-    case CharsType.HTML:
-      return TokenTypes.Part;
-    case CharsType.Template:
-      return TokenTypes.Template;
-    case CharsType.OpenTemplate:
-      return TokenTypes.OpenTemplate;
-    case CharsType.CloseTemplate:
-      return TokenTypes.CloseTemplate;
-  }
-};
-
 export function createParts<T extends TokenTypes>(
   state: TokenizerState,
   type: T
 ): (PartToken<T> | TemplateToken<T>)[] {
   return state.mode === "template" && state.accumulatedContent.hasTemplate()
     ? state.accumulatedContent.getParts().map((chars) => {
-        const tokenType = toTokenType(chars.type);
-        if (tokenType === TokenTypes.Part) {
+        if (chars.type === CharsType.HTML) {
           const base = {
             type: TokenTypes.Part,
             range: chars.range,
@@ -75,7 +55,7 @@ export function createParts<T extends TokenTypes>(
           : undefined;
 
         const base = {
-          type: toTokenType(chars.type),
+          type: TokenTypes.Template,
           range: chars.range,
           loc: state.sourceCode.getLocationOf(chars.range),
           value: chars.value,

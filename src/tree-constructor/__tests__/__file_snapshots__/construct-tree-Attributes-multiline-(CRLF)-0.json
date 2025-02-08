@@ -54,7 +54,8 @@
             "range": [
               8,
               10
-            ]
+            ],
+            "parts": []
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -90,7 +91,8 @@
             "range": [
               12,
               15
-            ]
+            ],
+            "parts": []
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",
@@ -143,7 +145,8 @@
             "range": [
               20,
               25
-            ]
+            ],
+            "parts": []
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -179,7 +182,8 @@
             "range": [
               27,
               30
-            ]
+            ],
+            "parts": []
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",
@@ -232,7 +236,8 @@
             "range": [
               35,
               39
-            ]
+            ],
+            "parts": []
           }
         }
       ],
@@ -253,7 +258,8 @@
           "range": [
             42,
             44
-          ]
+          ],
+          "parts": []
         }
       ],
       "openStart": {
@@ -329,7 +335,8 @@
       "range": [
         50,
         52
-      ]
+      ],
+      "parts": []
     }
   ],
   "loc": {

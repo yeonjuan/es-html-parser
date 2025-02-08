@@ -22,7 +22,7 @@
         0,
         14
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Tag",
@@ -59,7 +59,7 @@
             19,
             22
           ],
-          "templates": []
+          "parts": []
         },
         {
           "type": "ScriptTag",
@@ -131,7 +131,7 @@
               30,
               53
             ],
-            "templates": []
+            "parts": []
           },
           "close": {
             "type": "CloseScriptTag",
@@ -169,7 +169,7 @@
             62,
             63
           ],
-          "templates": []
+          "parts": []
         }
       ],
       "openStart": {
@@ -246,7 +246,7 @@
         69,
         84
       ],
-      "templates": []
+      "parts": []
     }
   ],
   "loc": {

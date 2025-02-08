@@ -31,7 +31,7 @@ const OUTPUT: AnyToken[] = [
         column: 18,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -62,7 +62,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -108,7 +108,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -154,7 +154,7 @@ const OUTPUT: AnyToken[] = [
         column: 4,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CommentOpen,
@@ -185,7 +185,7 @@ const OUTPUT: AnyToken[] = [
         column: 19,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -216,7 +216,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -247,7 +247,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CommentOpen,
@@ -278,7 +278,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -309,7 +309,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -340,7 +340,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CommentOpen,
@@ -371,7 +371,7 @@ const OUTPUT: AnyToken[] = [
         column: 8,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -402,7 +402,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CommentOpen,
@@ -433,7 +433,7 @@ const OUTPUT: AnyToken[] = [
         column: 34,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CommentClose,
@@ -464,7 +464,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
 ];
 

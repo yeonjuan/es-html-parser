@@ -55,7 +55,7 @@
               8,
               10
             ],
-            "templates": []
+            "parts": []
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -92,7 +92,7 @@
               12,
               15
             ],
-            "templates": []
+            "parts": []
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",
@@ -146,7 +146,7 @@
               20,
               25
             ],
-            "templates": []
+            "parts": []
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -183,7 +183,7 @@
               27,
               30
             ],
-            "templates": []
+            "parts": []
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",
@@ -237,7 +237,7 @@
               35,
               39
             ],
-            "templates": []
+            "parts": []
           }
         }
       ],
@@ -259,7 +259,7 @@
             42,
             44
           ],
-          "templates": []
+          "parts": []
         }
       ],
       "openStart": {
@@ -336,7 +336,7 @@
         50,
         52
       ],
-      "templates": []
+      "parts": []
     }
   ],
   "loc": {

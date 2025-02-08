@@ -55,7 +55,7 @@
               5,
               10
             ],
-            "templates": []
+            "parts": []
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -92,7 +92,7 @@
               12,
               38
             ],
-            "templates": []
+            "parts": []
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",

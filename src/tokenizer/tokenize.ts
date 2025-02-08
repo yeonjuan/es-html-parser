@@ -1,5 +1,5 @@
 import { TokenizerContextTypes } from "../constants";
-import { AnyToken, Range, TokenAdapter, TokenizerState } from "../types";
+import { AnyToken, TemplateInfo, TokenAdapter, TokenizerState } from "../types";
 import {
   attributeKey,
   attributeValueBare,
@@ -64,18 +64,18 @@ function tokenizeChars(state: TokenizerState) {
 export function tokenize(
   source = "",
   tokenAdapter: TokenAdapter,
-  templateRanges?: Range[]
+  templateInfos?: TemplateInfo[]
 ): { state: TokenizerState; tokens: AnyToken[] } {
   const tokens: AnyToken[] = [];
   const state: TokenizerState = {
     currentContext: TokenizerContextTypes.Data,
     contextParams: {},
-    mode: templateRanges ? "template" : "default",
-    templateRanges: templateRanges || [],
+    mode: templateInfos ? "template" : "default",
+    templateInfos: templateInfos || [],
     decisionBuffer: new CharsBuffer(),
     accumulatedContent: new CharsBuffer(),
     tokenAdapter,
-    sourceCode: new SourceCode(source, templateRanges || []),
+    sourceCode: new SourceCode(source, templateInfos || []),
     tokens: {
       push(token: AnyToken) {
         tokens.push({

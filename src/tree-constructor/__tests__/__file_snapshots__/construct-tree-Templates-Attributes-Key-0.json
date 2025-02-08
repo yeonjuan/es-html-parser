@@ -55,7 +55,7 @@
               5,
               11
             ],
-            "templates": [
+            "parts": [
               {
                 "loc": {
                   "end": {
@@ -71,9 +71,9 @@
                   5,
                   11
                 ],
-                "type": "AttributeKey",
+                "type": "Template",
                 "value": "${key}",
-                "isTemplate": true
+                "partOf": "AttributeKey"
               }
             ]
           }

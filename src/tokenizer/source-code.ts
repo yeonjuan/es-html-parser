@@ -1,14 +1,17 @@
-import { Range } from "../types";
+import { Range, TemplateInfo } from "../types";
 import { SourceLocation } from "../types/source-location";
-import { getLineInfo } from "../utils";
-import { Chars } from "./chars";
+import { getLineInfo, getRange } from "../utils";
+import { Chars, CharsType } from "./chars";
 
 export class SourceCode {
   private charsList: Chars[];
   private charsIndex = 0;
 
-  public constructor(public readonly source: string, templateRanges: Range[]) {
-    this.charsList = this.createCharsList(templateRanges);
+  public constructor(
+    public readonly source: string,
+    templateInfos: TemplateInfo[]
+  ) {
+    this.charsList = this.createCharsList(templateInfos);
   }
 
   public getLocationOf(range: Range): SourceLocation {
@@ -39,35 +42,34 @@ export class SourceCode {
     return current.range[1] - 1;
   }
 
-  private createCharsList(templateRanges: Range[]) {
+  private createCharsList(templateInfo: TemplateInfo[]) {
     const charsList: Chars[] = [];
     let sourceIndex = 0;
-    let templateRangeIndex = 0;
+    let templateInfoIndex = 0;
 
     while (sourceIndex < this.source.length) {
-      const templateRange = templateRanges[templateRangeIndex];
-      if (
-        templateRange &&
-        templateRange[0] <= sourceIndex &&
-        sourceIndex < templateRange[1]
-      ) {
-        charsList.push(
-          new Chars(
-            this.source.slice(templateRange[0], templateRange[1]),
-            [templateRange[0], templateRange[1]],
-            true
-          )
-        );
-        templateRangeIndex++;
-        sourceIndex = templateRange[1];
-        continue;
+      const info = templateInfo[templateInfoIndex];
+      if (info) {
+        const range = getRange(info);
+        if (range[0] <= sourceIndex && sourceIndex < range[1]) {
+          charsList.push(
+            new Chars(
+              CharsType.Template,
+              this.source.slice(range[0], range[1]),
+              [range[0], range[1]],
+              Array.isArray(info) ? undefined : info
+            )
+          );
+          templateInfoIndex++;
+          sourceIndex = range[1];
+          continue;
+        }
       }
       charsList.push(
-        new Chars(
-          this.source[sourceIndex],
-          [sourceIndex, sourceIndex + 1],
-          false
-        )
+        new Chars(CharsType.HTML, this.source[sourceIndex], [
+          sourceIndex,
+          sourceIndex + 1,
+        ])
       );
       sourceIndex++;
     }

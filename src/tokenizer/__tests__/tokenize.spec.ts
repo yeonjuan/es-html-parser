@@ -21,6 +21,7 @@ import SVG from "./__output__/svg";
 import ATTRIBUTES_MULTILINE_CRLF from "./__output__/attributes-multiline-crlf";
 import ATTRIBUTES_BARE_WRONG_QUOTE from "./__output__/attributes-bare-wrong-quote";
 import TEMPLATE_ATTRIBUTES_KEY from "./__output__/templates-attributes-key";
+import TEMPLATE_ATTRIBUTES_KEY_WRAPPER from "./__output__/templates-attributes-key-wrapper";
 import TEMPLATE_ATTRIBUTES_VALUE_BARE from "./__output__/templates-attributes-value-bare";
 import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED from "./__output__/templates-attributes-value-wrapped";
 import TEMPLATE_ATTRIBUTES_VALUE_WRAPPED_2 from "./__output__/templates-attributes-value-wrapped-2";
@@ -31,7 +32,7 @@ import TEMPLATE_STYLE_CONTENT from "./__output__/templates-style-content";
 import TEMPLATE_CONTENT_END from "./__output__/templates-content-end";
 
 import { defaultTokenAdapter } from "../../token-adapter";
-import { Range } from "../../types";
+import { Range, TemplateInfo } from "../../types";
 
 describe("tokenize", () => {
   test.each([
@@ -100,6 +101,18 @@ describe("tokenize", () => {
       [[5, 11]] as Range[],
     ],
     [
+      "Template Attributes Key (wrapper)",
+      "templates-attributes-key.html",
+      TEMPLATE_ATTRIBUTES_KEY_WRAPPER,
+      null,
+      [
+        {
+          open: [5, 7],
+          close: [10, 11],
+        },
+      ] as TemplateInfo[],
+    ],
+    [
       "Template Attributes Value Bare",
       "templates-attributes-value-bare.html",
       TEMPLATE_ATTRIBUTES_VALUE_BARE,
@@ -165,7 +178,7 @@ describe("tokenize", () => {
       input,
       output,
       process: null | ((html: string) => string) = null,
-      ranges: null | Range[]
+      ranges: null | TemplateInfo[]
     ) => {
       const inputPath = path.join(__dirname, "__input__", input);
       let html = fs.readFileSync(inputPath, "utf-8");

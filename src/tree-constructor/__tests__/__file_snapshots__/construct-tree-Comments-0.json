@@ -56,7 +56,7 @@
           4,
           18
         ],
-        "templates": []
+        "parts": []
       },
       "close": {
         "type": "CommentClose",
@@ -94,7 +94,7 @@
         21,
         23
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Tag",
@@ -131,7 +131,7 @@
             28,
             31
           ],
-          "templates": []
+          "parts": []
         },
         {
           "type": "Tag",
@@ -168,7 +168,7 @@
                 37,
                 42
               ],
-              "templates": []
+              "parts": []
             },
             {
               "type": "Comment",
@@ -221,7 +221,7 @@
                   46,
                   57
                 ],
-                "templates": []
+                "parts": []
               },
               "close": {
                 "type": "CommentClose",
@@ -259,7 +259,7 @@
                 60,
                 63
               ],
-              "templates": []
+              "parts": []
             }
           ],
           "openStart": {
@@ -336,7 +336,7 @@
             70,
             74
           ],
-          "templates": []
+          "parts": []
         },
         {
           "type": "Comment",
@@ -389,7 +389,7 @@
               78,
               98
             ],
-            "templates": []
+            "parts": []
           },
           "close": {
             "type": "CommentClose",
@@ -427,7 +427,7 @@
             101,
             102
           ],
-          "templates": []
+          "parts": []
         }
       ],
       "openStart": {
@@ -504,7 +504,7 @@
         108,
         110
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Comment",
@@ -557,7 +557,7 @@
           114,
           132
         ],
-        "templates": []
+        "parts": []
       },
       "close": {
         "type": "CommentClose",
@@ -595,7 +595,7 @@
         135,
         137
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Comment",
@@ -648,7 +648,7 @@
           141,
           171
         ],
-        "templates": []
+        "parts": []
       },
       "close": {
         "type": "CommentClose",
@@ -686,7 +686,7 @@
         174,
         175
       ],
-      "templates": []
+      "parts": []
     }
   ],
   "loc": {

@@ -4,8 +4,7 @@ import {
   TokenTypes,
 } from "../../constants";
 import { Range, TokenizerState } from "../../types";
-import { calculateTokenPosition } from "../../utils";
-import { createTemplates } from "../../utils/create-templates";
+import { calculateTokenPosition, createParts } from "../../utils";
 import { CharsBuffer } from "../chars-buffer";
 
 const CLOSING_STYLE_TAG_PATTERN = /<\/style\s*>/i;
@@ -37,7 +36,7 @@ function parseClosingStyleTag(state: TokenizerState) {
       value: state.accumulatedContent.value(),
       range: position.range,
       loc: position.loc,
-      templates: createTemplates(state, TokenTypes.StyleTagContent),
+      parts: createParts(state, TokenTypes.StyleTagContent),
     });
   }
 

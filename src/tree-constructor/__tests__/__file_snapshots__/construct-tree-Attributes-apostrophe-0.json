@@ -40,7 +40,7 @@
             5,
             8
           ],
-          "templates": []
+          "parts": []
         },
         {
           "type": "Tag",
@@ -92,7 +92,7 @@
                   14,
                   19
                 ],
-                "templates": []
+                "parts": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -129,7 +129,7 @@
                   21,
                   31
                 ],
-                "templates": []
+                "parts": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -183,7 +183,7 @@
                   33,
                   42
                 ],
-                "templates": []
+                "parts": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -220,7 +220,7 @@
                   44,
                   54
                 ],
-                "templates": []
+                "parts": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -260,7 +260,7 @@
                 56,
                 76
               ],
-              "templates": []
+              "parts": []
             },
             {
               "type": "Tag",
@@ -297,7 +297,7 @@
                     81,
                     108
                   ],
-                  "templates": []
+                  "parts": []
                 },
                 {
                   "type": "Tag",
@@ -349,7 +349,7 @@
                           132,
                           143
                         ],
-                        "templates": []
+                        "parts": []
                       },
                       "startWrapper": {
                         "type": "AttributeValueWrapperStart",
@@ -386,7 +386,7 @@
                           145,
                           157
                         ],
-                        "templates": []
+                        "parts": []
                       },
                       "endWrapper": {
                         "type": "AttributeValueWrapperEnd",
@@ -440,7 +440,7 @@
                           167,
                           178
                         ],
-                        "templates": []
+                        "parts": []
                       },
                       "startWrapper": {
                         "type": "AttributeValueWrapperStart",
@@ -477,7 +477,7 @@
                           185,
                           196
                         ],
-                        "templates": []
+                        "parts": []
                       },
                       "endWrapper": {
                         "type": "AttributeValueWrapperEnd",
@@ -517,7 +517,7 @@
                         205,
                         248
                       ],
-                      "templates": []
+                      "parts": []
                     }
                   ],
                   "openStart": {
@@ -594,7 +594,7 @@
                     265,
                     270
                   ],
-                  "templates": []
+                  "parts": []
                 }
               ],
               "openStart": {
@@ -671,7 +671,7 @@
                 276,
                 279
               ],
-              "templates": []
+              "parts": []
             }
           ],
           "openStart": {
@@ -748,7 +748,7 @@
             286,
             287
           ],
-          "templates": []
+          "parts": []
         }
       ],
       "openStart": {
@@ -825,7 +825,7 @@
         293,
         294
       ],
-      "templates": []
+      "parts": []
     }
   ],
   "loc": {

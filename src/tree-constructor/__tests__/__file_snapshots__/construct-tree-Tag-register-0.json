@@ -40,7 +40,7 @@
             5,
             6
           ],
-          "templates": []
+          "parts": []
         }
       ],
       "openStart": {
@@ -117,7 +117,7 @@
         12,
         14
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Tag",
@@ -211,7 +211,7 @@
         25,
         27
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Tag",
@@ -248,7 +248,7 @@
             33,
             34
           ],
-          "templates": []
+          "parts": []
         }
       ],
       "openStart": {
@@ -325,7 +325,7 @@
         41,
         43
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Tag",
@@ -419,7 +419,7 @@
         56,
         58
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "ScriptTag",
@@ -510,7 +510,7 @@
         75,
         76
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "ScriptTag",
@@ -582,7 +582,7 @@
           84,
           85
         ],
-        "templates": []
+        "parts": []
       },
       "close": {
         "type": "CloseScriptTag",
@@ -620,7 +620,7 @@
         94,
         95
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "ScriptTag",
@@ -711,7 +711,7 @@
         112,
         113
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "ScriptTag",
@@ -783,7 +783,7 @@
           121,
           122
         ],
-        "templates": []
+        "parts": []
       },
       "close": {
         "type": "CloseScriptTag",
@@ -821,7 +821,7 @@
         131,
         133
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "StyleTag",
@@ -912,7 +912,7 @@
         148,
         149
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "StyleTag",
@@ -984,7 +984,7 @@
           156,
           157
         ],
-        "templates": []
+        "parts": []
       },
       "close": {
         "type": "CloseStyleTag",
@@ -1022,7 +1022,7 @@
         165,
         166
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "StyleTag",
@@ -1113,7 +1113,7 @@
         181,
         182
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "StyleTag",
@@ -1204,7 +1204,7 @@
         197,
         198
       ],
-      "templates": []
+      "parts": []
     }
   ],
   "loc": {

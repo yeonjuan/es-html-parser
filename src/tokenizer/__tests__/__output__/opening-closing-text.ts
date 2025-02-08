@@ -16,7 +16,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -77,7 +77,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
 ];
 

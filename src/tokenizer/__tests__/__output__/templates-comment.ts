@@ -19,16 +19,18 @@ const OUTPUT: AnyToken[] = [
       start: { line: 1, column: 4 },
       end: { line: 1, column: 14 },
     },
-    templates: [
+    parts: [
       {
-        type: TokenTypes.CommentContent,
+        type: TokenTypes.Template,
+        partOf: TokenTypes.CommentContent,
         value: "${comment}",
         range: [4, 14],
         loc: {
           start: { line: 1, column: 4 },
           end: { line: 1, column: 14 },
         },
-        isTemplate: true,
+        open: undefined,
+        close: undefined,
       },
     ],
   },

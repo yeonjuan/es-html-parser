@@ -1,8 +1,7 @@
 import { TokenizerContextTypes } from "../constants";
-// import { CharPointer } from "../tokenizer/char-pointer";
 import { CharsBuffer } from "../tokenizer/chars-buffer";
 import { SourceCode } from "../tokenizer/source-code";
-import { Range } from "./range";
+import { TemplateInfo } from "./template";
 import { AnyToken } from "./token";
 import { TokenAdapter } from "./token-adapter";
 
@@ -27,7 +26,7 @@ export type TokenizerState = {
   contextParams: ContextParams;
   decisionBuffer: CharsBuffer;
   accumulatedContent: CharsBuffer;
-  templateRanges: Range[];
+  templateInfos: TemplateInfo[];
   tokenAdapter: TokenAdapter;
   sourceCode: SourceCode;
   tokens: {

@@ -75,9 +75,9 @@
           8,
           18
         ],
-        "templates": [
+        "parts": [
           {
-            "type": "ScriptTagContent",
+            "type": "Template",
             "value": "${content}",
             "range": [
               8,
@@ -93,7 +93,7 @@
                 "column": 18
               }
             },
-            "isTemplate": true
+            "partOf": "ScriptTagContent"
           }
         ]
       },

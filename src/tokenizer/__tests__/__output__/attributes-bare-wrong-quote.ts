@@ -31,7 +31,7 @@ const OUTPUT: AnyToken[] = [
         column: 9,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -62,7 +62,7 @@ const OUTPUT: AnyToken[] = [
         column: 18,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagEnd,

@@ -76,7 +76,7 @@
         10,
         12
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Doctype",
@@ -149,7 +149,7 @@
         22,
         24
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Doctype",
@@ -365,7 +365,7 @@
         66,
         68
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Doctype",
@@ -509,7 +509,7 @@
         90,
         92
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Doctype",
@@ -795,7 +795,7 @@
         193,
         195
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Doctype",
@@ -1081,7 +1081,7 @@
         303,
         304
       ],
-      "templates": []
+      "parts": []
     }
   ],
   "loc": {

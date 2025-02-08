@@ -40,7 +40,7 @@
             5,
             25
           ],
-          "templates": []
+          "parts": []
         },
         {
           "type": "ScriptTag",
@@ -92,7 +92,7 @@
                   33,
                   37
                 ],
-                "templates": []
+                "parts": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -129,7 +129,7 @@
                   39,
                   54
                 ],
-                "templates": []
+                "parts": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -183,7 +183,7 @@
                   56,
                   67
                 ],
-                "templates": []
+                "parts": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -220,7 +220,7 @@
                   72,
                   77
                 ],
-                "templates": []
+                "parts": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -295,7 +295,7 @@
               80,
               109
             ],
-            "templates": []
+            "parts": []
           },
           "close": {
             "type": "CloseScriptTag",
@@ -333,7 +333,7 @@
             118,
             122
           ],
-          "templates": []
+          "parts": []
         },
         {
           "type": "ScriptTag",
@@ -385,7 +385,7 @@
                   134,
                   138
                 ],
-                "templates": []
+                "parts": []
               },
               "startWrapper": {
                 "type": "AttributeValueWrapperStart",
@@ -422,7 +422,7 @@
                   140,
                   155
                 ],
-                "templates": []
+                "parts": []
               },
               "endWrapper": {
                 "type": "AttributeValueWrapperEnd",
@@ -476,7 +476,7 @@
                   161,
                   166
                 ],
-                "templates": []
+                "parts": []
               }
             }
           ],
@@ -533,7 +533,7 @@
               170,
               218
             ],
-            "templates": []
+            "parts": []
           },
           "close": {
             "type": "CloseScriptTag",
@@ -571,7 +571,7 @@
             227,
             228
           ],
-          "templates": []
+          "parts": []
         }
       ],
       "openStart": {
@@ -648,7 +648,7 @@
         234,
         236
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "ScriptTag",
@@ -700,7 +700,7 @@
               244,
               249
             ],
-            "templates": []
+            "parts": []
           }
         },
         {
@@ -736,7 +736,7 @@
               250,
               254
             ],
-            "templates": []
+            "parts": []
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -773,7 +773,7 @@
               256,
               271
             ],
-            "templates": []
+            "parts": []
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",
@@ -848,7 +848,7 @@
           273,
           298
         ],
-        "templates": []
+        "parts": []
       },
       "close": {
         "type": "CloseScriptTag",
@@ -886,7 +886,7 @@
         307,
         308
       ],
-      "templates": []
+      "parts": []
     }
   ],
   "loc": {

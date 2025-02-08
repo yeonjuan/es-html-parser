@@ -55,7 +55,7 @@
               5,
               7
             ],
-            "templates": []
+            "parts": []
           },
           "startWrapper": {
             "type": "AttributeValueWrapperStart",
@@ -92,9 +92,10 @@
               9,
               14
             ],
-            "templates": [
+            "parts": [
               {
-                "type": "AttributeValue",
+                "type": "Template",
+                "partOf": "AttributeValue",
                 "range": [
                   9,
                   14
@@ -109,7 +110,6 @@
                     "column": 14
                   }
                 },
-                "isTemplate": true,
                 "value": "${id}"
               }
             ]

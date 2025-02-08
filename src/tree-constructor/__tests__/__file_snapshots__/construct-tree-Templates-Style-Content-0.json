@@ -75,9 +75,9 @@
           7,
           17
         ],
-        "templates": [
+        "parts": [
           {
-            "type": "StyleTagContent",
+            "type": "Template",
             "value": "${content}",
             "range": [
               7,
@@ -93,7 +93,7 @@
                 "column": 17
               }
             },
-            "isTemplate": true
+            "partOf": "StyleTagContent"
           }
         ]
       },

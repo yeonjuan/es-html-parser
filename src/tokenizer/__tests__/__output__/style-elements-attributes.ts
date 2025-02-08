@@ -31,7 +31,7 @@ const OUTPUT: AnyToken[] = [
         column: 11,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -77,7 +77,7 @@ const OUTPUT: AnyToken[] = [
         column: 21,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -108,7 +108,7 @@ const OUTPUT: AnyToken[] = [
         column: 29,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -154,7 +154,7 @@ const OUTPUT: AnyToken[] = [
         column: 40,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -200,7 +200,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseStyleTag,
@@ -231,7 +231,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -277,7 +277,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenStyleTagStart,
@@ -308,7 +308,7 @@ const OUTPUT: AnyToken[] = [
         line: 9,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeKey,
@@ -324,7 +324,7 @@ const OUTPUT: AnyToken[] = [
         line: 10,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeAssignment,
@@ -370,7 +370,7 @@ const OUTPUT: AnyToken[] = [
         column: 18,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.AttributeValueWrapperEnd,
@@ -401,7 +401,7 @@ const OUTPUT: AnyToken[] = [
         column: 18,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenStyleTagEnd,
@@ -432,7 +432,7 @@ const OUTPUT: AnyToken[] = [
         column: 2,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseStyleTag,
@@ -463,7 +463,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -494,7 +494,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
 ];
 export default OUTPUT;

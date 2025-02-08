@@ -1,8 +1,7 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenPosition } from "../../utils";
+import { calculateTokenPosition, createParts } from "../../utils";
 import { Range, AnyToken, TokenizerState } from "../../types";
 import { CharsBuffer } from "../chars-buffer";
-import { createTemplates } from "../../utils/create-templates";
 
 const COMMENT_START = "<!--";
 const OPEN_TAG_START_PATTERN = /^<\w/;
@@ -51,7 +50,7 @@ export function handleContentEnd(state: TokenizerState) {
       value: textContent,
       range: position.range,
       loc: position.loc,
-      templates: createTemplates(state, TokenTypes.Text),
+      parts: createParts(state, TokenTypes.Text),
     });
   }
 }
@@ -63,7 +62,7 @@ function generateTextToken(state: TokenizerState): AnyToken {
     value: state.accumulatedContent.value(),
     range: position.range,
     loc: position.loc,
-    templates: createTemplates(state, TokenTypes.Text),
+    parts: createParts(state, TokenTypes.Text),
   };
 }
 

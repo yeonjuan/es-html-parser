@@ -46,7 +46,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -77,7 +77,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -138,7 +138,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -184,7 +184,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseTag,
@@ -215,7 +215,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenTagStart,
@@ -276,7 +276,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -337,7 +337,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -383,7 +383,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseScriptTag,
@@ -414,7 +414,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -475,7 +475,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenScriptTagStart,
@@ -521,7 +521,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseScriptTag,
@@ -552,7 +552,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenStyleTagStart,
@@ -613,7 +613,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenStyleTagStart,
@@ -659,7 +659,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.CloseStyleTag,
@@ -690,7 +690,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenStyleTagStart,
@@ -751,7 +751,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
   {
     type: TokenTypes.OpenStyleTagStart,
@@ -812,7 +812,7 @@ const OUTPUT: AnyToken[] = [
         column: 0,
       },
     },
-    templates: [],
+    parts: [],
   },
 ];
 export default OUTPUT;

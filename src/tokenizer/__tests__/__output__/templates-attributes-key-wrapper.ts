@@ -43,8 +43,36 @@ export default [
         range: [5, 11],
         type: "Template",
         value: "${key}",
-        open: undefined,
-        close: undefined,
+        open: {
+          type: "OpenTemplate",
+          range: [5, 7],
+          value: "${",
+          loc: {
+            start: {
+              column: 5,
+              line: 1,
+            },
+            end: {
+              column: 7,
+              line: 1,
+            },
+          },
+        },
+        close: {
+          type: "CloseTemplate",
+          value: "}",
+          range: [10, 11],
+          loc: {
+            start: {
+              line: 1,
+              column: 10,
+            },
+            end: {
+              line: 1,
+              column: 11,
+            },
+          },
+        },
         partOf: "AttributeKey",
       },
     ],

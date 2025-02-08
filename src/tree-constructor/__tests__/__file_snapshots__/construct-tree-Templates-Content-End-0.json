@@ -22,7 +22,7 @@
         0,
         10
       ],
-      "templates": [
+      "parts": [
         {
           "loc": {
             "end": {
@@ -38,9 +38,9 @@
             0,
             10
           ],
-          "type": "Text",
+          "type": "Template",
           "value": "${content}",
-          "isTemplate": true
+          "partOf": "Text"
         }
       ]
     }

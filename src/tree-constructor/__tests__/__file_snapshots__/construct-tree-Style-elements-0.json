@@ -22,7 +22,7 @@
         0,
         14
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "StyleTag",
@@ -94,7 +94,7 @@
           21,
           64
         ],
-        "templates": []
+        "parts": []
       },
       "close": {
         "type": "CloseStyleTag",
@@ -132,7 +132,7 @@
         72,
         74
       ],
-      "templates": []
+      "parts": []
     },
     {
       "type": "Tag",
@@ -169,7 +169,7 @@
             79,
             82
           ],
-          "templates": []
+          "parts": []
         },
         {
           "type": "StyleTag",
@@ -241,7 +241,7 @@
               89,
               138
             ],
-            "templates": []
+            "parts": []
           },
           "close": {
             "type": "CloseStyleTag",
@@ -279,7 +279,7 @@
             146,
             147
           ],
-          "templates": []
+          "parts": []
         }
       ],
       "openStart": {
@@ -356,7 +356,7 @@
         153,
         168
       ],
-      "templates": []
+      "parts": []
     }
   ],
   "loc": {

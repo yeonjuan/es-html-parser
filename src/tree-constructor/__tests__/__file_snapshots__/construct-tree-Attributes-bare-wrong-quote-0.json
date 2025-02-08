@@ -55,7 +55,7 @@
               3,
               9
             ],
-            "templates": []
+            "parts": []
           },
           "value": {
             "type": "AttributeValue",
@@ -74,7 +74,7 @@
               10,
               18
             ],
-            "templates": []
+            "parts": []
           }
         }
       ],

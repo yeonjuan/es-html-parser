@@ -2,17 +2,20 @@ import { NodeTypes } from "../constants";
 import {
   SimpleNode,
   CompositeNode,
-  PartNode,
-  TemplateNode,
+  PartNodeBase,
+  TemplateNodeBase,
 } from "./simple-node";
 import { BaseNode } from "./base-node";
-
-export { PartNode, TemplateNode };
 
 export interface DocumentNode extends BaseNode {
   type: NodeTypes.Document;
   children: Array<
-    TextNode | TagNode | ScriptTagNode | StyleTagNode | CommentNode
+    | TextNode
+    | TagNode
+    | ScriptTagNode
+    | StyleTagNode
+    | CommentNode
+    | DoctypeNode
   >;
 }
 
@@ -128,6 +131,16 @@ export type DoctypeAttributeWrapperStartNode =
 export type DoctypeAttributeWrapperEndNode =
   SimpleNode<NodeTypes.DoctypeAttributeWrapperEnd>;
 
+export type OpenTemplateNode = SimpleNode<NodeTypes.OpenTemplate>;
+
+export type CloseTemplateNode = SimpleNode<NodeTypes.CloseTemplate>;
+
+export type TemplateNode = TemplateNodeBase<
+  Exclude<NodeTypes, NodeTypes.Template | NodeTypes.Part>
+>;
+
+export type PartNode = PartNodeBase<Exclude<NodeTypes, NodeTypes.Part>>;
+
 export type AnyNode =
   | DocumentNode
   | TextNode
@@ -160,4 +173,8 @@ export type AnyNode =
   | DoctypeAttributeNode
   | DoctypeAttributeValueNode
   | DoctypeAttributeWrapperStartNode
-  | DoctypeAttributeWrapperEndNode;
+  | DoctypeAttributeWrapperEndNode
+  | PartNode
+  | TemplateNode
+  | OpenTemplateNode
+  | CloseTemplateNode;

@@ -14,7 +14,7 @@ export interface PartNodeBase<T extends Exclude<NodeTypes, NodeTypes.Part>>
 }
 
 export interface TemplateNodeBase<
-  T extends Exclude<NodeTypes, NodeTypes.Template | NodeTypes.Part>,
+  T extends Exclude<NodeTypes, NodeTypes.Template | NodeTypes.Part>
 > extends BaseNode {
   type: NodeTypes.Template;
   partOf: T;
@@ -23,7 +23,7 @@ export interface TemplateNodeBase<
 }
 
 export interface CompositeNode<
-  T extends Exclude<NodeTypes, NodeTypes.Template | NodeTypes.Part>,
+  T extends Exclude<NodeTypes, NodeTypes.Template | NodeTypes.Part>
 > extends BaseNode {
   parts: (PartNodeBase<T> | TemplateNodeBase<T>)[];
   value: string;

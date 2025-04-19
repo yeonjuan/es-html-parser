@@ -193,4 +193,16 @@ describe("tokenize", () => {
       expect(tokens).toEqual(output);
     }
   );
+
+  it("parsing error", () => {
+    const html = fs.readFileSync(
+      path.join(__dirname, "__input__", "parsing-error-no-open-end.html"),
+      "utf-8"
+    );
+    expect(() =>
+      tokenize(html, defaultTokenAdapter)
+    ).toThrowErrorMatchingInlineSnapshot(
+      `"Unexpected end of tag. Expected '>' to close the opening tag. (2:2)"`
+    );
+  });
 });

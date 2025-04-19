@@ -1,5 +1,5 @@
 import { TokenizerContextTypes, TokenTypes } from "../../constants";
-import { calculateTokenPosition, isWhitespace } from "../../utils";
+import { calculateTokenPosition, isWhitespace, raise } from "../../utils";
 import type { TokenizerState } from "../../types";
 import { CharsBuffer } from "../chars-buffer";
 
@@ -33,6 +33,12 @@ function parseTagEnd(state: TokenizerState) {
 }
 
 function parseNoneWhitespace(chars: CharsBuffer, state: TokenizerState) {
+  if (chars.value() === "<") {
+    raise(
+      calculateTokenPosition(state, { keepBuffer: true }),
+      "Unexpected end of tag. Expected '>' to close the opening tag."
+    );
+  }
   state.accumulatedContent.replace(state.decisionBuffer);
   state.currentContext = TokenizerContextTypes.AttributeKey;
   state.sourceCode.next();

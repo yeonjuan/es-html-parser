@@ -14,3 +14,4 @@ export * from "./first";
 export * from "./clone-location";
 export * from "./init-if-none";
 export * from "./templates";
+export * from "./raise";

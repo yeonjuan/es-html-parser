@@ -18,11 +18,13 @@ import {
   styleTagContent,
   attributeValue,
   attributeValueWrapped,
+  customTagRawContent,
   noop,
 } from "./handlers";
 import { TokenizeHandler } from "../types";
 import { SourceCode } from "./source-code";
 import { CharsBuffer } from "./chars-buffer";
+import { CustomTagOptionsConfig } from "../types/parse";
 
 const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.Data]: data,
@@ -42,6 +44,7 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.DoctypeAttributeWrapped]: doctypeAttributeWrapped,
   [TokenizerContextTypes.DoctypeAttributeBare]: doctypeAttributeBare,
   [TokenizerContextTypes.CommentContent]: commentContent,
+  [TokenizerContextTypes.CustomTagRawContent]: customTagRawContent,
   [TokenizerContextTypes.CommentOpen]: noop,
   [TokenizerContextTypes.CommentClose]: noop,
 };
@@ -61,21 +64,27 @@ function tokenizeChars(state: TokenizerState) {
   }
 }
 
+export type TokenizeOptions = {
+  templateInfos?: TemplateInfo[];
+  customTags?: CustomTagOptionsConfig;
+};
+
 export function tokenize(
   source = "",
   tokenAdapter: TokenAdapter,
-  templateInfos?: TemplateInfo[]
+  options: TokenizeOptions = { templateInfos: undefined, customTags: undefined }
 ): { state: TokenizerState; tokens: AnyToken[] } {
   const tokens: AnyToken[] = [];
   const state: TokenizerState = {
     currentContext: TokenizerContextTypes.Data,
     contextParams: {},
-    mode: templateInfos ? "template" : "default",
-    templateInfos: templateInfos || [],
+    mode: options.templateInfos ? "template" : "default",
+    templateInfos: options.templateInfos || [],
     decisionBuffer: new CharsBuffer(),
     accumulatedContent: new CharsBuffer(),
     tokenAdapter,
-    sourceCode: new SourceCode(source, templateInfos || []),
+    customTags: options.customTags,
+    sourceCode: new SourceCode(source, options.templateInfos || []),
     tokens: {
       push(token: AnyToken) {
         tokens.push({

@@ -8,7 +8,14 @@ export type ParseResult = {
   tokens: AnyToken[];
 };
 
+export type CustomTagOptions = {
+  rawContent: boolean;
+};
+
+export type CustomTagOptionsConfig = Record<string, CustomTagOptions>;
+
 export type Options = {
   tokenAdapter?: TokenAdapter;
+  customTags?: CustomTagOptionsConfig;
   templateInfos?: TemplateInfo[];
 };

@@ -1,6 +1,7 @@
 import { TokenizerContextTypes } from "../constants";
 import { CharsBuffer } from "../tokenizer/chars-buffer";
 import { SourceCode } from "../tokenizer/source-code";
+import { CustomTagOptionsConfig } from "./parse";
 import { TemplateInfo } from "./template";
 import { AnyToken } from "./token";
 import { TokenAdapter } from "./token-adapter";
@@ -18,6 +19,9 @@ type ContextParams = {
   [TokenizerContextTypes.DoctypeAttributeWrapped]?: {
     wrapper: string;
   };
+  [TokenizerContextTypes.CustomTagRawContent]?: {
+    tagName: string;
+  };
 };
 
 export type TokenizerState = {
@@ -27,6 +31,7 @@ export type TokenizerState = {
   decisionBuffer: CharsBuffer;
   accumulatedContent: CharsBuffer;
   templateInfos: TemplateInfo[];
+  customTags?: CustomTagOptionsConfig;
   tokenAdapter: TokenAdapter;
   sourceCode: SourceCode;
   tokens: {

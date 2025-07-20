@@ -39,8 +39,16 @@ function parseClosingCornerBrace(state: TokenizerState) {
 
   state.accumulatedContent.clear();
   state.decisionBuffer.clear();
-  state.currentContext =
-    contextsMap[tagName || "default"] || contextsMap["default"];
+  if (state.customTags?.[tagName]?.rawContent) {
+    state.contextParams[TokenizerContextTypes.CustomTagRawContent] = {
+      tagName,
+    };
+    state.currentContext = TokenizerContextTypes.CustomTagRawContent;
+  } else {
+    state.currentContext =
+      contextsMap[tagName || "default"] || contextsMap["default"];
+  }
+
   state.sourceCode.next();
 
   state.contextParams[TokenizerContextTypes.OpenTagEnd] = undefined;

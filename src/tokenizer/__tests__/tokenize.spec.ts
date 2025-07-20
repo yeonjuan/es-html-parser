@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { tokenize } from "../tokenize";
+import { tokenize, TokenizeOptions } from "../tokenize";
 import OPENING_CLOSING_TEXT from "./__output__/opening-closing-text";
 import NESTED_TAGS from "./__output__/nested-tags";
 import COMMENTS from "./__output__/comments";
@@ -30,7 +30,7 @@ import TEMPLATE_COMMENT from "./__output__/templates-comment";
 import TEMPLATE_SCRIPT_CONTENT from "./__output__/templates-script-content";
 import TEMPLATE_STYLE_CONTENT from "./__output__/templates-style-content";
 import TEMPLATE_CONTENT_END from "./__output__/templates-content-end";
-
+import CUSTOM_TAG_RAW_CONTENT from "./__output__/custom-tag-raw-content";
 import { defaultTokenAdapter } from "../../token-adapter";
 import { Range, TemplateInfo } from "../../types";
 
@@ -98,78 +98,111 @@ describe("tokenize", () => {
       "templates-attributes-key.html",
       TEMPLATE_ATTRIBUTES_KEY,
       null,
-      [[5, 11]] as Range[],
+      {
+        templateInfos: [[5, 11]] as Range[],
+      },
     ],
     [
       "Template Attributes Key (wrapper)",
       "templates-attributes-key.html",
       TEMPLATE_ATTRIBUTES_KEY_WRAPPER,
       null,
-      [
-        {
-          open: [5, 7],
-          close: [10, 11],
-        },
-      ] as TemplateInfo[],
+      {
+        templateInfos: [
+          {
+            open: [5, 7],
+            close: [10, 11],
+          },
+        ] as TemplateInfo[],
+      },
     ],
     [
       "Template Attributes Value Bare",
       "templates-attributes-value-bare.html",
       TEMPLATE_ATTRIBUTES_VALUE_BARE,
       null,
-      [[8, 13]] as Range[],
+      {
+        templateInfos: [[8, 13]] as Range[],
+      },
     ],
     [
       "Template Attributes Value Wrapped",
       "templates-attributes-value-wrapped.html",
       TEMPLATE_ATTRIBUTES_VALUE_WRAPPED,
       null,
-      [[9, 14]] as Range[],
+      {
+        templateInfos: [[9, 14]] as Range[],
+      },
     ],
     [
       "Template Attributes Value Wrapped 2",
       "templates-attributes-value-wrapped-2.html",
       TEMPLATE_ATTRIBUTES_VALUE_WRAPPED_2,
       null,
-      [
-        [16, 22],
-        [23, 31],
-      ] as Range[],
+      {
+        templateInfos: [
+          [16, 22],
+          [23, 31],
+        ] as Range[],
+      },
     ],
     [
       "Templates Data",
       "templates-data.html",
       TEMPLATE_DATA,
       null,
-      [[5, 16]] as Range[],
+      {
+        templateInfos: [[5, 16]] as Range[],
+      },
     ],
     [
       "Templates Comment",
       "templates-comment.html",
       TEMPLATE_COMMENT,
       null,
-      [[4, 14]] as Range[],
+      {
+        templateInfos: [[4, 14]] as Range[],
+      },
     ],
     [
       "Templates Script Content",
       "templates-script-content.html",
       TEMPLATE_SCRIPT_CONTENT,
       null,
-      [[8, 18]] as Range[],
+      {
+        templateInfos: [[8, 18]] as Range[],
+      },
     ],
     [
       "Templates Style Content",
       "templates-style-content.html",
       TEMPLATE_STYLE_CONTENT,
       null,
-      [[7, 17]] as Range[],
+      {
+        templateInfos: [[7, 17]] as Range[],
+      },
     ],
     [
       "Templates Content End",
       "templates-content-end.html",
       TEMPLATE_CONTENT_END,
       null,
-      [[0, 10]] as Range[],
+      {
+        templateInfos: [[0, 10]] as Range[],
+      },
+    ],
+    [
+      "Custom Tag Raw Content",
+      "custom-tag-raw-content.html",
+      CUSTOM_TAG_RAW_CONTENT,
+      null,
+      {
+        customTags: {
+          markdown: {
+            rawContent: true,
+          },
+        },
+      },
     ],
   ])(
     "%s",
@@ -178,18 +211,14 @@ describe("tokenize", () => {
       input,
       output,
       process: null | ((html: string) => string) = null,
-      ranges: null | TemplateInfo[]
+      options: TokenizeOptions | null = null
     ) => {
       const inputPath = path.join(__dirname, "__input__", input);
       let html = fs.readFileSync(inputPath, "utf-8");
       if (process) {
         html = process(html);
       }
-      const { tokens } = tokenize(
-        html,
-        defaultTokenAdapter,
-        ranges ?? undefined
-      );
+      const { tokens } = tokenize(html, defaultTokenAdapter, options || {});
       expect(tokens).toEqual(output);
     }
   );

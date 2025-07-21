@@ -24,7 +24,6 @@ import {
 import { TokenizeHandler } from "../types";
 import { SourceCode } from "./source-code";
 import { CharsBuffer } from "./chars-buffer";
-import { CustomTagOptionsConfig } from "../types/parse";
 
 const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.Data]: data,
@@ -66,13 +65,16 @@ function tokenizeChars(state: TokenizerState) {
 
 export type TokenizeOptions = {
   templateInfos?: TemplateInfo[];
-  customTags?: CustomTagOptionsConfig;
+  rawContentTags?: string[];
 };
 
 export function tokenize(
   source = "",
   tokenAdapter: TokenAdapter,
-  options: TokenizeOptions = { templateInfos: undefined, customTags: undefined }
+  options: TokenizeOptions = {
+    templateInfos: undefined,
+    rawContentTags: undefined,
+  }
 ): { state: TokenizerState; tokens: AnyToken[] } {
   const tokens: AnyToken[] = [];
   const state: TokenizerState = {
@@ -83,7 +85,7 @@ export function tokenize(
     decisionBuffer: new CharsBuffer(),
     accumulatedContent: new CharsBuffer(),
     tokenAdapter,
-    customTags: options.customTags,
+    rawContentTags: options.rawContentTags,
     sourceCode: new SourceCode(source, options.templateInfos || []),
     tokens: {
       push(token: AnyToken) {

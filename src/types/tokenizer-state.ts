@@ -1,7 +1,6 @@
 import { TokenizerContextTypes } from "../constants";
 import { CharsBuffer } from "../tokenizer/chars-buffer";
 import { SourceCode } from "../tokenizer/source-code";
-import { CustomTagOptionsConfig } from "./parse";
 import { TemplateInfo } from "./template";
 import { AnyToken } from "./token";
 import { TokenAdapter } from "./token-adapter";
@@ -31,7 +30,7 @@ export type TokenizerState = {
   decisionBuffer: CharsBuffer;
   accumulatedContent: CharsBuffer;
   templateInfos: TemplateInfo[];
-  customTags?: CustomTagOptionsConfig;
+  rawContentTags?: string[];
   tokenAdapter: TokenAdapter;
   sourceCode: SourceCode;
   tokens: {

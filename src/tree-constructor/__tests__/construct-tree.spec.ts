@@ -43,7 +43,6 @@ import TEMPLATE_COMMENT from "../../tokenizer/__tests__/__output__/templates-com
 import TEMPLATE_SCRIPT_CONTENT from "../../tokenizer/__tests__/__output__/templates-script-content";
 import TEMPLATE_STYLE_CONTENT from "../../tokenizer/__tests__/__output__/templates-style-content";
 import TEMPLATE_CONTENT_END from "../../tokenizer/__tests__/__output__/templates-content-end";
-
 import { clearParent } from "../../utils";
 import { toMatchFile } from "jest-file-snapshot";
 

@@ -197,11 +197,7 @@ describe("tokenize", () => {
       CUSTOM_TAG_RAW_CONTENT,
       null,
       {
-        customTags: {
-          markdown: {
-            rawContent: true,
-          },
-        },
+        rawContentTags: ["markdown"],
       },
     ],
   ])(

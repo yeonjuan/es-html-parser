@@ -39,7 +39,7 @@ function parseClosingCornerBrace(state: TokenizerState) {
 
   state.accumulatedContent.clear();
   state.decisionBuffer.clear();
-  if (state.customTags?.[tagName]?.rawContent) {
+  if (state.rawContentTags?.includes(tagName)) {
     state.contextParams[TokenizerContextTypes.CustomTagRawContent] = {
       tagName,
     };

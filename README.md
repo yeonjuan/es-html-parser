@@ -68,6 +68,7 @@ parse(html: string, options?: Options): ParseResult;
 - `html`: HTML string to parse.
 - `options (optional)`
   - `tokenAdapter`: The adapter option for changing tokens information.
+  - `rawContentTags` (string[]) : Specifies tag names whose child contents should be treated as raw text, meaning the parser will not interpret characters like < and > as HTML syntax inside these tags.
 
 **Returns**
 

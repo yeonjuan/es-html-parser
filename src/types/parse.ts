@@ -10,5 +10,6 @@ export type ParseResult = {
 
 export type Options = {
   tokenAdapter?: TokenAdapter;
+  rawContentTags?: string[];
   templateInfos?: TemplateInfo[];
 };

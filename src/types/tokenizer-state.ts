@@ -18,6 +18,9 @@ type ContextParams = {
   [TokenizerContextTypes.DoctypeAttributeWrapped]?: {
     wrapper: string;
   };
+  [TokenizerContextTypes.CustomTagRawContent]?: {
+    tagName: string;
+  };
 };
 
 export type TokenizerState = {
@@ -27,6 +30,7 @@ export type TokenizerState = {
   decisionBuffer: CharsBuffer;
   accumulatedContent: CharsBuffer;
   templateInfos: TemplateInfo[];
+  rawContentTags?: string[];
   tokenAdapter: TokenAdapter;
   sourceCode: SourceCode;
   tokens: {

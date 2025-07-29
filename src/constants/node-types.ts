@@ -3,6 +3,7 @@ export enum NodeTypes {
   Tag = "Tag",
   Text = "Text",
   Doctype = "Doctype",
+  RawContent = "RawContent",
 
   Comment = "Comment",
   CommentOpen = "CommentOpen",

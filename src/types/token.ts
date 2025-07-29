@@ -30,6 +30,7 @@ export interface CompositeToken<T extends TokenTypes> extends Token<T> {
 
 export type AnyToken =
   | CompositeToken<TokenTypes.Text>
+  | CompositeToken<TokenTypes.RawContent>
   | Token<TokenTypes.OpenTagStart>
   | Token<TokenTypes.OpenTagEnd>
   | Token<TokenTypes.CloseTag>

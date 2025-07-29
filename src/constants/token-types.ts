@@ -1,5 +1,6 @@
 export enum TokenTypes {
   Text = "Text",
+  RawContent = "RawContent",
   OpenTagStart = "OpenTagStart",
   OpenTagEnd = "OpenTagEnd",
   CloseTag = "CloseTag",

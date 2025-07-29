@@ -15,6 +15,7 @@ import {
   ContextualDoctypeNode,
   TextNode,
   CompositeToken,
+  RawContentNode,
 } from "../../types";
 import {
   cloneRange,
@@ -131,6 +132,19 @@ function handleText(
   return state;
 }
 
+function handleRawContent(
+  state: ConstructTreeState<ContextualTagNode | ContextualDocumentNode>,
+  token: CompositeToken<TokenTypes.RawContent>
+) {
+  initChildrenIfNone(state.currentNode);
+  const rawContentNode = createNodeFrom(token) as RawContentNode;
+
+  state.currentNode.children.push(rawContentNode);
+  state.caretPosition++;
+
+  return state;
+}
+
 function handleOpenScriptTagStart(
   state: ConstructTreeState<ContextualTagNode | ContextualDocumentNode>,
   token: Token<TokenTypes.OpenScriptTagStart>
@@ -200,6 +214,10 @@ export function construct(
 
   if (token.type === TokenTypes.Text) {
     return handleText(state, token);
+  }
+
+  if (token.type === TokenTypes.RawContent) {
+    return handleRawContent(state, token);
   }
 
   if (token.type === TokenTypes.CloseTag) {

@@ -43,6 +43,7 @@ import TEMPLATE_COMMENT from "../../tokenizer/__tests__/__output__/templates-com
 import TEMPLATE_SCRIPT_CONTENT from "../../tokenizer/__tests__/__output__/templates-script-content";
 import TEMPLATE_STYLE_CONTENT from "../../tokenizer/__tests__/__output__/templates-style-content";
 import TEMPLATE_CONTENT_END from "../../tokenizer/__tests__/__output__/templates-content-end";
+import CUSTOM_TAG_RAW_CONTENT from "../../tokenizer/__tests__/__output__/custom-tag-raw-content";
 import { clearParent } from "../../utils";
 import { toMatchFile } from "jest-file-snapshot";
 
@@ -78,6 +79,7 @@ describe("construct-tree", () => {
     ["Templates Script Content", TEMPLATE_SCRIPT_CONTENT],
     ["Templates Style Content", TEMPLATE_STYLE_CONTENT],
     ["Templates Content End", TEMPLATE_CONTENT_END],
+    ["Custom Tag Raw Content", CUSTOM_TAG_RAW_CONTENT],
   ])("%s", (name: string, inputTokens: any) => {
     const { ast } = constructTree(inputTokens);
     expect(JSON.stringify(clearParent(ast), null, 2)).toMatchFile(undefined, {

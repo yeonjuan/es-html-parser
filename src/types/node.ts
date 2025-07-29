@@ -11,6 +11,7 @@ export interface DocumentNode extends BaseNode {
   type: NodeTypes.Document;
   children: Array<
     | TextNode
+    | RawContentNode
     | TagNode
     | ScriptTagNode
     | StyleTagNode
@@ -20,6 +21,7 @@ export interface DocumentNode extends BaseNode {
 }
 
 export type TextNode = CompositeNode<NodeTypes.Text>;
+export type RawContentNode = CompositeNode<NodeTypes.RawContent>;
 
 export interface TagNode extends BaseNode {
   type: NodeTypes.Tag;
@@ -29,7 +31,12 @@ export interface TagNode extends BaseNode {
   openEnd: OpenTagEndNode;
   close?: CloseTagNode;
   children: Array<
-    TextNode | TagNode | ScriptTagNode | StyleTagNode | CommentNode
+    | TextNode
+    | TagNode
+    | ScriptTagNode
+    | StyleTagNode
+    | CommentNode
+    | RawContentNode
   >;
   attributes: Array<AttributeNode>;
 }

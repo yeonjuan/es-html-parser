@@ -35,11 +35,11 @@ function parseClosingCustomTag(state: TokenizerState) {
   if (state.accumulatedContent.value() !== "") {
     const position = calculateTokenPosition(state, { keepBuffer: false });
     state.tokens.push({
-      type: TokenTypes.Text,
+      type: TokenTypes.RawContent,
       value: state.accumulatedContent.value(),
       range: position.range,
       loc: position.loc,
-      parts: createParts(state, TokenTypes.Text),
+      parts: createParts(state, TokenTypes.RawContent),
     });
   }
 

@@ -110,7 +110,7 @@ const OUTPUT: AnyToken[] = [
     },
   },
   {
-    type: TokenTypes.Text,
+    type: TokenTypes.RawContent,
     value: `
 # Hello, world!
 

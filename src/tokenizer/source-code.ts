@@ -55,9 +55,10 @@ export class SourceCode {
           charsList.push(
             new Chars(
               CharsType.Template,
+              info.type,
               this.source.slice(range[0], range[1]),
               [range[0], range[1]],
-              Array.isArray(info) ? undefined : info
+              info
             )
           );
           templateInfoIndex++;
@@ -66,7 +67,7 @@ export class SourceCode {
         }
       }
       charsList.push(
-        new Chars(CharsType.HTML, this.source[sourceIndex], [
+        new Chars(CharsType.HTML, undefined, this.source[sourceIndex], [
           sourceIndex,
           sourceIndex + 1,
         ])

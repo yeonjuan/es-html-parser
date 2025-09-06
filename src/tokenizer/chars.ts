@@ -1,4 +1,4 @@
-import { Range } from "../types";
+import { Range, TemplateTokenType } from "../types";
 
 export enum CharsType {
   HTML = "HTML",
@@ -11,6 +11,7 @@ export class Chars {
   public isTemplate: boolean;
   constructor(
     public type: CharsType,
+    public templateTokenType: TemplateTokenType | undefined,
     public value: string,
     public range: Range,
     public wrapper?: {

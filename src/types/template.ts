@@ -1,15 +1,16 @@
 import { Range } from "./range";
 
-export type TemplateInfo =
-  | Range
-  | {
-      type?:
-        | "inline"
-        | "blockOpen"
-        | "blockClose"
-        | "conditionalBlockOpen"
-        | "conditionalBlockClose"
-        | "alternativeBlockOpen";
-      open: Range;
-      close: Range;
-    };
+export enum TemplateTokenType {
+  Inline = "inline",
+  BlockOpen = "blockOpen",
+  BlockClose = "blockClose",
+  ConditionalBlockOpen = "conditionalBlockOpen",
+  ConditionalBlockClose = "conditionalBlockClose",
+  AlternativeBlockOpen = "alternativeBlockOpen",
+}
+
+export type TemplateInfo = {
+  type?: TemplateTokenType;
+  open: Range;
+  close: Range;
+};

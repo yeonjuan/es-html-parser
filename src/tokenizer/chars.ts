@@ -11,7 +11,7 @@ export class Chars {
   public isTemplate: boolean;
   constructor(
     public type: CharsType,
-    public templateTokenType: TemplateTokenType | undefined,
+    public templateTokenType: TemplateTokenType = TemplateTokenType.Inline,
     public value: string,
     public range: Range,
     public wrapper?: {

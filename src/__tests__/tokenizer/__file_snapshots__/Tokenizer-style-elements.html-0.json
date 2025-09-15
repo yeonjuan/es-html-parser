@@ -1,0 +1,297 @@
+[
+  {
+    "type": "Text",
+    "value": "opening text\n\n",
+    "range": [
+      0,
+      14
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 3,
+        "column": 0
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "OpenStyleTagStart",
+    "value": "<style",
+    "range": [
+      14,
+      20
+    ],
+    "loc": {
+      "start": {
+        "line": 3,
+        "column": 0
+      },
+      "end": {
+        "line": 3,
+        "column": 6
+      }
+    }
+  },
+  {
+    "type": "OpenStyleTagEnd",
+    "value": ">",
+    "range": [
+      20,
+      21
+    ],
+    "loc": {
+      "start": {
+        "line": 3,
+        "column": 6
+      },
+      "end": {
+        "line": 3,
+        "column": 7
+      }
+    }
+  },
+  {
+    "type": "StyleTagContent",
+    "value": "\n  body {\n    background-color: white;\n  }\n",
+    "range": [
+      21,
+      64
+    ],
+    "loc": {
+      "start": {
+        "line": 3,
+        "column": 7
+      },
+      "end": {
+        "line": 7,
+        "column": 0
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "CloseStyleTag",
+    "value": "</style>",
+    "range": [
+      64,
+      72
+    ],
+    "loc": {
+      "start": {
+        "line": 7,
+        "column": 0
+      },
+      "end": {
+        "line": 7,
+        "column": 8
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n\n",
+    "range": [
+      72,
+      74
+    ],
+    "loc": {
+      "start": {
+        "line": 7,
+        "column": 8
+      },
+      "end": {
+        "line": 9,
+        "column": 0
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "OpenTagStart",
+    "value": "<div",
+    "range": [
+      74,
+      78
+    ],
+    "loc": {
+      "start": {
+        "line": 9,
+        "column": 0
+      },
+      "end": {
+        "line": 9,
+        "column": 4
+      }
+    }
+  },
+  {
+    "type": "OpenTagEnd",
+    "value": ">",
+    "range": [
+      78,
+      79
+    ],
+    "loc": {
+      "start": {
+        "line": 9,
+        "column": 4
+      },
+      "end": {
+        "line": 9,
+        "column": 5
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n  ",
+    "range": [
+      79,
+      82
+    ],
+    "loc": {
+      "start": {
+        "line": 9,
+        "column": 5
+      },
+      "end": {
+        "line": 10,
+        "column": 2
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "OpenStyleTagStart",
+    "value": "<style",
+    "range": [
+      82,
+      88
+    ],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 2
+      },
+      "end": {
+        "line": 10,
+        "column": 8
+      }
+    }
+  },
+  {
+    "type": "OpenStyleTagEnd",
+    "value": ">",
+    "range": [
+      88,
+      89
+    ],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 8
+      },
+      "end": {
+        "line": 10,
+        "column": 9
+      }
+    }
+  },
+  {
+    "type": "StyleTagContent",
+    "value": "\n    body {\n      background-color: red;\n    }\n  ",
+    "range": [
+      89,
+      138
+    ],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 9
+      },
+      "end": {
+        "line": 14,
+        "column": 2
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "CloseStyleTag",
+    "value": "</style>",
+    "range": [
+      138,
+      146
+    ],
+    "loc": {
+      "start": {
+        "line": 14,
+        "column": 2
+      },
+      "end": {
+        "line": 14,
+        "column": 10
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n",
+    "range": [
+      146,
+      147
+    ],
+    "loc": {
+      "start": {
+        "line": 14,
+        "column": 10
+      },
+      "end": {
+        "line": 15,
+        "column": 0
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "CloseTag",
+    "value": "</div>",
+    "range": [
+      147,
+      153
+    ],
+    "loc": {
+      "start": {
+        "line": 15,
+        "column": 0
+      },
+      "end": {
+        "line": 15,
+        "column": 6
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n\nclosing text\n",
+    "range": [
+      153,
+      168
+    ],
+    "loc": {
+      "start": {
+        "line": 15,
+        "column": 6
+      },
+      "end": {
+        "line": 18,
+        "column": 0
+      }
+    },
+    "parts": []
+  }
+]

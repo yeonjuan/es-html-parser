@@ -1,0 +1,91 @@
+{
+  "type": "Document",
+  "range": [
+    0,
+    17
+  ],
+  "children": [
+    {
+      "type": "Comment",
+      "range": [
+        0,
+        17
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 17
+        }
+      },
+      "open": {
+        "type": "CommentOpen",
+        "value": "<!--",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 4
+          }
+        },
+        "range": [
+          0,
+          4
+        ]
+      },
+      "value": {
+        "type": "CommentContent",
+        "value": "${comment}",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 4
+          },
+          "end": {
+            "line": 1,
+            "column": 14
+          }
+        },
+        "range": [
+          4,
+          14
+        ],
+        "parts": []
+      },
+      "close": {
+        "type": "CommentClose",
+        "value": "-->",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 14
+          },
+          "end": {
+            "line": 1,
+            "column": 17
+          }
+        },
+        "range": [
+          14,
+          17
+        ]
+      }
+    }
+  ],
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 1,
+      "column": 17
+    }
+  }
+}

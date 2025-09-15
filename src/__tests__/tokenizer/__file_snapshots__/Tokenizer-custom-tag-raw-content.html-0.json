@@ -1,0 +1,222 @@
+[
+  {
+    "type": "OpenTagStart",
+    "value": "<markdown",
+    "range": [
+      0,
+      9
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 1,
+        "column": 9
+      }
+    }
+  },
+  {
+    "type": "AttributeKey",
+    "value": "attr",
+    "range": [
+      10,
+      14
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 10
+      },
+      "end": {
+        "line": 1,
+        "column": 14
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "AttributeAssignment",
+    "value": "=",
+    "range": [
+      14,
+      15
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 14
+      },
+      "end": {
+        "line": 1,
+        "column": 15
+      }
+    }
+  },
+  {
+    "type": "AttributeValueWrapperStart",
+    "value": "\"",
+    "range": [
+      15,
+      16
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 15
+      },
+      "end": {
+        "line": 1,
+        "column": 16
+      }
+    }
+  },
+  {
+    "type": "AttributeValue",
+    "value": "1",
+    "range": [
+      16,
+      17
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 16
+      },
+      "end": {
+        "line": 1,
+        "column": 17
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "AttributeValueWrapperEnd",
+    "value": "\"",
+    "range": [
+      17,
+      18
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 17
+      },
+      "end": {
+        "line": 1,
+        "column": 18
+      }
+    }
+  },
+  {
+    "type": "OpenTagEnd",
+    "value": ">",
+    "range": [
+      18,
+      19
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 18
+      },
+      "end": {
+        "line": 1,
+        "column": 19
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n# Hello, world!\n\n```cpp{4-6,9}\n#include ",
+    "range": [
+      19,
+      60
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 19
+      },
+      "end": {
+        "line": 5,
+        "column": 9
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "OpenTagStart",
+    "value": "<iostream",
+    "range": [
+      60,
+      69
+    ],
+    "loc": {
+      "start": {
+        "line": 5,
+        "column": 9
+      },
+      "end": {
+        "line": 5,
+        "column": 18
+      }
+    }
+  },
+  {
+    "type": "OpenTagEnd",
+    "value": ">",
+    "range": [
+      69,
+      70
+    ],
+    "loc": {
+      "start": {
+        "line": 5,
+        "column": 18
+      },
+      "end": {
+        "line": 5,
+        "column": 19
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n\nclass Example {\n    Example() {\n        std::cout << \"Hello, world!\" << std::endl;\n    }\n\n    Example(std::string name) {\n        std::cout << \"Hello, \" << name << std::endl;\n    }\n};\n```\n",
+    "range": [
+      70,
+      260
+    ],
+    "loc": {
+      "start": {
+        "line": 5,
+        "column": 19
+      },
+      "end": {
+        "line": 17,
+        "column": 0
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "CloseTag",
+    "value": "</markdown>",
+    "range": [
+      260,
+      271
+    ],
+    "loc": {
+      "start": {
+        "line": 17,
+        "column": 0
+      },
+      "end": {
+        "line": 17,
+        "column": 11
+      }
+    }
+  }
+]

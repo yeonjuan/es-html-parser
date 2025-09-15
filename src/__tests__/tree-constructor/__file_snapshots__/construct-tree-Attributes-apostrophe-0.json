@@ -1,0 +1,387 @@
+{
+  "type": "Document",
+  "range": [
+    0,
+    74
+  ],
+  "children": [
+    {
+      "type": "Tag",
+      "range": [
+        0,
+        73
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 73
+        }
+      },
+      "attributes": [
+        {
+          "type": "Attribute",
+          "range": [
+            5,
+            17
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 5
+            },
+            "end": {
+              "line": 1,
+              "column": 17
+            }
+          },
+          "key": {
+            "type": "AttributeKey",
+            "value": "class",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 5
+              },
+              "end": {
+                "line": 1,
+                "column": 10
+              }
+            },
+            "range": [
+              5,
+              10
+            ],
+            "parts": []
+          },
+          "startWrapper": {
+            "type": "AttributeValueWrapperStart",
+            "value": "'",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 11
+              },
+              "end": {
+                "line": 1,
+                "column": 12
+              }
+            },
+            "range": [
+              11,
+              12
+            ]
+          },
+          "value": {
+            "type": "AttributeValue",
+            "value": "test",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 12
+              },
+              "end": {
+                "line": 1,
+                "column": 16
+              }
+            },
+            "range": [
+              12,
+              16
+            ],
+            "parts": []
+          },
+          "endWrapper": {
+            "type": "AttributeValueWrapperEnd",
+            "value": "'",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 16
+              },
+              "end": {
+                "line": 1,
+                "column": 17
+              }
+            },
+            "range": [
+              16,
+              17
+            ]
+          }
+        },
+        {
+          "type": "Attribute",
+          "range": [
+            18,
+            40
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 18
+            },
+            "end": {
+              "line": 1,
+              "column": 40
+            }
+          },
+          "key": {
+            "type": "AttributeKey",
+            "value": "data-test",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 18
+              },
+              "end": {
+                "line": 1,
+                "column": 27
+              }
+            },
+            "range": [
+              18,
+              27
+            ],
+            "parts": []
+          },
+          "startWrapper": {
+            "type": "AttributeValueWrapperStart",
+            "value": "'",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 28
+              },
+              "end": {
+                "line": 1,
+                "column": 29
+              }
+            },
+            "range": [
+              28,
+              29
+            ]
+          },
+          "value": {
+            "type": "AttributeValue",
+            "value": "data<test>",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 29
+              },
+              "end": {
+                "line": 1,
+                "column": 39
+              }
+            },
+            "range": [
+              29,
+              39
+            ],
+            "parts": []
+          },
+          "endWrapper": {
+            "type": "AttributeValueWrapperEnd",
+            "value": "'",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 39
+              },
+              "end": {
+                "line": 1,
+                "column": 40
+              }
+            },
+            "range": [
+              39,
+              40
+            ]
+          }
+        },
+        {
+          "type": "Attribute",
+          "range": [
+            41,
+            66
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 41
+            },
+            "end": {
+              "line": 1,
+              "column": 66
+            }
+          },
+          "key": {
+            "type": "AttributeKey",
+            "value": "with-spaces",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 41
+              },
+              "end": {
+                "line": 1,
+                "column": 52
+              }
+            },
+            "range": [
+              41,
+              52
+            ],
+            "parts": []
+          },
+          "startWrapper": {
+            "type": "AttributeValueWrapperStart",
+            "value": "'",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 53
+              },
+              "end": {
+                "line": 1,
+                "column": 54
+              }
+            },
+            "range": [
+              53,
+              54
+            ]
+          },
+          "value": {
+            "type": "AttributeValue",
+            "value": "spaces test",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 54
+              },
+              "end": {
+                "line": 1,
+                "column": 65
+              }
+            },
+            "range": [
+              54,
+              65
+            ],
+            "parts": []
+          },
+          "endWrapper": {
+            "type": "AttributeValueWrapperEnd",
+            "value": "'",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 65
+              },
+              "end": {
+                "line": 1,
+                "column": 66
+              }
+            },
+            "range": [
+              65,
+              66
+            ]
+          }
+        }
+      ],
+      "children": [],
+      "openStart": {
+        "type": "OpenTagStart",
+        "value": "<div",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 4
+          }
+        },
+        "range": [
+          0,
+          4
+        ]
+      },
+      "name": "div",
+      "openEnd": {
+        "type": "OpenTagEnd",
+        "value": ">",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 66
+          },
+          "end": {
+            "line": 1,
+            "column": 67
+          }
+        },
+        "range": [
+          66,
+          67
+        ]
+      },
+      "selfClosing": false,
+      "close": {
+        "type": "CloseTag",
+        "value": "</div>",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 67
+          },
+          "end": {
+            "line": 1,
+            "column": 73
+          }
+        },
+        "range": [
+          67,
+          73
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": "\n",
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 73
+        },
+        "end": {
+          "line": 2,
+          "column": 0
+        }
+      },
+      "range": [
+        73,
+        74
+      ],
+      "parts": []
+    }
+  ],
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 2,
+      "column": 0
+    }
+  }
+}

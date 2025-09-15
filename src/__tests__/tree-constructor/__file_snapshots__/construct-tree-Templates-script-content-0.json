@@ -1,0 +1,130 @@
+{
+  "type": "Document",
+  "range": [
+    0,
+    27
+  ],
+  "children": [
+    {
+      "type": "ScriptTag",
+      "range": [
+        0,
+        27
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 27
+        }
+      },
+      "attributes": [],
+      "openStart": {
+        "type": "OpenScriptTagStart",
+        "value": "<script",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 7
+          }
+        },
+        "range": [
+          0,
+          7
+        ]
+      },
+      "openEnd": {
+        "type": "OpenScriptTagEnd",
+        "value": ">",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 7
+          },
+          "end": {
+            "line": 1,
+            "column": 8
+          }
+        },
+        "range": [
+          7,
+          8
+        ]
+      },
+      "value": {
+        "type": "ScriptTagContent",
+        "value": "${content}",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 8
+          },
+          "end": {
+            "line": 1,
+            "column": 18
+          }
+        },
+        "range": [
+          8,
+          18
+        ],
+        "parts": [
+          {
+            "type": "Template",
+            "range": [
+              8,
+              18
+            ],
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 8
+              },
+              "end": {
+                "line": 1,
+                "column": 18
+              }
+            },
+            "value": "${content}",
+            "partOf": "ScriptTagContent"
+          }
+        ]
+      },
+      "close": {
+        "type": "CloseScriptTag",
+        "value": "</script>",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 18
+          },
+          "end": {
+            "line": 1,
+            "column": 27
+          }
+        },
+        "range": [
+          18,
+          27
+        ]
+      }
+    }
+  ],
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 1,
+      "column": 27
+    }
+  }
+}

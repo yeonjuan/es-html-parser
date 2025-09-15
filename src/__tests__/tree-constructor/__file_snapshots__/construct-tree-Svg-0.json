@@ -1,0 +1,244 @@
+{
+  "type": "Document",
+  "range": [
+    0,
+    56
+  ],
+  "children": [
+    {
+      "type": "Tag",
+      "range": [
+        0,
+        56
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 56
+        }
+      },
+      "attributes": [
+        {
+          "type": "Attribute",
+          "range": [
+            5,
+            39
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 5
+            },
+            "end": {
+              "line": 1,
+              "column": 39
+            }
+          },
+          "key": {
+            "type": "AttributeKey",
+            "value": "xmlns",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 5
+              },
+              "end": {
+                "line": 1,
+                "column": 10
+              }
+            },
+            "range": [
+              5,
+              10
+            ],
+            "parts": []
+          },
+          "startWrapper": {
+            "type": "AttributeValueWrapperStart",
+            "value": "\"",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 11
+              },
+              "end": {
+                "line": 1,
+                "column": 12
+              }
+            },
+            "range": [
+              11,
+              12
+            ]
+          },
+          "value": {
+            "type": "AttributeValue",
+            "value": "http://www.w3.org/2000/svg",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 12
+              },
+              "end": {
+                "line": 1,
+                "column": 38
+              }
+            },
+            "range": [
+              12,
+              38
+            ],
+            "parts": []
+          },
+          "endWrapper": {
+            "type": "AttributeValueWrapperEnd",
+            "value": "\"",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 38
+              },
+              "end": {
+                "line": 1,
+                "column": 39
+              }
+            },
+            "range": [
+              38,
+              39
+            ]
+          }
+        }
+      ],
+      "children": [
+        {
+          "type": "Tag",
+          "range": [
+            40,
+            50
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 40
+            },
+            "end": {
+              "line": 1,
+              "column": 50
+            }
+          },
+          "attributes": [],
+          "children": [],
+          "openStart": {
+            "type": "OpenTagStart",
+            "value": "<circle",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 40
+              },
+              "end": {
+                "line": 1,
+                "column": 47
+              }
+            },
+            "range": [
+              40,
+              47
+            ]
+          },
+          "name": "circle",
+          "openEnd": {
+            "type": "OpenTagEnd",
+            "value": "/>",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 48
+              },
+              "end": {
+                "line": 1,
+                "column": 50
+              }
+            },
+            "range": [
+              48,
+              50
+            ]
+          },
+          "selfClosing": true
+        }
+      ],
+      "openStart": {
+        "type": "OpenTagStart",
+        "value": "<svg",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 4
+          }
+        },
+        "range": [
+          0,
+          4
+        ]
+      },
+      "name": "svg",
+      "openEnd": {
+        "type": "OpenTagEnd",
+        "value": ">",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 39
+          },
+          "end": {
+            "line": 1,
+            "column": 40
+          }
+        },
+        "range": [
+          39,
+          40
+        ]
+      },
+      "selfClosing": false,
+      "close": {
+        "type": "CloseTag",
+        "value": "</svg>",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 50
+          },
+          "end": {
+            "line": 1,
+            "column": 56
+          }
+        },
+        "range": [
+          50,
+          56
+        ]
+      }
+    }
+  ],
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 1,
+      "column": 56
+    }
+  }
+}

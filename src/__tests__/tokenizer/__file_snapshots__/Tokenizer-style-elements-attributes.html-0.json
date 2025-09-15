@@ -1,0 +1,592 @@
+[
+  {
+    "type": "OpenStyleTagStart",
+    "value": "<style",
+    "range": [
+      0,
+      6
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 1,
+        "column": 6
+      }
+    }
+  },
+  {
+    "type": "AttributeKey",
+    "value": "type",
+    "range": [
+      7,
+      11
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 7
+      },
+      "end": {
+        "line": 1,
+        "column": 11
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "AttributeAssignment",
+    "value": "=",
+    "range": [
+      11,
+      12
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 11
+      },
+      "end": {
+        "line": 1,
+        "column": 12
+      }
+    }
+  },
+  {
+    "type": "AttributeValueWrapperStart",
+    "value": "\"",
+    "range": [
+      12,
+      13
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 12
+      },
+      "end": {
+        "line": 1,
+        "column": 13
+      }
+    }
+  },
+  {
+    "type": "AttributeValue",
+    "value": "text/css",
+    "range": [
+      13,
+      21
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 13
+      },
+      "end": {
+        "line": 1,
+        "column": 21
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "AttributeValueWrapperEnd",
+    "value": "\"",
+    "range": [
+      21,
+      22
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 21
+      },
+      "end": {
+        "line": 1,
+        "column": 22
+      }
+    }
+  },
+  {
+    "type": "AttributeKey",
+    "value": "custom",
+    "range": [
+      23,
+      29
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 23
+      },
+      "end": {
+        "line": 1,
+        "column": 29
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "AttributeAssignment",
+    "value": "=",
+    "range": [
+      29,
+      30
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 29
+      },
+      "end": {
+        "line": 1,
+        "column": 30
+      }
+    }
+  },
+  {
+    "type": "AttributeValueWrapperStart",
+    "value": "\"",
+    "range": [
+      30,
+      31
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 30
+      },
+      "end": {
+        "line": 1,
+        "column": 31
+      }
+    }
+  },
+  {
+    "type": "AttributeValue",
+    "value": "attribute",
+    "range": [
+      31,
+      40
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 31
+      },
+      "end": {
+        "line": 1,
+        "column": 40
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "AttributeValueWrapperEnd",
+    "value": "\"",
+    "range": [
+      40,
+      41
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 40
+      },
+      "end": {
+        "line": 1,
+        "column": 41
+      }
+    }
+  },
+  {
+    "type": "OpenStyleTagEnd",
+    "value": ">",
+    "range": [
+      41,
+      42
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 41
+      },
+      "end": {
+        "line": 1,
+        "column": 42
+      }
+    }
+  },
+  {
+    "type": "StyleTagContent",
+    "value": "\n  body {\n    background-color: white;\n  }\n",
+    "range": [
+      42,
+      85
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 42
+      },
+      "end": {
+        "line": 5,
+        "column": 0
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "CloseStyleTag",
+    "value": "</style>",
+    "range": [
+      85,
+      93
+    ],
+    "loc": {
+      "start": {
+        "line": 5,
+        "column": 0
+      },
+      "end": {
+        "line": 5,
+        "column": 8
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n\n",
+    "range": [
+      93,
+      95
+    ],
+    "loc": {
+      "start": {
+        "line": 5,
+        "column": 8
+      },
+      "end": {
+        "line": 7,
+        "column": 0
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "OpenTagStart",
+    "value": "<div",
+    "range": [
+      95,
+      99
+    ],
+    "loc": {
+      "start": {
+        "line": 7,
+        "column": 0
+      },
+      "end": {
+        "line": 7,
+        "column": 4
+      }
+    }
+  },
+  {
+    "type": "OpenTagEnd",
+    "value": ">",
+    "range": [
+      99,
+      100
+    ],
+    "loc": {
+      "start": {
+        "line": 7,
+        "column": 4
+      },
+      "end": {
+        "line": 7,
+        "column": 5
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n  ",
+    "range": [
+      100,
+      103
+    ],
+    "loc": {
+      "start": {
+        "line": 7,
+        "column": 5
+      },
+      "end": {
+        "line": 8,
+        "column": 2
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "OpenStyleTagStart",
+    "value": "<style",
+    "range": [
+      103,
+      109
+    ],
+    "loc": {
+      "start": {
+        "line": 8,
+        "column": 2
+      },
+      "end": {
+        "line": 8,
+        "column": 8
+      }
+    }
+  },
+  {
+    "type": "AttributeKey",
+    "value": "custom",
+    "range": [
+      114,
+      120
+    ],
+    "loc": {
+      "start": {
+        "line": 9,
+        "column": 4
+      },
+      "end": {
+        "line": 9,
+        "column": 10
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "AttributeKey",
+    "value": "type",
+    "range": [
+      125,
+      129
+    ],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 4
+      },
+      "end": {
+        "line": 10,
+        "column": 8
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "AttributeAssignment",
+    "value": "=",
+    "range": [
+      129,
+      130
+    ],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 8
+      },
+      "end": {
+        "line": 10,
+        "column": 9
+      }
+    }
+  },
+  {
+    "type": "AttributeValueWrapperStart",
+    "value": "\"",
+    "range": [
+      130,
+      131
+    ],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 9
+      },
+      "end": {
+        "line": 10,
+        "column": 10
+      }
+    }
+  },
+  {
+    "type": "AttributeValue",
+    "value": "text/css",
+    "range": [
+      131,
+      139
+    ],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 10
+      },
+      "end": {
+        "line": 10,
+        "column": 18
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "AttributeValueWrapperEnd",
+    "value": "\"",
+    "range": [
+      139,
+      140
+    ],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 18
+      },
+      "end": {
+        "line": 10,
+        "column": 19
+      }
+    }
+  },
+  {
+    "type": "AttributeKey",
+    "value": "another-custom",
+    "range": [
+      146,
+      160
+    ],
+    "loc": {
+      "start": {
+        "line": 12,
+        "column": 4
+      },
+      "end": {
+        "line": 12,
+        "column": 18
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "OpenStyleTagEnd",
+    "value": ">",
+    "range": [
+      163,
+      164
+    ],
+    "loc": {
+      "start": {
+        "line": 13,
+        "column": 2
+      },
+      "end": {
+        "line": 13,
+        "column": 3
+      }
+    }
+  },
+  {
+    "type": "StyleTagContent",
+    "value": "\n    body {\n      background-color: red;\n    }\n  ",
+    "range": [
+      164,
+      213
+    ],
+    "loc": {
+      "start": {
+        "line": 13,
+        "column": 3
+      },
+      "end": {
+        "line": 17,
+        "column": 2
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "CloseStyleTag",
+    "value": "</style>",
+    "range": [
+      213,
+      221
+    ],
+    "loc": {
+      "start": {
+        "line": 17,
+        "column": 2
+      },
+      "end": {
+        "line": 17,
+        "column": 10
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n",
+    "range": [
+      221,
+      222
+    ],
+    "loc": {
+      "start": {
+        "line": 17,
+        "column": 10
+      },
+      "end": {
+        "line": 18,
+        "column": 0
+      }
+    },
+    "parts": []
+  },
+  {
+    "type": "CloseTag",
+    "value": "</div>",
+    "range": [
+      222,
+      228
+    ],
+    "loc": {
+      "start": {
+        "line": 18,
+        "column": 0
+      },
+      "end": {
+        "line": 18,
+        "column": 6
+      }
+    }
+  },
+  {
+    "type": "Text",
+    "value": "\n",
+    "range": [
+      228,
+      229
+    ],
+    "loc": {
+      "start": {
+        "line": 18,
+        "column": 6
+      },
+      "end": {
+        "line": 19,
+        "column": 0
+      }
+    },
+    "parts": []
+  }
+]

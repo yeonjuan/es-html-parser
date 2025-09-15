@@ -1,0 +1,95 @@
+[
+  {
+    "type": "OpenStyleTagStart",
+    "value": "<style",
+    "range": [
+      0,
+      6
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 1,
+        "column": 6
+      }
+    }
+  },
+  {
+    "type": "OpenStyleTagEnd",
+    "value": ">",
+    "range": [
+      6,
+      7
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 6
+      },
+      "end": {
+        "line": 1,
+        "column": 7
+      }
+    }
+  },
+  {
+    "type": "StyleTagContent",
+    "value": "${content}",
+    "range": [
+      7,
+      17
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 7
+      },
+      "end": {
+        "line": 1,
+        "column": 17
+      }
+    },
+    "parts": [
+      {
+        "type": "Template",
+        "range": [
+          7,
+          17
+        ],
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 7
+          },
+          "end": {
+            "line": 1,
+            "column": 17
+          }
+        },
+        "value": "${content}",
+        "partOf": "StyleTagContent"
+      }
+    ]
+  },
+  {
+    "type": "CloseStyleTag",
+    "value": "</style>",
+    "range": [
+      17,
+      25
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 17
+      },
+      "end": {
+        "line": 1,
+        "column": 25
+      }
+    }
+  }
+]

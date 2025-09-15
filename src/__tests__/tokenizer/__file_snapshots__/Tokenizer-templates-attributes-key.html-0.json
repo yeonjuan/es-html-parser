@@ -1,0 +1,131 @@
+[
+  {
+    "type": "OpenTagStart",
+    "value": "<div",
+    "range": [
+      0,
+      4
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 1,
+        "column": 4
+      }
+    }
+  },
+  {
+    "type": "AttributeKey",
+    "value": "${key}",
+    "range": [
+      5,
+      11
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 5
+      },
+      "end": {
+        "line": 1,
+        "column": 11
+      }
+    },
+    "parts": [
+      {
+        "type": "Template",
+        "range": [
+          5,
+          11
+        ],
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 5
+          },
+          "end": {
+            "line": 1,
+            "column": 11
+          }
+        },
+        "value": "${key}",
+        "partOf": "AttributeKey",
+        "open": {
+          "type": "OpenTemplate",
+          "range": [
+            5,
+            7
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 5
+            },
+            "end": {
+              "line": 1,
+              "column": 7
+            }
+          },
+          "value": "${"
+        },
+        "close": {
+          "type": "CloseTemplate",
+          "range": [
+            10,
+            11
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 10
+            },
+            "end": {
+              "line": 1,
+              "column": 11
+            }
+          },
+          "value": "}"
+        }
+      }
+    ]
+  },
+  {
+    "type": "OpenTagEnd",
+    "value": ">",
+    "range": [
+      11,
+      12
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 11
+      },
+      "end": {
+        "line": 1,
+        "column": 12
+      }
+    }
+  },
+  {
+    "type": "CloseTag",
+    "value": "</div>",
+    "range": [
+      12,
+      18
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 12
+      },
+      "end": {
+        "line": 1,
+        "column": 18
+      }
+    }
+  }
+]

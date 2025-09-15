@@ -3,6 +3,8 @@ import fs from "fs";
 import path from "path";
 import { tokenize } from "../../tokenizer";
 import { defaultTokenAdapter } from "../../token-adapter";
+import { TokenizeOptions } from "../../tokenizer/tokenize";
+import { Range, TemplateInfo } from "../../types";
 expect.extend({ toMatchFile });
 
 const readFixture = (name: string) =>
@@ -14,10 +16,10 @@ const expectMatchSnapshot = (tokens: any[]) => {
   });
 };
 
-const testTokenize = (name: string) => {
+const testTokenize = (name: string, options?: TokenizeOptions) => {
   test(name, () => {
     const input = readFixture(name);
-    const { tokens } = tokenize(input, defaultTokenAdapter);
+    const { tokens } = tokenize(input, defaultTokenAdapter, options);
     expectMatchSnapshot(tokens);
   });
 };
@@ -42,16 +44,43 @@ describe("Tokenizer", () => {
   testTokenize("style-elements.html");
   testTokenize("svg.html");
   testTokenize("tags-register.html");
-  testTokenize("templates-attributes-key.html");
-  testTokenize("templates-attributes-value-bare.html");
-  testTokenize("templates-attributes-value-wrapped-2.html");
-  testTokenize("templates-attributes-value-wrapped.html");
-  testTokenize("templates-comment.html");
-  testTokenize("templates-content-end.html");
-  testTokenize("templates-data.html");
-  testTokenize("templates-script-content.html");
-  testTokenize("templates-style-content.html");
   testTokenize("void-tags.html");
+
+  testTokenize("templates-attributes-key.html", {
+    templateInfos: [
+      {
+        open: [5, 7],
+        close: [10, 11],
+      },
+    ] as TemplateInfo[],
+  });
+  testTokenize("templates-attributes-value-bare.html", {
+    templateInfos: [[8, 13]] as Range[],
+  });
+  testTokenize("templates-attributes-value-wrapped-2.html", {
+    templateInfos: [
+      [16, 22],
+      [23, 31],
+    ] as Range[],
+  });
+  testTokenize("templates-attributes-value-wrapped.html", {
+    templateInfos: [[9, 14]] as Range[],
+  });
+  testTokenize("templates-comment.html", {
+    templateInfos: [[4, 14]] as Range[],
+  });
+  testTokenize("templates-content-end.html", {
+    templateInfos: [[0, 10]] as Range[],
+  });
+  testTokenize("templates-data.html", {
+    templateInfos: [[5, 16]] as Range[],
+  });
+  testTokenize("templates-script-content.html", {
+    templateInfos: [[8, 18]] as Range[],
+  });
+  testTokenize("templates-style-content.html", {
+    templateInfos: [[7, 17]] as Range[],
+  });
 
   it("parsing error", () => {
     const html = readFixture("parsing-error-no-open-end.html");

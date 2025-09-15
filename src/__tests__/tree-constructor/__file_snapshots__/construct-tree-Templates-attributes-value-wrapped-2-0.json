@@ -92,7 +92,84 @@
               12,
               31
             ],
-            "parts": []
+            "parts": [
+              {
+                "type": "Part",
+                "range": [
+                  12,
+                  16
+                ],
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 16
+                  }
+                },
+                "value": "one ",
+                "partOf": "AttributeValue"
+              },
+              {
+                "type": "Template",
+                "range": [
+                  16,
+                  22
+                ],
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 16
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 22
+                  }
+                },
+                "value": "${two}",
+                "partOf": "AttributeValue"
+              },
+              {
+                "type": "Part",
+                "range": [
+                  22,
+                  23
+                ],
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 22
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 23
+                  }
+                },
+                "value": " ",
+                "partOf": "AttributeValue"
+              },
+              {
+                "type": "Template",
+                "range": [
+                  23,
+                  31
+                ],
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 23
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 31
+                  }
+                },
+                "value": "${three}",
+                "partOf": "AttributeValue"
+              }
+            ]
           },
           "endWrapper": {
             "type": "AttributeValueWrapperEnd",

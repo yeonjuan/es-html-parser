@@ -6,4 +6,4 @@ export const CLOSING_STYLE_TAG_PATTERN = /<\/style\s*>/i;
 
 export const OPEN_TAG_NAME_PATTERN = /^<(\S+)/;
 
-export const CLOSE_TAG_NAME_PATTERN = /^<\/((?:.|\n)*)>$/;
+export const CLOSE_TAG_NAME_PATTERN = /^<\/((?:.|\r?\n)*)>$/;

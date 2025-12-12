@@ -6,6 +6,6 @@ describe("parseOpenTagName", () => {
   });
 
   it("Should throw error", () => {
-    expect(() => parseOpenTagName("> div>")).toThrowError();
+    expect(() => parseOpenTagName("> div>")).toThrow();
   });
 });

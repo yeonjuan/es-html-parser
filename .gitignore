@@ -4,3 +4,4 @@ dist
 .yarn/*
 !.yarn/releases
 tsconfig.build.tsbuildinfo
+.DS_Store

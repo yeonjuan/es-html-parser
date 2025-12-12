@@ -16,6 +16,6 @@ describe("parseCloseTagName", () => {
   });
 
   it("Should throw error", () => {
-    expect(() => parseCloseTagName("<div>")).toThrowError();
+    expect(() => parseCloseTagName("<div>")).toThrow();
   });
 });

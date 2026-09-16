@@ -1,23 +1,25 @@
 import { Range, TemplateInfo } from "../types";
 import { SourceLocation } from "../types/source-location";
-import { getLineInfo, getRange } from "../utils";
+import { computeLineStartOffsets, getLineInfoFromOffsets, getRange } from "../utils";
 import { Chars, CharsType } from "./chars";
 
 export class SourceCode {
   private charsList: Chars[];
   private charsIndex = 0;
+  private lineStartOffsets: number[];
 
   public constructor(
     public readonly source: string,
     templateInfos: TemplateInfo[]
   ) {
     this.charsList = this.createCharsList(templateInfos);
+    this.lineStartOffsets = computeLineStartOffsets(source);
   }
 
   public getLocationOf(range: Range): SourceLocation {
     return {
-      start: getLineInfo(this.source, range[0]),
-      end: getLineInfo(this.source, range[1]),
+      start: getLineInfoFromOffsets(this.lineStartOffsets, range[0]),
+      end: getLineInfoFromOffsets(this.lineStartOffsets, range[1]),
     };
   }
 

@@ -11,6 +11,7 @@
     "check:lint": "eslint src",
     "check:ts": "tsc --noEmit",
     "check:format": "prettier . --check",
+    "benchmark:tokenize": "yarn build && node scripts/benchmark-tokenize.js",
     "prepublish": "yarn check:lint && yarn check:ts && yarn check:format && yarn build"
   },
   "devDependencies": {

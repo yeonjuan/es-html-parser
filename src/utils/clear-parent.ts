@@ -7,8 +7,8 @@ export function clearParent(ast: ContextualDocumentNode): DocumentNode {
 
   if (Array.isArray(ast.children)) {
     // @ts-ignore
-    cleanAst.children = ast.children.map((node: any) => {
-      return clearParent(node);
+    ast.children.forEach((node: any) => {
+      clearParent(node);
     });
   }
 

@@ -1,6 +1,10 @@
 import { Range, TemplateInfo } from "../types";
 import { SourceLocation } from "../types/source-location";
-import { computeLineStartOffsets, getLineInfoFromOffsets, getRange } from "../utils";
+import {
+  computeLineStartOffsets,
+  getLineInfoFromOffsets,
+  getRange,
+} from "../utils";
 import { Chars, CharsType } from "./chars";
 
 export class SourceCode {

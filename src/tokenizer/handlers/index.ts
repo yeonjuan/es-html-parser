@@ -18,6 +18,7 @@ export * as openTagStart from "./open-tag-start";
 export * as scriptTagContent from "./script-tag-content";
 export * as styleTagContent from "./style-tag-content";
 export * as customTagRawContent from "./custom-tag-raw-content";
+export * as rawTextTagContent from "./raw-text-tag-content";
 export const noop: TokenizeHandler = {
   parse: () => void 0,
 };

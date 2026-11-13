@@ -1,4 +1,8 @@
-import { TokenizerContextTypes, TokenTypes } from "../../constants";
+import {
+  RAW_TEXT_TAGS,
+  TokenizerContextTypes,
+  TokenTypes,
+} from "../../constants";
 import { calculateTokenPosition } from "../../utils";
 import type { TokenizerState } from "../../types";
 import { CharsBuffer } from "../chars-buffer";
@@ -30,9 +34,11 @@ function parseClosingCornerBrace(state: TokenizerState) {
   const tagName = state.contextParams[TokenizerContextTypes.OpenTagEnd]
     ?.tagName! as keyof typeof tokensMap;
 
+  const value = state.accumulatedContent.value() + state.decisionBuffer.value();
+
   state.tokens.push({
     type: tokensMap[tagName] || tokensMap.default,
-    value: state.accumulatedContent.value() + state.decisionBuffer.value(),
+    value,
     range: position.range,
     loc: position.loc,
   });
@@ -44,6 +50,11 @@ function parseClosingCornerBrace(state: TokenizerState) {
       tagName,
     };
     state.currentContext = TokenizerContextTypes.CustomTagRawContent;
+  } else if (RAW_TEXT_TAGS.includes(tagName) && value !== "/>") {
+    state.contextParams[TokenizerContextTypes.RawTextTagContent] = {
+      tagName,
+    };
+    state.currentContext = TokenizerContextTypes.RawTextTagContent;
   } else {
     state.currentContext =
       contextsMap[tagName || "default"] || contextsMap["default"];

@@ -19,6 +19,7 @@ import {
   attributeValue,
   attributeValueWrapped,
   customTagRawContent,
+  rawTextTagContent,
   noop,
 } from "./handlers";
 import { TokenizeHandler } from "../types";
@@ -44,6 +45,7 @@ const contextHandlers: Record<TokenizerContextTypes, TokenizeHandler> = {
   [TokenizerContextTypes.DoctypeAttributeBare]: doctypeAttributeBare,
   [TokenizerContextTypes.CommentContent]: commentContent,
   [TokenizerContextTypes.CustomTagRawContent]: customTagRawContent,
+  [TokenizerContextTypes.RawTextTagContent]: rawTextTagContent,
   [TokenizerContextTypes.CommentOpen]: noop,
   [TokenizerContextTypes.CommentClose]: noop,
 };

@@ -21,6 +21,9 @@ type ContextParams = {
   [TokenizerContextTypes.CustomTagRawContent]?: {
     tagName: string;
   };
+  [TokenizerContextTypes.RawTextTagContent]?: {
+    tagName: string;
+  };
 };
 
 export type TokenizerState = {

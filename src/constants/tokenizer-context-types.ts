@@ -19,4 +19,5 @@ export enum TokenizerContextTypes {
   CommentContent = "CommentContent",
   CommentClose = "CommentClose",
   CustomTagRawContent = "CustomTagRawContent",
+  RawTextTagContent = "RawTextTagContent",
 }
